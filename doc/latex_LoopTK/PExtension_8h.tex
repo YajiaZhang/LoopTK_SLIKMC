@@ -1,0 +1,90 @@
+\section{src/core/PExtension.h File Reference}
+\label{PExtension_8h}\index{src/core/PExtension.h@{src/core/PExtension.h}}
+
+
+{\tt \#include \char`\"{}PBasic.h\char`\"{}}\par
+{\tt \#include \char`\"{}PIKAlgorithms.h\char`\"{}}\par
+{\tt \#include \char`\"{}PConstants.h\char`\"{}}\par
+{\tt \#include $<$libxml/parser.h$>$}\par
+{\tt \#include $<$libxml/tree.h$>$}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class {\bf PConformation\-Space}
+\item 
+class {\bf Loop\-TK}
+\item 
+class {\bf PInit}
+\item 
+class {\bf PDBIO}
+\item 
+struct {\bf PDBIO::pdb\-Atom\-Line}
+\item 
+class {\bf PMath}
+\item 
+class {\bf Angle}
+\item 
+class {\bf CS2IO}
+\item 
+class {\bf PEnergy}
+\item 
+class {\bf PMove\-Atom}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf cs\-Conf\-Line}~pair$<$pair$<$int, string$>$, Vector3$>$
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef list$<$ {\bf PLight\-Chain} $\ast$ $>$ {\bf PLight\-Chain\-List}
+\item 
+typedef Real($\ast$) {\bf Energy\-Calc\-Fn} (const {\bf PAtom} $\ast$, const {\bf PAtom} $\ast$)
+\end{CompactItemize}
+\subsection*{Enumerations}
+\begin{CompactItemize}
+\item 
+enum {\bf Warning\-Indicator} \{ {\bf SUPPRESS\_\-WARNINGS}, 
+{\bf ENABLE\_\-WARNINGS}
+ \}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{PExtension.h@{PExtension.h}!csConfLine@{csConfLine}}
+\index{csConfLine@{csConfLine}!PExtension.h@{PExtension.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define cs\-Conf\-Line~pair$<$pair$<$int, string$>$, Vector3$>$}\label{PExtension_8h_9b3739337d0650f8c9bf42c15a46bd3c}
+
+
+
+
+\subsection{Typedef Documentation}
+\index{PExtension.h@{PExtension.h}!EnergyCalcFn@{EnergyCalcFn}}
+\index{EnergyCalcFn@{EnergyCalcFn}!PExtension.h@{PExtension.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef Real($\ast$) {\bf Energy\-Calc\-Fn}(const {\bf PAtom} $\ast$, const {\bf PAtom} $\ast$)}\label{PExtension_8h_7c262c4321feca6a2f0342ae6386bcdc}
+
+
+\index{PExtension.h@{PExtension.h}!PLightChainList@{PLightChainList}}
+\index{PLightChainList@{PLightChainList}!PExtension.h@{PExtension.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef list$<${\bf PLight\-Chain} $\ast$$>$ {\bf PLight\-Chain\-List}}\label{PExtension_8h_a9b5e6a8cf72b57b89685f338741feca}
+
+
+
+
+\subsection{Enumeration Type Documentation}
+\index{PExtension.h@{PExtension.h}!WarningIndicator@{WarningIndicator}}
+\index{WarningIndicator@{WarningIndicator}!PExtension.h@{PExtension.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Warning\-Indicator}}\label{PExtension_8h_bdda10e5864b5e31c3e4844a77d37c0b}
+
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{SUPPRESS_WARNINGS@{SUPPRESS\_\-WARNINGS}!PExtension.h@{PExtension.h}}\index{PExtension.h@{PExtension.h}!SUPPRESS_WARNINGS@{SUPPRESS\_\-WARNINGS}}\item[{\em 
+SUPPRESS\_\-WARNINGS\label{PExtension_8h_bdda10e5864b5e31c3e4844a77d37c0be3c632db06f87353904880ff6ff7077c}
+}]\index{ENABLE_WARNINGS@{ENABLE\_\-WARNINGS}!PExtension.h@{PExtension.h}}\index{PExtension.h@{PExtension.h}!ENABLE_WARNINGS@{ENABLE\_\-WARNINGS}}\item[{\em 
+ENABLE\_\-WARNINGS\label{PExtension_8h_bdda10e5864b5e31c3e4844a77d37c0b1524ef7b4bd135c11c6dbc2a0b0a5c0a}
+}]\end{description}
+\end{Desc}
+

@@ -1,0 +1,342 @@
+\hypertarget{classRotamer}{\section{Rotamer Class Reference}
+\label{classRotamer}\index{Rotamer@{Rotamer}}
+}
+
+
+The class \hyperlink{classRotamer}{Rotamer} is used to initialize side-\/chain database by parsing Dunbrack's Backbone Dependent \hyperlink{classRotamer}{Rotamer} Library, sample one side-\/chain conformation for a given residue, evaluate the probability given one side-\/chain conformation.  
+
+
+
+
+{\ttfamily \#include $<$Rotamer.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRotamer_a9646e84497feedfb6a09ff9937cb4313}{Rotamer} (P\-Protein $\ast$protein)
+\item 
+void \hyperlink{classRotamer_a2938ad7d918e69f6f71f3a42a3019b35}{sample} (const string \&residue\-\_\-name, const double \&phi, const double \&psi, int \&rotamer\-\_\-grid, vector$<$ double $>$ \&d\-Angles)
+\begin{DoxyCompactList}\small\item\em Randomly sample side-\/chain chi angles given residue name and backbone dihedral angle pair. \end{DoxyCompactList}\item 
+void \hyperlink{classRotamer_aa58ff58cc11cfe9a68376e5b99ae3b51}{sample\-\_\-common} (const string \&residue\-\_\-name, const int \&phi, const int \&psi, int \&rotamer\-\_\-grid, vector$<$ double $>$ \&d\-Angles)
+\begin{DoxyCompactList}\small\item\em Randomly sample side-\/chain chi angles given rotameric residue name and backbone dihedral angle pair. \end{DoxyCompactList}\item 
+void \hyperlink{classRotamer_a062044d5ca99c307fb6be2369ed200bf}{sample\-\_\-\-Special} (const string \&residue\-\_\-name, const int \&phi, const int \&psi, int \&rotamer\-\_\-grid, vector$<$ double $>$ \&d\-Angles)
+\begin{DoxyCompactList}\small\item\em Randomly sample side-\/chain chi angles given non-\/rotameric residue name and backbone dihedral angle pair. \end{DoxyCompactList}\item 
+void \hyperlink{classRotamer_a9714326d4ad191c22e4672a6e5e8355d}{output} (char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Output the database to a file. \end{DoxyCompactList}\item 
+double \hyperlink{classRotamer_a813f284c56b83a9fe8d33ac82707954a}{eval\-Sidechain\-\_\-log} (P\-Chain $\ast$chain, const int s, const int e)
+\begin{DoxyCompactList}\small\item\em Evaluate side-\/chain structures given one protein chain. \end{DoxyCompactList}\item 
+void \hyperlink{classRotamer_a0b585070951b6afb654f41703a5bf695}{init\-Sidechain\-Database} (P\-Protein $\ast$protein)
+\begin{DoxyCompactList}\small\item\em Initialize sidechain database according to residues the protein contains. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classRotamer_adefa784f73374d8733c3ad4f16b1d31c}{void {\bfseries init} ()}\label{classRotamer_adefa784f73374d8733c3ad4f16b1d31c}
+
+\item 
+void \hyperlink{classRotamer_a2d93b2979227b805045d511b1997d03c}{read} (const string \&res\-\_\-name)
+\begin{DoxyCompactList}\small\item\em Read sidechain library given residue name and construct corresponding database. \end{DoxyCompactList}\item 
+void \hyperlink{classRotamer_a7336f877be41970bef9323a037ad4b9b}{read\-\_\-common} (const string \&res\-\_\-name)
+\begin{DoxyCompactList}\small\item\em Read sidechain library given the name of a rotameric residue and construct corresponding database. \end{DoxyCompactList}\item 
+void \hyperlink{classRotamer_acc03226b45abfeac3f9c1ff15907871d}{read\-\_\-special} (const string \&res\-\_\-name)
+\begin{DoxyCompactList}\small\item\em Read sidechain library given the name of a non-\/rotameric residue and construct corresponding database. \end{DoxyCompactList}\item 
+int \hyperlink{classRotamer_a83414f9d04c442941780a44214358c64}{type} (const string \&res\-\_\-name)
+\begin{DoxyCompactList}\small\item\em Return the type of residue given residue name. \end{DoxyCompactList}\item 
+bool \hyperlink{classRotamer_a2210953e3efdc034621b1e346bccd353}{is\-Special} (const string \&res\-\_\-name)
+\begin{DoxyCompactList}\small\item\em Check if the residue is rotameric or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classRotamer_a76ee1c806449ead94fa3801e46e21e04}{Grid\-Map {\bfseries grid\-Map}}\label{classRotamer_a76ee1c806449ead94fa3801e46e21e04}
+
+\item 
+\hypertarget{classRotamer_aafeec4267c9e5574fff40c81510cc8d6}{Grid\-Map\-Special {\bfseries grid\-Map\-Special}}\label{classRotamer_aafeec4267c9e5574fff40c81510cc8d6}
+
+\item 
+\hypertarget{classRotamer_ac4070f518eddf3d53c778f0de4e588bf}{vector$<$ int $>$ {\bfseries degree\-\_\-start}}\label{classRotamer_ac4070f518eddf3d53c778f0de4e588bf}
+
+\item 
+\hypertarget{classRotamer_a4e9a547df84cb5b14d2428aedf14fbb1}{vector$<$ int $>$ {\bfseries degree\-\_\-end}}\label{classRotamer_a4e9a547df84cb5b14d2428aedf14fbb1}
+
+\item 
+\hypertarget{classRotamer_af4c4d542df7ea52375a4dc1fd25f4425}{vector$<$ int $>$ {\bfseries step\-Length}}\label{classRotamer_af4c4d542df7ea52375a4dc1fd25f4425}
+
+\item 
+\hypertarget{classRotamer_a2a3f5f9eb1cb68fbe5a76c8b409b386d}{map$<$ string, int $>$ {\bfseries type\-Map}}\label{classRotamer_a2a3f5f9eb1cb68fbe5a76c8b409b386d}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classRotamer_a74531505f22df04f9cc8f6f1a9446b43}{static const int {\bfseries A\-S\-N} = 0}\label{classRotamer_a74531505f22df04f9cc8f6f1a9446b43}
+
+\item 
+\hypertarget{classRotamer_ab4e8dc3cd5bb7af8b9034b60551107cd}{static const int {\bfseries A\-S\-P} = 1}\label{classRotamer_ab4e8dc3cd5bb7af8b9034b60551107cd}
+
+\item 
+\hypertarget{classRotamer_aa4134daf455c87b5125a09a92557150b}{static const int {\bfseries P\-H\-E} = 2}\label{classRotamer_aa4134daf455c87b5125a09a92557150b}
+
+\item 
+\hypertarget{classRotamer_a81006b4b69528bde0da59807cd8337d8}{static const int {\bfseries T\-R\-P} = 3}\label{classRotamer_a81006b4b69528bde0da59807cd8337d8}
+
+\item 
+\hypertarget{classRotamer_a8182f9506799c4804996fcaab1998e3e}{static const int {\bfseries H\-I\-S} = 4}\label{classRotamer_a8182f9506799c4804996fcaab1998e3e}
+
+\item 
+\hypertarget{classRotamer_a34e69bdbf3bb7e75514cbca1382dd783}{static const int {\bfseries T\-Y\-R} = 5}\label{classRotamer_a34e69bdbf3bb7e75514cbca1382dd783}
+
+\item 
+\hypertarget{classRotamer_ab6344892c9b56fae3485b98c88f569f3}{static const int {\bfseries G\-L\-N} = 6}\label{classRotamer_ab6344892c9b56fae3485b98c88f569f3}
+
+\item 
+\hypertarget{classRotamer_aec53b6e0a7f4e5bba337eb8ba3239132}{static const int {\bfseries G\-L\-U} = 7}\label{classRotamer_aec53b6e0a7f4e5bba337eb8ba3239132}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The class \hyperlink{classRotamer}{Rotamer} is used to initialize side-\/chain database by parsing Dunbrack's Backbone Dependent \hyperlink{classRotamer}{Rotamer} Library, sample one side-\/chain conformation for a given residue, evaluate the probability given one side-\/chain conformation. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classRotamer_a9646e84497feedfb6a09ff9937cb4313}{\index{Rotamer@{Rotamer}!Rotamer@{Rotamer}}
+\index{Rotamer@{Rotamer}!Rotamer@{Rotamer}}
+\subsubsection[{Rotamer}]{\setlength{\rightskip}{0pt plus 5cm}Rotamer\-::\-Rotamer (
+\begin{DoxyParamCaption}
+\item[{P\-Protein $\ast$}]{protein}
+\end{DoxyParamCaption}
+)}}\label{classRotamer_a9646e84497feedfb6a09ff9937cb4313}
+
+\begin{DoxyParams}{Parameters}
+{\em protein} & protein chain to be sampled \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classRotamer_a813f284c56b83a9fe8d33ac82707954a}{\index{Rotamer@{Rotamer}!eval\-Sidechain\-\_\-log@{eval\-Sidechain\-\_\-log}}
+\index{eval\-Sidechain\-\_\-log@{eval\-Sidechain\-\_\-log}!Rotamer@{Rotamer}}
+\subsubsection[{eval\-Sidechain\-\_\-log}]{\setlength{\rightskip}{0pt plus 5cm}double Rotamer\-::eval\-Sidechain\-\_\-log (
+\begin{DoxyParamCaption}
+\item[{P\-Chain $\ast$}]{chain, }
+\item[{const int}]{s, }
+\item[{const int}]{e}
+\end{DoxyParamCaption}
+)}}\label{classRotamer_a813f284c56b83a9fe8d33ac82707954a}
+
+
+Evaluate side-\/chain structures given one protein chain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chain} & protein chain to be evaluated \\
+\hline
+{\em s} & index of starting residue in protein chain \\
+\hline
+{\em e} & index of ending residue in protein chain \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+probability density in logarithm 
+\end{DoxyReturn}
+\hypertarget{classRotamer_a0b585070951b6afb654f41703a5bf695}{\index{Rotamer@{Rotamer}!init\-Sidechain\-Database@{init\-Sidechain\-Database}}
+\index{init\-Sidechain\-Database@{init\-Sidechain\-Database}!Rotamer@{Rotamer}}
+\subsubsection[{init\-Sidechain\-Database}]{\setlength{\rightskip}{0pt plus 5cm}void Rotamer\-::init\-Sidechain\-Database (
+\begin{DoxyParamCaption}
+\item[{P\-Protein $\ast$}]{protein}
+\end{DoxyParamCaption}
+)}}\label{classRotamer_a0b585070951b6afb654f41703a5bf695}
+
+
+Initialize sidechain database according to residues the protein contains. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em protein} & protein chain to be sampled \\
+\hline
+\end{DoxyParams}
+\hypertarget{classRotamer_a2210953e3efdc034621b1e346bccd353}{\index{Rotamer@{Rotamer}!is\-Special@{is\-Special}}
+\index{is\-Special@{is\-Special}!Rotamer@{Rotamer}}
+\subsubsection[{is\-Special}]{\setlength{\rightskip}{0pt plus 5cm}bool Rotamer\-::is\-Special (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{res\-\_\-name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classRotamer_a2210953e3efdc034621b1e346bccd353}
+
+
+Check if the residue is rotameric or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em res\-\_\-name} & residue name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, rotemeric; false, non-\/rotameric 
+\end{DoxyReturn}
+\hypertarget{classRotamer_a9714326d4ad191c22e4672a6e5e8355d}{\index{Rotamer@{Rotamer}!output@{output}}
+\index{output@{output}!Rotamer@{Rotamer}}
+\subsubsection[{output}]{\setlength{\rightskip}{0pt plus 5cm}void Rotamer\-::output (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}}\label{classRotamer_a9714326d4ad191c22e4672a6e5e8355d}
+
+
+Output the database to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & output filename \\
+\hline
+\end{DoxyParams}
+\hypertarget{classRotamer_a2d93b2979227b805045d511b1997d03c}{\index{Rotamer@{Rotamer}!read@{read}}
+\index{read@{read}!Rotamer@{Rotamer}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}void Rotamer\-::read (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{res\-\_\-name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classRotamer_a2d93b2979227b805045d511b1997d03c}
+
+
+Read sidechain library given residue name and construct corresponding database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em res\-\_\-name} & residue name \\
+\hline
+\end{DoxyParams}
+\hypertarget{classRotamer_a7336f877be41970bef9323a037ad4b9b}{\index{Rotamer@{Rotamer}!read\-\_\-common@{read\-\_\-common}}
+\index{read\-\_\-common@{read\-\_\-common}!Rotamer@{Rotamer}}
+\subsubsection[{read\-\_\-common}]{\setlength{\rightskip}{0pt plus 5cm}void Rotamer\-::read\-\_\-common (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{res\-\_\-name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classRotamer_a7336f877be41970bef9323a037ad4b9b}
+
+
+Read sidechain library given the name of a rotameric residue and construct corresponding database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em res\-\_\-name} & residue name \\
+\hline
+\end{DoxyParams}
+\hypertarget{classRotamer_acc03226b45abfeac3f9c1ff15907871d}{\index{Rotamer@{Rotamer}!read\-\_\-special@{read\-\_\-special}}
+\index{read\-\_\-special@{read\-\_\-special}!Rotamer@{Rotamer}}
+\subsubsection[{read\-\_\-special}]{\setlength{\rightskip}{0pt plus 5cm}void Rotamer\-::read\-\_\-special (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{res\-\_\-name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classRotamer_acc03226b45abfeac3f9c1ff15907871d}
+
+
+Read sidechain library given the name of a non-\/rotameric residue and construct corresponding database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em res\-\_\-name} & residue name \\
+\hline
+\end{DoxyParams}
+\hypertarget{classRotamer_a2938ad7d918e69f6f71f3a42a3019b35}{\index{Rotamer@{Rotamer}!sample@{sample}}
+\index{sample@{sample}!Rotamer@{Rotamer}}
+\subsubsection[{sample}]{\setlength{\rightskip}{0pt plus 5cm}void Rotamer\-::sample (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{residue\-\_\-name, }
+\item[{const double \&}]{phi, }
+\item[{const double \&}]{psi, }
+\item[{int \&}]{rotamer\-\_\-grid, }
+\item[{vector$<$ double $>$ \&}]{d\-Angles}
+\end{DoxyParamCaption}
+)}}\label{classRotamer_a2938ad7d918e69f6f71f3a42a3019b35}
+
+
+Randomly sample side-\/chain chi angles given residue name and backbone dihedral angle pair. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em residue\-\_\-name} & name of the residue \\
+\hline
+{\em phi} & backbone phi angle \\
+\hline
+{\em psi} & backbone psi angle \\
+\hline
+{\em rotamer\-\_\-grid} & stores the grid index of rotamer in the rotamer database (for evaluation purpose) \\
+\hline
+{\em d\-Angles} & stores the side-\/chain chi angles \\
+\hline
+\end{DoxyParams}
+\hypertarget{classRotamer_aa58ff58cc11cfe9a68376e5b99ae3b51}{\index{Rotamer@{Rotamer}!sample\-\_\-common@{sample\-\_\-common}}
+\index{sample\-\_\-common@{sample\-\_\-common}!Rotamer@{Rotamer}}
+\subsubsection[{sample\-\_\-common}]{\setlength{\rightskip}{0pt plus 5cm}void Rotamer\-::sample\-\_\-common (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{residue\-\_\-name, }
+\item[{const int \&}]{phi, }
+\item[{const int \&}]{psi, }
+\item[{int \&}]{rotamer\-\_\-grid, }
+\item[{vector$<$ double $>$ \&}]{d\-Angles}
+\end{DoxyParamCaption}
+)}}\label{classRotamer_aa58ff58cc11cfe9a68376e5b99ae3b51}
+
+
+Randomly sample side-\/chain chi angles given rotameric residue name and backbone dihedral angle pair. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em residue\-\_\-name} & name of the residue \\
+\hline
+{\em phi} & backbone phi angle \\
+\hline
+{\em psi} & backbone psi angle \\
+\hline
+{\em rotamer\-\_\-grid} & stores the grid index of rotamer in the rotamer database (for evaluation purpose) \\
+\hline
+{\em d\-Angles} & stores the side-\/chain chi angles \\
+\hline
+\end{DoxyParams}
+\hypertarget{classRotamer_a062044d5ca99c307fb6be2369ed200bf}{\index{Rotamer@{Rotamer}!sample\-\_\-\-Special@{sample\-\_\-\-Special}}
+\index{sample\-\_\-\-Special@{sample\-\_\-\-Special}!Rotamer@{Rotamer}}
+\subsubsection[{sample\-\_\-\-Special}]{\setlength{\rightskip}{0pt plus 5cm}void Rotamer\-::sample\-\_\-\-Special (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{residue\-\_\-name, }
+\item[{const int \&}]{phi, }
+\item[{const int \&}]{psi, }
+\item[{int \&}]{rotamer\-\_\-grid, }
+\item[{vector$<$ double $>$ \&}]{d\-Angles}
+\end{DoxyParamCaption}
+)}}\label{classRotamer_a062044d5ca99c307fb6be2369ed200bf}
+
+
+Randomly sample side-\/chain chi angles given non-\/rotameric residue name and backbone dihedral angle pair. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em residue\-\_\-name} & name of the residue \\
+\hline
+{\em phi} & backbone phi angle \\
+\hline
+{\em psi} & backbone psi angle \\
+\hline
+{\em rotamer\-\_\-grid} & stores the grid index of rotamer in the rotamer database (for evaluation purpose) \\
+\hline
+{\em d\-Angles} & stores the side-\/chain chi angles \\
+\hline
+\end{DoxyParams}
+\hypertarget{classRotamer_a83414f9d04c442941780a44214358c64}{\index{Rotamer@{Rotamer}!type@{type}}
+\index{type@{type}!Rotamer@{Rotamer}}
+\subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}int Rotamer\-::type (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{res\-\_\-name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classRotamer_a83414f9d04c442941780a44214358c64}
+
+
+Return the type of residue given residue name. 
+
+\begin{DoxyReturn}{Returns}
+-\/1\-: rotameric residue; 0-\/7\-: A\-S\-N-\/\-G\-L\-U 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Rotamer.\-h\item 
+Rotamer.\-cc\end{DoxyCompactItemize}

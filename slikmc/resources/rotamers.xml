@@ -1,0 +1,901 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rotamers>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">62</chi>
+<chi index="2">180</chi>
+<chi index="3">65</chi>
+<chi index="4">85</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">62</chi>
+<chi index="2">180</chi>
+<chi index="3">65</chi>
+<chi index="4">-175</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">62</chi>
+<chi index="2">180</chi>
+<chi index="3">180</chi>
+<chi index="4">85</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">62</chi>
+<chi index="2">180</chi>
+<chi index="3">180</chi>
+<chi index="4">180</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">62</chi>
+<chi index="2">180</chi>
+<chi index="3">180</chi>
+<chi index="4">-85</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">62</chi>
+<chi index="2">180</chi>
+<chi index="3">-65</chi>
+<chi index="4">175</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">62</chi>
+<chi index="2">180</chi>
+<chi index="3">-65</chi>
+<chi index="4">-85</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-177</chi>
+<chi index="2">65</chi>
+<chi index="3">65</chi>
+<chi index="4">85</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-177</chi>
+<chi index="2">65</chi>
+<chi index="3">65</chi>
+<chi index="4">-175</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-177</chi>
+<chi index="2">65</chi>
+<chi index="3">180</chi>
+<chi index="4">85</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-177</chi>
+<chi index="2">65</chi>
+<chi index="3">180</chi>
+<chi index="4">180</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-177</chi>
+<chi index="2">180</chi>
+<chi index="3">65</chi>
+<chi index="4">85</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-177</chi>
+<chi index="2">180</chi>
+<chi index="3">65</chi>
+<chi index="4">-175</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-177</chi>
+<chi index="2">180</chi>
+<chi index="3">65</chi>
+<chi index="4">-105</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-177</chi>
+<chi index="2">180</chi>
+<chi index="3">180</chi>
+<chi index="4">85</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-177</chi>
+<chi index="2">180</chi>
+<chi index="3">180</chi>
+<chi index="4">180</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-177</chi>
+<chi index="2">180</chi>
+<chi index="3">180</chi>
+<chi index="4">-85</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-177</chi>
+<chi index="2">180</chi>
+<chi index="3">-65</chi>
+<chi index="4">105</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-177</chi>
+<chi index="2">180</chi>
+<chi index="3">-65</chi>
+<chi index="4">175</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-177</chi>
+<chi index="2">180</chi>
+<chi index="3">-65</chi>
+<chi index="4">-85</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-67</chi>
+<chi index="2">180</chi>
+<chi index="3">65</chi>
+<chi index="4">85</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-67</chi>
+<chi index="2">180</chi>
+<chi index="3">65</chi>
+<chi index="4">-175</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-62</chi>
+<chi index="2">179</chi>
+<chi index="3">67</chi>
+<chi index="4">-113</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-67</chi>
+<chi index="2">180</chi>
+<chi index="3">180</chi>
+<chi index="4">85</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-67</chi>
+<chi index="2">180</chi>
+<chi index="3">180</chi>
+<chi index="4">180</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-67</chi>
+<chi index="2">180</chi>
+<chi index="3">180</chi>
+<chi index="4">-85</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-67</chi>
+<chi index="2">180</chi>
+<chi index="3">-65</chi>
+<chi index="4">105</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-67</chi>
+<chi index="2">180</chi>
+<chi index="3">-65</chi>
+<chi index="4">175</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-67</chi>
+<chi index="2">-167</chi>
+<chi index="3">-65</chi>
+<chi index="4">-85</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-62</chi>
+<chi index="2">-68</chi>
+<chi index="3">180</chi>
+<chi index="4">85</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-62</chi>
+<chi index="2">-68</chi>
+<chi index="3">180</chi>
+<chi index="4">180</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-62</chi>
+<chi index="2">-68</chi>
+<chi index="3">180</chi>
+<chi index="4">-85</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-62</chi>
+<chi index="2">-68</chi>
+<chi index="3">-65</chi>
+<chi index="4">175</chi>
+</rotamer>
+<rotamer>
+<residue>ARG</residue>
+<chi index="1">-62</chi>
+<chi index="2">-68</chi>
+<chi index="3">-65</chi>
+<chi index="4">-85</chi>
+</rotamer>
+<rotamer>
+<residue>ASN</residue>
+<chi index="1">62</chi>
+<chi index="2">-10</chi>
+</rotamer>
+<rotamer>
+<residue>ASN</residue>
+<chi index="1">62</chi>
+<chi index="2">30</chi>
+</rotamer>
+<rotamer>
+<residue>ASN</residue>
+<chi index="1">-174</chi>
+<chi index="2">-20</chi>
+</rotamer>
+<rotamer>
+<residue>ASN</residue>
+<chi index="1">-177</chi>
+<chi index="2">30</chi>
+</rotamer>
+<rotamer>
+<residue>ASN</residue>
+<chi index="1">-65</chi>
+<chi index="2">-20</chi>
+</rotamer>
+<rotamer>
+<residue>ASN</residue>
+<chi index="1">-65</chi>
+<chi index="2">-75</chi>
+</rotamer>
+<rotamer>
+<residue>ASN</residue>
+<chi index="1">-65</chi>
+<chi index="2">120</chi>
+</rotamer>
+<rotamer>
+<residue>ASP</residue>
+<chi index="1">62</chi>
+<chi index="2">-10</chi>
+</rotamer>
+<rotamer>
+<residue>ASP</residue>
+<chi index="1">62</chi>
+<chi index="2">30</chi>
+</rotamer>
+<rotamer>
+<residue>ASP</residue>
+<chi index="1">-177</chi>
+<chi index="2">0</chi>
+</rotamer>
+<rotamer>
+<residue>ASP</residue>
+<chi index="1">-177</chi>
+<chi index="2">65</chi>
+</rotamer>
+<rotamer>
+<residue>ASP</residue>
+<chi index="1">-70</chi>
+<chi index="2">-15</chi>
+</rotamer>
+<rotamer>
+<residue>CYS</residue>
+<chi index="1">62</chi>
+</rotamer>
+<rotamer>
+<residue>CYS</residue>
+<chi index="1">-177</chi>
+</rotamer>
+<rotamer>
+<residue>CYS</residue>
+<chi index="1">-65</chi>
+</rotamer>
+<rotamer>
+<residue>GLN</residue>
+<chi index="1">62</chi>
+<chi index="2">180</chi>
+<chi index="3">20</chi>
+</rotamer>
+<rotamer>
+<residue>GLN</residue>
+<chi index="1">70</chi>
+<chi index="2">-75</chi>
+<chi index="3">0</chi>
+</rotamer>
+<rotamer>
+<residue>GLN</residue>
+<chi index="1">-177</chi>
+<chi index="2">65</chi>
+<chi index="3">-100</chi>
+</rotamer>
+<rotamer>
+<residue>GLN</residue>
+<chi index="1">-177</chi>
+<chi index="2">65</chi>
+<chi index="3">60</chi>
+</rotamer>
+<rotamer>
+<residue>GLN</residue>
+<chi index="1">-177</chi>
+<chi index="2">180</chi>
+<chi index="3">0</chi>
+</rotamer>
+<rotamer>
+<residue>GLN</residue>
+<chi index="1">-65</chi>
+<chi index="2">85</chi>
+<chi index="3">0</chi>
+</rotamer>
+<rotamer>
+<residue>GLN</residue>
+<chi index="1">-67</chi>
+<chi index="2">180</chi>
+<chi index="3">-25</chi>
+</rotamer>
+<rotamer>
+<residue>GLN</residue>
+<chi index="1">-65</chi>
+<chi index="2">-65</chi>
+<chi index="3">-40</chi>
+</rotamer>
+<rotamer>
+<residue>GLN</residue>
+<chi index="1">-65</chi>
+<chi index="2">-65</chi>
+<chi index="3">100</chi>
+</rotamer>
+<rotamer>
+<residue>GLU</residue>
+<chi index="1">62</chi>
+<chi index="2">180</chi>
+<chi index="3">-20</chi>
+</rotamer>
+<rotamer>
+<residue>GLU</residue>
+<chi index="1">70</chi>
+<chi index="2">-80</chi>
+<chi index="3">0</chi>
+</rotamer>
+<rotamer>
+<residue>GLU</residue>
+<chi index="1">-177</chi>
+<chi index="2">65</chi>
+<chi index="3">10</chi>
+</rotamer>
+<rotamer>
+<residue>GLU</residue>
+<chi index="1">-177</chi>
+<chi index="2">180</chi>
+<chi index="3">0</chi>
+</rotamer>
+<rotamer>
+<residue>GLU</residue>
+<chi index="1">-177</chi>
+<chi index="2">-80</chi>
+<chi index="3">-25</chi>
+</rotamer>
+<rotamer>
+<residue>GLU</residue>
+<chi index="1">-65</chi>
+<chi index="2">85</chi>
+<chi index="3">0</chi>
+</rotamer>
+<rotamer>
+<residue>GLU</residue>
+<chi index="1">-67</chi>
+<chi index="2">180</chi>
+<chi index="3">-10</chi>
+</rotamer>
+<rotamer>
+<residue>GLU</residue>
+<chi index="1">-65</chi>
+<chi index="2">-65</chi>
+<chi index="3">-40</chi>
+</rotamer>
+<rotamer>
+<residue>HIS</residue>
+<chi index="1">62</chi>
+<chi index="2">-75</chi>
+</rotamer>
+<rotamer>
+<residue>HIS</residue>
+<chi index="1">62</chi>
+<chi index="2">80</chi>
+</rotamer>
+<rotamer>
+<residue>HIS</residue>
+<chi index="1">-177</chi>
+<chi index="2">-165</chi>
+</rotamer>
+<rotamer>
+<residue>HIS</residue>
+<chi index="1">-177</chi>
+<chi index="2">-80</chi>
+</rotamer>
+<rotamer>
+<residue>HIS</residue>
+<chi index="1">-177</chi>
+<chi index="2">60</chi>
+</rotamer>
+<rotamer>
+<residue>HIS</residue>
+<chi index="1">-65</chi>
+<chi index="2">-70</chi>
+</rotamer>
+<rotamer>
+<residue>HIS</residue>
+<chi index="1">-65</chi>
+<chi index="2">165</chi>
+</rotamer>
+<rotamer>
+<residue>HIS</residue>
+<chi index="1">-65</chi>
+<chi index="2">80</chi>
+</rotamer>
+<rotamer>
+<residue>ILE</residue>
+<chi index="1">62</chi>
+<chi index="2">100</chi>
+</rotamer>
+<rotamer>
+<residue>ILE</residue>
+<chi index="1">62</chi>
+<chi index="2">170</chi>
+</rotamer>
+<rotamer>
+<residue>ILE</residue>
+<chi index="1">-177</chi>
+<chi index="2">66</chi>
+</rotamer>
+<rotamer>
+<residue>ILE</residue>
+<chi index="1">-177</chi>
+<chi index="2">165</chi>
+</rotamer>
+<rotamer>
+<residue>ILE</residue>
+<chi index="1">-65</chi>
+<chi index="2">100</chi>
+</rotamer>
+<rotamer>
+<residue>ILE</residue>
+<chi index="1">-65</chi>
+<chi index="2">170</chi>
+</rotamer>
+<rotamer>
+<residue>ILE</residue>
+<chi index="1">-57</chi>
+<chi index="2">-60</chi>
+</rotamer>
+<rotamer>
+<residue>LEU</residue>
+<chi index="1">62</chi>
+<chi index="2">80</chi>
+</rotamer>
+<rotamer>
+<residue>LEU</residue>
+<chi index="1">-177</chi>
+<chi index="2">65</chi>
+</rotamer>
+<rotamer>
+<residue>LEU</residue>
+<chi index="1">-172</chi>
+<chi index="2">145</chi>
+</rotamer>
+<rotamer>
+<residue>LEU</residue>
+<chi index="1">-85</chi>
+<chi index="2">65</chi>
+</rotamer>
+<rotamer>
+<residue>LEU</residue>
+<chi index="1">-65</chi>
+<chi index="2">175</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">62</chi>
+<chi index="2">180</chi>
+<chi index="3">68</chi>
+<chi index="4">180</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">62</chi>
+<chi index="2">180</chi>
+<chi index="3">180</chi>
+<chi index="4">65</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">62</chi>
+<chi index="2">180</chi>
+<chi index="3">180</chi>
+<chi index="4">180</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">62</chi>
+<chi index="2">180</chi>
+<chi index="3">180</chi>
+<chi index="4">-65</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">62</chi>
+<chi index="2">180</chi>
+<chi index="3">-68</chi>
+<chi index="4">180</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-177</chi>
+<chi index="2">68</chi>
+<chi index="3">180</chi>
+<chi index="4">65</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-177</chi>
+<chi index="2">68</chi>
+<chi index="3">180</chi>
+<chi index="4">180</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-177</chi>
+<chi index="2">68</chi>
+<chi index="3">180</chi>
+<chi index="4">-65</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-177</chi>
+<chi index="2">180</chi>
+<chi index="3">68</chi>
+<chi index="4">65</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-177</chi>
+<chi index="2">180</chi>
+<chi index="3">68</chi>
+<chi index="4">180</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-177</chi>
+<chi index="2">180</chi>
+<chi index="3">180</chi>
+<chi index="4">65</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-177</chi>
+<chi index="2">180</chi>
+<chi index="3">180</chi>
+<chi index="4">180</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-177</chi>
+<chi index="2">180</chi>
+<chi index="3">180</chi>
+<chi index="4">-65</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-177</chi>
+<chi index="2">180</chi>
+<chi index="3">-68</chi>
+<chi index="4">180</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-177</chi>
+<chi index="2">180</chi>
+<chi index="3">-68</chi>
+<chi index="4">-65</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-90</chi>
+<chi index="2">68</chi>
+<chi index="3">180</chi>
+<chi index="4">180</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-67</chi>
+<chi index="2">180</chi>
+<chi index="3">68</chi>
+<chi index="4">65</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-67</chi>
+<chi index="2">180</chi>
+<chi index="3">68</chi>
+<chi index="4">180</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-67</chi>
+<chi index="2">180</chi>
+<chi index="3">180</chi>
+<chi index="4">65</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-67</chi>
+<chi index="2">180</chi>
+<chi index="3">180</chi>
+<chi index="4">180</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-67</chi>
+<chi index="2">180</chi>
+<chi index="3">180</chi>
+<chi index="4">-65</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-67</chi>
+<chi index="2">180</chi>
+<chi index="3">-68</chi>
+<chi index="4">180</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-67</chi>
+<chi index="2">180</chi>
+<chi index="3">-68</chi>
+<chi index="4">-65</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-62</chi>
+<chi index="2">-68</chi>
+<chi index="3">180</chi>
+<chi index="4">65</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-62</chi>
+<chi index="2">-68</chi>
+<chi index="3">180</chi>
+<chi index="4">180</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-62</chi>
+<chi index="2">-68</chi>
+<chi index="3">180</chi>
+<chi index="4">-65</chi>
+</rotamer>
+<rotamer>
+<residue>LYS</residue>
+<chi index="1">-62</chi>
+<chi index="2">-68</chi>
+<chi index="3">-68</chi>
+<chi index="4">180</chi>
+</rotamer>
+<rotamer>
+<residue>MET</residue>
+<chi index="1">62</chi>
+<chi index="2">180</chi>
+<chi index="3">75</chi>
+</rotamer>
+<rotamer>
+<residue>MET</residue>
+<chi index="1">62</chi>
+<chi index="2">180</chi>
+<chi index="3">-75</chi>
+</rotamer>
+<rotamer>
+<residue>MET</residue>
+<chi index="1">-177</chi>
+<chi index="2">65</chi>
+<chi index="3">75</chi>
+</rotamer>
+<rotamer>
+<residue>MET</residue>
+<chi index="1">-177</chi>
+<chi index="2">65</chi>
+<chi index="3">180</chi>
+</rotamer>
+<rotamer>
+<residue>MET</residue>
+<chi index="1">-177</chi>
+<chi index="2">180</chi>
+<chi index="3">75</chi>
+</rotamer>
+<rotamer>
+<residue>MET</residue>
+<chi index="1">-177</chi>
+<chi index="2">180</chi>
+<chi index="3">180</chi>
+</rotamer>
+<rotamer>
+<residue>MET</residue>
+<chi index="1">-177</chi>
+<chi index="2">180</chi>
+<chi index="3">-75</chi>
+</rotamer>
+<rotamer>
+<residue>MET</residue>
+<chi index="1">-67</chi>
+<chi index="2">180</chi>
+<chi index="3">75</chi>
+</rotamer>
+<rotamer>
+<residue>MET</residue>
+<chi index="1">-67</chi>
+<chi index="2">180</chi>
+<chi index="3">180</chi>
+</rotamer>
+<rotamer>
+<residue>MET</residue>
+<chi index="1">-67</chi>
+<chi index="2">180</chi>
+<chi index="3">-75</chi>
+</rotamer>
+<rotamer>
+<residue>MET</residue>
+<chi index="1">-65</chi>
+<chi index="2">-65</chi>
+<chi index="3">103</chi>
+</rotamer>
+<rotamer>
+<residue>MET</residue>
+<chi index="1">-65</chi>
+<chi index="2">-65</chi>
+<chi index="3">180</chi>
+</rotamer>
+<rotamer>
+<residue>MET</residue>
+<chi index="1">-65</chi>
+<chi index="2">-65</chi>
+<chi index="3">-70</chi>
+</rotamer>
+<rotamer>
+<residue>PHE</residue>
+<chi index="1">62</chi>
+<chi index="2">90</chi>
+</rotamer>
+<rotamer>
+<residue>PHE</residue>
+<chi index="1">-177</chi>
+<chi index="2">80</chi>
+</rotamer>
+<rotamer>
+<residue>PHE</residue>
+<chi index="1">-65</chi>
+<chi index="2">-85</chi>
+</rotamer>
+<rotamer>
+<residue>PHE</residue>
+<chi index="1">-65</chi>
+<chi index="2">-30</chi>
+</rotamer>
+<rotamer>
+<residue>PRO</residue>
+<chi index="1">30</chi>
+</rotamer>
+<rotamer>
+<residue>PRO</residue>
+<chi index="1">-30</chi>
+</rotamer>
+<rotamer>
+<residue>SER</residue>
+<chi index="1">62</chi>
+</rotamer>
+<rotamer>
+<residue>SER</residue>
+<chi index="1">-177</chi>
+</rotamer>
+<rotamer>
+<residue>SER</residue>
+<chi index="1">-65</chi>
+</rotamer>
+<rotamer>
+<residue>THR</residue>
+<chi index="1">62</chi>
+</rotamer>
+<rotamer>
+<residue>THR</residue>
+<chi index="1">-175</chi>
+</rotamer>
+<rotamer>
+<residue>THR</residue>
+<chi index="1">-65</chi>
+</rotamer>
+<rotamer>
+<residue>TRP</residue>
+<chi index="1">62</chi>
+<chi index="2">-90</chi>
+</rotamer>
+<rotamer>
+<residue>TRP</residue>
+<chi index="1">62</chi>
+<chi index="2">90</chi>
+</rotamer>
+<rotamer>
+<residue>TRP</residue>
+<chi index="1">-177</chi>
+<chi index="2">-105</chi>
+</rotamer>
+<rotamer>
+<residue>TRP</residue>
+<chi index="1">-177</chi>
+<chi index="2">90</chi>
+</rotamer>
+<rotamer>
+<residue>TRP</residue>
+<chi index="1">-65</chi>
+<chi index="2">-90</chi>
+</rotamer>
+<rotamer>
+<residue>TRP</residue>
+<chi index="1">-65</chi>
+<chi index="2">-5</chi>
+</rotamer>
+<rotamer>
+<residue>TRP</residue>
+<chi index="1">-65</chi>
+<chi index="2">95</chi>
+</rotamer>
+<rotamer>
+<residue>TYR</residue>
+<chi index="1">62</chi>
+<chi index="2">90</chi>
+</rotamer>
+<rotamer>
+<residue>TYR</residue>
+<chi index="1">-177</chi>
+<chi index="2">80</chi>
+</rotamer>
+<rotamer>
+<residue>TYR</residue>
+<chi index="1">-65</chi>
+<chi index="2">-85</chi>
+</rotamer>
+<rotamer>
+<residue>TYR</residue>
+<chi index="1">-65</chi>
+<chi index="2">-30</chi>
+</rotamer>
+<rotamer>
+<residue>VAL</residue>
+<chi index="1">63</chi>
+</rotamer>
+<rotamer>
+<residue>VAL</residue>
+<chi index="1">175</chi>
+</rotamer>
+<rotamer>
+<residue>VAL</residue>
+<chi index="1">-60</chi>
+</rotamer>
+</rotamers>

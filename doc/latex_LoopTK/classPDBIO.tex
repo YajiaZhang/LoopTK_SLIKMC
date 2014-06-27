@@ -1,0 +1,74 @@
+\section{PDBIO Class Reference}
+\label{classPDBIO}\index{PDBIO@{PDBIO}}
+{\tt \#include $<$PExtension.h$>$}
+
+
+
+\subsection{Detailed Description}
+Contains methods to read PChains from a PDB file and write them back out in PDB format. See the {\tt PDB homepage} for more information. 
+
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static {\bf PProtein} $\ast$ {\bf read\-From\-File} (const string \&file\-Name, const string \&chain\-Id=\char`\"{}\char`\"{})
+\item 
+static void {\bf write\-To\-File} ({\bf PChain} $\ast$chain, const string \&file\-Name, const string \&prefix=\char`\"{}\char`\"{})
+\item 
+static bool {\bf is\-Cyclic\-PDB} (const string \&file\-Name)
+\item 
+static vector$<$ string $>$ {\bf get\-All\-Atom\-Lines} (const vector$<$ string $>$ \&pdb\-Lines)
+\item 
+static {\bf pdb\-Atom\-Line} {\bf parse\-Atom\-Line} (const string \&line)
+\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+class {\bf CS2IO}
+\end{CompactItemize}
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct {\bf pdb\-Atom\-Line}
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{PDBIO@{PDBIO}!readFromFile@{readFromFile}}
+\index{readFromFile@{readFromFile}!PDBIO@{PDBIO}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PProtein} $\ast$ PDBIO::read\-From\-File (const string \& {\em file\-Name}, const string \& {\em chain\-Id} = {\tt \char`\"{}\char`\"{}})\hspace{0.3cm}{\tt  [static]}}\label{classPDBIO_4f05d3847f01997fcdfadd4d731cfd52}
+
+
+Reads the specified chain in PDB file {\tt /file\-Name} and returns the contents as a \doxyref{PProtein}{p.}{classPProtein} pointer, or NULL if an I/O error is encountered. If {\tt chain\-Id} is unspecified, the first chain (terminated by \char`\"{}TER\char`\"{}) will be read. \index{PDBIO@{PDBIO}!writeToFile@{writeToFile}}
+\index{writeToFile@{writeToFile}!PDBIO@{PDBIO}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PDBIO::write\-To\-File ({\bf PChain} $\ast$ {\em chain}, const string \& {\em file\-Name}, const string \& {\em prefix} = {\tt \char`\"{}\char`\"{}})\hspace{0.3cm}{\tt  [static]}}\label{classPDBIO_66a74f1a72f0c070043d211e096be1ed}
+
+
+Writes the specified \doxyref{PChain}{p.}{classPChain} {\tt chain} to a file named {\tt file\-Name}, using the standard PDB format. Optionally, a {\tt prefix} may be appended to each line of output. \index{PDBIO@{PDBIO}!isCyclicPDB@{isCyclicPDB}}
+\index{isCyclicPDB@{isCyclicPDB}!PDBIO@{PDBIO}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PDBIO::is\-Cyclic\-PDB (const string \& {\em file\-Name})\hspace{0.3cm}{\tt  [static]}}\label{classPDBIO_89e602bf47e661248eafaf0607eb4bc6}
+
+
+Returns {\tt true} if the PDB file specified by {\tt file\-Name} appears to represent a cyclic protein, {\tt false} otherwise. \index{PDBIO@{PDBIO}!getAllAtomLines@{getAllAtomLines}}
+\index{getAllAtomLines@{getAllAtomLines}!PDBIO@{PDBIO}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ string $>$ PDBIO::get\-All\-Atom\-Lines (const vector$<$ string $>$ \& {\em pdb\-Lines})\hspace{0.3cm}{\tt  [static]}}\label{classPDBIO_ebce8c68ce6d876dbe194b5f426acda6}
+
+
+Returns a {\tt vector} containing all the lines in {\tt pdb\-Lines} that begin with {\tt \char`\"{}ATOM  \char`\"{}} or {\tt \char`\"{}HETATM\char`\"{}}, up to the {\tt \char`\"{}TER\char`\"{}} terminating line (if one is present). \index{PDBIO@{PDBIO}!parseAtomLine@{parseAtomLine}}
+\index{parseAtomLine@{parseAtomLine}!PDBIO@{PDBIO}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PDBIO::pdb\-Atom\-Line} PDBIO::parse\-Atom\-Line (const string \& {\em line})\hspace{0.3cm}{\tt  [static]}}\label{classPDBIO_5bd43aa623134cda8bcc5fb912ec2f35}
+
+
+Returns a \doxyref{pdb\-Atom\-Line}{p.}{structPDBIO_1_1pdbAtomLine} structure containing data from the specified line in a PDB file. 
+
+\subsection{Friends And Related Function Documentation}
+\index{PDBIO@{PDBIO}!CS2IO@{CS2IO}}
+\index{CS2IO@{CS2IO}!PDBIO@{PDBIO}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf CS2IO}\hspace{0.3cm}{\tt  [friend]}}\label{classPDBIO_eb268a05fd980a09cf561ab4ba14ab6b}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PExtension.h}\item 
+src/core/{\bf PDBIO.cc}\end{CompactItemize}

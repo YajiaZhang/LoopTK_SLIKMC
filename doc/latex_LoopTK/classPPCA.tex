@@ -1,0 +1,58 @@
+\section{PPCA Class Reference}
+\label{classPPCA}\index{PPCA@{PPCA}}
+{\tt \#include $<$PPCA.h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static Vector3 {\bf get\-Mean} (Vector3 $\ast$points, int number)
+\item 
+static void {\bf normalize} (Vector3 mean, Vector3 $\ast$data, Vector3 $\ast$$\ast$target, int number)
+\item 
+static void {\bf get\-Covariance} (gsl\_\-matrix $\ast$covm, Vector3 $\ast$data, int number)
+\item 
+static void {\bf get\-Eigenvector} (gsl\_\-matrix $\ast$matrix, gsl\_\-vector $\ast$eigenvalues, gsl\_\-matrix $\ast$eigenvector)
+\item 
+static void {\bf get\-Principal\-Component} (gsl\_\-vector $\ast$pc, Vector3 $\ast$points, int number)
+\item 
+static void {\bf get\-Principal\-Component} (gsl\_\-vector $\ast$pc, vector$<$ Vector3 $\ast$ $>$ $\ast$points)
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{PPCA@{PPCA}!getMean@{getMean}}
+\index{getMean@{getMean}!PPCA@{PPCA}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Vector3 PPCA::get\-Mean (Vector3 $\ast$ {\em points}, int {\em number})\hspace{0.3cm}{\tt  [static]}}\label{classPPCA_35f9e81a89a4b65a6dedc193c2791321}
+
+
+\index{PPCA@{PPCA}!normalize@{normalize}}
+\index{normalize@{normalize}!PPCA@{PPCA}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PPCA::normalize (Vector3 {\em mean}, Vector3 $\ast$ {\em data}, Vector3 $\ast$$\ast$ {\em target}, int {\em number})\hspace{0.3cm}{\tt  [static]}}\label{classPPCA_262220fe90da692398027ce112103b65}
+
+
+\index{PPCA@{PPCA}!getCovariance@{getCovariance}}
+\index{getCovariance@{getCovariance}!PPCA@{PPCA}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PPCA::get\-Covariance (gsl\_\-matrix $\ast$ {\em covm}, Vector3 $\ast$ {\em data}, int {\em number})\hspace{0.3cm}{\tt  [static]}}\label{classPPCA_a301c4d080a1a272bf482fe2f3b1776e}
+
+
+\index{PPCA@{PPCA}!getEigenvector@{getEigenvector}}
+\index{getEigenvector@{getEigenvector}!PPCA@{PPCA}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PPCA::get\-Eigenvector (gsl\_\-matrix $\ast$ {\em matrix}, gsl\_\-vector $\ast$ {\em eigenvalues}, gsl\_\-matrix $\ast$ {\em eigenvector})\hspace{0.3cm}{\tt  [static]}}\label{classPPCA_af77805ddf9ec68771d1c8818c6910c4}
+
+
+\index{PPCA@{PPCA}!getPrincipalComponent@{getPrincipalComponent}}
+\index{getPrincipalComponent@{getPrincipalComponent}!PPCA@{PPCA}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PPCA::get\-Principal\-Component (gsl\_\-vector $\ast$ {\em pc}, Vector3 $\ast$ {\em points}, int {\em number})\hspace{0.3cm}{\tt  [static]}}\label{classPPCA_3893ed1ccc8a35b514eeccacfec671fd}
+
+
+\index{PPCA@{PPCA}!getPrincipalComponent@{getPrincipalComponent}}
+\index{getPrincipalComponent@{getPrincipalComponent}!PPCA@{PPCA}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PPCA::get\-Principal\-Component (gsl\_\-vector $\ast$ {\em pc}, vector$<$ Vector3 $\ast$ $>$ $\ast$ {\em points})\hspace{0.3cm}{\tt  [static]}}\label{classPPCA_c0a281194ee7700e47bd09da55b903aa}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PPCA.h}\item 
+src/core/{\bf PPCA.cc}\end{CompactItemize}

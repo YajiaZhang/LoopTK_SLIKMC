@@ -1,0 +1,35 @@
+\section{PMove\-Atom Class Reference}
+\label{classPMoveAtom}\index{PMoveAtom@{PMoveAtom}}
+{\tt \#include $<$PExtension.h$>$}
+
+
+
+\subsection{Detailed Description}
+Contains methods to Manipulate atoms of multiple loops of same protein or multiple proteins 
+
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static vector$<$ {\bf IKSolutions} $>$ {\bf Move\-Atom} (vector$<$ {\bf PProtein} $\ast$ $>$ loops, vector$<$ vector$<$ {\bf CDof} $>$ $>$ Dofs, vector$<$ int $>$ Atom\-To\-Move, vector$<$ Vector3 $>$ Movement\-Dirn)
+\item 
+static {\bf IKSolutions} {\bf Move\-Atom} ({\bf PProtein} $\ast$loop, int Atom\-To\-Move, Vector3 Movement\-Dirn)
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{PMoveAtom@{PMove\-Atom}!MoveAtom@{MoveAtom}}
+\index{MoveAtom@{MoveAtom}!PMoveAtom@{PMove\-Atom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf IKSolutions} $>$ PMove\-Atom::Move\-Atom (vector$<$ {\bf PProtein} $\ast$ $>$ {\em loops}, vector$<$ vector$<$ {\bf CDof} $>$ $>$ {\em Dofs}, vector$<$ int $>$ {\em Atom\-To\-Move}, vector$<$ Vector3 $>$ {\em Movement\-Dirn})\hspace{0.3cm}{\tt  [static]}}\label{classPMoveAtom_513f7e6c7221a428fff3b3a42c4d17d5}
+
+
+Returns vector of {\tt IKSolutions} corresponding to the loops after each atoms at positions specified by vector {\tt Atom\-To\-Move} undergo displacements specified by {\tt Movement\-Dirn}. {\tt Dofs} are specified for each loop {\tt IKSolutions} are applied to the {\tt loops}. \index{PMoveAtom@{PMove\-Atom}!MoveAtom@{MoveAtom}}
+\index{MoveAtom@{MoveAtom}!PMoveAtom@{PMove\-Atom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf IKSolutions} PMove\-Atom::Move\-Atom ({\bf PProtein} $\ast$ {\em loop}, int {\em Atom\-To\-Move}, Vector3 {\em Movement\-Dirn})\hspace{0.3cm}{\tt  [static]}}\label{classPMoveAtom_fc8ea421b83f1152ef7e204f0b3bac08}
+
+
+Returns {\tt IKSolutions} corresponding to the loop after atom at position {\tt Atom\-To\-Move} undergoes a displacement specified by {\tt Movement\-Dirn}. All backbone DOFs are used. {\tt IKSolutions} is applied to the {\tt loop}. 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PExtension.h}\item 
+src/core/{\bf PMove\-Atom.cc}\end{CompactItemize}

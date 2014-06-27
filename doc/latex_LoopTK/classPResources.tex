@@ -1,0 +1,216 @@
+\section{PResources Class Reference}
+\label{classPResources}\index{PResources@{PResources}}
+{\tt \#include $<$PResources.h$>$}
+
+
+
+\subsection{Detailed Description}
+A resource manager allowing lookups and insertions of atom shells, block shells, block connections and residue shells by name. 
+
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static void {\bf Free\-Resources} ()
+\item 
+static {\bf PAtom\-Shell} $\ast$ {\bf Get\-Atom\-Shell} (const string \&name)
+\item 
+static {\bf PBlock\-Shell} $\ast$ {\bf Get\-Block\-Shell} (const string \&name)
+\item 
+static {\bf PBlock\-Connection} $\ast$ {\bf Get\-Block\-Connection} (const string \&defined\-Name, const string \&to\-Define\-Name)
+\item 
+static {\bf PResidue\-Shell} $\ast$ {\bf Get\-Residue\-Shell} (const string \&name)
+\item 
+static Real {\bf Get\-Epsilon\-Value} (const {\bf String\-Pair} \&elem\-Pair)
+\item 
+static string {\bf Get\-Atom\-IDMapping} (const string \&id, const string \&res\-Name)
+\item 
+static vector$<$ string $>$ {\bf Get\-Chi\-Index} (const string \&res\-Name, int chi\-Index)
+\item 
+static vector$<$ vector$<$ Real $>$ $>$ {\bf Get\-Rotamer} (const string \&res\-Name)
+\item 
+static int {\bf Get\-Rotamer\-Size} (const string \&res\-Name)
+\item 
+static bool {\bf Contains\-Atom\-Shell} (const string \&name)
+\item 
+static bool {\bf Contains\-Block\-Shell} (const string \&name)
+\item 
+static bool {\bf Contains\-Block\-Connection} (const string \&defined\-Name, const string \&to\-Define\-Name)
+\item 
+static bool {\bf Contains\-Residue\-Shell} (const string \&name)
+\item 
+static bool {\bf Contains\-Atom\-IDMapping} (const string \&id, const string \&res\-Name)
+\item 
+static bool {\bf Contains\-Chi\-Index} (const string \&res\-Name, int chi\-Index)
+\item 
+static bool {\bf Contains\-Rotamer} (const string \&res\-Name)
+\item 
+static int {\bf num\-Atoms} ()
+\item 
+static int {\bf num\-Blocks} ()
+\item 
+static int {\bf num\-Connections} ()
+\item 
+static int {\bf num\-Residues} ()
+\item 
+static int {\bf num\-Chi\-Indices} (const string \&res\-Name)
+\item 
+static vector$<$ string $>$ {\bf get\-Atom\-Names} ()
+\item 
+static vector$<$ string $>$ {\bf get\-Block\-Names} ()
+\item 
+static vector$<$ {\bf String\-Pair} $>$ {\bf get\-Connection\-Names} ()
+\item 
+static vector$<$ string $>$ {\bf get\-Residue\-Names} ()
+\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+class {\bf PInit}
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{PResources@{PResources}!FreeResources@{FreeResources}}
+\index{FreeResources@{FreeResources}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PResources::Free\-Resources ()\hspace{0.3cm}{\tt  [static]}}\label{classPResources_8eddbe7ca94517c468ac8e7dcfcc13a5}
+
+
+Empties the resource manager and frees all memory associated with existing resources. \index{PResources@{PResources}!GetAtomShell@{GetAtomShell}}
+\index{GetAtomShell@{GetAtomShell}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PAtom\-Shell} $\ast$ PResources::Get\-Atom\-Shell (const string \& {\em name})\hspace{0.3cm}{\tt  [static]}}\label{classPResources_80cf6b4ab893acf412f81660b8a5d0e7}
+
+
+Returns the atom shell mapped to the specified name. Throws a resource error if the atom shell has not been inserted. \index{PResources@{PResources}!GetBlockShell@{GetBlockShell}}
+\index{GetBlockShell@{GetBlockShell}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PBlock\-Shell} $\ast$ PResources::Get\-Block\-Shell (const string \& {\em name})\hspace{0.3cm}{\tt  [static]}}\label{classPResources_bc3ebf4ecdf1cb7b793f9b4a6a667bf2}
+
+
+Returns the block shell mapped to the specified name. Throws a resource error if the block shell has not been inserted. \index{PResources@{PResources}!GetBlockConnection@{GetBlockConnection}}
+\index{GetBlockConnection@{GetBlockConnection}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PBlock\-Connection} $\ast$ PResources::Get\-Block\-Connection (const string \& {\em defined\-Name}, const string \& {\em to\-Define\-Name})\hspace{0.3cm}{\tt  [static]}}\label{classPResources_316300137cb0c21dfa2a32a94b786a31}
+
+
+Returns the block connection mapped to the specified pair of defined-to\-Define blocks. Throws a resource error if this block connection has not been inserted. \index{PResources@{PResources}!GetResidueShell@{GetResidueShell}}
+\index{GetResidueShell@{GetResidueShell}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PResidue\-Shell} $\ast$ PResources::Get\-Residue\-Shell (const string \& {\em name})\hspace{0.3cm}{\tt  [static]}}\label{classPResources_b11b7da0750bd2f473b4eb38abfb7008}
+
+
+Returns the residue shell mapped to the specified name. Throws a resource error if the block shell has not been inserted. \index{PResources@{PResources}!GetEpsilonValue@{GetEpsilonValue}}
+\index{GetEpsilonValue@{GetEpsilonValue}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real PResources::Get\-Epsilon\-Value (const {\bf String\-Pair} \& {\em elem\-Pair})\hspace{0.3cm}{\tt  [static]}}\label{classPResources_fc24c80fd63f71def7bc63899599044e}
+
+
+Returns the epsilon (van der Waals energy coefficient) value for the specified element pair, e.g. {\tt (\char`\"{}C\char`\"{}, \char`\"{}S\char`\"{})}. \index{PResources@{PResources}!GetAtomIDMapping@{GetAtomIDMapping}}
+\index{GetAtomIDMapping@{GetAtomIDMapping}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string PResources::Get\-Atom\-IDMapping (const string \& {\em id}, const string \& {\em res\-Name})\hspace{0.3cm}{\tt  [static]}}\label{classPResources_06145d33f1710f07546d75b3003def8b}
+
+
+Returns the new atom ID to use, if defined, when the specified {\tt id} is read from PDB in a residue named {\tt res\-Name}. \index{PResources@{PResources}!GetChiIndex@{GetChiIndex}}
+\index{GetChiIndex@{GetChiIndex}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ string $>$ PResources::Get\-Chi\-Index (const string \& {\em res\-Name}, int {\em chi\-Index})\hspace{0.3cm}{\tt  [static]}}\label{classPResources_957cec6559d02461055ef51cc41e76a1}
+
+
+Returns the pair of atom IDs that form the specified chi angle in the specified residue. \index{PResources@{PResources}!GetRotamer@{GetRotamer}}
+\index{GetRotamer@{GetRotamer}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ vector$<$ Real $>$ $>$ PResources::Get\-Rotamer (const string \& {\em res\-Name})\hspace{0.3cm}{\tt  [static]}}\label{classPResources_2a679399799819e8e68c698153a6659a}
+
+
+Returns all rotamer data for the specified residue. \index{PResources@{PResources}!GetRotamerSize@{GetRotamerSize}}
+\index{GetRotamerSize@{GetRotamerSize}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PResources::Get\-Rotamer\-Size (const string \& {\em res\-Name})\hspace{0.3cm}{\tt  [static]}}\label{classPResources_0510c19a3d7cb2568478b4260a1581a6}
+
+
+Returns the number of rotamer configurations available for the specified residue. \index{PResources@{PResources}!ContainsAtomShell@{ContainsAtomShell}}
+\index{ContainsAtomShell@{ContainsAtomShell}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static bool PResources::Contains\-Atom\-Shell (const string \& {\em name})\hspace{0.3cm}{\tt  [inline, static]}}\label{classPResources_5a493fbf383c6ae8bdf63e068241e116}
+
+
+Returns {\tt true} if the resource manager contains the atom shell {\tt name}, {\tt false} otherwise. \index{PResources@{PResources}!ContainsBlockShell@{ContainsBlockShell}}
+\index{ContainsBlockShell@{ContainsBlockShell}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static bool PResources::Contains\-Block\-Shell (const string \& {\em name})\hspace{0.3cm}{\tt  [inline, static]}}\label{classPResources_ec65368e8f97cd1fe332019ac959ac23}
+
+
+Returns {\tt true} if the resource manager contains the block shell {\tt name}, {\tt false}otherwise. \index{PResources@{PResources}!ContainsBlockConnection@{ContainsBlockConnection}}
+\index{ContainsBlockConnection@{ContainsBlockConnection}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static bool PResources::Contains\-Block\-Connection (const string \& {\em defined\-Name}, const string \& {\em to\-Define\-Name})\hspace{0.3cm}{\tt  [inline, static]}}\label{classPResources_8cd0857387e6ccf9744577b661c51b30}
+
+
+Returns {\tt true} if the resource manager contains a block connection between {\tt defined\-Name} and {\tt to\-Define\-Name}, {\tt false} otherwise. \index{PResources@{PResources}!ContainsResidueShell@{ContainsResidueShell}}
+\index{ContainsResidueShell@{ContainsResidueShell}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static bool PResources::Contains\-Residue\-Shell (const string \& {\em name})\hspace{0.3cm}{\tt  [inline, static]}}\label{classPResources_d1175f8f4b667b4340ca7f242b0404ad}
+
+
+Returns {\tt true} if the resource manager contains the residue shell {\tt name}, {\tt false} otherwise. \index{PResources@{PResources}!ContainsAtomIDMapping@{ContainsAtomIDMapping}}
+\index{ContainsAtomIDMapping@{ContainsAtomIDMapping}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static bool PResources::Contains\-Atom\-IDMapping (const string \& {\em id}, const string \& {\em res\-Name})\hspace{0.3cm}{\tt  [inline, static]}}\label{classPResources_0e4fe012e67fd3a4106daa5faef4ace9}
+
+
+Returns {\tt true} if the resource manager contains an atom ID mapping to use when atom {\tt id} is read from PDB in a residue named {\tt res\-Name}, {\tt false} otherwise. \index{PResources@{PResources}!ContainsChiIndex@{ContainsChiIndex}}
+\index{ContainsChiIndex@{ContainsChiIndex}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static bool PResources::Contains\-Chi\-Index (const string \& {\em res\-Name}, int {\em chi\-Index})\hspace{0.3cm}{\tt  [inline, static]}}\label{classPResources_c7f35adee58157b0439ce1d132e23b00}
+
+
+Returns {\tt true} if the resource manager contains a mapping for the specified {\tt chi\-Index} in the specified residue. \index{PResources@{PResources}!ContainsRotamer@{ContainsRotamer}}
+\index{ContainsRotamer@{ContainsRotamer}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static bool PResources::Contains\-Rotamer (const string \& {\em res\-Name})\hspace{0.3cm}{\tt  [inline, static]}}\label{classPResources_7008ec7e8eb2c63e8fe837ad83bfbfcf}
+
+
+Returns {\tt true} if the resource manager contains rotamer data for residue {\tt res\-Name}, {\tt false} otherwise. \index{PResources@{PResources}!numAtoms@{numAtoms}}
+\index{numAtoms@{numAtoms}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static int PResources::num\-Atoms ()\hspace{0.3cm}{\tt  [inline, static]}}\label{classPResources_cd0c51c23a8aacf52bf5b6af863c3159}
+
+
+Returns the number of atom shells currently in the resource manager. \index{PResources@{PResources}!numBlocks@{numBlocks}}
+\index{numBlocks@{numBlocks}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static int PResources::num\-Blocks ()\hspace{0.3cm}{\tt  [inline, static]}}\label{classPResources_65e7320cab0779455b0b7ef082847774}
+
+
+Returns the number of block shells currently in the resource manager. \index{PResources@{PResources}!numConnections@{numConnections}}
+\index{numConnections@{numConnections}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static int PResources::num\-Connections ()\hspace{0.3cm}{\tt  [inline, static]}}\label{classPResources_0215329af6b0645548c56a026469f481}
+
+
+Returns the number of block connections currently in the resource manager. \index{PResources@{PResources}!numResidues@{numResidues}}
+\index{numResidues@{numResidues}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static int PResources::num\-Residues ()\hspace{0.3cm}{\tt  [inline, static]}}\label{classPResources_11677ae9611346d8c0a366859a95678e}
+
+
+Returns the number of residue shells currently in the resource manager. \index{PResources@{PResources}!numChiIndices@{numChiIndices}}
+\index{numChiIndices@{numChiIndices}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PResources::num\-Chi\-Indices (const string \& {\em res\-Name})\hspace{0.3cm}{\tt  [static]}}\label{classPResources_1d4f8b6ec2d790c2b70ebc9bb955b4d4}
+
+
+Returns the number of chi indices in the resource manager for residue {\tt res\-Name}. \index{PResources@{PResources}!getAtomNames@{getAtomNames}}
+\index{getAtomNames@{getAtomNames}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static vector$<$string$>$ PResources::get\-Atom\-Names ()\hspace{0.3cm}{\tt  [inline, static]}}\label{classPResources_95fb6b718a2ce82e8bd3b82624c93cb0}
+
+
+Returns the names of all atom shells currently in the resource manager. \index{PResources@{PResources}!getBlockNames@{getBlockNames}}
+\index{getBlockNames@{getBlockNames}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static vector$<$string$>$ PResources::get\-Block\-Names ()\hspace{0.3cm}{\tt  [inline, static]}}\label{classPResources_85737cfab6a2864781bfaca6e99c299e}
+
+
+Returns the names of all block shells currently in the resource manager. \index{PResources@{PResources}!getConnectionNames@{getConnectionNames}}
+\index{getConnectionNames@{getConnectionNames}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static vector$<${\bf String\-Pair}$>$ PResources::get\-Connection\-Names ()\hspace{0.3cm}{\tt  [inline, static]}}\label{classPResources_dd2cbfdb1c2edf0850f3e949194904ac}
+
+
+Returns the names of all block connections currently in the resource manager. \index{PResources@{PResources}!getResidueNames@{getResidueNames}}
+\index{getResidueNames@{getResidueNames}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static vector$<$string$>$ PResources::get\-Residue\-Names ()\hspace{0.3cm}{\tt  [inline, static]}}\label{classPResources_dbd549e77756f650cd4c329e5deec165}
+
+
+Returns the names of all residue shells currently in the resource manager. 
+
+\subsection{Friends And Related Function Documentation}
+\index{PResources@{PResources}!PInit@{PInit}}
+\index{PInit@{PInit}!PResources@{PResources}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf PInit}\hspace{0.3cm}{\tt  [friend]}}\label{classPResources_45e6e48cabad48de266ff9add6f69125}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PResources.h}\item 
+src/core/{\bf PResources.cc}\end{CompactItemize}

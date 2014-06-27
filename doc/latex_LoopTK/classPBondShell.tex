@@ -1,0 +1,66 @@
+\section{PBond\-Shell Class Reference}
+\label{classPBondShell}\index{PBondShell@{PBondShell}}
+{\tt \#include $<$PBond\-Shell.h$>$}
+
+Inheritance diagram for PBond\-Shell::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classPBondShell}
+\end{center}
+\end{figure}
+
+
+\subsection{Detailed Description}
+Encapsulates data common to all inter-atom bonds. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf PBond\-Shell} ()
+\item 
+{\bf PBond\-Shell} (const string \&atom\-Id1, const string \&atom\-Id2, bool is\-DOF)
+\item 
+string {\bf get\-Atom\-Id1} () const
+\item 
+string {\bf get\-Atom\-Id2} () const
+\item 
+bool {\bf is\-DOF} () const
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{PBondShell@{PBond\-Shell}!PBondShell@{PBondShell}}
+\index{PBondShell@{PBondShell}!PBondShell@{PBond\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PBond\-Shell::PBond\-Shell ()\hspace{0.3cm}{\tt  [inline]}}\label{classPBondShell_53a5c8b2b27bdd0054caedb5fe49a545}
+
+
+Constructs a new \doxyref{PBond\-Shell}{p.}{classPBondShell} in an uninitialized state. Do not call this constructor; it is only included to prevent compiler errors. \index{PBondShell@{PBond\-Shell}!PBondShell@{PBondShell}}
+\index{PBondShell@{PBondShell}!PBondShell@{PBond\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PBond\-Shell::PBond\-Shell (const string \& {\em atom\-Id1}, const string \& {\em atom\-Id2}, bool {\em is\-DOF})\hspace{0.3cm}{\tt  [inline]}}\label{classPBondShell_0b5c2216eca20d6e9e44f60ee1d182a6}
+
+
+Constructs a new \doxyref{PBond\-Shell}{p.}{classPBondShell} between the specified atoms. The \doxyref{PBond\-Shell}{p.}{classPBondShell} will represent a degree of freedom if and only if is\-DOF is true. 
+
+\subsection{Member Function Documentation}
+\index{PBondShell@{PBond\-Shell}!getAtomId1@{getAtomId1}}
+\index{getAtomId1@{getAtomId1}!PBondShell@{PBond\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string PBond\-Shell::get\-Atom\-Id1 () const\hspace{0.3cm}{\tt  [inline]}}\label{classPBondShell_446de6c6cfec8e44a21094edb38e536e}
+
+
+Returns the ID of the first atom in this bond. \index{PBondShell@{PBond\-Shell}!getAtomId2@{getAtomId2}}
+\index{getAtomId2@{getAtomId2}!PBondShell@{PBond\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string PBond\-Shell::get\-Atom\-Id2 () const\hspace{0.3cm}{\tt  [inline]}}\label{classPBondShell_068f01bf86a46983b65c615cf7f9e9e3}
+
+
+Returns the ID of the second atom in this bond. \index{PBondShell@{PBond\-Shell}!isDOF@{isDOF}}
+\index{isDOF@{isDOF}!PBondShell@{PBond\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PBond\-Shell::is\-DOF () const\hspace{0.3cm}{\tt  [inline]}}\label{classPBondShell_23d17003c490d2b74388d5701a1f554b}
+
+
+Returns true if this bond is a degree of freedom, false otherwise. 
+
+Reimplemented in {\bf PBlock\-Bond\-Shell} \doxyref{}{p.}{classPBlockBondShell_abb4d3e889928958e40f3402b3ddc084}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/core/{\bf PBond\-Shell.h}\end{CompactItemize}

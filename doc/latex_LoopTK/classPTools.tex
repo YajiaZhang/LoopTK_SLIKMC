@@ -1,0 +1,210 @@
+\section{PTools Class Reference}
+\label{classPTools}\index{PTools@{PTools}}
+{\tt \#include $<$PTools.h$>$}
+
+
+
+\subsection{Detailed Description}
+\doxyref{PTools}{p.}{classPTools} defines a variety of functions related to loop closure, including functions to calculate goal positions, computation of Jacobian, computation of Null Space, and computation of RMSD distance. 
+
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static void {\bf Get\-Goals} ({\bf PAtom} $\ast$anchor\-Prior, {\bf PAtom} $\ast$anchor\-End, {\bf PAtom} $\ast$effector\-Prior, {\bf PAtom} $\ast$effector\-End, Real len, Real angle1, Real angle2, Vector3 \&goal\-Prior, Vector3 \&goal\-End)
+\item 
+static void {\bf Get\-Goals} ({\bf PProtein} $\ast$protein, {\bf Protein\-Side} side, Vector3 \&goal\-Prior, Vector3 \&goal\-End)
+\item 
+static {\bf Protein\-Side} {\bf Get\-Goals} ({\bf PProtein} $\ast$protein, Vector3 \&goal\-Prior, Vector3 \&goal\-End)
+\item 
+static {\bf PProtein} $\ast$ {\bf Create\-Slim\-Protein} ({\bf PProtein} $\ast$protein)
+\item 
+static {\bf PProtein} $\ast$ {\bf Create\-Slim\-Protein} ({\bf PProtein} $\ast$protein, int start\-Res, int end\-Res)
+\item 
+static Real {\bf Effector\-Anchor\-Dist} ({\bf PProtein} $\ast$loop, {\bf Protein\-Side} side)
+\item 
+static {\bf PChain} $\ast$ {\bf Lowest\-Common\-Chain} ({\bf PChain} $\ast$c1, {\bf PChain} $\ast$c2)
+\item 
+static list$<$ {\bf PCluster} $>$ {\bf Get\-Clusters} (const {\bf PConformation\-Space} \&space, {\bf Conformation\-Dist\-Fn} dist\-Fn, Real threshold)
+\item 
+static int {\bf get\-Backbone\-Atom\-Index} (int res\-Index, const string \&atom\-ID)
+\item 
+static void {\bf Compute\-Jacobian} ({\bf PProtein} $\ast$loop, vector$<$ int $>$ ind, double $\ast$$\ast$Jac, Vector3 {\bf p}, bool forward)
+\item 
+static void {\bf Compute\-Jacobian} ({\bf PProtein} $\ast$loop, vector$<$ int $>$ ind, double $\ast$$\ast$Jac, bool forward)
+\item 
+static void {\bf Compute\-Jacobian} ({\bf PProtein} $\ast$loop, double $\ast$$\ast$Jac)
+\item 
+static void {\bf Compute\-Pseudo\-Inverse} (double $\ast$$\ast$A, int m, int n, double $\ast$$\ast$Ainv)
+\item 
+static void {\bf Compute\-Null\-Space} (double $\ast$$\ast$Jac, int dim, bool Six\-Dimensional, {\bf Null\-Space\-Ret} $\ast$Ret)
+\item 
+static void {\bf Project\-On\-Null\-Space} ({\bf PProtein} $\ast$loop, vector$<$ int $>$ ind, bool forward, double To\-Project[$\,$], double After\-Project[$\,$])
+\item 
+static void {\bf Project\-On\-Null\-Space} ({\bf PProtein} $\ast$loop, vector$<$ int $>$ ind, bool forward, double To\-Project[$\,$], double After\-Project[$\,$], bool six\-Dimensional)
+\item 
+static vector$<$ vector$<$ {\bf CDof} $>$ $>$ {\bf Get\-BBDofs} (vector$<$ {\bf PProtein} $\ast$ $>$ loops)
+\item 
+static double {\bf RMSDCalpha} ({\bf PProtein} $\ast$protein0, {\bf PProtein} $\ast$protein1, int loopstart, int loopend)
+\item 
+static double {\bf RMSDBackbone} ({\bf PProtein} $\ast$protein0, {\bf PProtein} $\ast$protein1, int loopstart, int loopend)
+\item 
+static double {\bf RMSDAll\-Atom} ({\bf PProtein} $\ast$protein0, {\bf PProtein} $\ast$protein1, int loopstart, int loopend)
+\item 
+static bool {\bf Copy\-Backbone} ({\bf PProtein} $\ast$lp\-S, {\bf PProtein} $\ast$lp\-D, int start\-S, int start\-D, int num\-Res)
+\item 
+static bool {\bf Copy\-Backbone} ({\bf PProtein} $\ast$lp\-S, {\bf PProtein} $\ast$lp\-D)
+\item 
+static void {\bf Random\-Null\-Space\-Perturb} ({\bf PProtein} $\ast$lp, double pert\_\-mag)
+\item 
+static void {\bf Random\-Null\-Space\-Perturb} ({\bf PProtein} $\ast$lp, vector$<$ vector$<$ {\bf CDof} $>$ $>$ Dofs, double pert\_\-mag)
+\item 
+static {\bf IKSolution} {\bf Close\-Almost\-Closed\-Loop} ({\bf PProtein} $\ast$lp, Vector3 end\-Prior\-Goal, Vector3 end\-Goal, Vector3 end\-Next\-Goal)
+\item 
+static int {\bf gsl\_\-test} ()
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{PTools@{PTools}!GetGoals@{GetGoals}}
+\index{GetGoals@{GetGoals}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PTools::Get\-Goals ({\bf PAtom} $\ast$ {\em anchor\-Prior}, {\bf PAtom} $\ast$ {\em anchor\-End}, {\bf PAtom} $\ast$ {\em effector\-Prior}, {\bf PAtom} $\ast$ {\em effector\-End}, Real {\em len}, Real {\em angle1}, Real {\em angle2}, Vector3 \& {\em goal\-Prior}, Vector3 \& {\em goal\-End})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_1dfa39c06547a4614c8da7593ab7cd8d}
+
+
+Computes goal positions for chain loop closure. This version of the overloaded function {\tt Get\-Goals} does not make the assumption that the chain in question represents a protein, and so requires information about the location of both anchors and end effectors.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em anchor\-Prior}]The anchor closest to the disconencted chain loop. \item[{\em anchor\-End}]The anchor farthest from the disconnected chain loop. \item[{\em effector\-Prior}]The end effector whose goal is farthest from {\tt anchor\-Prior}. \item[{\em effector\-End}]The end effector whose goal is closest to {\tt anchor\-Prior}. \item[{\em len}]Distance between {\tt goal\-End} and {\tt anchor\-Prior}. \item[{\em angle1}]\doxyref{Angle}{p.}{classAngle} formed by {\tt goal\-Prior}-{\tt goal\-End}-{\tt anchor\-Prior}. \item[{\em angle2}]\doxyref{Angle}{p.}{classAngle} formed by {\tt goal\-End}-{\tt anchor\-Prior}-{\tt anchor\-End}. \item[{\em goal\-Prior}]Reference to the {\tt Vector3} in which to store the goal for {\tt effector\-Prior}. \item[{\em goal\-End}]Reference to the {\tt Vector3} in which to store the goal for {\tt effector\-End}. \end{description}
+\end{Desc}
+\index{PTools@{PTools}!GetGoals@{GetGoals}}
+\index{GetGoals@{GetGoals}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PTools::Get\-Goals ({\bf PProtein} $\ast$ {\em protein}, {\bf Protein\-Side} {\em side}, Vector3 \& {\em goal\-Prior}, Vector3 \& {\em goal\-End})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_0c40a187c7008d829bf668e64adc66af}
+
+
+Computes goal positions for the specified {\tt protein} on the specified {\tt Protein\-Side}. \index{PTools@{PTools}!GetGoals@{GetGoals}}
+\index{GetGoals@{GetGoals}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Protein\-Side} PTools::Get\-Goals ({\bf PProtein} $\ast$ {\em protein}, Vector3 \& {\em goal\-Prior}, Vector3 \& {\em goal\-End})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_1b1bdf3d714744f26c7390251000363b}
+
+
+Computes goal positions for the specified {\tt protein}. The {\tt Protein\-Side} direction is selected automatically based on distances between anchor and end effector atoms: whichever side ({\tt start}/{\tt end}) has the greater C-N anchor-effector distance is used. \index{PTools@{PTools}!CreateSlimProtein@{CreateSlimProtein}}
+\index{CreateSlimProtein@{CreateSlimProtein}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PProtein} $\ast$ PTools::Create\-Slim\-Protein ({\bf PProtein} $\ast$ {\em protein})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_5517503a269c0069547fda9a753a73d1}
+
+
+Caller is responsible for deallocating return. \index{PTools@{PTools}!CreateSlimProtein@{CreateSlimProtein}}
+\index{CreateSlimProtein@{CreateSlimProtein}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PProtein} $\ast$ PTools::Create\-Slim\-Protein ({\bf PProtein} $\ast$ {\em protein}, int {\em start\-Res}, int {\em end\-Res})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_648ee4fcbbf98e8b154b03435e3bfc5b}
+
+
+\index{PTools@{PTools}!EffectorAnchorDist@{EffectorAnchorDist}}
+\index{EffectorAnchorDist@{EffectorAnchorDist}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real PTools::Effector\-Anchor\-Dist ({\bf PProtein} $\ast$ {\em loop}, {\bf Protein\-Side} {\em side})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_89a96063b0767df29731c0f420978a72}
+
+
+Returns the distance between the {\em closest\/} anchor and end effector atoms on the specified {\tt side} of {\tt loop}. \index{PTools@{PTools}!LowestCommonChain@{LowestCommonChain}}
+\index{LowestCommonChain@{LowestCommonChain}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PChain} $\ast$ PTools::Lowest\-Common\-Chain ({\bf PChain} $\ast$ {\em c1}, {\bf PChain} $\ast$ {\em c2})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_4537f3b9db9194bbae87bb7397a3612e}
+
+
+Returns smallest shared chain or NULL if different top-level chains. \index{PTools@{PTools}!GetClusters@{GetClusters}}
+\index{GetClusters@{GetClusters}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}list$<$ {\bf PCluster} $>$ PTools::Get\-Clusters (const {\bf PConformation\-Space} \& {\em space}, {\bf Conformation\-Dist\-Fn} {\em dist\-Fn}, Real {\em threshold})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_33870401cc10e7886c54f88a1d38c79d}
+
+
+Performs conformation space clustering on the specified {\tt space}. The user-provided function {\tt comp\-Fn} is used to determine the distance between each pair of conformations. \index{PTools@{PTools}!getBackboneAtomIndex@{getBackboneAtomIndex}}
+\index{getBackboneAtomIndex@{getBackboneAtomIndex}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PTools::get\-Backbone\-Atom\-Index (int {\em res\-Index}, const string \& {\em atom\-ID})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_3b68df82f022bf768f866828e805ea0f}
+
+
+Returns the index (of atoms in the backbone) for atom {\tt atom\-ID} in residue number {\tt res\-Index}. \index{PTools@{PTools}!ComputeJacobian@{ComputeJacobian}}
+\index{ComputeJacobian@{ComputeJacobian}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PTools::Compute\-Jacobian ({\bf PProtein} $\ast$ {\em loop}, vector$<$ int $>$ {\em ind}, double $\ast$$\ast$ {\em Jac}, Vector3 {\em p}, bool {\em forward})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_876ec20acc2221ca788faf9103821818}
+
+
+Computes Jacoboian of specified loop, using specified DOFs (ind), tool frame position(p) and direction (forward/backward). \index{PTools@{PTools}!ComputeJacobian@{ComputeJacobian}}
+\index{ComputeJacobian@{ComputeJacobian}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PTools::Compute\-Jacobian ({\bf PProtein} $\ast$ {\em loop}, vector$<$ int $>$ {\em ind}, double $\ast$$\ast$ {\em Jac}, bool {\em forward})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_f2d240dfc0f0b161dfb5c972357c46ef}
+
+
+Computes Jacoboian of specified loop, using specified DOFs and direction \index{PTools@{PTools}!ComputeJacobian@{ComputeJacobian}}
+\index{ComputeJacobian@{ComputeJacobian}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PTools::Compute\-Jacobian ({\bf PProtein} $\ast$ {\em loop}, double $\ast$$\ast$ {\em Jac})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_61e041857237fa65f5b03ab59fa924eb}
+
+
+Computes Jacoboian of specified loop, using all backbone DOFs, C-anchor's position, and direction \index{PTools@{PTools}!ComputePseudoInverse@{ComputePseudoInverse}}
+\index{ComputePseudoInverse@{ComputePseudoInverse}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PTools::Compute\-Pseudo\-Inverse (double $\ast$$\ast$ {\em A}, int {\em m}, int {\em n}, double $\ast$$\ast$ {\em Ainv})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_7986460d238f5499e5ede73276dc6c2c}
+
+
+Computes Singularity Robust Inverse of m x n matrix A, The result is contained in Ainv. \index{PTools@{PTools}!ComputeNullSpace@{ComputeNullSpace}}
+\index{ComputeNullSpace@{ComputeNullSpace}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PTools::Compute\-Null\-Space (double $\ast$$\ast$ {\em Jac}, int {\em dim}, bool {\em Six\-Dimensional}, {\bf Null\-Space\-Ret} $\ast$ {\em Ret})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_4fe6959cfe28155540ec45960e1b763a}
+
+
+Computes Null Space of the Jacobian {\tt Jac}. The dimensions of Jac are 6 x dim or 3 x dim depending on {\tt Six\-Dimensional} \index{PTools@{PTools}!ProjectOnNullSpace@{ProjectOnNullSpace}}
+\index{ProjectOnNullSpace@{ProjectOnNullSpace}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PTools::Project\-On\-Null\-Space ({\bf PProtein} $\ast$ {\em loop}, vector$<$ int $>$ {\em ind}, bool {\em forward}, double {\em To\-Project}[$\,$], double {\em After\-Project}[$\,$])\hspace{0.3cm}{\tt  [static]}}\label{classPTools_e77a21ecc977cdf6691452b755a3d3b7}
+
+
+Projects Vector {\tt To\-Project} on the null space of Jacobian of the {\tt loop}, given the DOFs of loop({\tt ind}) to consider, direction of computation of Jacobian ({\tt forward}). The Projected vector is returned in {\tt After\-Project}. \index{PTools@{PTools}!ProjectOnNullSpace@{ProjectOnNullSpace}}
+\index{ProjectOnNullSpace@{ProjectOnNullSpace}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PTools::Project\-On\-Null\-Space ({\bf PProtein} $\ast$ {\em loop}, vector$<$ int $>$ {\em ind}, bool {\em forward}, double {\em To\-Project}[$\,$], double {\em After\-Project}[$\,$], bool {\em six\-Dimensional})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_578cc3b57845f6584f47021e5d9af487}
+
+
+\index{PTools@{PTools}!GetBBDofs@{GetBBDofs}}
+\index{GetBBDofs@{GetBBDofs}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ vector$<$ {\bf CDof} $>$ $>$ PTools::Get\-BBDofs (vector$<$ {\bf PProtein} $\ast$ $>$ {\em loops})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_ba26300faeee973f5f575979e1535814}
+
+
+Returns all backbone DOFs of all {\tt loops} \index{PTools@{PTools}!RMSDCalpha@{RMSDCalpha}}
+\index{RMSDCalpha@{RMSDCalpha}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double PTools::RMSDCalpha ({\bf PProtein} $\ast$ {\em protein0}, {\bf PProtein} $\ast$ {\em protein1}, int {\em loopstart}, int {\em loopend})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_0801883ba9d770f302b993cce7e21389}
+
+
+Returns RMSD between C\_\-alpha taoms of two proteins {\tt protein0} and {\tt protein1} starting from residue {\tt loopstart} and ending at residue {\tt loopend}. \index{PTools@{PTools}!RMSDBackbone@{RMSDBackbone}}
+\index{RMSDBackbone@{RMSDBackbone}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double PTools::RMSDBackbone ({\bf PProtein} $\ast$ {\em protein0}, {\bf PProtein} $\ast$ {\em protein1}, int {\em loopstart}, int {\em loopend})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_b0d7f11f649bd2bb18040dab6f98fcc3}
+
+
+Returns RMSD between backbones of two proteins {\tt protein0} and {\tt protein1} starting from residue {\tt loopstart} and ending at residue {\tt loopend}. \index{PTools@{PTools}!RMSDAllAtom@{RMSDAllAtom}}
+\index{RMSDAllAtom@{RMSDAllAtom}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double PTools::RMSDAll\-Atom ({\bf PProtein} $\ast$ {\em protein0}, {\bf PProtein} $\ast$ {\em protein1}, int {\em loopstart}, int {\em loopend})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_610604dddb8f3174dad747f8224cd5d5}
+
+
+Returns RMSD between all the atoms of two proteins {\tt protein0} and {\tt protein1} starting from residue {\tt loopstart} and ending at residue {\tt loopend}. \index{PTools@{PTools}!CopyBackbone@{CopyBackbone}}
+\index{CopyBackbone@{CopyBackbone}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PTools::Copy\-Backbone ({\bf PProtein} $\ast$ {\em lp\-S}, {\bf PProtein} $\ast$ {\em lp\-D}, int {\em start\-S}, int {\em start\-D}, int {\em num\-Res})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_255a11f2f4f7536ddada27c59fe64989}
+
+
+Modifies a protein loop/ fragment specified by {\tt lp\-D} to overlap it with a specified loop/fragment specified by {\tt lp\-S}. The loops start respectively at {\tt start\-S} and {\tt start\-D} and have {\tt num\-Res} number of residues. The N-C-alpha atoms of the starting residues of the loops should have same coordinates. \index{PTools@{PTools}!CopyBackbone@{CopyBackbone}}
+\index{CopyBackbone@{CopyBackbone}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PTools::Copy\-Backbone ({\bf PProtein} $\ast$ {\em lp\-S}, {\bf PProtein} $\ast$ {\em lp\-D})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_e8bcc86e4fe875fa2e7d41b822655dfa}
+
+
+Modifies a protein loop/ fragment specified by {\tt lp\-D} to overlap it with a specified loop/fragment specified by {\tt lp\-S}. \index{PTools@{PTools}!RandomNullSpacePerturb@{RandomNullSpacePerturb}}
+\index{RandomNullSpacePerturb@{RandomNullSpacePerturb}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PTools::Random\-Null\-Space\-Perturb ({\bf PProtein} $\ast$ {\em lp}, double {\em pert\_\-mag})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_ceb98a7f96087b869ccad857d3bef035}
+
+
+Finds a new conformation of loop specified by {\tt lp} after a random perturbation in its null space. The magnitude of perturbation is specified by {\tt pert\_\-mag}. All Backbone DOFs of the loop are perturbed. \index{PTools@{PTools}!RandomNullSpacePerturb@{RandomNullSpacePerturb}}
+\index{RandomNullSpacePerturb@{RandomNullSpacePerturb}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PTools::Random\-Null\-Space\-Perturb ({\bf PProtein} $\ast$ {\em lp}, vector$<$ vector$<$ {\bf CDof} $>$ $>$ {\em Dofs}, double {\em pert\_\-mag})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_a1d3c4eeb166177df189c34c0c5c61f7}
+
+
+Finds a new conformation of loop specified by {\tt lp} after a random perturbation in its null space. The magnitude of perturbation is specified by {\tt pert\_\-mag}. Only the DOFs specified by {\tt  Dofs} are perturbed. \index{PTools@{PTools}!CloseAlmostClosedLoop@{CloseAlmostClosedLoop}}
+\index{CloseAlmostClosedLoop@{CloseAlmostClosedLoop}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf IKSolution} PTools::Close\-Almost\-Closed\-Loop ({\bf PProtein} $\ast$ {\em lp}, Vector3 {\em end\-Prior\-Goal}, Vector3 {\em end\-Goal}, Vector3 {\em end\-Next\-Goal})\hspace{0.3cm}{\tt  [static]}}\label{classPTools_d2311938c08cbafb01ca5699da5d7dd6}
+
+
+In many applications one might want to relax the closure constraint by a little bit and in the end the loop specified by {\tt lp} has to be closed. This method finds a closed conformation closest in terms of RMSD distance to the open conformation. The pose of the closed conformation is defined by the three atoms {\tt end\-Prior\-Goal}, {\tt end\-Goal}, and {\tt end\-Next\-Goal}. \index{PTools@{PTools}!gsl_test@{gsl\_\-test}}
+\index{gsl_test@{gsl\_\-test}!PTools@{PTools}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PTools::gsl\_\-test ()\hspace{0.3cm}{\tt  [static]}}\label{classPTools_17b724f4a6faba567e1a181177041089}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PTools.h}\item 
+src/core/{\bf PTools.cc}\end{CompactItemize}

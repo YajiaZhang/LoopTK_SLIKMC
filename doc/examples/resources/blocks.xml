@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<blocks>
+<block name="ALA" type="sidechain">
+<atom name="CB" element="C" x="0" y="0" z="0" />
+</block>
+<block name="ARG" type="sidechain">
+<atom name="CB" element="C" x="0" y="0" z="0" />
+<atom name="CD" element="C" x="-0.992004" y="0.437" z="-2.287" />
+<atom name="CG" element="C" x="0.141998" y="0.735001" z="-1.333" />
+<atom name="CZ" element="C" x="-2.576" y="2.32" z="-1.981" />
+<atom name="NH1" element="N" x="-1.691" y="3.197" z="-2.439" />
+<atom name="NH2" element="N" x="-3.786" y="2.733" z="-1.625" />
+<atom name="NE" element="N" x="-2.271" y="1.026" z="-1.899" />
+<bond first="CB" second="CG" dof="1" />
+<bond first="CG" second="CD" dof="1" />
+<bond first="CD" second="NE" dof="1" />
+<bond first="NE" second="CZ" dof="1" />
+<bond first="CZ" second="NH1" dof="0" />
+<bond first="CZ" second="NH2" dof="0" />
+</block>
+<block name="ASN" type="sidechain">
+<atom name="CB" element="C" x="0" y="0" z="0" />
+<atom name="CG" element="C" x="1.028" y="1.112" z="0.0429997" />
+<atom name="ND2" element="N" x="1.12801" y="1.869" z="-1.045" />
+<atom name="OD1" element="O" x="1.729" y="1.285" z="1.04" />
+<bond first="CB" second="CG" dof="1" />
+<bond first="CG" second="ND2" dof="1" />
+<bond first="CG" second="OD1" dof="0" />
+</block>
+<block name="ASP" type="sidechain">
+<atom name="CB" element="C" x="0" y="0" z="0" />
+<atom name="CG" element="C" x="0.625" y="-0.160999" z="-1.376" />
+<atom name="OD1" element="O" x="1.871" y="-0.112" z="-1.481" />
+<atom name="OD2" element="O" x="-0.129997" y="-0.322998" z="-2.357" />
+<bond first="CB" second="CG" dof="1" />
+<bond first="CG" second="OD1" dof="0" />
+<bond first="CG" second="OD2" dof="0" />
+</block>
+<block name="CB" type="sidechain">
+<atom name="CB" element="C" x="0" y="0" z="0" />
+</block>
+<block name="CYS" type="sidechain">
+<atom name="CB" element="C" x="0" y="0" z="0" />
+<atom name="SG" element="S" x="1.81708" y="0" z="0" />
+<bond first="CB" second="SG" dof="1" />
+</block>
+<block name="GLN" type="sidechain">
+<atom name="CB" element="C" x="0" y="0" z="0" />
+<atom name="CD" element="C" x="2.312" y="0.670002" z="-0.856" />
+<atom name="CG" element="C" x="1.194" y="0.938999" z="0.142" />
+<atom name="NE2" element="N" x="3.51701" y="1.121" z="-0.52" />
+<atom name="OE1" element="O" x="2.096" y="0.0859985" z="-1.92" />
+<bond first="CB" second="CG" dof="1" />
+<bond first="CG" second="CD" dof="1" />
+<bond first="CD" second="OE1" dof="0" />
+<bond first="CD" second="NE2" dof="1" />
+</block>
+<block name="GLU" type="sidechain">
+<atom name="CB" element="C" x="0" y="0" z="0" />
+<atom name="CD" element="C" x="1.295" y="0.41" z="2.147" />
+<atom name="CG" element="C" x="1.032" y="-0.538002" z="0.986" />
+<atom name="OE1" element="O" x="1.016" y="1.623" z="2.005" />
+<atom name="OE2" element="O" x="1.796" y="-0.0540009" z="3.199" />
+<bond first="CB" second="CG" dof="1" />
+<bond first="CG" second="CD" dof="1" />
+<bond first="CD" second="OE1" dof="0" />
+<bond first="CD" second="OE2" dof="0" />
+</block>
+<block name="GLY" type="sidechain">
+</block>
+<block name="HIS" type="sidechain">
+<atom name="CB" element="C" x="0" y="0" z="0" />
+<atom name="CG" element="C" x="0.739006" y="-1.184" z="0.543" />
+<atom name="ND1" element="N" x="0.408005" y="-2.482" z="0.219" />
+<atom name="NE2" element="N" x="2.097" y="-2.598" z="1.533" />
+<atom name="CD2" element="C" x="1.807" y="-1.265" z="1.374" />
+<atom name="CE1" element="C" x="1.238" y="-3.312" z="0.827" />
+<bond first="CB" second="CG" dof="1" />
+<bond first="CG" second="ND1" dof="0" />
+<bond first="CG" second="CD2" dof="0" />
+<bond first="ND1" second="CE1" dof="0" />
+<bond first="CD2" second="NE2" dof="0" />
+<bond first="CE1" second="NE2" dof="0" />
+</block>
+<block name="ILE" type="sidechain">
+<atom name="CB" element="C" x="0" y="0" z="0" />
+<atom name="CD1" element="C" x="-2.439" y="-0.738998" z="0.0689998" />
+<atom name="CG1" element="C" x="-1.114" y="-0.833" z="-0.639" />
+<atom name="CG2" element="C" x="0.131004" y="-0.267998" z="1.5" />
+<bond first="CB" second="CG1" dof="1" />
+<bond first="CB" second="CG2" dof="1" />
+<bond first="CG1" second="CD1" dof="1" />
+</block>
+<block name="LEU" type="sidechain">
+<atom name="CB" element="C" x="0" y="0" z="0" />
+<atom name="CG" element="C" x="-1.128" y="0.0850029" z="-1.037" />
+<atom name="CD1" element="C" x="-1.954" y="-1.18" z="-1.009" />
+<atom name="CD2" element="C" x="-1.997" y="1.301" z="-0.753" />
+<bond first="CB" second="CG" dof="1" />
+<bond first="CG" second="CD1" dof="1" />
+<bond first="CG" second="CD2" dof="1" />
+</block>
+<block name="LYS" type="sidechain">
+<atom name="CB" element="C" x="0" y="0" z="0" />
+<atom name="CD" element="C" x="0.504005" y="-2.442" z="0.445" />
+<atom name="CE" element="C" x="1.01701" y="-2.76" z="-0.952" />
+<atom name="CG" element="C" x="-0.561996" y="-1.356" z="0.422" />
+<atom name="NZ" element="N" x="1.96201" y="-3.91" z="-0.937" />
+<bond first="CB" second="CG" dof="1" />
+<bond first="CG" second="CD" dof="1" />
+<bond first="CD" second="CE" dof="1" />
+<bond first="CE" second="NZ" dof="1" />
+</block>
+<block name="MET" type="sidechain">
+<atom name="CB" element="C" x="0" y="0" z="0" />
+<atom name="CE" element="C" x="-2.258" y="2.393" z="-0.65" />
+<atom name="CG" element="C" x="-0.779999" y="0.764" z="1.06" />
+<atom name="SD" element="S" x="-2.5" y="1.086" z="0.582" />
+<bond first="CB" second="CG" dof="1" />
+<bond first="CG" second="SD" dof="1" />
+<bond first="SD" second="CE" dof="1" />
+</block>
+<block name="MSE" type="sidechain">
+<atom name="CB" element="C" x="0" y="0" z="0" />
+<atom name="CG" element="C" x="-0.454" y="-0.893" z="1.168" />
+<atom name="SE" element="SE" x="-1.535" y="0.0489998" z="2.41" />
+<atom name="CE" element="C" x="-0.238" y="1.164" z="3.084" />
+<bond first="CB" second="CG" dof="1" />
+<bond first="CG" second="SE" dof="1" />
+<bond first="SE" second="CE" dof="1" />
+</block>
+<block name="OXY" type="sidechain">
+<atom name="O" element="O" x="0" y="0" z="0" />
+</block>
+<block name="PHE" type="sidechain">
+<atom name="CB" element="C" x="0" y="0" z="0" />
+<atom name="CG" element="C" x="-1.287" y="0.608002" z="-0.506001" />
+<atom name="CZ" element="C" x="-3.668" y="1.767" z="-1.425" />
+<atom name="CD1" element="C" x="-2.52" y="0.156002" z="-0.0430002" />
+<atom name="CD2" element="C" x="-1.262" y="1.644" z="-1.436" />
+<atom name="CE1" element="C" x="-3.707" y="0.733002" z="-0.499" />
+<atom name="CE2" element="C" x="-2.446" y="2.224" z="-1.896" />
+<bond first="CB" second="CG" dof="1" />
+<bond first="CG" second="CD1" dof="0" />
+<bond first="CG" second="CD2" dof="0" />
+<bond first="CD1" second="CE1" dof="0" />
+<bond first="CD2" second="CE2" dof="0" />
+<bond first="CE1" second="CZ" dof="0" />
+<bond first="CE2" second="CZ" dof="0" />
+</block>
+<block name="PRO" type="sidechain">
+<atom name="CB" element="C" x="0" y="0" z="0" />
+<atom name="CD" element="C" x="-1.982" y="-0.923" z="-0.854" />
+<atom name="CG" element="C" x="-1.236" y="-0.724003" z="0.452" />
+<bond first="CB" second="CG" dof="0" />
+<bond first="CG" second="CD" dof="0" />
+</block>
+<block name="SER" type="sidechain">
+<atom name="CB" element="C" x="0" y="0" z="0" />
+<atom name="OG" element="O" x="1.41734" y="0" z="0" />
+<bond first="CB" second="OG" dof="1" />
+</block>
+<block name="THR" type="sidechain">
+<atom name="CB" element="C" x="0" y="0" z="0" />
+<atom name="OG1" element="O" x="-1.151" y="0.261002" z="-0.815" />
+<atom name="CG2" element="C" x="0.915001" y="-0.993999" z="-0.696" />
+<bond first="CB" second="OG1" dof="1" />
+<bond first="CB" second="CG2" dof="1" />
+</block>
+<block name="TRP" type="sidechain">
+<atom name="CB" element="C" x="0" y="0" z="0" />
+<atom name="CG" element="C" x="-0.343002" y="0.516003" z="-1.37" />
+<atom name="NE1" element="N" x="-0.194" y="1.078" z="-3.54" />
+<atom name="CZ2" element="C" x="-2.575" y="1.771" z="-3.949" />
+<atom name="CZ3" element="C" x="-3.953" y="1.564" z="-1.964" />
+<atom name="CD1" element="C" x="0.491997" y="0.609001" z="-2.445" />
+<atom name="CD2" element="C" x="-1.63" y="0.957001" z="-1.822" />
+<atom name="CE2" element="C" x="-1.499" y="1.299" z="-3.186" />
+<atom name="CE3" element="C" x="-2.883" y="1.094" z="-1.206" />
+<atom name="CH2" element="C" x="-3.789" y="1.897" z="-3.323" />
+<bond first="CB" second="CG" dof="1" />
+<bond first="CG" second="CD1" dof="0" />
+<bond first="CG" second="CD2" dof="0" />
+<bond first="CD1" second="NE1" dof="0" />
+<bond first="NE1" second="CE2" dof="0" />
+<bond first="CE2" second="CD2" dof="0" />
+<bond first="CD2" second="CE3" dof="0" />
+<bond first="CE3" second="CZ3" dof="0" />
+<bond first="CZ3" second="CH2" dof="0" />
+<bond first="CH2" second="CZ2" dof="0" />
+<bond first="CZ2" second="CE2" dof="0" />
+</block>
+<block name="TYR" type="sidechain">
+<atom name="CB" element="C" x="0" y="0" z="0" />
+<atom name="CG" element="C" x="-0.846001" y="1.248" z="0.112" />
+<atom name="CZ" element="C" x="-2.4" y="3.556" z="0.394" />
+<atom name="OH" element="O" x="-3.173" y="4.688" z="0.548" />
+<atom name="CD1" element="C" x="-0.282997" y="2.514" z="-0.0559998" />
+<atom name="CD2" element="C" x="-2.204" y="1.165" z="0.423" />
+<atom name="CE1" element="C" x="-1.054" y="3.67" z="0.0829999" />
+<atom name="CE2" element="C" x="-2.979" y="2.31" z="0.565" />
+<bond first="CB" second="CG" dof="1" />
+<bond first="CG" second="CD1" dof="0" />
+<bond first="CG" second="CD2" dof="0" />
+<bond first="CD1" second="CE1" dof="0" />
+<bond first="CD2" second="CE2" dof="0" />
+<bond first="CE1" second="CZ" dof="0" />
+<bond first="CE2" second="CZ" dof="0" />
+<bond first="CZ" second="OH" dof="1" />
+</block>
+<block name="VAL" type="sidechain">
+<atom name="CB" element="C" x="0" y="0" z="0" />
+<atom name="CG1" element="C" x="-1.292" y="0.396" z="0.704" />
+<atom name="CG2" element="C" x="0.338997" y="-1.453" z="0.299" />
+<bond first="CB" second="CG1" dof="1" />
+<bond first="CB" second="CG2" dof="1" />
+</block>
+<block name="backbone" type="backbone">
+<atom name="CA" element="C" x="0" y="0" z="0" />
+<atom name="C" element="C" x="-0.560688" y="0" z="-1.41903" />
+<atom name="N" element="N" x="1.45884" y="0" z="0" />
+<bond first="N" second="CA" dof="1" />
+<bond first="CA" second="C" dof="1" />
+</block>
+</blocks>

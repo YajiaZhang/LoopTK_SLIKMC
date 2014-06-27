@@ -1,0 +1,115 @@
+\hypertarget{classRotamerGridKey}{\section{Rotamer\-Grid\-Key Class Reference}
+\label{classRotamerGridKey}\index{Rotamer\-Grid\-Key@{Rotamer\-Grid\-Key}}
+}
+
+
+An auxilliary class for class \hyperlink{classRotamer}{Rotamer}. This class used as a key to access one \hyperlink{classRotamerGrid}{Rotamer\-Grid} in the map structure.  
+
+
+
+
+{\ttfamily \#include $<$Rotamer.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRotamerGridKey_aee87d6af570de7f03b485cbed293eb8d}{Rotamer\-Grid\-Key} (const string \&name, const int \&phi, const int \&psi)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+string \hyperlink{classRotamerGridKey_ad88595feb7e0c7a4dbd0ac21936a4d11}{to\-String} () const 
+\begin{DoxyCompactList}\small\item\em Get a string containing residue name, backbone phi and psi angles. \end{DoxyCompactList}\item 
+\hypertarget{classRotamerGridKey_a3578afe99c7106457f0d89a71cb6ef17}{void \hyperlink{classRotamerGridKey_a3578afe99c7106457f0d89a71cb6ef17}{print} () const }\label{classRotamerGridKey_a3578afe99c7106457f0d89a71cb6ef17}
+
+\begin{DoxyCompactList}\small\item\em Print the residue name, backbone phi,psi angles. \end{DoxyCompactList}\item 
+bool \hyperlink{classRotamerGridKey_adf8cb8448cf8226bfa7272fcc4f2d1a6}{operator==} (const \hyperlink{classRotamerGridKey}{Rotamer\-Grid\-Key} \&key) const 
+\begin{DoxyCompactList}\small\item\em \char`\"{}==\char`\"{} operator override to compare two Rotemer\-Grid\-Keys. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classRotamerGridKey_a2d613cdc3ef66ac31971912f8a739820}{string {\bfseries name}}\label{classRotamerGridKey_a2d613cdc3ef66ac31971912f8a739820}
+
+\item 
+\hypertarget{classRotamerGridKey_a0077bcfd515e11fb1381858f96b58d70}{int {\bfseries phi}}\label{classRotamerGridKey_a0077bcfd515e11fb1381858f96b58d70}
+
+\item 
+\hypertarget{classRotamerGridKey_ab746864738cf575c10f8d0e2cd0fc20d}{int {\bfseries psi}}\label{classRotamerGridKey_ab746864738cf575c10f8d0e2cd0fc20d}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classRotamerGridKey_abbb5e1f6ca569c67c8a354f8698eb62e}{class {\bfseries Rotamer}}\label{classRotamerGridKey_abbb5e1f6ca569c67c8a354f8698eb62e}
+
+\item 
+\hypertarget{classRotamerGridKey_a949353fe14fa04083e8cc7121c6f7d3e}{struct {\bfseries Rotamer\-Grid\-Key\-Comparator}}\label{classRotamerGridKey_a949353fe14fa04083e8cc7121c6f7d3e}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An auxilliary class for class \hyperlink{classRotamer}{Rotamer}. This class used as a key to access one \hyperlink{classRotamerGrid}{Rotamer\-Grid} in the map structure. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classRotamerGridKey_aee87d6af570de7f03b485cbed293eb8d}{\index{Rotamer\-Grid\-Key@{Rotamer\-Grid\-Key}!Rotamer\-Grid\-Key@{Rotamer\-Grid\-Key}}
+\index{Rotamer\-Grid\-Key@{Rotamer\-Grid\-Key}!RotamerGridKey@{Rotamer\-Grid\-Key}}
+\subsubsection[{Rotamer\-Grid\-Key}]{\setlength{\rightskip}{0pt plus 5cm}Rotamer\-Grid\-Key\-::\-Rotamer\-Grid\-Key (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{name, }
+\item[{const int \&}]{phi, }
+\item[{const int \&}]{psi}
+\end{DoxyParamCaption}
+)}}\label{classRotamerGridKey_aee87d6af570de7f03b485cbed293eb8d}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & residue name \\
+\hline
+{\em phi} & backbone phi angle in 10 base \\
+\hline
+{\em psi} & backebone psi angle in 10 base \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classRotamerGridKey_adf8cb8448cf8226bfa7272fcc4f2d1a6}{\index{Rotamer\-Grid\-Key@{Rotamer\-Grid\-Key}!operator==@{operator==}}
+\index{operator==@{operator==}!RotamerGridKey@{Rotamer\-Grid\-Key}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool Rotamer\-Grid\-Key\-::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Rotamer\-Grid\-Key} \&}]{key}
+\end{DoxyParamCaption}
+) const}}\label{classRotamerGridKey_adf8cb8448cf8226bfa7272fcc4f2d1a6}
+
+
+\char`\"{}==\char`\"{} operator override to compare two Rotemer\-Grid\-Keys. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & an instance of \hyperlink{classRotamerGridKey}{Rotamer\-Grid\-Key} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, same; otherwise, false 
+\end{DoxyReturn}
+\hypertarget{classRotamerGridKey_ad88595feb7e0c7a4dbd0ac21936a4d11}{\index{Rotamer\-Grid\-Key@{Rotamer\-Grid\-Key}!to\-String@{to\-String}}
+\index{to\-String@{to\-String}!RotamerGridKey@{Rotamer\-Grid\-Key}}
+\subsubsection[{to\-String}]{\setlength{\rightskip}{0pt plus 5cm}string Rotamer\-Grid\-Key\-::to\-String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classRotamerGridKey_ad88595feb7e0c7a4dbd0ac21936a4d11}
+
+
+Get a string containing residue name, backbone phi and psi angles. 
+
+\begin{DoxyReturn}{Returns}
+a string 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Rotamer.\-h\item 
+Rotamer.\-cc\end{DoxyCompactItemize}

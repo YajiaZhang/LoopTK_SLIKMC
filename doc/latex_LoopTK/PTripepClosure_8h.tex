@@ -1,0 +1,626 @@
+\section{src/core/PTripep\-Closure.h File Reference}
+\label{PTripepClosure_8h}\index{src/core/PTripepClosure.h@{src/core/PTripepClosure.h}}
+
+
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf pi}~3.141592653589793238462643383279502884197e0
+\begin{CompactList}\small\item\em ---------------------------------------------------------------------------- \item\end{CompactList}\item 
+\#define {\bf two\_\-pi}~2.0e0$\ast$pi
+\item 
+\#define {\bf deg2rad}~pi/180.0e0
+\item 
+\#define {\bf rad2deg}~180.0e0/pi
+\item 
+\#define {\bf max}(a, b)~((a) $>$ (b))? (a) : (b)
+\item 
+\#define {\bf min}(a, b)~((a) $<$ (b))? (a) : (b)
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+double {\bf dot\_\-product} (double va[$\,$], double vb[$\,$])
+\item 
+void {\bf matmul} (double ma[3][3], double mb[3], double mc[3])
+\item 
+double {\bf sign} (double a, double b)
+\item 
+void {\bf solve\_\-3pep\_\-poly} (double r\_\-n1[3], double r\_\-a1[3], double r\_\-a3[3], double r\_\-c3[3], double r\_\-soln\_\-n[16][3][3], double r\_\-soln\_\-a[16][3][3], double r\_\-soln\_\-c[16][3][3], int $\ast$n\_\-soln)
+\begin{CompactList}\small\item\em ----------------------------------------------------------------------- \item\end{CompactList}\item 
+void {\bf initialize\_\-loop\_\-closure} (double b\_\-len[$\,$], double b\_\-ang[$\,$], double t\_\-ang[$\,$])
+\item 
+void {\bf get\_\-input\_\-angles} (int $\ast$n\_\-soln, double r\_\-n1[$\,$], double r\_\-a1[$\,$], double r\_\-a3[$\,$], double r\_\-c3[$\,$])
+\item 
+void {\bf test\_\-two\_\-cone\_\-existence\_\-soln} (double tt, double kx, double et, double ap, int $\ast$n\_\-soln, char cone\_\-type[$\,$])
+\item 
+void {\bf get\_\-poly\_\-coeff} (double poly\_\-coeff[$\,$])
+\item 
+void {\bf poly\_\-mul\_\-sub2} (double u1[5][5], double u2[5][5], double u3[5][5], double u4[5][5], int p1[2], int p2[2], int p3[2], int p4[2], double u5[5][5], int p5[2])
+\begin{CompactList}\small\item\em ---------------------------------------------------------------------------- \item\end{CompactList}\item 
+void {\bf poly\_\-mul2} (double u1[5][5], double u2[5][5], int p1[2], int p2[2], double u3[5][5], int p3[2])
+\begin{CompactList}\small\item\em ---------------------------------------------------------------------------- \item\end{CompactList}\item 
+void {\bf poly\_\-sub2} (double u1[5][5], double u2[5][5], int p1[2], int p2[2], double u3[5][5], int p3[2])
+\begin{CompactList}\small\item\em ---------------------------------------------------------------------------- \item\end{CompactList}\item 
+void {\bf poly\_\-mul\_\-sub1} (double u1[17], double u2[17], double u3[17], double u4[17], int p1, int p2, int p3, int p4, double u5[17], int $\ast$p5)
+\begin{CompactList}\small\item\em ---------------------------------------------------------------------------- \item\end{CompactList}\item 
+void {\bf poly\_\-mul1} (double u1[$\,$], double u2[$\,$], int p1, int p2, double u3[$\,$], int $\ast$p3)
+\item 
+void {\bf poly\_\-sub1} (double u1[$\,$], double u2[$\,$], int p1, int p2, double u3[$\,$], int $\ast$p3)
+\item 
+void {\bf coord\_\-from\_\-poly\_\-roots} (int $\ast$n\_\-soln, double roots[16], double r\_\-n1[3], double r\_\-a1[3], double r\_\-a3[3], double r\_\-c3[3], double r\_\-soln\_\-n[16][3][3], double r\_\-soln\_\-a[16][3][3], double r\_\-soln\_\-c[16][3][3])
+\begin{CompactList}\small\item\em ---------------------------------------------------------------------------- \item\end{CompactList}\item 
+double {\bf calc\_\-t2} (double t0)
+\begin{CompactList}\small\item\em ----------------------------------------------------------------------- \item\end{CompactList}\item 
+double {\bf calc\_\-t1} (double t0, double t2)
+\begin{CompactList}\small\item\em ----------------------------------------------------------------------- \item\end{CompactList}\item 
+void {\bf calc\_\-dih\_\-ang} (double r1[$\,$], double r2[$\,$], double r3[$\,$], double $\ast$angle)
+\item 
+void {\bf calc\_\-bnd\_\-ang} (double r1[$\,$], double r2[$\,$], double $\ast$angle)
+\item 
+void {\bf cross} (double {\bf p}[$\,$], double q[$\,$], double s[$\,$])
+\item 
+void {\bf quaternion} (double axis[$\,$], double quarter\_\-ang, double {\bf p}[$\,$])
+\item 
+void {\bf rotation\_\-matrix} (double q[4], double U[3][3])
+\begin{CompactList}\small\item\em ----------------------------------------------------------------------- \item\end{CompactList}\item 
+double {\bf dot\_\-product} (double va[3], double vb[3])
+\item 
+void {\bf initialize\_\-loop\_\-closure} (double b\_\-len[6], double b\_\-ang[7], double t\_\-ang[2])
+\begin{CompactList}\small\item\em ----------------------------------------------------------------------- \item\end{CompactList}\item 
+void {\bf get\_\-input\_\-angles} (int $\ast$n\_\-soln, double r\_\-n1[3], double r\_\-a1[3], double r\_\-a3[3], double r\_\-c3[3])
+\begin{CompactList}\small\item\em ----------------------------------------------------------------------- \item\end{CompactList}\item 
+void {\bf test\_\-two\_\-cone\_\-existence\_\-soln} (double tt, double kx, double et, double ap, int $\ast$n\_\-soln, char cone\_\-type[2])
+\begin{CompactList}\small\item\em ----------------------------------------------------------------------- \item\end{CompactList}\item 
+void {\bf get\_\-poly\_\-coeff} (double poly\_\-coeff[16+1])
+\begin{CompactList}\small\item\em ----------------------------------------------------------------------- \item\end{CompactList}\item 
+void {\bf poly\_\-mul1} (double u1[17], double u2[17], int p1, int p2, double u3[17], int $\ast$p3)
+\begin{CompactList}\small\item\em ---------------------------------------------------------------------------- \item\end{CompactList}\item 
+void {\bf poly\_\-sub1} (double u1[17], double u2[17], int p1, int p2, double u3[17], int $\ast$p3)
+\begin{CompactList}\small\item\em ---------------------------------------------------------------------------- \item\end{CompactList}\item 
+void {\bf calc\_\-dih\_\-ang} (double r1[3], double r2[3], double r3[3], double $\ast$angle)
+\begin{CompactList}\small\item\em ----------------------------------------------------------------------- \item\end{CompactList}\item 
+void {\bf calc\_\-bnd\_\-ang} (double r1[3], double r2[3], double $\ast$angle)
+\begin{CompactList}\small\item\em ----------------------------------------------------------------------- \item\end{CompactList}\item 
+void {\bf cross} (double {\bf p}[3], double q[3], double s[3])
+\begin{CompactList}\small\item\em ----------------------------------------------------------------------- \item\end{CompactList}\item 
+void {\bf quaternion} (double axis[3], double quarter\_\-ang, double {\bf p}[4])
+\begin{CompactList}\small\item\em ----------------------------------------------------------------------- \item\end{CompactList}\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+int {\bf max\_\-soln} = 16
+\item 
+int {\bf deg\_\-pol} = 16
+\item 
+int {\bf print\_\-level} = 1
+\item 
+double {\bf len0} [6]
+\item 
+double {\bf b\_\-ang0} [7]
+\item 
+double {\bf t\_\-ang0} [2]
+\item 
+double {\bf aa13\_\-min\_\-sqr}
+\item 
+double {\bf aa13\_\-max\_\-sqr}
+\item 
+double {\bf delta} [4]
+\item 
+double {\bf xi} [3]
+\item 
+double {\bf eta} [3]
+\item 
+double {\bf alpha} [3]
+\item 
+double {\bf theta} [3]
+\item 
+double {\bf cos\_\-alpha} [3]
+\item 
+double {\bf sin\_\-alpha} [3]
+\item 
+double {\bf cos\_\-theta} [3]
+\item 
+double {\bf sin\_\-theta} [3]
+\item 
+double {\bf cos\_\-delta} [4]
+\item 
+double {\bf sin\_\-delta} [4]
+\item 
+double {\bf cos\_\-xi} [3]
+\item 
+double {\bf cos\_\-eta} [3]
+\item 
+double {\bf sin\_\-xi} [3]
+\item 
+double {\bf sin\_\-eta} [3]
+\item 
+double {\bf r\_\-a1a3} [3]
+\item 
+double {\bf r\_\-a1n1} [3]
+\item 
+double {\bf r\_\-a3c3} [3]
+\item 
+double {\bf b\_\-a1a3} [3]
+\item 
+double {\bf b\_\-a1n1} [3]
+\item 
+double {\bf b\_\-a3c3} [3]
+\item 
+double {\bf len\_\-na} [3]
+\item 
+double {\bf len\_\-ac} [3]
+\item 
+double {\bf len\_\-aa} [3]
+\item 
+double {\bf C0} [3][3]
+\item 
+double {\bf C1} [3][3]
+\item 
+double {\bf C2} [3][3]
+\item 
+double {\bf Q} [5][17]
+\item 
+double {\bf R} [3][17]
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{PTripepClosure.h@{PTripep\-Closure.h}!deg2rad@{deg2rad}}
+\index{deg2rad@{deg2rad}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define deg2rad~pi/180.0e0}\label{PTripepClosure_8h_0224561b0395b85ca3b1c11acb093ea4}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!max@{max}}
+\index{max@{max}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define max(a, b)~((a) $>$ (b))? (a) : (b)}\label{PTripepClosure_8h_ba9726df73d617ec0e6116d8a1b81050}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!min@{min}}
+\index{min@{min}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define min(a, b)~((a) $<$ (b))? (a) : (b)}\label{PTripepClosure_8h_9cc09fd5237e54feaa3e4cee4fedc869}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!pi@{pi}}
+\index{pi@{pi}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define pi~3.141592653589793238462643383279502884197e0}\label{PTripepClosure_8h_c2b1cb8b3fb7713601463e82d1d2b627}
+
+
+---------------------------------------------------------------------------- 
+
+$\ast$ b\_\-ang(1:7): bond angles (N1-A1-C1, A1-C1-N2, ..., N3-A3-C3) t\_\-ang(1:2): torsion angles (A1-C1-N2-A2, A2-C2-N3-A3)
+
+subroutine solv\_\-3pep\_\-poly(r\_\-n1, r\_\-a1, r\_\-a3, r\_\-c3, \& r\_\-soln\_\-n, r\_\-soln\_\-a, r\_\-soln\_\-c, n\_\-soln)
+
+input: r\_\-n1(3), r\_\-a1(3), r\_\-a3(3), r\_\-c3(3): Cartesian coordinates of N and CA atoms of the first residue and CA and C atoms of the last (third) residue. output: n\_\-soln: number of alternative loop closure solutions. r\_\-soln\_\-n(3,3,8), r\_\-soln\_\-a(3,3,8), r\_\-soln\_\-c(3,3,8): Cartesian coordinates of loop closure solutions. first dimension: x, y, z component second dim: residue number third dim: solution number
+
+---------------------------------------------------------------------------- \index{PTripepClosure.h@{PTripep\-Closure.h}!rad2deg@{rad2deg}}
+\index{rad2deg@{rad2deg}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define rad2deg~180.0e0/pi}\label{PTripepClosure_8h_d0dfcdf5be10330f25162e018afca97e}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!two_pi@{two\_\-pi}}
+\index{two_pi@{two\_\-pi}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define two\_\-pi~2.0e0$\ast$pi}\label{PTripepClosure_8h_ca29ec85c5cbb1c5b525fc762158d42e}
+
+
+
+
+\subsection{Function Documentation}
+\index{PTripepClosure.h@{PTripep\-Closure.h}!calc_bnd_ang@{calc\_\-bnd\_\-ang}}
+\index{calc_bnd_ang@{calc\_\-bnd\_\-ang}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void calc\_\-bnd\_\-ang (double {\em r1}[3], double {\em r2}[3], double $\ast$ {\em angle})}\label{PTripepClosure_8h_e0e2bb6a9c4850ae034b55db08ef17fb}
+
+
+----------------------------------------------------------------------- 
+
+
+
+----------------------------------------------------------------------- assume that each vector is normalized r1=Rba, r2=Rbc: angle between r1 and r2 ----------------------------------------------------------------------- \index{PTripepClosure.h@{PTripep\-Closure.h}!calc_bnd_ang@{calc\_\-bnd\_\-ang}}
+\index{calc_bnd_ang@{calc\_\-bnd\_\-ang}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void calc\_\-bnd\_\-ang (double {\em r1}[$\,$], double {\em r2}[$\,$], double $\ast$ {\em angle})}\label{PTripepClosure_8h_8d15e4f753f71a982803ba85d400334e}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!calc_dih_ang@{calc\_\-dih\_\-ang}}
+\index{calc_dih_ang@{calc\_\-dih\_\-ang}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void calc\_\-dih\_\-ang (double {\em r1}[3], double {\em r2}[3], double {\em r3}[3], double $\ast$ {\em angle})}\label{PTripepClosure_8h_d643a1e676ed9d0a8ece4510764a42ce}
+
+
+----------------------------------------------------------------------- 
+
+
+
+----------------------------------------------------------------------- r1=Rab, r2=Rbc, r3=Rcd : angle between planes abc and bcd ----------------------------------------------------------------------- \index{PTripepClosure.h@{PTripep\-Closure.h}!calc_dih_ang@{calc\_\-dih\_\-ang}}
+\index{calc_dih_ang@{calc\_\-dih\_\-ang}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void calc\_\-dih\_\-ang (double {\em r1}[$\,$], double {\em r2}[$\,$], double {\em r3}[$\,$], double $\ast$ {\em angle})}\label{PTripepClosure_8h_e080deae6221439aa79d9a64266dab63}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!calc_t1@{calc\_\-t1}}
+\index{calc_t1@{calc\_\-t1}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double calc\_\-t1 (double {\em t0}, double {\em t2})}\label{PTripepClosure_8h_97edf0a2ece832b26e737203711dad8b}
+
+
+----------------------------------------------------------------------- 
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!calc_t2@{calc\_\-t2}}
+\index{calc_t2@{calc\_\-t2}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double calc\_\-t2 (double {\em t0})}\label{PTripepClosure_8h_5d51d54f1f64b63f2edc36ed996eaee8}
+
+
+----------------------------------------------------------------------- 
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!coord_from_poly_roots@{coord\_\-from\_\-poly\_\-roots}}
+\index{coord_from_poly_roots@{coord\_\-from\_\-poly\_\-roots}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void coord\_\-from\_\-poly\_\-roots (int $\ast$ {\em n\_\-soln}, double {\em roots}[16], double {\em r\_\-n1}[3], double {\em r\_\-a1}[3], double {\em r\_\-a3}[3], double {\em r\_\-c3}[3], double {\em r\_\-soln\_\-n}[16][3][3], double {\em r\_\-soln\_\-a}[16][3][3], double {\em r\_\-soln\_\-c}[16][3][3])}\label{PTripepClosure_8h_f44b3a456561aff184243204d214e0ea}
+
+
+---------------------------------------------------------------------------- 
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!cross@{cross}}
+\index{cross@{cross}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void cross (double {\em p}[3], double {\em q}[3], double {\em s}[3])}\label{PTripepClosure_8h_bd012c0000f231f59e7fd5206823799c}
+
+
+----------------------------------------------------------------------- 
+
+
+
+----------------------------------------------------------------------- \index{PTripepClosure.h@{PTripep\-Closure.h}!cross@{cross}}
+\index{cross@{cross}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void cross (double {\em p}[$\,$], double {\em q}[$\,$], double {\em s}[$\,$])}\label{PTripepClosure_8h_a8f1e1511ade1c21f0a01d0be1d095aa}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!dot_product@{dot\_\-product}}
+\index{dot_product@{dot\_\-product}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double dot\_\-product (double {\em va}[3], double {\em vb}[3])}\label{PTripepClosure_8h_3566359dbdc5bef325337831425b75d5}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!dot_product@{dot\_\-product}}
+\index{dot_product@{dot\_\-product}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double dot\_\-product (double {\em va}[$\,$], double {\em vb}[$\,$])}\label{PTripepClosure_8h_d168c6bd6e9220010743327b140fae26}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!get_input_angles@{get\_\-input\_\-angles}}
+\index{get_input_angles@{get\_\-input\_\-angles}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-input\_\-angles (int $\ast$ {\em n\_\-soln}, double {\em r\_\-n1}[3], double {\em r\_\-a1}[3], double {\em r\_\-a3}[3], double {\em r\_\-c3}[3])}\label{PTripepClosure_8h_4e7f0982e1205e03439e0801f493a198}
+
+
+----------------------------------------------------------------------- 
+
+
+
+----------------------------------------------------------------------- Input angles and vectors (later used in coordinates) -----------------------------------------------------------------------
+
+-----------------------------------------------------------------------
+
+print$\ast$, 'return 0' print$\ast$, sqrt(dr\_\-sqr), sqrt(aa13\_\-min\_\-sqr), sqrt(aa13\_\-max\_\-sqr) \index{PTripepClosure.h@{PTripep\-Closure.h}!get_input_angles@{get\_\-input\_\-angles}}
+\index{get_input_angles@{get\_\-input\_\-angles}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-input\_\-angles (int $\ast$ {\em n\_\-soln}, double {\em r\_\-n1}[$\,$], double {\em r\_\-a1}[$\,$], double {\em r\_\-a3}[$\,$], double {\em r\_\-c3}[$\,$])}\label{PTripepClosure_8h_393b38594b0a27b92779acc32f39a62d}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!get_poly_coeff@{get\_\-poly\_\-coeff}}
+\index{get_poly_coeff@{get\_\-poly\_\-coeff}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-poly\_\-coeff (double {\em poly\_\-coeff}[16+1])}\label{PTripepClosure_8h_ffe1c9ec74382b7d5fa96076321d6ef9}
+
+
+----------------------------------------------------------------------- 
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!get_poly_coeff@{get\_\-poly\_\-coeff}}
+\index{get_poly_coeff@{get\_\-poly\_\-coeff}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-poly\_\-coeff (double {\em poly\_\-coeff}[$\,$])}\label{PTripepClosure_8h_203eb9dfcc71e1ac2eb39d965ebe2534}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!initialize_loop_closure@{initialize\_\-loop\_\-closure}}
+\index{initialize_loop_closure@{initialize\_\-loop\_\-closure}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void initialize\_\-loop\_\-closure (double {\em b\_\-len}[6], double {\em b\_\-ang}[7], double {\em t\_\-ang}[2])}\label{PTripepClosure_8h_973c4d1d0e2d03aafaa64f180fd67723}
+
+
+----------------------------------------------------------------------- 
+
+
+
+----------------------------------------------------------------------- Input angles for the given bond lengths and angles -----------------------------------------------------------------------
+
+print$\ast$, 'len1, len3=', len\_\-aa(2:3)
+
+print$\ast$, 'a\_\-min, a\_\-max=', a\_\-min$\ast$rad2deg, a\_\-max$\ast$rad2deg
+
+print$\ast$, 'aa13\_\-min\_\-sqr,aa13\_\-max\_\-sqr', aa13\_\-min\_\-sqr,aa13\_\-max\_\-sqr \index{PTripepClosure.h@{PTripep\-Closure.h}!initialize_loop_closure@{initialize\_\-loop\_\-closure}}
+\index{initialize_loop_closure@{initialize\_\-loop\_\-closure}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void initialize\_\-loop\_\-closure (double {\em b\_\-len}[$\,$], double {\em b\_\-ang}[$\,$], double {\em t\_\-ang}[$\,$])}\label{PTripepClosure_8h_c13029e9c309cab97f120a2be745a0d0}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!matmul@{matmul}}
+\index{matmul@{matmul}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void matmul (double {\em ma}[3][3], double {\em mb}[3], double {\em mc}[3])}\label{PTripepClosure_8h_1e556d920b96c73558096d6b002aa86a}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!poly_mul1@{poly\_\-mul1}}
+\index{poly_mul1@{poly\_\-mul1}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void poly\_\-mul1 (double {\em u1}[17], double {\em u2}[17], int {\em p1}, int {\em p2}, double {\em u3}[17], int $\ast$ {\em p3})}\label{PTripepClosure_8h_1834a14ba66ff08b7117be8e73da7d68}
+
+
+---------------------------------------------------------------------------- 
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!poly_mul1@{poly\_\-mul1}}
+\index{poly_mul1@{poly\_\-mul1}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void poly\_\-mul1 (double {\em u1}[$\,$], double {\em u2}[$\,$], int {\em p1}, int {\em p2}, double {\em u3}[$\,$], int $\ast$ {\em p3})}\label{PTripepClosure_8h_093b9e305c3f4fe1b9e969d08212e74f}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!poly_mul2@{poly\_\-mul2}}
+\index{poly_mul2@{poly\_\-mul2}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void poly\_\-mul2 (double {\em u1}[5][5], double {\em u2}[5][5], int {\em p1}[2], int {\em p2}[2], double {\em u3}[5][5], int {\em p3}[2])}\label{PTripepClosure_8h_d6da7cd180a9c4737224e61c88a33446}
+
+
+---------------------------------------------------------------------------- 
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!poly_mul_sub1@{poly\_\-mul\_\-sub1}}
+\index{poly_mul_sub1@{poly\_\-mul\_\-sub1}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void poly\_\-mul\_\-sub1 (double {\em u1}[17], double {\em u2}[17], double {\em u3}[17], double {\em u4}[17], int {\em p1}, int {\em p2}, int {\em p3}, int {\em p4}, double {\em u5}[17], int $\ast$ {\em p5})}\label{PTripepClosure_8h_63ea6c502267c97b1a85bde5d72af6e2}
+
+
+---------------------------------------------------------------------------- 
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!poly_mul_sub2@{poly\_\-mul\_\-sub2}}
+\index{poly_mul_sub2@{poly\_\-mul\_\-sub2}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void poly\_\-mul\_\-sub2 (double {\em u1}[5][5], double {\em u2}[5][5], double {\em u3}[5][5], double {\em u4}[5][5], int {\em p1}[2], int {\em p2}[2], int {\em p3}[2], int {\em p4}[2], double {\em u5}[5][5], int {\em p5}[2])}\label{PTripepClosure_8h_f02e483f50044be8a8ac76ba41591d38}
+
+
+---------------------------------------------------------------------------- 
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!poly_sub1@{poly\_\-sub1}}
+\index{poly_sub1@{poly\_\-sub1}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void poly\_\-sub1 (double {\em u1}[17], double {\em u2}[17], int {\em p1}, int {\em p2}, double {\em u3}[17], int $\ast$ {\em p3})}\label{PTripepClosure_8h_fd398c73590674838f63fa3ae71ef713}
+
+
+---------------------------------------------------------------------------- 
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!poly_sub1@{poly\_\-sub1}}
+\index{poly_sub1@{poly\_\-sub1}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void poly\_\-sub1 (double {\em u1}[$\,$], double {\em u2}[$\,$], int {\em p1}, int {\em p2}, double {\em u3}[$\,$], int $\ast$ {\em p3})}\label{PTripepClosure_8h_6924e4c0f28687ed25104959fb15463f}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!poly_sub2@{poly\_\-sub2}}
+\index{poly_sub2@{poly\_\-sub2}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void poly\_\-sub2 (double {\em u1}[5][5], double {\em u2}[5][5], int {\em p1}[2], int {\em p2}[2], double {\em u3}[5][5], int {\em p3}[2])}\label{PTripepClosure_8h_eefb1297cbb70b777cd9fba016c3b72e}
+
+
+---------------------------------------------------------------------------- 
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!quaternion@{quaternion}}
+\index{quaternion@{quaternion}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void quaternion (double {\em axis}[3], double {\em quarter\_\-ang}, double {\em p}[4])}\label{PTripepClosure_8h_e9356d7314d0018cc461594f5c340eec}
+
+
+----------------------------------------------------------------------- 
+
+
+
+----------------------------------------------------------------------- calculate quaternion, given rotation axis and angle. ----------------------------------------------------------------------- \index{PTripepClosure.h@{PTripep\-Closure.h}!quaternion@{quaternion}}
+\index{quaternion@{quaternion}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void quaternion (double {\em axis}[$\,$], double {\em quarter\_\-ang}, double {\em p}[$\,$])}\label{PTripepClosure_8h_020855c4fb206a413e0322064b26a22a}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!rotation_matrix@{rotation\_\-matrix}}
+\index{rotation_matrix@{rotation\_\-matrix}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void rotation\_\-matrix (double {\em q}[4], double {\em U}[3][3])}\label{PTripepClosure_8h_b4dcc0bfdb83aec6776142dc80418005}
+
+
+----------------------------------------------------------------------- 
+
+
+
+----------------------------------------------------------------------- constructs rotation matrix U from quaternion q. ----------------------------------------------------------------------- \index{PTripepClosure.h@{PTripep\-Closure.h}!sign@{sign}}
+\index{sign@{sign}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double sign (double {\em a}, double {\em b})}\label{PTripepClosure_8h_a5de22a245d73b37b63e87f11f67094b}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!solve_3pep_poly@{solve\_\-3pep\_\-poly}}
+\index{solve_3pep_poly@{solve\_\-3pep\_\-poly}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void solve\_\-3pep\_\-poly (double {\em r\_\-n1}[3], double {\em r\_\-a1}[3], double {\em r\_\-a3}[3], double {\em r\_\-c3}[3], double {\em r\_\-soln\_\-n}[16][3][3], double {\em r\_\-soln\_\-a}[16][3][3], double {\em r\_\-soln\_\-c}[16][3][3], int $\ast$ {\em n\_\-soln})}\label{PTripepClosure_8h_0abececf5ae8dc63aa39cd3effcb9a40}
+
+
+----------------------------------------------------------------------- 
+
+
+
+print$\ast$, 'return 2' \index{PTripepClosure.h@{PTripep\-Closure.h}!test_two_cone_existence_soln@{test\_\-two\_\-cone\_\-existence\_\-soln}}
+\index{test_two_cone_existence_soln@{test\_\-two\_\-cone\_\-existence\_\-soln}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void test\_\-two\_\-cone\_\-existence\_\-soln (double {\em tt}, double {\em kx}, double {\em et}, double {\em ap}, int $\ast$ {\em n\_\-soln}, char {\em cone\_\-type}[2])}\label{PTripepClosure_8h_b532d8fcac1dc01fa22c5bf6d9e136de}
+
+
+----------------------------------------------------------------------- 
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!test_two_cone_existence_soln@{test\_\-two\_\-cone\_\-existence\_\-soln}}
+\index{test_two_cone_existence_soln@{test\_\-two\_\-cone\_\-existence\_\-soln}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void test\_\-two\_\-cone\_\-existence\_\-soln (double {\em tt}, double {\em kx}, double {\em et}, double {\em ap}, int $\ast$ {\em n\_\-soln}, char {\em cone\_\-type}[$\,$])}\label{PTripepClosure_8h_12dc1b213051fb10d92488e781b855d6}
+
+
+
+
+\subsection{Variable Documentation}
+\index{PTripepClosure.h@{PTripep\-Closure.h}!aa13_max_sqr@{aa13\_\-max\_\-sqr}}
+\index{aa13_max_sqr@{aa13\_\-max\_\-sqr}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf aa13\_\-max\_\-sqr}}\label{PTripepClosure_8h_302f95d1375aa6495c5fe9b293026258}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!aa13_min_sqr@{aa13\_\-min\_\-sqr}}
+\index{aa13_min_sqr@{aa13\_\-min\_\-sqr}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf aa13\_\-min\_\-sqr}}\label{PTripepClosure_8h_38fecdb3cdd8fee9b5fd20b3ffe3b8bc}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!alpha@{alpha}}
+\index{alpha@{alpha}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf alpha}[3]}\label{PTripepClosure_8h_1678f99ec7081d4a0266124720898d46}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!b_a1a3@{b\_\-a1a3}}
+\index{b_a1a3@{b\_\-a1a3}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf b\_\-a1a3}[3]}\label{PTripepClosure_8h_671b4c7936541592e62750bda3cce779}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!b_a1n1@{b\_\-a1n1}}
+\index{b_a1n1@{b\_\-a1n1}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf b\_\-a1n1}[3]}\label{PTripepClosure_8h_87cb2c2c73dfaae6ee90bd3c10f795b4}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!b_a3c3@{b\_\-a3c3}}
+\index{b_a3c3@{b\_\-a3c3}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf b\_\-a3c3}[3]}\label{PTripepClosure_8h_f8e0d5201a028f046f8381c0990b39c8}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!b_ang0@{b\_\-ang0}}
+\index{b_ang0@{b\_\-ang0}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf b\_\-ang0}[7]}\label{PTripepClosure_8h_84f8709b71a55080bd41d3c29d635c3b}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!C0@{C0}}
+\index{C0@{C0}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf C0}[3][3]}\label{PTripepClosure_8h_487f97d75605a5a6ccbac4d7348c8280}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!C1@{C1}}
+\index{C1@{C1}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf C1}[3][3]}\label{PTripepClosure_8h_051ff4149520ada22b69a8be144f2038}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!C2@{C2}}
+\index{C2@{C2}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf C2}[3][3]}\label{PTripepClosure_8h_9d44591a1f3d1bbbb99a29a56b7242ad}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!cos_alpha@{cos\_\-alpha}}
+\index{cos_alpha@{cos\_\-alpha}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf cos\_\-alpha}[3]}\label{PTripepClosure_8h_43814b3798a1cba7b0c1be5240b238e0}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!cos_delta@{cos\_\-delta}}
+\index{cos_delta@{cos\_\-delta}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf cos\_\-delta}[4]}\label{PTripepClosure_8h_e0a7e73c45e3f0e994fd88932596544c}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!cos_eta@{cos\_\-eta}}
+\index{cos_eta@{cos\_\-eta}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf cos\_\-eta}[3]}\label{PTripepClosure_8h_a52158c7dc00a376a29c9c2fb731396f}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!cos_theta@{cos\_\-theta}}
+\index{cos_theta@{cos\_\-theta}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf cos\_\-theta}[3]}\label{PTripepClosure_8h_11e189ba7a3eb629223eb7d37d0f335b}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!cos_xi@{cos\_\-xi}}
+\index{cos_xi@{cos\_\-xi}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf cos\_\-xi}[3]}\label{PTripepClosure_8h_8269e50c354358511ac656124788ceb1}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!deg_pol@{deg\_\-pol}}
+\index{deg_pol@{deg\_\-pol}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf deg\_\-pol} = 16}\label{PTripepClosure_8h_cccaf8a4741ba437731b0a0bdffad10c}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!delta@{delta}}
+\index{delta@{delta}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf delta}[4]}\label{PTripepClosure_8h_24b6c4d609d47bf05c667a39b9e495b1}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!eta@{eta}}
+\index{eta@{eta}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf eta}[3]}\label{PTripepClosure_8h_6e915f71d7a4a99196ddb0dee9a03e58}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!len0@{len0}}
+\index{len0@{len0}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf len0}[6]}\label{PTripepClosure_8h_bf74e4d8d480ccff4116c668f7045000}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!len_aa@{len\_\-aa}}
+\index{len_aa@{len\_\-aa}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf len\_\-aa}[3]}\label{PTripepClosure_8h_924e2204781c529dadba6d8f0a5d0507}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!len_ac@{len\_\-ac}}
+\index{len_ac@{len\_\-ac}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf len\_\-ac}[3]}\label{PTripepClosure_8h_4129409f44f8e72ace657234f3172d48}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!len_na@{len\_\-na}}
+\index{len_na@{len\_\-na}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf len\_\-na}[3]}\label{PTripepClosure_8h_1968ffbf0f791654cf81138f010adc5b}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!max_soln@{max\_\-soln}}
+\index{max_soln@{max\_\-soln}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf max\_\-soln} = 16}\label{PTripepClosure_8h_b30cbf883490b0afd792226d252e9e25}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!print_level@{print\_\-level}}
+\index{print_level@{print\_\-level}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf print\_\-level} = 1}\label{PTripepClosure_8h_954d0af31e6dc5a8e0942494f03bc417}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!Q@{Q}}
+\index{Q@{Q}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf Q}[5][17]}\label{PTripepClosure_8h_3b45359d79a5d95ba95ea8c63201223e}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!R@{R}}
+\index{R@{R}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf R}[3][17]}\label{PTripepClosure_8h_6e5c3a969ae14f4583ca7ef7f989262f}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!r_a1a3@{r\_\-a1a3}}
+\index{r_a1a3@{r\_\-a1a3}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf r\_\-a1a3}[3]}\label{PTripepClosure_8h_3e4e1a078402f602dd214030aca2c1ab}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!r_a1n1@{r\_\-a1n1}}
+\index{r_a1n1@{r\_\-a1n1}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf r\_\-a1n1}[3]}\label{PTripepClosure_8h_6e23bcd9ce73ac8c31f8ae3a30caf6ca}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!r_a3c3@{r\_\-a3c3}}
+\index{r_a3c3@{r\_\-a3c3}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf r\_\-a3c3}[3]}\label{PTripepClosure_8h_766eed4f1ff2799450ec055edf928af5}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!sin_alpha@{sin\_\-alpha}}
+\index{sin_alpha@{sin\_\-alpha}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf sin\_\-alpha}[3]}\label{PTripepClosure_8h_ac884b9bb6c7fe15a1cfec02d7b675c2}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!sin_delta@{sin\_\-delta}}
+\index{sin_delta@{sin\_\-delta}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf sin\_\-delta}[4]}\label{PTripepClosure_8h_7d59882c9f6c099371d01485878291d4}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!sin_eta@{sin\_\-eta}}
+\index{sin_eta@{sin\_\-eta}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf sin\_\-eta}[3]}\label{PTripepClosure_8h_d15cb2aaa72b0c7b5876072c271d9ff3}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!sin_theta@{sin\_\-theta}}
+\index{sin_theta@{sin\_\-theta}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf sin\_\-theta}[3]}\label{PTripepClosure_8h_616a2a20cf38fe93b9030e3e09f8d1b7}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!sin_xi@{sin\_\-xi}}
+\index{sin_xi@{sin\_\-xi}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf sin\_\-xi}[3]}\label{PTripepClosure_8h_095180ef4cf5006c83972c19235fcc94}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!t_ang0@{t\_\-ang0}}
+\index{t_ang0@{t\_\-ang0}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf t\_\-ang0}[2]}\label{PTripepClosure_8h_63fbb9689abbc7c69e6ee7f9d18372b1}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!theta@{theta}}
+\index{theta@{theta}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf theta}[3]}\label{PTripepClosure_8h_6d3c4970e07c7c109a5ca30d45e92cd9}
+
+
+\index{PTripepClosure.h@{PTripep\-Closure.h}!xi@{xi}}
+\index{xi@{xi}!PTripepClosure.h@{PTripep\-Closure.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf xi}[3]}\label{PTripepClosure_8h_e91de5fac093f015e447f0426e2ef61a}
+
+

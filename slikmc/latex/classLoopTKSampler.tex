@@ -1,0 +1,150 @@
+\hypertarget{classLoopTKSampler}{\section{Loop\-T\-K\-Sampler Class Reference}
+\label{classLoopTKSampler}\index{Loop\-T\-K\-Sampler@{Loop\-T\-K\-Sampler}}
+}
+
+
+Loop\-T\-K Configuration Sampling technique. This sampler can be used to sample close-\/loop chain/subchain conformations.  
+
+
+
+
+{\ttfamily \#include $<$Loop\-T\-K\-Sampler.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classLoopTKSampler_a6c7e16dacc972e8ca47cf16e87a72721}{\hyperlink{classLoopTKSampler_a6c7e16dacc972e8ca47cf16e87a72721}{Loop\-T\-K\-Sampler} (P\-Protein $\ast$chain)}\label{classLoopTKSampler_a6c7e16dacc972e8ca47cf16e87a72721}
+
+\begin{DoxyCompactList}\small\item\em Construct a Loop\-T\-K configuration sampler for specific chain. \end{DoxyCompactList}\item 
+\hypertarget{classLoopTKSampler_a9c48f59f8fbf53a00d567bd04e555352}{virtual \hyperlink{classLoopTKSampler_a9c48f59f8fbf53a00d567bd04e555352}{$\sim$\-Loop\-T\-K\-Sampler} ()}\label{classLoopTKSampler_a9c48f59f8fbf53a00d567bd04e555352}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classLoopTKSampler_aef29ac3db2e56f3f23b87fb5208649ad}{sample} (const double time, const int s, const int e, const int num=-\/1)
+\begin{DoxyCompactList}\small\item\em Sample conformations of sub-\/loop from residue s to residue e. \end{DoxyCompactList}\item 
+double \hyperlink{classLoopTKSampler_a9e241902e1ec0a6de40eb6a7029a83aa}{evaluate\-\_\-log} (P\-Protein $\ast$chain)
+\begin{DoxyCompactList}\small\item\em Evaluate the chain according to priors. \end{DoxyCompactList}\item 
+void \hyperlink{classLoopTKSampler_a27eb6b16d81e877bcab8fef0cd3787b9}{enable\-B\-Factors} (P\-Protein $\ast$protein=N\-U\-L\-L)
+\begin{DoxyCompactList}\small\item\em Enable using B-\/factors as priors. \end{DoxyCompactList}\item 
+\hypertarget{classLoopTKSampler_ad5bf1c6c82542ee1f0768d01d77ccc57}{void \hyperlink{classLoopTKSampler_ad5bf1c6c82542ee1f0768d01d77ccc57}{disable\-B\-Factors} ()}\label{classLoopTKSampler_ad5bf1c6c82542ee1f0768d01d77ccc57}
+
+\begin{DoxyCompactList}\small\item\em Disable using B-\/factors as priors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static P\-Protein $\ast$ \hyperlink{classLoopTKSampler_aa02574c42ca3ac405af4b392f02d63cc}{perturb} (P\-Protein $\ast$chain, const double time, const int s, const int e)
+\begin{DoxyCompactList}\small\item\em Perturb a chain segment for some time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classLoopTKSampler_aca7465217c0c1964e43bf97c8bce20e8}{\hyperlink{classBFactor}{B\-Factor} $\ast$ {\bfseries bfactor}}\label{classLoopTKSampler_aca7465217c0c1964e43bf97c8bce20e8}
+
+\item 
+\hypertarget{classLoopTKSampler_a07310fe56d08fca593fa1365e112313c}{\hyperlink{classRamachandranPlot}{Ramachandran\-Plot} {\bfseries rplot}}\label{classLoopTKSampler_a07310fe56d08fca593fa1365e112313c}
+
+\item 
+\hypertarget{classLoopTKSampler_a55e30d969b8b9f4f9b2a542750f90ca0}{P\-Protein $\ast$ {\bfseries chain}}\label{classLoopTKSampler_a55e30d969b8b9f4f9b2a542750f90ca0}
+
+\item 
+\hypertarget{classLoopTKSampler_a69950f50fa738955b071f0a3a6f8cc38}{bool {\bfseries use\-\_\-\-B\-Factor}}\label{classLoopTKSampler_a69950f50fa738955b071f0a3a6f8cc38}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Loop\-T\-K Configuration Sampling technique. This sampler can be used to sample close-\/loop chain/subchain conformations. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classLoopTKSampler_a27eb6b16d81e877bcab8fef0cd3787b9}{\index{Loop\-T\-K\-Sampler@{Loop\-T\-K\-Sampler}!enable\-B\-Factors@{enable\-B\-Factors}}
+\index{enable\-B\-Factors@{enable\-B\-Factors}!LoopTKSampler@{Loop\-T\-K\-Sampler}}
+\subsubsection[{enable\-B\-Factors}]{\setlength{\rightskip}{0pt plus 5cm}void Loop\-T\-K\-Sampler\-::enable\-B\-Factors (
+\begin{DoxyParamCaption}
+\item[{P\-Protein $\ast$}]{protein = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}}\label{classLoopTKSampler_a27eb6b16d81e877bcab8fef0cd3787b9}
+
+
+Enable using B-\/factors as priors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em protein} & a protein conformation with desired atom positions \\
+\hline
+\end{DoxyParams}
+\hypertarget{classLoopTKSampler_a9e241902e1ec0a6de40eb6a7029a83aa}{\index{Loop\-T\-K\-Sampler@{Loop\-T\-K\-Sampler}!evaluate\-\_\-log@{evaluate\-\_\-log}}
+\index{evaluate\-\_\-log@{evaluate\-\_\-log}!LoopTKSampler@{Loop\-T\-K\-Sampler}}
+\subsubsection[{evaluate\-\_\-log}]{\setlength{\rightskip}{0pt plus 5cm}double Loop\-T\-K\-Sampler\-::evaluate\-\_\-log (
+\begin{DoxyParamCaption}
+\item[{P\-Protein $\ast$}]{chain}
+\end{DoxyParamCaption}
+)}}\label{classLoopTKSampler_a9e241902e1ec0a6de40eb6a7029a83aa}
+
+
+Evaluate the chain according to priors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chain} & chain to be evaluated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+probability density in logarithm 
+\end{DoxyReturn}
+\hypertarget{classLoopTKSampler_aa02574c42ca3ac405af4b392f02d63cc}{\index{Loop\-T\-K\-Sampler@{Loop\-T\-K\-Sampler}!perturb@{perturb}}
+\index{perturb@{perturb}!LoopTKSampler@{Loop\-T\-K\-Sampler}}
+\subsubsection[{perturb}]{\setlength{\rightskip}{0pt plus 5cm}P\-Protein $\ast$ Loop\-T\-K\-Sampler\-::perturb (
+\begin{DoxyParamCaption}
+\item[{P\-Protein $\ast$}]{chain, }
+\item[{const double}]{time, }
+\item[{const int}]{s, }
+\item[{const int}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classLoopTKSampler_aa02574c42ca3ac405af4b392f02d63cc}
+
+
+Perturb a chain segment for some time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chain} & the chain to be perturbed \\
+\hline
+{\em time} & time duration to perturb \\
+\hline
+{\em s} & index of starting residue \\
+\hline
+{\em e} & index of ending residue \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a perturbed chain 
+\end{DoxyReturn}
+\hypertarget{classLoopTKSampler_aef29ac3db2e56f3f23b87fb5208649ad}{\index{Loop\-T\-K\-Sampler@{Loop\-T\-K\-Sampler}!sample@{sample}}
+\index{sample@{sample}!LoopTKSampler@{Loop\-T\-K\-Sampler}}
+\subsubsection[{sample}]{\setlength{\rightskip}{0pt plus 5cm}void Loop\-T\-K\-Sampler\-::sample (
+\begin{DoxyParamCaption}
+\item[{const double}]{time, }
+\item[{const int}]{s, }
+\item[{const int}]{e, }
+\item[{const int}]{num = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}}\label{classLoopTKSampler_aef29ac3db2e56f3f23b87fb5208649ad}
+
+
+Sample conformations of sub-\/loop from residue s to residue e. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & time duration to sample \\
+\hline
+{\em s} & index of starting residue \\
+\hline
+{\em e} & index of ending residue \\
+\hline
+{\em num} & number of top-\/scores conformations to be saved, by default, save all conformations. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Loop\-T\-K\-Sampler.\-h\item 
+Loop\-T\-K\-Sampler.\-cc\end{DoxyCompactItemize}

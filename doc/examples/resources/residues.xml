@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<residues>
+<residue name="ALA" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="ALA" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="ARG" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="ARG" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="ASN" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="ASN" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="ASP" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="ASP" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="CBR" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="CB" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="CYS" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="CYS" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="GLN" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="GLN" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="GLU" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="GLU" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="GLY" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="GLY" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="HIS" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="HIS" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="ILE" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="ILE" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="LEU" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="LEU" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="LYS" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="LYS" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="MET" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="MET" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="MSE" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="MSE" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="PHE" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="PHE" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="PRO" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="PRO" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="SER" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="SER" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="THR" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="THR" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="TRP" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="TRP" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="TYR" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="TYR" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="VAL" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="VAL" core="false" />
+<block id="C" name="OXY" core="false" />
+<connection first="A" second="B" />
+<connection first="A" second="C" />
+</residue>
+<residue name="BBR" start_atom="N">
+<block id="A" name="backbone" core="true" />
+<block id="B" name="OXY" core="false" />
+<connection first="A" second="B" />
+</residue>
+</residues>

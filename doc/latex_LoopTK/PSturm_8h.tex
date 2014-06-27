@@ -1,0 +1,159 @@
+\section{src/core/PSturm.h File Reference}
+\label{PSturm_8h}\index{src/core/PSturm.h@{src/core/PSturm.h}}
+
+
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct {\bf p}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf PRINT\_\-LEVEL}~0
+\item 
+\#define {\bf MAX\_\-ORDER}~16
+\item 
+\#define {\bf MAXPOW}~32
+\item 
+\#define {\bf SMALL\_\-ENOUGH}~1.0e-18
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef {\bf p} {\bf poly}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf initialize\_\-sturm} (double $\ast$tol\_\-secant, int $\ast$max\_\-iter\_\-sturm, int $\ast$max\_\-iter\_\-secant)
+\item 
+void {\bf solve\_\-sturm} (int $\ast$p\_\-order, int $\ast$n\_\-root, double $\ast$poly\_\-coeffs, double $\ast$roots)
+\item 
+double {\bf hyper\_\-tan} (double a, double x)
+\item 
+static int {\bf modp} ({\bf poly} $\ast$u, {\bf poly} $\ast$v, {\bf poly} $\ast$r)
+\item 
+int {\bf buildsturm} (int ord, {\bf poly} $\ast$sseq)
+\item 
+int {\bf numroots} (int np, {\bf poly} $\ast$sseq, int $\ast$atneg, int $\ast$atpos)
+\item 
+int {\bf numchanges} (int np, {\bf poly} $\ast$sseq, double a)
+\item 
+void {\bf sbisect} (int np, {\bf poly} $\ast$sseq, double min, double max, int atmin, int atmax, double $\ast$roots)
+\item 
+double {\bf evalpoly} (int ord, double $\ast$coef, double x)
+\item 
+int {\bf modrf} (int ord, double $\ast$coef, double a, double b, double $\ast$val)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+double {\bf RELERROR}
+\item 
+int {\bf MAXIT}
+\item 
+int {\bf MAX\_\-ITER\_\-SECANT}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{PSturm.h@{PSturm.h}!MAX_ORDER@{MAX\_\-ORDER}}
+\index{MAX_ORDER@{MAX\_\-ORDER}!PSturm.h@{PSturm.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-ORDER~16}\label{PSturm_8h_2b57c953c8f5bf0f71842cc9cb46a496}
+
+
+\index{PSturm.h@{PSturm.h}!MAXPOW@{MAXPOW}}
+\index{MAXPOW@{MAXPOW}!PSturm.h@{PSturm.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAXPOW~32}\label{PSturm_8h_9bb7d3bd7924bdb812e5be629da85622}
+
+
+\index{PSturm.h@{PSturm.h}!PRINT_LEVEL@{PRINT\_\-LEVEL}}
+\index{PRINT_LEVEL@{PRINT\_\-LEVEL}!PSturm.h@{PSturm.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define PRINT\_\-LEVEL~0}\label{PSturm_8h_f45cc86a5dc70de3bd93318cd30db113}
+
+
+\index{PSturm.h@{PSturm.h}!SMALL_ENOUGH@{SMALL\_\-ENOUGH}}
+\index{SMALL_ENOUGH@{SMALL\_\-ENOUGH}!PSturm.h@{PSturm.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define SMALL\_\-ENOUGH~1.0e-18}\label{PSturm_8h_ec11188b1e2716235826340e4ba1bb32}
+
+
+
+
+\subsection{Typedef Documentation}
+\index{PSturm.h@{PSturm.h}!poly@{poly}}
+\index{poly@{poly}!PSturm.h@{PSturm.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf p}  {\bf poly}}\label{PSturm_8h_a872ffc5ff98c9e28919f555b99d6c4e}
+
+
+
+
+\subsection{Function Documentation}
+\index{PSturm.h@{PSturm.h}!buildsturm@{buildsturm}}
+\index{buildsturm@{buildsturm}!PSturm.h@{PSturm.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int buildsturm (int {\em ord}, {\bf poly} $\ast$ {\em sseq})}\label{PSturm_8h_5eb584e6c8c3763b2106b9f5e7dca185}
+
+
+\index{PSturm.h@{PSturm.h}!evalpoly@{evalpoly}}
+\index{evalpoly@{evalpoly}!PSturm.h@{PSturm.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double evalpoly (int {\em ord}, double $\ast$ {\em coef}, double {\em x})}\label{PSturm_8h_81c3d27ea0df39e91222bd976a9177b7}
+
+
+\index{PSturm.h@{PSturm.h}!hyper_tan@{hyper\_\-tan}}
+\index{hyper_tan@{hyper\_\-tan}!PSturm.h@{PSturm.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double hyper\_\-tan (double {\em a}, double {\em x})}\label{PSturm_8h_23a2005738463f1be8b23d441491bdbf}
+
+
+\index{PSturm.h@{PSturm.h}!initialize_sturm@{initialize\_\-sturm}}
+\index{initialize_sturm@{initialize\_\-sturm}!PSturm.h@{PSturm.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void initialize\_\-sturm (double $\ast$ {\em tol\_\-secant}, int $\ast$ {\em max\_\-iter\_\-sturm}, int $\ast$ {\em max\_\-iter\_\-secant})}\label{PSturm_8h_a87d146754b3d158957bd79f906ed009}
+
+
+\index{PSturm.h@{PSturm.h}!modp@{modp}}
+\index{modp@{modp}!PSturm.h@{PSturm.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static int modp ({\bf poly} $\ast$ {\em u}, {\bf poly} $\ast$ {\em v}, {\bf poly} $\ast$ {\em r})\hspace{0.3cm}{\tt  [static]}}\label{PSturm_8h_4e724ce035e3a8ce86b2a89079892189}
+
+
+\index{PSturm.h@{PSturm.h}!modrf@{modrf}}
+\index{modrf@{modrf}!PSturm.h@{PSturm.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int modrf (int {\em ord}, double $\ast$ {\em coef}, double {\em a}, double {\em b}, double $\ast$ {\em val})}\label{PSturm_8h_f4ddf1647fbd1e66b104b28152e62889}
+
+
+\index{PSturm.h@{PSturm.h}!numchanges@{numchanges}}
+\index{numchanges@{numchanges}!PSturm.h@{PSturm.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int numchanges (int {\em np}, {\bf poly} $\ast$ {\em sseq}, double {\em a})}\label{PSturm_8h_f1f0410bfe905c5bd852690cc2d22a94}
+
+
+\index{PSturm.h@{PSturm.h}!numroots@{numroots}}
+\index{numroots@{numroots}!PSturm.h@{PSturm.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int numroots (int {\em np}, {\bf poly} $\ast$ {\em sseq}, int $\ast$ {\em atneg}, int $\ast$ {\em atpos})}\label{PSturm_8h_ec7cf2f87a81026e9a56177d826bb06d}
+
+
+\index{PSturm.h@{PSturm.h}!sbisect@{sbisect}}
+\index{sbisect@{sbisect}!PSturm.h@{PSturm.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void sbisect (int {\em np}, {\bf poly} $\ast$ {\em sseq}, double {\em min}, double {\em max}, int {\em atmin}, int {\em atmax}, double $\ast$ {\em roots})}\label{PSturm_8h_6c18646bd5fbea2242e94311dfc5d0d3}
+
+
+\index{PSturm.h@{PSturm.h}!solve_sturm@{solve\_\-sturm}}
+\index{solve_sturm@{solve\_\-sturm}!PSturm.h@{PSturm.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void solve\_\-sturm (int $\ast$ {\em p\_\-order}, int $\ast$ {\em n\_\-root}, double $\ast$ {\em poly\_\-coeffs}, double $\ast$ {\em roots})}\label{PSturm_8h_fb3003ea1933484ebb83d4b7db3ace51}
+
+
+
+
+\subsection{Variable Documentation}
+\index{PSturm.h@{PSturm.h}!MAX_ITER_SECANT@{MAX\_\-ITER\_\-SECANT}}
+\index{MAX_ITER_SECANT@{MAX\_\-ITER\_\-SECANT}!PSturm.h@{PSturm.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf MAX\_\-ITER\_\-SECANT}}\label{PSturm_8h_2a7ead97e373861fd5dc7b48f9acf7cd}
+
+
+\index{PSturm.h@{PSturm.h}!MAXIT@{MAXIT}}
+\index{MAXIT@{MAXIT}!PSturm.h@{PSturm.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf MAXIT}}\label{PSturm_8h_86b9bfb6526c00565a19172434d28edb}
+
+
+\index{PSturm.h@{PSturm.h}!RELERROR@{RELERROR}}
+\index{RELERROR@{RELERROR}!PSturm.h@{PSturm.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf RELERROR}}\label{PSturm_8h_b853babc41162e2504c524ce8e12a565}
+
+

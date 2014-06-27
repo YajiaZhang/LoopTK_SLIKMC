@@ -1,0 +1,27 @@
+S\-L\-I\-K\-M\-C is designed to easy use. It has various user-\/defined settings. Here is an simple example of calling the S\-L\-I\-K\-M\-C sampler. Example code can be found at Loop\-T\-K/slikmc/main.\-cc. Given one protein chain p, we want to sample possible conformations of subloop s and e.
+
+We first create an instance of class \hyperlink{classSLIKMCSampler}{S\-L\-I\-K\-M\-C\-Sampler} with chain p as parameter\-:
+
+\hyperlink{classSLIKMCSampler}{S\-L\-I\-K\-M\-C\-Sampler} sampler(p);
+
+Several settings, such as using B-\/factors as prior, enable side-\/chain sampling, enable logging output conformation files, etc., can be defined according to user's preference. By default, these settings are all disabled. To enable these settings, user can call functions like\-:
+
+enable collision checking of the conformation with itself and rest of the chain.
+
+sampler.\-enable\-Collision\-Checking();
+
+enable using B-\/factors as prior. User can provide a protein file with desired distribution of atom positions. By default, the distributions of atom positions are defined according to chain p.
+
+sampler.\-enable\-B\-Factors();
+
+enable logging the generated conformations. User can provide the number of skipped samples. By default, skip length equals to 1. All the generated files will be put in the pdbfiles\-\_\-out folder with name slikmc\-\_\-i.\-pdb which i is a index starting from 0.
+
+sampler.\-enable\-Log(10);
+
+Once finishing the settings, the user can call function display() to print the current setting status of the sampler.
+
+sampler.\-display();
+
+After setting the sampler, user can call function sample() to sample conformations of the chain/subchain.
+
+sampler.\-sample( 60.\-0, 0, 7); 

@@ -1,0 +1,80 @@
+\section{PData\-Collector Class Reference}
+\label{classPDataCollector}\index{PDataCollector@{PDataCollector}}
+{\tt \#include $<$PData\-Collector.h$>$}
+
+
+
+\subsection{Detailed Description}
+User interface to collect information about loop conformations and output the results to a CS2 file. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf PData\-Collector} (const string \&cs2File\-Name, const string \&pdb\-File\-Name, int loop\-Start\-Res\-Index, int loop\-End\-Res\-Index)
+\item 
+{\bf PData\-Collector} (const string \&cs2File\-Name, {\bf PProtein} $\ast$loop)
+\item 
+{\bf PData\-Collector} (const string \&cs2File\-Name)
+\item 
+void {\bf Clone} (const string \&new\-Activecs2Filename)
+\item 
+void {\bf Find\-Conformations} (int amt, bool should\-Be\-Collision\-Free)
+\item 
+void {\bf Find\-Conformations} (int amt, {\bf Loop\-Conf\-Function} Find\-One\-Conformation)
+\item 
+void {\bf Visualize\-Loop} ()
+\item 
+void {\bf Visualize\-Conformation\-Space} ()
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{PDataCollector@{PData\-Collector}!PDataCollector@{PDataCollector}}
+\index{PDataCollector@{PDataCollector}!PDataCollector@{PData\-Collector}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PData\-Collector::PData\-Collector (const string \& {\em cs2File\-Name}, const string \& {\em pdb\-File\-Name}, int {\em loop\-Start\-Res\-Index}, int {\em loop\-End\-Res\-Index})}\label{classPDataCollector_bb9bef695b9fd53818ee70f7784485a8}
+
+
+Creates or overwrites the .cs2 file {\tt cs2File\-Name} with the loop in {\tt pdb\-File\-Name} from the residue indices given as parameters. The .cs2 file will have only one conformation inside, that from the pdb file. \index{PDataCollector@{PData\-Collector}!PDataCollector@{PDataCollector}}
+\index{PDataCollector@{PDataCollector}!PDataCollector@{PData\-Collector}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PData\-Collector::PData\-Collector (const string \& {\em cs2File\-Name}, {\bf PProtein} $\ast$ {\em loop})}\label{classPDataCollector_f3772a3d3efb0e47b9085d8e856546a0}
+
+
+Creates or overwrites the .cs2 file {\tt cs2File\-Name} with {\tt loop}. {\tt loop} should be a sub-loop of a protein. \index{PDataCollector@{PData\-Collector}!PDataCollector@{PDataCollector}}
+\index{PDataCollector@{PDataCollector}!PDataCollector@{PData\-Collector}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PData\-Collector::PData\-Collector (const string \& {\em cs2File\-Name})}\label{classPDataCollector_9abd3293037de8a985685aee03a9dc35}
+
+
+Creates a data collector that will append to the given file. 
+
+\subsection{Member Function Documentation}
+\index{PDataCollector@{PData\-Collector}!Clone@{Clone}}
+\index{Clone@{Clone}!PDataCollector@{PData\-Collector}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PData\-Collector::Clone (const string \& {\em new\-Activecs2Filename})}\label{classPDataCollector_9d3597cbc54e88e0ca63ba0f6341eaab}
+
+
+Clones the data collector and makes it layer off of the new file given. \index{PDataCollector@{PData\-Collector}!FindConformations@{FindConformations}}
+\index{FindConformations@{FindConformations}!PDataCollector@{PData\-Collector}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PData\-Collector::Find\-Conformations (int {\em amt}, bool {\em should\-Be\-Collision\-Free})}\label{classPDataCollector_d2a80aaea65346f9e3ff5648b85624fd}
+
+
+Finds the requested amount of conformations with the collision status necessary for a valid conformation given as a parameter. Behind the scenes, this function uses Cyclic Coordinate Descent (CCD) followed by an analytical exact IK solver. If the resulting conformation does not match the collision status necessary, it is discarded. \index{PDataCollector@{PData\-Collector}!FindConformations@{FindConformations}}
+\index{FindConformations@{FindConformations}!PDataCollector@{PData\-Collector}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PData\-Collector::Find\-Conformations (int {\em amt}, {\bf Loop\-Conf\-Function} {\em Find\-One\-Conformation})}\label{classPDataCollector_d95e26764a2a59dcb7d39fdeb5e74b3c}
+
+
+Finds the requested amount of conformations using a user-provided function to find a conformation (which is given as a parameter a loop with randomized degrees of freedom). \index{PDataCollector@{PData\-Collector}!VisualizeLoop@{VisualizeLoop}}
+\index{VisualizeLoop@{VisualizeLoop}!PDataCollector@{PData\-Collector}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PData\-Collector::Visualize\-Loop ()}\label{classPDataCollector_16b82d63b9f0e816ef33eacff84574c7}
+
+
+Visualizes a conformation and allows the user to manipulate it by hand. This function never returns. \index{PDataCollector@{PData\-Collector}!VisualizeConformationSpace@{VisualizeConformationSpace}}
+\index{VisualizeConformationSpace@{VisualizeConformationSpace}!PDataCollector@{PData\-Collector}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PData\-Collector::Visualize\-Conformation\-Space ()}\label{classPDataCollector_8bff4435911c82807174a00cb7c26809}
+
+
+Visualizes the conformation space. This function never returns. 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PData\-Collector.h}\item 
+src/core/{\bf PData\-Collector.cc}\end{CompactItemize}

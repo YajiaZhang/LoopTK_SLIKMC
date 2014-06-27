@@ -1,0 +1,59 @@
+\section{PBlock\-Reconnector Class Reference}
+\label{classPBlockReconnector}\index{PBlockReconnector@{PBlockReconnector}}
+{\tt \#include $<$PBlock\-Reconnector.h$>$}
+
+
+
+\subsection{Detailed Description}
+{\tt \doxyref{PBlock\-Reconnector}{p.}{classPBlockReconnector}} is used to generate a homogeneous transformation matrix needed to reconnect a detached \doxyref{PBlock}{p.}{classPBlock}. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf PBlock\-Reconnector} ({\bf PBlock} $\ast$anchor, {\bf PBlock} $\ast$to\-Detach)
+\item 
+void {\bf Reconnect\-Blocks} ()
+\item 
+Matrix4 {\bf Get\-Reconnect\-Transform} ()
+\item 
+{\bf PBlock} $\ast$ {\bf get\-Anchor} ()
+\item 
+{\bf PBlock} $\ast$ {\bf get\-Detached} ()
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{PBlockReconnector@{PBlock\-Reconnector}!PBlockReconnector@{PBlockReconnector}}
+\index{PBlockReconnector@{PBlockReconnector}!PBlockReconnector@{PBlock\-Reconnector}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PBlock\-Reconnector::PBlock\-Reconnector ({\bf PBlock} $\ast$ {\em anchor}, {\bf PBlock} $\ast$ {\em to\-Detach})}\label{classPBlockReconnector_7f7bcd07efcacf8155637c33988bfcf4}
+
+
+Constructs a new {\tt \doxyref{PBlock\-Reconnector}{p.}{classPBlockReconnector}}. Required are: the \doxyref{PBlock}{p.}{classPBlock} {\tt anchor} and the \doxyref{PBlock}{p.}{classPBlock} {\tt to\-Detach} 
+
+\subsection{Member Function Documentation}
+\index{PBlockReconnector@{PBlock\-Reconnector}!ReconnectBlocks@{ReconnectBlocks}}
+\index{ReconnectBlocks@{ReconnectBlocks}!PBlockReconnector@{PBlock\-Reconnector}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PBlock\-Reconnector::Reconnect\-Blocks ()}\label{classPBlockReconnector_1d55baccefdd7894ec28c1c05323f458}
+
+
+Reconnects the detached \doxyref{PBlock}{p.}{classPBlock} {\tt to\-Detach} to the \doxyref{PBlock}{p.}{classPBlock} {\tt anchor} (in the new position). \index{PBlockReconnector@{PBlock\-Reconnector}!GetReconnectTransform@{GetReconnectTransform}}
+\index{GetReconnectTransform@{GetReconnectTransform}!PBlockReconnector@{PBlock\-Reconnector}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Matrix4 PBlock\-Reconnector::Get\-Reconnect\-Transform ()}\label{classPBlockReconnector_a51b4ec78a3176ee83b68fa7ac395a57}
+
+
+Returns the homogeneous transformation matrix that realigns the atoms. \index{PBlockReconnector@{PBlock\-Reconnector}!getAnchor@{getAnchor}}
+\index{getAnchor@{getAnchor}!PBlockReconnector@{PBlock\-Reconnector}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PBlock}$\ast$ PBlock\-Reconnector::get\-Anchor ()\hspace{0.3cm}{\tt  [inline]}}\label{classPBlockReconnector_f8ed12f7b6619da2ca37d46274ccdd1b}
+
+
+Returns the anchor {\tt \doxyref{PBlock}{p.}{classPBlock}}. \index{PBlockReconnector@{PBlock\-Reconnector}!getDetached@{getDetached}}
+\index{getDetached@{getDetached}!PBlockReconnector@{PBlock\-Reconnector}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PBlock}$\ast$ PBlock\-Reconnector::get\-Detached ()\hspace{0.3cm}{\tt  [inline]}}\label{classPBlockReconnector_c0718e3743035d152dff91e0ca802de0}
+
+
+Returns the detached {\tt \doxyref{PBlock}{p.}{classPBlock}}. 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PBlock\-Reconnector.h}\item 
+src/core/{\bf PBlock\-Reconnector.cc}\end{CompactItemize}

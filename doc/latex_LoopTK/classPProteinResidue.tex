@@ -1,0 +1,135 @@
+\section{PProtein\-Residue Class Reference}
+\label{classPProteinResidue}\index{PProteinResidue@{PProteinResidue}}
+{\tt \#include $<$PProtein\-Residue.h$>$}
+
+Inheritance diagram for PProtein\-Residue::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classPProteinResidue}
+\end{center}
+\end{figure}
+
+
+\subsection{Detailed Description}
+This class represents a residue within \doxyref{PProtein}{p.}{classPProtein}, so it makes assumptions on the contents within. More specifically, this residue has a backbone and sidechain and depends on the configuration data provided with \doxyref{Loop\-TK}{p.}{classLoopTK}. Do not create \doxyref{PProtein\-Residue}{p.}{classPProteinResidue} directly - use \doxyref{PProtein::Add\-Residue}{p.}{classPChain_8a42f1e7a59dbe7d3e9e463906054ef2} instead. See \doxyref{PResidue}{p.}{classPResidue}, the superclass, for more operations. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf PProtein\-Residue} ({\bf PProtein} $\ast$loop, const string \&shell\-Name)
+\item 
+{\bf PProtein\-Residue} ({\bf PProtein} $\ast$loop, const string \&shell\-Name, {\bf PResidue\-Spec} \&spec)
+\item 
+{\bf PProtein\-Residue} ({\bf PProtein} $\ast$loop, const string \&shell\-Name, {\bf PResidue} $\ast$to\-Connect)
+\item 
+{\bf PProtein\-Residue} ({\bf PProtein} $\ast$loop, const string \&shell\-Name, {\bf PResidue\-Spec} \&spec, {\bf PResidue} $\ast$to\-Connect)
+\item 
+{\bf PProtein\-Residue} $\ast$ {\bf Next\-Residue} ()
+\item 
+{\bf PProtein\-Residue} $\ast$ {\bf Previous\-Residue} ()
+\item 
+{\bf PProtein} $\ast$ {\bf get\-Protein} ()
+\item 
+void {\bf Reset\-Side\-Chain} ()
+\item 
+bool {\bf Apply\-Rotamer} ()
+\item 
+bool {\bf Apply\-Rotamer} (int index)
+\item 
+void {\bf Save\-Side\-Chain} ()
+\item 
+Real {\bf Get\-Phi} ()
+\item 
+Real {\bf Get\-Psi} ()
+\item 
+void {\bf Set\-Chi} (Real chi, int index)
+\item 
+Real {\bf Get\-Chi} (int index)
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{PProteinResidue@{PProtein\-Residue}!PProteinResidue@{PProteinResidue}}
+\index{PProteinResidue@{PProteinResidue}!PProteinResidue@{PProtein\-Residue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PProtein\-Residue::PProtein\-Residue ({\bf PProtein} $\ast$ {\em loop}, const string \& {\em shell\-Name})\hspace{0.3cm}{\tt  [inline]}}\label{classPProteinResidue_745022130ffaae5cc1fdb9ca383246a3}
+
+
+\index{PProteinResidue@{PProtein\-Residue}!PProteinResidue@{PProteinResidue}}
+\index{PProteinResidue@{PProteinResidue}!PProteinResidue@{PProtein\-Residue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PProtein\-Residue::PProtein\-Residue ({\bf PProtein} $\ast$ {\em loop}, const string \& {\em shell\-Name}, {\bf PResidue\-Spec} \& {\em spec})\hspace{0.3cm}{\tt  [inline]}}\label{classPProteinResidue_b9f237d7a78c8207c2b39ac1065c1c63}
+
+
+\index{PProteinResidue@{PProtein\-Residue}!PProteinResidue@{PProteinResidue}}
+\index{PProteinResidue@{PProteinResidue}!PProteinResidue@{PProtein\-Residue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PProtein\-Residue::PProtein\-Residue ({\bf PProtein} $\ast$ {\em loop}, const string \& {\em shell\-Name}, {\bf PResidue} $\ast$ {\em to\-Connect})\hspace{0.3cm}{\tt  [inline]}}\label{classPProteinResidue_04b011762a22677280aa83f849f9657c}
+
+
+\index{PProteinResidue@{PProtein\-Residue}!PProteinResidue@{PProteinResidue}}
+\index{PProteinResidue@{PProteinResidue}!PProteinResidue@{PProtein\-Residue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PProtein\-Residue::PProtein\-Residue ({\bf PProtein} $\ast$ {\em loop}, const string \& {\em shell\-Name}, {\bf PResidue\-Spec} \& {\em spec}, {\bf PResidue} $\ast$ {\em to\-Connect})\hspace{0.3cm}{\tt  [inline]}}\label{classPProteinResidue_808a7575e50fc747b8eecef5ff4552f6}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{PProteinResidue@{PProtein\-Residue}!NextResidue@{NextResidue}}
+\index{NextResidue@{NextResidue}!PProteinResidue@{PProtein\-Residue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PProtein\-Residue}$\ast$ PProtein\-Residue::Next\-Residue ()\hspace{0.3cm}{\tt  [inline]}}\label{classPProteinResidue_a0a8b17837f430d7c1a49358cfd21ed3}
+
+
+Returns the next residue in the protein chain or NULL if this is the last residue. \index{PProteinResidue@{PProtein\-Residue}!PreviousResidue@{PreviousResidue}}
+\index{PreviousResidue@{PreviousResidue}!PProteinResidue@{PProtein\-Residue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PProtein\-Residue}$\ast$ PProtein\-Residue::Previous\-Residue ()\hspace{0.3cm}{\tt  [inline]}}\label{classPProteinResidue_b9687949124f665681b8971e48f13426}
+
+
+Returns the previous residue in the protein chain or NULL if this is the first residue. \index{PProteinResidue@{PProtein\-Residue}!getProtein@{getProtein}}
+\index{getProtein@{getProtein}!PProteinResidue@{PProtein\-Residue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PProtein}$\ast$ PProtein\-Residue::get\-Protein ()\hspace{0.3cm}{\tt  [inline]}}\label{classPProteinResidue_f62ca1f90762d248488fc576b1fa4d3a}
+
+
+Returns the protein which directly owns this residue (the lowest subchain in the protein heirarchy. \index{PProteinResidue@{PProtein\-Residue}!ResetSideChain@{ResetSideChain}}
+\index{ResetSideChain@{ResetSideChain}!PProteinResidue@{PProtein\-Residue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PProtein\-Residue::Reset\-Side\-Chain ()}\label{classPProteinResidue_3b20ccade02ff8bef964efcbf442694e}
+
+
+Resets the side chain position to saved position. Use \doxyref{Save\-Side\-Chain()}{p.}{classPProteinResidue_adb183744871732c14bb70e5e1e0191d} to save position. \index{PProteinResidue@{PProtein\-Residue}!ApplyRotamer@{ApplyRotamer}}
+\index{ApplyRotamer@{ApplyRotamer}!PProteinResidue@{PProtein\-Residue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PProtein\-Residue::Apply\-Rotamer ()}\label{classPProteinResidue_e1de7b256cc6bc663026b710ff0c6788}
+
+
+Cycles through collision free rotamers. \index{PProteinResidue@{PProtein\-Residue}!ApplyRotamer@{ApplyRotamer}}
+\index{ApplyRotamer@{ApplyRotamer}!PProteinResidue@{PProtein\-Residue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PProtein\-Residue::Apply\-Rotamer (int {\em index})}\label{classPProteinResidue_487276ddd2c694aa82462593d84dd3ee}
+
+
+Apply a specific rotamer. \index{PProteinResidue@{PProtein\-Residue}!SaveSideChain@{SaveSideChain}}
+\index{SaveSideChain@{SaveSideChain}!PProteinResidue@{PProtein\-Residue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PProtein\-Residue::Save\-Side\-Chain ()}\label{classPProteinResidue_adb183744871732c14bb70e5e1e0191d}
+
+
+Save the current side chain position. Use \doxyref{Reset\-Side\-Chain()}{p.}{classPProteinResidue_3b20ccade02ff8bef964efcbf442694e} to apply saved position. \index{PProteinResidue@{PProtein\-Residue}!GetPhi@{GetPhi}}
+\index{GetPhi@{GetPhi}!PProteinResidue@{PProtein\-Residue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real PProtein\-Residue::Get\-Phi ()}\label{classPProteinResidue_f1feec0981985246691779b165ee85eb}
+
+
+Returns the current Phi angle of the residue. \index{PProteinResidue@{PProtein\-Residue}!GetPsi@{GetPsi}}
+\index{GetPsi@{GetPsi}!PProteinResidue@{PProtein\-Residue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real PProtein\-Residue::Get\-Psi ()}\label{classPProteinResidue_879e760d30e1818563cec62ea2bf5eae}
+
+
+Returns the current Psi angle of the residue. \index{PProteinResidue@{PProtein\-Residue}!SetChi@{SetChi}}
+\index{SetChi@{SetChi}!PProteinResidue@{PProtein\-Residue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PProtein\-Residue::Set\-Chi (Real {\em chi}, int {\em index})}\label{classPProteinResidue_ef7ef34d260f49f2b1b060bd46adda94}
+
+
+Sets the indexed Chi angle of the side chain in degrees. \index{PProteinResidue@{PProtein\-Residue}!GetChi@{GetChi}}
+\index{GetChi@{GetChi}!PProteinResidue@{PProtein\-Residue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real PProtein\-Residue::Get\-Chi (int {\em index})}\label{classPProteinResidue_10df7e9fadd12e6d822151979d06dc46}
+
+
+Returns the indexed Chi angle of the side chain. 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PProtein\-Residue.h}\item 
+src/core/{\bf PProtein\-Residue.cc}\end{CompactItemize}

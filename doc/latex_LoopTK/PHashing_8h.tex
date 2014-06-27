@@ -1,0 +1,173 @@
+\section{src/core/PHashing.h File Reference}
+\label{PHashing_8h}\index{src/core/PHashing.h@{src/core/PHashing.h}}
+
+
+{\tt \#include $<$string$>$}\par
+{\tt \#include $<$vector$>$}\par
+{\tt \#include $<$ext/hash\_\-set$>$}\par
+{\tt \#include $<$ext/hash\_\-map$>$}\par
+{\tt \#include $<$math3d/primitives.h$>$}\par
+\subsection*{Namespaces}
+\begin{CompactItemize}
+\item 
+namespace {\bf \_\-\_\-gnu\_\-cxx}
+\end{CompactItemize}
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct {\bf vector\-Hash}
+\item 
+struct {\bf vector\-Eq}
+\item 
+struct {\bf vector\-Pointer\-Hash}
+\item 
+struct {\bf vector\-Pointer\-Eq}
+\item 
+class {\bf string\-Hasher}
+\item 
+struct {\bf eq\-String}
+\item 
+class {\bf string\-Pair\-Hasher}
+\item 
+struct {\bf eq\-String\-Pair\-Exclusive}
+\item 
+struct {\bf eq\-String\-Pair\-Either}
+\item 
+struct {\bf pair\-Atom\-Hash}
+\item 
+struct {\bf pair\-Atom\-Eq}
+\item 
+struct {\bf atom\-Hash}
+\item 
+struct {\bf atom\-Eq}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf HASH\_\-MAP\_\-STR}(t)~hash\_\-map$<$string, t, {\bf string\-Hasher}, {\bf eq\-String}$>$
+\item 
+\#define {\bf HASH\_\-MAP\_\-STRPAIR\_\-EX}(t)~hash\_\-map$<${\bf String\-Pair}, t, {\bf string\-Pair\-Hasher}, {\bf eq\-String\-Pair\-Exclusive}$>$
+\item 
+\#define {\bf HASH\_\-MAP\_\-STRPAIR\_\-OR}(t)~hash\_\-map$<${\bf String\-Pair}, t, {\bf string\-Pair\-Hasher}, {\bf eq\-String\-Pair\-Either}$>$
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef pair$<$ string, string $>$ {\bf String\-Pair}
+\item 
+typedef hash\_\-set$<$ {\bf PAtom} $\ast$, {\bf atom\-Hash}, {\bf atom\-Eq} $>$ {\bf Atom\-Set}
+\item 
+typedef hash\_\-set$<$ const {\bf PAtom} $\ast$, {\bf atom\-Hash}, {\bf atom\-Eq} $>$ {\bf Const\-Atom\-Set}
+\item 
+typedef hash\_\-set$<$ const Vector3 $\ast$, {\bf vector\-Pointer\-Hash}, {\bf vector\-Pointer\-Eq} $>$ {\bf Const\-Vector\-Set}
+\item 
+typedef hash\_\-set$<$ pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$, {\bf pair\-Atom\-Hash}, {\bf pair\-Atom\-Eq} $>$ {\bf Atom\-Collisions}
+\item 
+typedef hash\_\-map$<$ pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$, int, {\bf pair\-Atom\-Hash}, {\bf pair\-Atom\-Eq} $>$ {\bf Atom\-Separations}
+\item 
+typedef hash\_\-map$<$ Vector3, {\bf Atom\-Set}, {\bf vector\-Hash}, {\bf vector\-Eq} $>$ {\bf Collision\-Map}
+\item 
+typedef hash\_\-map$<$ Vector3, bool, {\bf vector\-Hash}, {\bf vector\-Eq} $>$ {\bf Occupancy\-Map}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+typedef {\bf HASH\_\-MAP\_\-STR} (vector$<$ {\bf PBond} $\ast$ $>$) DOF\_\-Cache
+\item 
+typedef {\bf HASH\_\-MAP\_\-STR} (vector$<$ {\bf PAtom} $\ast$ $>$) Atom\_\-Cache
+\item 
+typedef {\bf HASH\_\-MAP\_\-STR} (Vector3) Atom\-Positions
+\item 
+typedef {\bf HASH\_\-MAP\_\-STR} (string) String\-Map
+\item 
+typedef {\bf HASH\_\-MAP\_\-STRPAIR\_\-OR} ({\bf PBond} $\ast$) ID\_\-To\_\-DOF\_\-Map
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{PHashing.h@{PHashing.h}!HASH_MAP_STR@{HASH\_\-MAP\_\-STR}}
+\index{HASH_MAP_STR@{HASH\_\-MAP\_\-STR}!PHashing.h@{PHashing.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define HASH\_\-MAP\_\-STR(t)~hash\_\-map$<$string, t, {\bf string\-Hasher}, {\bf eq\-String}$>$}\label{PHashing_8h_5e83f1bccc0756dd754246ae4b62d6e5}
+
+
+\index{PHashing.h@{PHashing.h}!HASH_MAP_STRPAIR_EX@{HASH\_\-MAP\_\-STRPAIR\_\-EX}}
+\index{HASH_MAP_STRPAIR_EX@{HASH\_\-MAP\_\-STRPAIR\_\-EX}!PHashing.h@{PHashing.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define HASH\_\-MAP\_\-STRPAIR\_\-EX(t)~hash\_\-map$<${\bf String\-Pair}, t, {\bf string\-Pair\-Hasher}, {\bf eq\-String\-Pair\-Exclusive}$>$}\label{PHashing_8h_9e91bcf08d63125ec0a0880ff2c00797}
+
+
+\index{PHashing.h@{PHashing.h}!HASH_MAP_STRPAIR_OR@{HASH\_\-MAP\_\-STRPAIR\_\-OR}}
+\index{HASH_MAP_STRPAIR_OR@{HASH\_\-MAP\_\-STRPAIR\_\-OR}!PHashing.h@{PHashing.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define HASH\_\-MAP\_\-STRPAIR\_\-OR(t)~hash\_\-map$<${\bf String\-Pair}, t, {\bf string\-Pair\-Hasher}, {\bf eq\-String\-Pair\-Either}$>$}\label{PHashing_8h_e5a041977f8308e3af366b4405d0ea23}
+
+
+
+
+\subsection{Typedef Documentation}
+\index{PHashing.h@{PHashing.h}!AtomCollisions@{AtomCollisions}}
+\index{AtomCollisions@{AtomCollisions}!PHashing.h@{PHashing.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef hash\_\-set$<$pair$<${\bf PAtom} $\ast$, {\bf PAtom} $\ast$$>$, {\bf pair\-Atom\-Hash}, {\bf pair\-Atom\-Eq}$>$ {\bf Atom\-Collisions}}\label{PHashing_8h_78d70d02661621c1f2aaf7b64fe12595}
+
+
+\index{PHashing.h@{PHashing.h}!AtomSeparations@{AtomSeparations}}
+\index{AtomSeparations@{AtomSeparations}!PHashing.h@{PHashing.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef hash\_\-map$<$pair$<${\bf PAtom} $\ast$, {\bf PAtom} $\ast$$>$, int, {\bf pair\-Atom\-Hash}, {\bf pair\-Atom\-Eq}$>$ {\bf Atom\-Separations}}\label{PHashing_8h_20f0b2ba64218d85f5a887e39d0a8631}
+
+
+\index{PHashing.h@{PHashing.h}!AtomSet@{AtomSet}}
+\index{AtomSet@{AtomSet}!PHashing.h@{PHashing.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef hash\_\-set$<${\bf PAtom}$\ast$, {\bf atom\-Hash}, {\bf atom\-Eq}$>$ {\bf Atom\-Set}}\label{PHashing_8h_b81c252f709273da66828303391a927b}
+
+
+\index{PHashing.h@{PHashing.h}!CollisionMap@{CollisionMap}}
+\index{CollisionMap@{CollisionMap}!PHashing.h@{PHashing.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef hash\_\-map$<$Vector3, {\bf Atom\-Set}, {\bf vector\-Hash}, {\bf vector\-Eq}$>$ {\bf Collision\-Map}}\label{PHashing_8h_67100482bbabee5539fe8a269f262d0b}
+
+
+\index{PHashing.h@{PHashing.h}!ConstAtomSet@{ConstAtomSet}}
+\index{ConstAtomSet@{ConstAtomSet}!PHashing.h@{PHashing.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef hash\_\-set$<$const {\bf PAtom} $\ast$, {\bf atom\-Hash}, {\bf atom\-Eq}$>$ {\bf Const\-Atom\-Set}}\label{PHashing_8h_64e5d74662e630b935acbd9a2691366e}
+
+
+\index{PHashing.h@{PHashing.h}!ConstVectorSet@{ConstVectorSet}}
+\index{ConstVectorSet@{ConstVectorSet}!PHashing.h@{PHashing.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef hash\_\-set$<$const Vector3 $\ast$, {\bf vector\-Pointer\-Hash}, {\bf vector\-Pointer\-Eq}$>$ {\bf Const\-Vector\-Set}}\label{PHashing_8h_d45395666a139c74a645a4d4e2de6ef5}
+
+
+\index{PHashing.h@{PHashing.h}!OccupancyMap@{OccupancyMap}}
+\index{OccupancyMap@{OccupancyMap}!PHashing.h@{PHashing.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef hash\_\-map$<$Vector3, bool, {\bf vector\-Hash}, {\bf vector\-Eq}$>$ {\bf Occupancy\-Map}}\label{PHashing_8h_153a9be57b5ba72228b4bf5195d5ba6c}
+
+
+\index{PHashing.h@{PHashing.h}!StringPair@{StringPair}}
+\index{StringPair@{StringPair}!PHashing.h@{PHashing.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef pair$<$string,string$>$ {\bf String\-Pair}}\label{PHashing_8h_d925ed7736065eaf570658c8d31cd517}
+
+
+
+
+\subsection{Function Documentation}
+\index{PHashing.h@{PHashing.h}!HASH_MAP_STR@{HASH\_\-MAP\_\-STR}}
+\index{HASH_MAP_STR@{HASH\_\-MAP\_\-STR}!PHashing.h@{PHashing.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef HASH\_\-MAP\_\-STR (string)}\label{PHashing_8h_01de5f5e4bd0355d64055d46ab0805bf}
+
+
+\index{PHashing.h@{PHashing.h}!HASH_MAP_STR@{HASH\_\-MAP\_\-STR}}
+\index{HASH_MAP_STR@{HASH\_\-MAP\_\-STR}!PHashing.h@{PHashing.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef HASH\_\-MAP\_\-STR (Vector3)}\label{PHashing_8h_49ed72a6387f83d53880bb927ccb3bcf}
+
+
+\index{PHashing.h@{PHashing.h}!HASH_MAP_STR@{HASH\_\-MAP\_\-STR}}
+\index{HASH_MAP_STR@{HASH\_\-MAP\_\-STR}!PHashing.h@{PHashing.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef HASH\_\-MAP\_\-STR (vector$<$ {\bf PAtom} $\ast$ $>$)}\label{PHashing_8h_8a6d1a0b5c4867759d5724ef7abb7597}
+
+
+\index{PHashing.h@{PHashing.h}!HASH_MAP_STR@{HASH\_\-MAP\_\-STR}}
+\index{HASH_MAP_STR@{HASH\_\-MAP\_\-STR}!PHashing.h@{PHashing.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef HASH\_\-MAP\_\-STR (vector$<$ {\bf PBond} $\ast$ $>$)}\label{PHashing_8h_c4fc1ffccf57fefe9d614b10949bccfb}
+
+
+\index{PHashing.h@{PHashing.h}!HASH_MAP_STRPAIR_OR@{HASH\_\-MAP\_\-STRPAIR\_\-OR}}
+\index{HASH_MAP_STRPAIR_OR@{HASH\_\-MAP\_\-STRPAIR\_\-OR}!PHashing.h@{PHashing.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef HASH\_\-MAP\_\-STRPAIR\_\-OR ({\bf PBond} $\ast$)}\label{PHashing_8h_760b6461d5bcb7d74f589342d35fa5fc}
+
+

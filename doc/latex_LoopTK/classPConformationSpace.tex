@@ -1,0 +1,45 @@
+\section{PConformation\-Space Class Reference}
+\label{classPConformationSpace}\index{PConformationSpace@{PConformationSpace}}
+{\tt \#include $<$PExtension.h$>$}
+
+
+
+\subsection{Detailed Description}
+Defines a space of protein loop conformations, as well as the static portions of the protein before and after the loop. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf PConformation\-Space} (pair$<$ {\bf PLight\-Chain} $\ast$, {\bf PLight\-Chain} $\ast$ $>$ static\-Portions)
+\item 
+{\bf $\sim$PConformation\-Space} ()
+\item 
+pair$<$ {\bf PLight\-Chain} $\ast$, {\bf PLight\-Chain} $\ast$ $>$ {\bf get\-Static\-Portions} ()
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{PConformationSpace@{PConformation\-Space}!PConformationSpace@{PConformationSpace}}
+\index{PConformationSpace@{PConformationSpace}!PConformationSpace@{PConformation\-Space}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PConformation\-Space::PConformation\-Space (pair$<$ {\bf PLight\-Chain} $\ast$, {\bf PLight\-Chain} $\ast$ $>$ {\em static\-Portions})}\label{classPConformationSpace_40e63f0336246c915bf20140e402926b}
+
+
+Constructs a new {\tt \doxyref{PConformation\-Space}{p.}{classPConformationSpace}} with no conformations. The required parameter indicates the static portions of the protein, i.e. subchains before and after the loop; the first {\tt \doxyref{PLight\-Chain}{p.}{classPLightChain}} in the pair comes before the loop, the second comes after it. \index{PConformationSpace@{PConformation\-Space}!~PConformationSpace@{$\sim$PConformationSpace}}
+\index{~PConformationSpace@{$\sim$PConformationSpace}!PConformationSpace@{PConformation\-Space}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PConformation\-Space::$\sim$PConformation\-Space ()}\label{classPConformationSpace_c121034addfac976191b11ca1b40ada2}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{PConformationSpace@{PConformation\-Space}!getStaticPortions@{getStaticPortions}}
+\index{getStaticPortions@{getStaticPortions}!PConformationSpace@{PConformation\-Space}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}pair$<${\bf PLight\-Chain} $\ast$, {\bf PLight\-Chain} $\ast$$>$ PConformation\-Space::get\-Static\-Portions ()\hspace{0.3cm}{\tt  [inline]}}\label{classPConformationSpace_20b23c62011d7b9fa6c1f659f70e4d62}
+
+
+Gets the two static portions of the loop in the form of PLight\-Chain's. The first \doxyref{PLight\-Chain}{p.}{classPLightChain} in the pair comes before the loop; the second comes afterwards. 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PExtension.h}\item 
+src/core/{\bf PConformation\-Space.cc}\end{CompactItemize}

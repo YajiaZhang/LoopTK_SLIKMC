@@ -1,0 +1,87 @@
+\section{src/core/PNum\-Routines.cc File Reference}
+\label{PNumRoutines_8cc}\index{src/core/PNumRoutines.cc@{src/core/PNumRoutines.cc}}
+
+
+{\tt \#include \char`\"{}PNum\-Routines.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+double {\bf my\_\-f} (const gsl\_\-vector $\ast$x, void $\ast$params)
+\item 
+void {\bf my\_\-df} (const gsl\_\-vector $\ast$x, void $\ast${\bf p}, gsl\_\-vector $\ast$g)
+\item 
+void {\bf my\_\-fdf} (const gsl\_\-vector $\ast$x, void $\ast${\bf p}, double $\ast$f, gsl\_\-vector $\ast$g)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+int {\bf ncom}
+\item 
+double $\ast$ {\bf pcom}
+\item 
+double $\ast$ {\bf xicom}
+\item 
+{\bf Funct\-Functor} $\ast$ {\bf nrfunc}
+\item 
+{\bf Funct\-Functor} $\ast$ {\bf Funct\_\-Glob}
+\item 
+{\bf Deriv\-Functor} $\ast$ {\bf Deriv\_\-Glob}
+\item 
+int {\bf N\_\-Glob}
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{PNumRoutines.cc@{PNum\-Routines.cc}!my_df@{my\_\-df}}
+\index{my_df@{my\_\-df}!PNumRoutines.cc@{PNum\-Routines.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void my\_\-df (const gsl\_\-vector $\ast$ {\em x}, void $\ast$ {\em p}, gsl\_\-vector $\ast$ {\em g})}\label{PNumRoutines_8cc_f36eb20ebfdd587134448be9e64f47a2}
+
+
+\index{PNumRoutines.cc@{PNum\-Routines.cc}!my_f@{my\_\-f}}
+\index{my_f@{my\_\-f}!PNumRoutines.cc@{PNum\-Routines.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double my\_\-f (const gsl\_\-vector $\ast$ {\em x}, void $\ast$ {\em params})}\label{PNumRoutines_8cc_b290f1d2ae779df842be91b223270a72}
+
+
+\index{PNumRoutines.cc@{PNum\-Routines.cc}!my_fdf@{my\_\-fdf}}
+\index{my_fdf@{my\_\-fdf}!PNumRoutines.cc@{PNum\-Routines.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void my\_\-fdf (const gsl\_\-vector $\ast$ {\em x}, void $\ast$ {\em p}, double $\ast$ {\em f}, gsl\_\-vector $\ast$ {\em g})}\label{PNumRoutines_8cc_4b270ff81391b75aecc4311dcd9ef374}
+
+
+
+
+\subsection{Variable Documentation}
+\index{PNumRoutines.cc@{PNum\-Routines.cc}!Deriv_Glob@{Deriv\_\-Glob}}
+\index{Deriv_Glob@{Deriv\_\-Glob}!PNumRoutines.cc@{PNum\-Routines.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Deriv\-Functor}$\ast$ {\bf Deriv\_\-Glob}}\label{PNumRoutines_8cc_acf425d6b21733bc8d09537666dbca6e}
+
+
+\index{PNumRoutines.cc@{PNum\-Routines.cc}!Funct_Glob@{Funct\_\-Glob}}
+\index{Funct_Glob@{Funct\_\-Glob}!PNumRoutines.cc@{PNum\-Routines.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Funct\-Functor}$\ast$ {\bf Funct\_\-Glob}}\label{PNumRoutines_8cc_f78fdd606b35da9569e3ce3ec1bdc6f8}
+
+
+\index{PNumRoutines.cc@{PNum\-Routines.cc}!N_Glob@{N\_\-Glob}}
+\index{N_Glob@{N\_\-Glob}!PNumRoutines.cc@{PNum\-Routines.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf N\_\-Glob}}\label{PNumRoutines_8cc_f76bb0f38cf5abc8c66f177f214a9c8a}
+
+
+\index{PNumRoutines.cc@{PNum\-Routines.cc}!ncom@{ncom}}
+\index{ncom@{ncom}!PNumRoutines.cc@{PNum\-Routines.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf ncom}}\label{PNumRoutines_8cc_21ad42db744e3d793809916565750d01}
+
+
+\index{PNumRoutines.cc@{PNum\-Routines.cc}!nrfunc@{nrfunc}}
+\index{nrfunc@{nrfunc}!PNumRoutines.cc@{PNum\-Routines.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Funct\-Functor}$\ast$ {\bf nrfunc}}\label{PNumRoutines_8cc_5cef5fce65d4609982616df72800297f}
+
+
+\index{PNumRoutines.cc@{PNum\-Routines.cc}!pcom@{pcom}}
+\index{pcom@{pcom}!PNumRoutines.cc@{PNum\-Routines.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ {\bf pcom}}\label{PNumRoutines_8cc_f3932dec047e4822c04888eb75fe9793}
+
+
+\index{PNumRoutines.cc@{PNum\-Routines.cc}!xicom@{xicom}}
+\index{xicom@{xicom}!PNumRoutines.cc@{PNum\-Routines.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ {\bf xicom}}\label{PNumRoutines_8cc_9d6dd76827f6bf9aa646cb435dbd430f}
+
+

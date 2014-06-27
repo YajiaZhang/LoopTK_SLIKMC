@@ -1,0 +1,125 @@
+\section{src/core/PChain\-Navigator.cc File Reference}
+\label{PChainNavigator_8cc}\index{src/core/PChainNavigator.cc@{src/core/PChainNavigator.cc}}
+
+
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include \char`\"{}PChain\-Navigator.h\char`\"{}}\par
+{\tt \#include \char`\"{}PExtension.h\char`\"{}}\par
+{\tt \#include \char`\"{}PConstants.h\char`\"{}}\par
+{\tt \#include \char`\"{}PTools.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct {\bf Centering\-Getter}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf NO\_\-OCCUPANCY\_\-MAP}~0
+\item 
+\#define {\bf ONLY\_\-OCCUPIED\_\-CELLS}~1
+\item 
+\#define {\bf ALL\_\-OCCUPANCY\_\-MAP}~2
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ {\bf last\-Coll}
+\item 
+const GLColor {\bf occupied\-Cell} = GLColor(1, 0, 0, 0.75)
+\item 
+const GLColor {\bf unoccupied\-Cell} = GLColor(0, 0, 1, 0.75)
+\item 
+const GLColor {\bf sphere\-Color} = GLColor(1, 0, 0, 0.55)
+\item 
+const GLColor {\bf outer\-Color} = GLColor(0.8, 0.1, 0, 0.45)
+\item 
+const GLColor {\bf inner\-Color} = GLColor(0, 0.1, 0.8, 0.45)
+\item 
+const GLColor {\bf path\-Color} = GLColor(0, 0.5, 0.5, 0.75)
+\item 
+const GLColor {\bf nearest\-Path\-Color} = GLColor(0, 0.5, 0.5, 0.85)
+\item 
+const int {\bf MAX\_\-PATH\_\-LENGTH} = 10000
+\item 
+const int {\bf MAX\_\-EXTEND\_\-LENGTH} = 5
+\item 
+const int {\bf MIN\_\-MOVE\_\-PATH\_\-LENGTH} = 6
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{PChainNavigator.cc@{PChain\-Navigator.cc}!ALL_OCCUPANCY_MAP@{ALL\_\-OCCUPANCY\_\-MAP}}
+\index{ALL_OCCUPANCY_MAP@{ALL\_\-OCCUPANCY\_\-MAP}!PChainNavigator.cc@{PChain\-Navigator.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define ALL\_\-OCCUPANCY\_\-MAP~2}\label{PChainNavigator_8cc_1cbbcc9ab52891afdeb99d0bf8eab983}
+
+
+\index{PChainNavigator.cc@{PChain\-Navigator.cc}!NO_OCCUPANCY_MAP@{NO\_\-OCCUPANCY\_\-MAP}}
+\index{NO_OCCUPANCY_MAP@{NO\_\-OCCUPANCY\_\-MAP}!PChainNavigator.cc@{PChain\-Navigator.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NO\_\-OCCUPANCY\_\-MAP~0}\label{PChainNavigator_8cc_b9729596c206cc528ac3c7018a5a5f31}
+
+
+\index{PChainNavigator.cc@{PChain\-Navigator.cc}!ONLY_OCCUPIED_CELLS@{ONLY\_\-OCCUPIED\_\-CELLS}}
+\index{ONLY_OCCUPIED_CELLS@{ONLY\_\-OCCUPIED\_\-CELLS}!PChainNavigator.cc@{PChain\-Navigator.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define ONLY\_\-OCCUPIED\_\-CELLS~1}\label{PChainNavigator_8cc_84753ab31c336b33ba526a5c201ce653}
+
+
+
+
+\subsection{Variable Documentation}
+\index{PChainNavigator.cc@{PChain\-Navigator.cc}!innerColor@{innerColor}}
+\index{innerColor@{innerColor}!PChainNavigator.cc@{PChain\-Navigator.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const GLColor {\bf inner\-Color} = GLColor(0, 0.1, 0.8, 0.45)}\label{PChainNavigator_8cc_24fbcb9257cc6548fc2a84036ba973bb}
+
+
+\index{PChainNavigator.cc@{PChain\-Navigator.cc}!lastColl@{lastColl}}
+\index{lastColl@{lastColl}!PChainNavigator.cc@{PChain\-Navigator.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}pair$<${\bf PAtom} $\ast$, {\bf PAtom} $\ast$$>$ {\bf last\-Coll}}\label{PChainNavigator_8cc_d9390623304c089872eafd4c83694d07}
+
+
+\index{PChainNavigator.cc@{PChain\-Navigator.cc}!MAX_EXTEND_LENGTH@{MAX\_\-EXTEND\_\-LENGTH}}
+\index{MAX_EXTEND_LENGTH@{MAX\_\-EXTEND\_\-LENGTH}!PChainNavigator.cc@{PChain\-Navigator.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const int {\bf MAX\_\-EXTEND\_\-LENGTH} = 5}\label{PChainNavigator_8cc_8ed919ae9d6899bb021c0e059c400645}
+
+
+\index{PChainNavigator.cc@{PChain\-Navigator.cc}!MAX_PATH_LENGTH@{MAX\_\-PATH\_\-LENGTH}}
+\index{MAX_PATH_LENGTH@{MAX\_\-PATH\_\-LENGTH}!PChainNavigator.cc@{PChain\-Navigator.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const int {\bf MAX\_\-PATH\_\-LENGTH} = 10000}\label{PChainNavigator_8cc_4d73d8bd5ce569414af9ec02ab81653e}
+
+
+\index{PChainNavigator.cc@{PChain\-Navigator.cc}!MIN_MOVE_PATH_LENGTH@{MIN\_\-MOVE\_\-PATH\_\-LENGTH}}
+\index{MIN_MOVE_PATH_LENGTH@{MIN\_\-MOVE\_\-PATH\_\-LENGTH}!PChainNavigator.cc@{PChain\-Navigator.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const int {\bf MIN\_\-MOVE\_\-PATH\_\-LENGTH} = 6}\label{PChainNavigator_8cc_234ea2491649c12752e5ba74b577f2b0}
+
+
+\index{PChainNavigator.cc@{PChain\-Navigator.cc}!nearestPathColor@{nearestPathColor}}
+\index{nearestPathColor@{nearestPathColor}!PChainNavigator.cc@{PChain\-Navigator.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const GLColor {\bf nearest\-Path\-Color} = GLColor(0, 0.5, 0.5, 0.85)}\label{PChainNavigator_8cc_b8e1acf35c9cd5d3862b07a4a2128f1b}
+
+
+\index{PChainNavigator.cc@{PChain\-Navigator.cc}!occupiedCell@{occupiedCell}}
+\index{occupiedCell@{occupiedCell}!PChainNavigator.cc@{PChain\-Navigator.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const GLColor {\bf occupied\-Cell} = GLColor(1, 0, 0, 0.75)}\label{PChainNavigator_8cc_ea5d22ad54db6e3ef7dd43ea40850dc5}
+
+
+\index{PChainNavigator.cc@{PChain\-Navigator.cc}!outerColor@{outerColor}}
+\index{outerColor@{outerColor}!PChainNavigator.cc@{PChain\-Navigator.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const GLColor {\bf outer\-Color} = GLColor(0.8, 0.1, 0, 0.45)}\label{PChainNavigator_8cc_949025e258101e2ca7bc30f5c27ff000}
+
+
+\index{PChainNavigator.cc@{PChain\-Navigator.cc}!pathColor@{pathColor}}
+\index{pathColor@{pathColor}!PChainNavigator.cc@{PChain\-Navigator.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const GLColor {\bf path\-Color} = GLColor(0, 0.5, 0.5, 0.75)}\label{PChainNavigator_8cc_cebb3f86a55330069d62722fdce9eb0e}
+
+
+\index{PChainNavigator.cc@{PChain\-Navigator.cc}!sphereColor@{sphereColor}}
+\index{sphereColor@{sphereColor}!PChainNavigator.cc@{PChain\-Navigator.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const GLColor {\bf sphere\-Color} = GLColor(1, 0, 0, 0.55)}\label{PChainNavigator_8cc_4c880f8b4ad482c28d2e8b6b213934eb}
+
+
+\index{PChainNavigator.cc@{PChain\-Navigator.cc}!unoccupiedCell@{unoccupiedCell}}
+\index{unoccupiedCell@{unoccupiedCell}!PChainNavigator.cc@{PChain\-Navigator.cc}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const GLColor {\bf unoccupied\-Cell} = GLColor(0, 0, 1, 0.75)}\label{PChainNavigator_8cc_90769f7fc1224ac6272279b047a58880}
+
+

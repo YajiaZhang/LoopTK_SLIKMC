@@ -1,0 +1,108 @@
+\section{PResidue\-Shell Class Reference}
+\label{classPResidueShell}\index{PResidueShell@{PResidueShell}}
+{\tt \#include $<$PResidue\-Shell.h$>$}
+
+
+
+\subsection{Detailed Description}
+Encapsulates information common to all residues. \doxyref{PResidue\-Shell}{p.}{classPResidueShell} contains methods and data to store and access the blocks and block connections within a particular residue. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf PResidue\-Shell} (const string \&name, const string \&head\-Block\-Id, const string \&head\-Block\-Name, const string \&tail\-Block\-Id, const string \&tail\-Block\-Name, const string \&start\-Atom\-ID)
+\item 
+{\bf PResidue\-Shell} (const string \&name, const string \&core\-Block\-Id, const string \&core\-Block\-Name, const string \&start\-Atom\-ID)
+\item 
+void {\bf add\-Block} (const string \&id, const string \&name)
+\item 
+void {\bf add\-Block\-Connection} (const string \&id\-Defined, const string \&id\-To\-Define)
+\item 
+string {\bf get\-Start\-Atom\-ID} () const
+\item 
+string {\bf get\-Name} () const
+\item 
+string {\bf get\-Head\-Id} () const
+\item 
+string {\bf get\-Tail\-Id} () const
+\item 
+string {\bf get\-Head\-Block\-Shell} () const
+\item 
+string {\bf get\-Tail\-Block\-Shell} ()
+\item 
+vector$<$ {\bf String\-Pair} $>$ $\ast$ {\bf get\-Block\-Bonds} ()
+\item 
+String\-Map $\ast$ {\bf get\-Blocks} ()
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{PResidueShell@{PResidue\-Shell}!PResidueShell@{PResidueShell}}
+\index{PResidueShell@{PResidueShell}!PResidueShell@{PResidue\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PResidue\-Shell::PResidue\-Shell (const string \& {\em name}, const string \& {\em head\-Block\-Id}, const string \& {\em head\-Block\-Name}, const string \& {\em tail\-Block\-Id}, const string \& {\em tail\-Block\-Name}, const string \& {\em start\-Atom\-ID})}\label{classPResidueShell_1a6054bc05585bf483cc85786dd3d926}
+
+
+Constructs a new \doxyref{PResidue\-Shell}{p.}{classPResidueShell} with the specified name, head block, tail block, and ID of the atom where graph traversals are to begin. Use this constructor when the head and tail blocks are not the same. \index{PResidueShell@{PResidue\-Shell}!PResidueShell@{PResidueShell}}
+\index{PResidueShell@{PResidueShell}!PResidueShell@{PResidue\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PResidue\-Shell::PResidue\-Shell (const string \& {\em name}, const string \& {\em core\-Block\-Id}, const string \& {\em core\-Block\-Name}, const string \& {\em start\-Atom\-ID})}\label{classPResidueShell_207de31e97dca84c0bff48bb81544447}
+
+
+Constructs a new \doxyref{PResidue\-Shell}{p.}{classPResidueShell} with the specified name, core block and ID of the atom where graph traversals are to begin. Use this constructor when the head and tail blocks are the same. 
+
+\subsection{Member Function Documentation}
+\index{PResidueShell@{PResidue\-Shell}!addBlock@{addBlock}}
+\index{addBlock@{addBlock}!PResidueShell@{PResidue\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PResidue\-Shell::add\-Block (const string \& {\em id}, const string \& {\em name})}\label{classPResidueShell_ac85b75e4a533856fa24706d7de46197}
+
+
+Adds the specified block to the residue. \index{PResidueShell@{PResidue\-Shell}!addBlockConnection@{addBlockConnection}}
+\index{addBlockConnection@{addBlockConnection}!PResidueShell@{PResidue\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PResidue\-Shell::add\-Block\-Connection (const string \& {\em id\-Defined}, const string \& {\em id\-To\-Define})}\label{classPResidueShell_4550bd1aaadb7c36bb03590aacf699c2}
+
+
+Adds the specified block connection to the residue, indicating the block already defined to the block being defined. \index{PResidueShell@{PResidue\-Shell}!getStartAtomID@{getStartAtomID}}
+\index{getStartAtomID@{getStartAtomID}!PResidueShell@{PResidue\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string PResidue\-Shell::get\-Start\-Atom\-ID () const\hspace{0.3cm}{\tt  [inline]}}\label{classPResidueShell_3fd062775237b0e0eafddd229aec6c7e}
+
+
+Returns the ID of the atom in this residue where graph traversals (of atoms and their bonds) are to begin. \index{PResidueShell@{PResidue\-Shell}!getName@{getName}}
+\index{getName@{getName}!PResidueShell@{PResidue\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string PResidue\-Shell::get\-Name () const\hspace{0.3cm}{\tt  [inline]}}\label{classPResidueShell_9d7e967477677faa44c5e8fcb0886274}
+
+
+Returns the name of this residue. \index{PResidueShell@{PResidue\-Shell}!getHeadId@{getHeadId}}
+\index{getHeadId@{getHeadId}!PResidueShell@{PResidue\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string PResidue\-Shell::get\-Head\-Id () const\hspace{0.3cm}{\tt  [inline]}}\label{classPResidueShell_ff07b6436967401e80d828d81fb6a057}
+
+
+Returns the ID of the head block in this residue. \index{PResidueShell@{PResidue\-Shell}!getTailId@{getTailId}}
+\index{getTailId@{getTailId}!PResidueShell@{PResidue\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string PResidue\-Shell::get\-Tail\-Id () const\hspace{0.3cm}{\tt  [inline]}}\label{classPResidueShell_796aed3af4c3370638b6bdd1355b57cb}
+
+
+Returns the ID of the tail block in this residue. \index{PResidueShell@{PResidue\-Shell}!getHeadBlockShell@{getHeadBlockShell}}
+\index{getHeadBlockShell@{getHeadBlockShell}!PResidueShell@{PResidue\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string PResidue\-Shell::get\-Head\-Block\-Shell () const\hspace{0.3cm}{\tt  [inline]}}\label{classPResidueShell_85c549603d2252ee94fddd21c58594f6}
+
+
+Returns the name of the head block in this residue. \index{PResidueShell@{PResidue\-Shell}!getTailBlockShell@{getTailBlockShell}}
+\index{getTailBlockShell@{getTailBlockShell}!PResidueShell@{PResidue\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string PResidue\-Shell::get\-Tail\-Block\-Shell ()\hspace{0.3cm}{\tt  [inline]}}\label{classPResidueShell_7a2835841f9dc1bf543ed3ab76c7dfc7}
+
+
+Returns the name of the tail block in this residue. \index{PResidueShell@{PResidue\-Shell}!getBlockBonds@{getBlockBonds}}
+\index{getBlockBonds@{getBlockBonds}!PResidueShell@{PResidue\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf String\-Pair}$>$$\ast$ PResidue\-Shell::get\-Block\-Bonds ()\hspace{0.3cm}{\tt  [inline]}}\label{classPResidueShell_29346688bd7d7a51abcbc554e60149ec}
+
+
+Returns a pointer to a vector of all the inter-block bonds in this residue. \index{PResidueShell@{PResidue\-Shell}!getBlocks@{getBlocks}}
+\index{getBlocks@{getBlocks}!PResidueShell@{PResidue\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}String\-Map$\ast$ PResidue\-Shell::get\-Blocks ()\hspace{0.3cm}{\tt  [inline]}}\label{classPResidueShell_051e85a2f57561855deb6d722c3de8e9}
+
+
+Returns a pointer to the map of block ID -$>$ block names for this residue. 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PResidue\-Shell.h}\item 
+src/core/{\bf PResidue.cc}\end{CompactItemize}

@@ -1,0 +1,130 @@
+\section{PUtilities Class Reference}
+\label{classPUtilities}\index{PUtilities@{PUtilities}}
+{\tt \#include $<$PUtilities.h$>$}
+
+
+
+\subsection{Detailed Description}
+Contains miscellaneous utility methods for string manipulation, text file I/O, system interaction, and so on. These methods are made public in case they are valuable to users of {\tt \doxyref{Loop\-TK}{p.}{classLoopTK}} but are generally intended for internal use. 
+
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static void {\bf copy\-File} (const string \&new\-File\-Name, const string \&file\-To\-Copy)
+\item 
+static void {\bf make\-Directory} (const string \&dir\-Name)
+\item 
+static void {\bf trim\-Spaces} (string \&str)
+\item 
+template$<$typename T$>$ static string {\bf to\-Str} (const T \&x)
+\item 
+static string {\bf pad\-Left} (const string \&s, unsigned int len, char pad\-Char= ' ')
+\item 
+static string {\bf pad\-Right} (const string \&s, unsigned int len, char pad\-Char= ' ')
+\item 
+static vector$<$ string $>$ {\bf get\-Lines\-Starting} (const vector$<$ string $>$ \&lines, const string \&prefix, const string \&chain\-Id=\char`\"{}\char`\"{}, bool trim\-Prefix=false, const string \&termination\-Code=\char`\"{}\char`\"{})
+\item 
+static vector$<$ string $>$ {\bf get\-Tokens} (const string \&cur\-Line)
+\item 
+static vector$<$ string $>$ {\bf get\-Lines\-Starting} (const string \&file\-Name, const string \&prefix, const string \&chain\-Id=\char`\"{}\char`\"{}, bool trim\-Prefix=false, const string \&termination\-Code=\char`\"{}\char`\"{})
+\item 
+static vector$<$ string $>$ {\bf get\-Lines} (const string \&file\-Name, const string \&chain\-Id=\char`\"{}\char`\"{})
+\item 
+static void {\bf append\-To\-File} (const string \&file\-Name, const string \&line)
+\item 
+static void {\bf Abort\-Program} (const string \&message)
+\item 
+static const void $\ast$ {\bf Pointer\-That\-Is\-Not} (const void $\ast$p1, const void $\ast$p2, const void $\ast$have)
+\item 
+template$<$typename T$>$ static T $\ast$$\ast$ {\bf New2DArray} (unsigned size)
+\item 
+template$<$typename T$>$ static void {\bf Delete2DArray} (T $\ast$$\ast$table, unsigned size)
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{PUtilities@{PUtilities}!copyFile@{copyFile}}
+\index{copyFile@{copyFile}!PUtilities@{PUtilities}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PUtilities::copy\-File (const string \& {\em new\-File\-Name}, const string \& {\em file\-To\-Copy})\hspace{0.3cm}{\tt  [static]}}\label{classPUtilities_e660f3e093a5729db879cf28063e9fbb}
+
+
+Copies {\tt file\-To\-Copy} to the output file {\tt new\-File\-Name}. \index{PUtilities@{PUtilities}!makeDirectory@{makeDirectory}}
+\index{makeDirectory@{makeDirectory}!PUtilities@{PUtilities}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PUtilities::make\-Directory (const string \& {\em dir\-Name})\hspace{0.3cm}{\tt  [static]}}\label{classPUtilities_5635a87a314af70446ddea991bde090d}
+
+
+Creates the directory specified by {\tt dir\-Name}. Aborts the program if the directory cannot be created. \index{PUtilities@{PUtilities}!trimSpaces@{trimSpaces}}
+\index{trimSpaces@{trimSpaces}!PUtilities@{PUtilities}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PUtilities::trim\-Spaces (string \& {\em str})\hspace{0.3cm}{\tt  [static]}}\label{classPUtilities_ec00954d2e63dd96b10adeebaff0e9b5}
+
+
+Removes leading and trailing spaces from {\tt str}. \index{PUtilities@{PUtilities}!toStr@{toStr}}
+\index{toStr@{toStr}!PUtilities@{PUtilities}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ static string PUtilities::to\-Str (const T \& {\em x})\hspace{0.3cm}{\tt  [inline, static]}}\label{classPUtilities_aad1014204be20c5230d21717db4dde9}
+
+
+Returns a string version of {\tt x} if possible, i.e. if {\tt stringstream::operator$<$$<$ } supports objects of type {\tt T}. \index{PUtilities@{PUtilities}!padLeft@{padLeft}}
+\index{padLeft@{padLeft}!PUtilities@{PUtilities}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string PUtilities::pad\-Left (const string \& {\em s}, unsigned int {\em len}, char {\em pad\-Char} = {\tt '~'})\hspace{0.3cm}{\tt  [static]}}\label{classPUtilities_9723885fc09e4b62643d5b5d69c41f5c}
+
+
+Left-pads {\tt s} with {\tt pad\-Char} until its length is {\tt len}. \index{PUtilities@{PUtilities}!padRight@{padRight}}
+\index{padRight@{padRight}!PUtilities@{PUtilities}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string PUtilities::pad\-Right (const string \& {\em s}, unsigned int {\em len}, char {\em pad\-Char} = {\tt '~'})\hspace{0.3cm}{\tt  [static]}}\label{classPUtilities_0848e23c07a90ed88f58389601ab7433}
+
+
+Right-pads {\tt s} with {\tt pad\-Char} until its length is {\tt len}. \index{PUtilities@{PUtilities}!getLinesStarting@{getLinesStarting}}
+\index{getLinesStarting@{getLinesStarting}!PUtilities@{PUtilities}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ string $>$ PUtilities::get\-Lines\-Starting (const vector$<$ string $>$ \& {\em lines}, const string \& {\em prefix}, const string \& {\em chain\-Id} = {\tt \char`\"{}\char`\"{}}, bool {\em trim\-Prefix} = {\tt false}, const string \& {\em termination\-Code} = {\tt \char`\"{}\char`\"{}})\hspace{0.3cm}{\tt  [static]}}\label{classPUtilities_06340a6cd039b86576a6ec3bb0a39779}
+
+
+Returns a {\tt vector} of all lines in the specified {\tt vector} beginning with the specified {\tt prefix}.
+
+Optionally, if {\tt trim\-Prefix == true}, the lines in the resulting vector will have the prefix removed. Also, if {\tt termination\-Code} is not the empty string, parsing will stop immediately if a line beginning with {\tt termination\-Code} is found. \index{PUtilities@{PUtilities}!getTokens@{getTokens}}
+\index{getTokens@{getTokens}!PUtilities@{PUtilities}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ string $>$ PUtilities::get\-Tokens (const string \& {\em cur\-Line})\hspace{0.3cm}{\tt  [static]}}\label{classPUtilities_2d5af8e1c6bb8cb4fb6860094b2a6454}
+
+
+Returns a vector of all the tokens in the specified string. \index{PUtilities@{PUtilities}!getLinesStarting@{getLinesStarting}}
+\index{getLinesStarting@{getLinesStarting}!PUtilities@{PUtilities}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ string $>$ PUtilities::get\-Lines\-Starting (const string \& {\em file\-Name}, const string \& {\em prefix}, const string \& {\em chain\-Id} = {\tt \char`\"{}\char`\"{}}, bool {\em trim\-Prefix} = {\tt false}, const string \& {\em termination\-Code} = {\tt \char`\"{}\char`\"{}})\hspace{0.3cm}{\tt  [static]}}\label{classPUtilities_ffeba9148eabf55c1eb1bfd60deb7f82}
+
+
+Returns a {\tt vector} of all lines in the specified {\tt file\-Name} beginning with the specified {\tt prefix}.
+
+Optionally, if {\tt trim\-Prefix == true}, the lines in the resulting vector will have the prefix removed. Also, if {\tt termination\-Code} is not the empty string, parsing will stop immediately if a line beginning with {\tt termination\-Code} is found. \index{PUtilities@{PUtilities}!getLines@{getLines}}
+\index{getLines@{getLines}!PUtilities@{PUtilities}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ string $>$ PUtilities::get\-Lines (const string \& {\em file\-Name}, const string \& {\em chain\-Id} = {\tt \char`\"{}\char`\"{}})\hspace{0.3cm}{\tt  [static]}}\label{classPUtilities_e541cd622b2bb982325e3ac271163a53}
+
+
+Returns a vector of all lines in the specified file, regardless of prefix. \index{PUtilities@{PUtilities}!appendToFile@{appendToFile}}
+\index{appendToFile@{appendToFile}!PUtilities@{PUtilities}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PUtilities::append\-To\-File (const string \& {\em file\-Name}, const string \& {\em line})\hspace{0.3cm}{\tt  [static]}}\label{classPUtilities_09fc6dca757a4870b3e6b41f0f3744e2}
+
+
+Appends {\tt line} to the file {\tt file\-Name}. \index{PUtilities@{PUtilities}!AbortProgram@{AbortProgram}}
+\index{AbortProgram@{AbortProgram}!PUtilities@{PUtilities}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PUtilities::Abort\-Program (const string \& {\em message})\hspace{0.3cm}{\tt  [static]}}\label{classPUtilities_4c664b91a0cf9ce7ea49ca127c162515}
+
+
+Outputs {\tt message} to {\tt stderr} and immediately terminates execution of the program. \index{PUtilities@{PUtilities}!PointerThatIsNot@{PointerThatIsNot}}
+\index{PointerThatIsNot@{PointerThatIsNot}!PUtilities@{PUtilities}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const void $\ast$ PUtilities::Pointer\-That\-Is\-Not (const void $\ast$ {\em p1}, const void $\ast$ {\em p2}, const void $\ast$ {\em have})\hspace{0.3cm}{\tt  [static]}}\label{classPUtilities_2b27f23477d2fa667c87d61371047bd3}
+
+
+Returns {\tt p2} if {\tt p1} and {\tt have} point to the same address; otherwise, returns {\tt p1}. \index{PUtilities@{PUtilities}!New2DArray@{New2DArray}}
+\index{New2DArray@{New2DArray}!PUtilities@{PUtilities}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ static T$\ast$$\ast$ PUtilities::New2DArray (unsigned {\em size})\hspace{0.3cm}{\tt  [inline, static]}}\label{classPUtilities_47909f9972701f380f029d29631d0baa}
+
+
+Creates a newly-allocated 2D table of {\tt T}'s with dimension {\tt size} by {\tt size}. \index{PUtilities@{PUtilities}!Delete2DArray@{Delete2DArray}}
+\index{Delete2DArray@{Delete2DArray}!PUtilities@{PUtilities}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ static void PUtilities::Delete2DArray (T $\ast$$\ast$ {\em table}, unsigned {\em size})\hspace{0.3cm}{\tt  [inline, static]}}\label{classPUtilities_e77ad20b096cfc12e5975c09b9e9ae16}
+
+
+Deletes the 2D array {\tt table}, freeing all dynamically-allocated memory associated with it. 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PUtilities.h}\item 
+src/core/{\bf PUtilities.cc}\end{CompactItemize}

@@ -1,0 +1,62 @@
+\section{PSpace\-Manager Class Reference}
+\label{classPSpaceManager}\index{PSpaceManager@{PSpaceManager}}
+{\tt \#include $<$PSpace\-Manager.h$>$}
+
+Inheritance diagram for PSpace\-Manager::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classPSpaceManager}
+\end{center}
+\end{figure}
+
+
+\subsection{Detailed Description}
+An abstract class allowing for queries about the space in which a given chain exists. Each chain has its own {\tt \doxyref{PSpace\-Manager}{p.}{classPSpaceManager}}. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual list$<$ {\bf PAtom} $\ast$ $>$ {\bf Atoms\-Near\-Point} (const Vector3 \&point, Real distance) const=0
+\item 
+virtual pair$<$ Vector3, Vector3 $>$ {\bf get\-Cell\-Bounding\-Box} (const Vector3 \&pos) const=0
+\item 
+virtual pair$<$ Vector3, Vector3 $>$ {\bf get\-Global\-Bounding\-Box} () const=0
+\item 
+virtual {\bf Occupancy\-Map} {\bf get\-Occupancy} () const=0
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{PSpaceManager@{PSpace\-Manager}!AtomsNearPoint@{AtomsNearPoint}}
+\index{AtomsNearPoint@{AtomsNearPoint}!PSpaceManager@{PSpace\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual list$<${\bf PAtom} $\ast$$>$ PSpace\-Manager::Atoms\-Near\-Point (const Vector3 \& {\em point}, Real {\em distance}) const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classPSpaceManager_d7c593ce8843953132b6356d77ca3a77}
+
+
+Returns a {\tt list} of all atoms within the given {\tt distance} from the given {\tt point}. 
+
+Implemented in {\bf PGrid} \doxyref{}{p.}{classPGrid_d02c8f3f9624f6bafa0d8607d0e91f10}.\index{PSpaceManager@{PSpace\-Manager}!getCellBoundingBox@{getCellBoundingBox}}
+\index{getCellBoundingBox@{getCellBoundingBox}!PSpaceManager@{PSpace\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual pair$<$Vector3, Vector3$>$ PSpace\-Manager::get\-Cell\-Bounding\-Box (const Vector3 \& {\em pos}) const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classPSpaceManager_a82e282d78325a3b541b937e47a46485}
+
+
+
+
+Implemented in {\bf PGrid} \doxyref{}{p.}{classPGrid_5e90994e38781467c20bb697d28a85a6}.\index{PSpaceManager@{PSpace\-Manager}!getGlobalBoundingBox@{getGlobalBoundingBox}}
+\index{getGlobalBoundingBox@{getGlobalBoundingBox}!PSpaceManager@{PSpace\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual pair$<$Vector3, Vector3$>$ PSpace\-Manager::get\-Global\-Bounding\-Box () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classPSpaceManager_3e81f280c0c10822d55f2c0a2bb5e6d6}
+
+
+
+
+Implemented in {\bf PGrid} \doxyref{}{p.}{classPGrid_dc9723e424205aa638e85eb0fbeb8280}.\index{PSpaceManager@{PSpace\-Manager}!getOccupancy@{getOccupancy}}
+\index{getOccupancy@{getOccupancy}!PSpaceManager@{PSpace\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Occupancy\-Map} PSpace\-Manager::get\-Occupancy () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classPSpaceManager_ce52be73af0f6ce0ae3a6105a55d8173}
+
+
+
+
+Implemented in {\bf PGrid} \doxyref{}{p.}{classPGrid_86f12e72436a6fddd804041ff8e1031b}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/core/{\bf PSpace\-Manager.h}\end{CompactItemize}

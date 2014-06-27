@@ -1,0 +1,134 @@
+\section{PLight\-Chain Class Reference}
+\label{classPLightChain}\index{PLightChain@{PLightChain}}
+{\tt \#include $<$PLight\-Chain.h$>$}
+
+Inheritance diagram for PLight\-Chain::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{classPLightChain}
+\end{center}
+\end{figure}
+
+
+\subsection{Detailed Description}
+A lightweight chain that cannot be manipulated or have subchains. It can provide position info, collision detection, and other miscellaneous routines. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual int {\bf size} () const=0
+\item 
+virtual {\bf PResidue} $\ast$ {\bf get\-Residue} (int index)=0
+\item 
+virtual {\bf PAtom} $\ast$ {\bf get\-Atom\-At\-Res} (const string \&atom\-Id, int res\-Num)=0
+\item 
+virtual void {\bf set\-Atom\-Color\-At\-Res} (const string \&atom\-Id, int res\-Num, GLColor color)=0
+\item 
+virtual void {\bf revert\-Atom\-Color\-At\-Res} (const string \&atom\-Id, int res\-Num)=0
+\item 
+virtual const {\bf PSpace\-Manager} $\ast$ {\bf get\-Space\-Manager} ()=0
+\item 
+virtual bool {\bf In\-Self\-Collision} ()=0
+\item 
+virtual bool {\bf In\-Self\-Collision} (int res\-Index1, int res\-Index2)=0
+\item 
+virtual pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ {\bf Find\-Self\-Collision} ()=0
+\item 
+virtual pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ {\bf Find\-Self\-Collision} (int res\-Index1, int res\-Index2)=0
+\item 
+virtual {\bf Atom\-Collisions} $\ast$ {\bf get\-All\-Colliding\-Self} ()=0
+\item 
+virtual {\bf Atom\-Collisions} $\ast$ {\bf get\-All\-Colliding\-Self} (int res\-Index1, int res\-Index2)=0
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{PLightChain@{PLight\-Chain}!size@{size}}
+\index{size@{size}!PLightChain@{PLight\-Chain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int PLight\-Chain::size () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classPLightChain_6dc22b36d7391c10a50a192324b0b0ba}
+
+
+
+
+Implemented in {\bf PChain} \doxyref{}{p.}{classPChain_272293fc909f8061105dc60a965370a4}.\index{PLightChain@{PLight\-Chain}!getResidue@{getResidue}}
+\index{getResidue@{getResidue}!PLightChain@{PLight\-Chain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf PResidue}$\ast$ PLight\-Chain::get\-Residue (int {\em index})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classPLightChain_03c35beafe72084c80681d753ea8aa5c}
+
+
+
+
+Implemented in {\bf PChain} \doxyref{}{p.}{classPChain_7808cd02cc152a2143a62cea5a38a566}, and {\bf PProtein} \doxyref{}{p.}{classPProtein_e075c499dc00f2b2094c826125a11029}.\index{PLightChain@{PLight\-Chain}!getAtomAtRes@{getAtomAtRes}}
+\index{getAtomAtRes@{getAtomAtRes}!PLightChain@{PLight\-Chain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf PAtom}$\ast$ PLight\-Chain::get\-Atom\-At\-Res (const string \& {\em atom\-Id}, int {\em res\-Num})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classPLightChain_020a55f4e8c926d147b9361236383265}
+
+
+
+
+Implemented in {\bf PChain} \doxyref{}{p.}{classPChain_802dbb6a8e610cc9c0fb4b56b32f7406}.\index{PLightChain@{PLight\-Chain}!setAtomColorAtRes@{setAtomColorAtRes}}
+\index{setAtomColorAtRes@{setAtomColorAtRes}!PLightChain@{PLight\-Chain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void PLight\-Chain::set\-Atom\-Color\-At\-Res (const string \& {\em atom\-Id}, int {\em res\-Num}, GLColor {\em color})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classPLightChain_55ce049802ba06e1c0260b5bba2dcdb4}
+
+
+
+
+Implemented in {\bf PChain} \doxyref{}{p.}{classPChain_6be5fb63146fcc86f36280f1a4467c0b}.\index{PLightChain@{PLight\-Chain}!revertAtomColorAtRes@{revertAtomColorAtRes}}
+\index{revertAtomColorAtRes@{revertAtomColorAtRes}!PLightChain@{PLight\-Chain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void PLight\-Chain::revert\-Atom\-Color\-At\-Res (const string \& {\em atom\-Id}, int {\em res\-Num})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classPLightChain_721931ad0cde3f5213a78353d9069c33}
+
+
+
+
+Implemented in {\bf PChain} \doxyref{}{p.}{classPChain_b356f657a1ec0f1457a7b317d1bb6afa}.\index{PLightChain@{PLight\-Chain}!getSpaceManager@{getSpaceManager}}
+\index{getSpaceManager@{getSpaceManager}!PLightChain@{PLight\-Chain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual const {\bf PSpace\-Manager}$\ast$ PLight\-Chain::get\-Space\-Manager ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classPLightChain_32590087112f549f26f4e1f3d5bd1506}
+
+
+
+
+Implemented in {\bf PChain} \doxyref{}{p.}{classPChain_683ef59c11a60fbf19552bf2d8e08f32}.\index{PLightChain@{PLight\-Chain}!InSelfCollision@{InSelfCollision}}
+\index{InSelfCollision@{InSelfCollision}!PLightChain@{PLight\-Chain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual bool PLight\-Chain::In\-Self\-Collision ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classPLightChain_a4dd5d698c271c3f29c52eee404d270e}
+
+
+
+
+Implemented in {\bf PChain} \doxyref{}{p.}{classPChain_0ee8dc2531fe21a47b03615476cb890c}.\index{PLightChain@{PLight\-Chain}!InSelfCollision@{InSelfCollision}}
+\index{InSelfCollision@{InSelfCollision}!PLightChain@{PLight\-Chain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual bool PLight\-Chain::In\-Self\-Collision (int {\em res\-Index1}, int {\em res\-Index2})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classPLightChain_6979b856cc4feae89341effa62da1bfd}
+
+
+
+
+Implemented in {\bf PChain} \doxyref{}{p.}{classPChain_33bbf680ce3995c150f39b4a4cb539c7}.\index{PLightChain@{PLight\-Chain}!FindSelfCollision@{FindSelfCollision}}
+\index{FindSelfCollision@{FindSelfCollision}!PLightChain@{PLight\-Chain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual pair$<${\bf PAtom} $\ast$, {\bf PAtom} $\ast$$>$ PLight\-Chain::Find\-Self\-Collision ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classPLightChain_925997f9d338149e1749ecfdb5357a95}
+
+
+
+
+Implemented in {\bf PChain} \doxyref{}{p.}{classPChain_40f68d644c6e710c7c4433e26181b1dd}.\index{PLightChain@{PLight\-Chain}!FindSelfCollision@{FindSelfCollision}}
+\index{FindSelfCollision@{FindSelfCollision}!PLightChain@{PLight\-Chain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual pair$<${\bf PAtom} $\ast$, {\bf PAtom} $\ast$$>$ PLight\-Chain::Find\-Self\-Collision (int {\em res\-Index1}, int {\em res\-Index2})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classPLightChain_e1c0c39ce2ff304741ca4d85130c2580}
+
+
+
+
+Implemented in {\bf PChain} \doxyref{}{p.}{classPChain_1fd553132b978680de1959672950552d}.\index{PLightChain@{PLight\-Chain}!getAllCollidingSelf@{getAllCollidingSelf}}
+\index{getAllCollidingSelf@{getAllCollidingSelf}!PLightChain@{PLight\-Chain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Atom\-Collisions}$\ast$ PLight\-Chain::get\-All\-Colliding\-Self ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classPLightChain_51eadecf73fdba2a96184720811812e0}
+
+
+
+
+Implemented in {\bf PChain} \doxyref{}{p.}{classPChain_85644c37cbb0a583cabfbb54a1fb967d}.\index{PLightChain@{PLight\-Chain}!getAllCollidingSelf@{getAllCollidingSelf}}
+\index{getAllCollidingSelf@{getAllCollidingSelf}!PLightChain@{PLight\-Chain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Atom\-Collisions}$\ast$ PLight\-Chain::get\-All\-Colliding\-Self (int {\em res\-Index1}, int {\em res\-Index2})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classPLightChain_02fe5f02de94f1e782af4de3386a1806}
+
+
+
+
+Implemented in {\bf PChain} \doxyref{}{p.}{classPChain_c9188160d48cc72a72bdde1b44cdcbcf}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/core/{\bf PLight\-Chain.h}\end{CompactItemize}

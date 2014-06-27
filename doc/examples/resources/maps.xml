@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<equivalent_names>
+<mapping>
+<residue>ASN</residue>
+<from_name>AD1</from_name>
+<to_name>OD1</to_name>
+</mapping>
+<mapping>
+<residue>ASN</residue>
+<from_name>AD2</from_name>
+<to_name>ND2</to_name>
+</mapping>
+<mapping>
+<residue>GLN</residue>
+<from_name>AE1</from_name>
+<to_name>OE1</to_name>
+</mapping>
+<mapping>
+<residue>GLN</residue>
+<from_name>AE2</from_name>
+<to_name>NE2</to_name>
+</mapping>
+</equivalent_names>

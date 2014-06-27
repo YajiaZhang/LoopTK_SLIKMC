@@ -1,0 +1,207 @@
+\hypertarget{classRamachandranPlot}{\section{Ramachandran\-Plot Class Reference}
+\label{classRamachandranPlot}\index{Ramachandran\-Plot@{Ramachandran\-Plot}}
+}
+
+
+The class \hyperlink{classRamachandranPlot}{Ramachandran\-Plot} is used to initialize and store database for Ramachandran plot, sample backbone dihedral angles according to residue type and evaluate the probability of one conformation according to backbone structure.  
+
+
+
+
+{\ttfamily \#include $<$Ramachandran\-Plot.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRamachandranPlot_ab1c3ad4e59732c7b8800c7ebc616e125}{Ramachandran\-Plot} (int size=36, char $\ast$file\-\_\-pro=\char`\"{}../Data/\hyperlink{classRamachandranPlot}{Ramachandran\-Plot}/pro.\-txt\char`\"{}, char $\ast$file\-\_\-pre\-\_\-pro=\char`\"{}../Data/\hyperlink{classRamachandranPlot}{Ramachandran\-Plot}/pre\-\_\-pro.\-txt\char`\"{}, char $\ast$file\-\_\-gly=\char`\"{}../Data/\hyperlink{classRamachandranPlot}{Ramachandran\-Plot}/gly.\-txt\char`\"{}, char $\ast$file\-\_\-generic=\char`\"{}../Data/\hyperlink{classRamachandranPlot}{Ramachandran\-Plot}/gen.\-txt\char`\"{})
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hypertarget{classRamachandranPlot_a5f80329f5340a22a5c862dee94a81d42}{virtual \hyperlink{classRamachandranPlot_a5f80329f5340a22a5c862dee94a81d42}{$\sim$\-Ramachandran\-Plot} ()}\label{classRamachandranPlot_a5f80329f5340a22a5c862dee94a81d42}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+Dihedral\-Angle $\ast$ \hyperlink{classRamachandranPlot_a73249700e3ac5ff556de348eb46224bc}{get\-Random\-Dihedral\-Angle} (int type)
+\begin{DoxyCompactList}\small\item\em Randomly generate a pair of backbone dihedral angles of specific type. \end{DoxyCompactList}\item 
+Dihedral\-Angle $\ast$ \hyperlink{classRamachandranPlot_a389830f21dbca4084c854f797718a922}{get\-Random\-Dihedral\-Angle} (string name, string name\-\_\-next)
+\begin{DoxyCompactList}\small\item\em Randomly generate a pair of backbone dihedral angles given residue name. \end{DoxyCompactList}\item 
+double \hyperlink{classRamachandranPlot_a37be1f0f5adbbf0bc00ba678a910d365}{get\-Residue\-Angle\-Probability} (P\-Chain $\ast$chain, int index)
+\begin{DoxyCompactList}\small\item\em Evaluate the probability of a residue's structure according to Ramachandran plot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classRamachandranPlot_a2dbb64dc6f788952b725d8401c0936e0}{static const int {\bfseries P\-R\-O} = 0}\label{classRamachandranPlot_a2dbb64dc6f788952b725d8401c0936e0}
+
+\item 
+\hypertarget{classRamachandranPlot_a975ab2d49eeb7cf60a7b6b990cb2c706}{static const int {\bfseries P\-R\-E\-\_\-\-P\-R\-O} = 1}\label{classRamachandranPlot_a975ab2d49eeb7cf60a7b6b990cb2c706}
+
+\item 
+\hypertarget{classRamachandranPlot_a26a068e7bfe44b31d4f74128260f500f}{static const int {\bfseries G\-L\-Y} = 2}\label{classRamachandranPlot_a26a068e7bfe44b31d4f74128260f500f}
+
+\item 
+\hypertarget{classRamachandranPlot_af0c0a68977085e86138c6adf32ed9753}{static const int {\bfseries G\-E\-N\-E\-R\-I\-C} = 3}\label{classRamachandranPlot_af0c0a68977085e86138c6adf32ed9753}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double $\ast$ \hyperlink{classRamachandranPlot_a742cd67cdd45fdeae7003958114b1502}{construct} (char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Construct the Ramachandran plot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classRamachandranPlot_a975823bb2e3b12fd5e58207075b04e26}{double $\ast$ {\bfseries pro\-\_\-acc}}\label{classRamachandranPlot_a975823bb2e3b12fd5e58207075b04e26}
+
+\item 
+\hypertarget{classRamachandranPlot_aa6410400501b566f1d6f6076367f528e}{double $\ast$ {\bfseries pre\-\_\-pro\-\_\-acc}}\label{classRamachandranPlot_aa6410400501b566f1d6f6076367f528e}
+
+\item 
+\hypertarget{classRamachandranPlot_a998af9bca9f9e0e867686b011a68f3c6}{double $\ast$ {\bfseries gly\-\_\-acc}}\label{classRamachandranPlot_a998af9bca9f9e0e867686b011a68f3c6}
+
+\item 
+\hypertarget{classRamachandranPlot_aebc3a87f98922bae0036216d554225f8}{double $\ast$ {\bfseries gen\-\_\-acc}}\label{classRamachandranPlot_aebc3a87f98922bae0036216d554225f8}
+
+\item 
+\hypertarget{classRamachandranPlot_af46818df510f286feaf84c2ff3d64727}{double $\ast$ {\bfseries pro}}\label{classRamachandranPlot_af46818df510f286feaf84c2ff3d64727}
+
+\item 
+\hypertarget{classRamachandranPlot_a916665cc07de5f6c84d8b9b42bc20ec5}{double $\ast$ {\bfseries pre\-\_\-pro}}\label{classRamachandranPlot_a916665cc07de5f6c84d8b9b42bc20ec5}
+
+\item 
+\hypertarget{classRamachandranPlot_abf0f243922afede50c65af2d5360bc91}{double $\ast$ {\bfseries gly}}\label{classRamachandranPlot_abf0f243922afede50c65af2d5360bc91}
+
+\item 
+\hypertarget{classRamachandranPlot_ad4461154c24da389d49b3f13856babdc}{double $\ast$ {\bfseries gen}}\label{classRamachandranPlot_ad4461154c24da389d49b3f13856babdc}
+
+\item 
+\hypertarget{classRamachandranPlot_abb1b9899449d15f084fee1b1c51ca418}{int {\bfseries size}}\label{classRamachandranPlot_abb1b9899449d15f084fee1b1c51ca418}
+
+\item 
+\hypertarget{classRamachandranPlot_a1ef03baf68e4595fd7bdd6db269b3ffa}{int {\bfseries gridnum}}\label{classRamachandranPlot_a1ef03baf68e4595fd7bdd6db269b3ffa}
+
+\item 
+\hypertarget{classRamachandranPlot_a608705177e4171c0488071468b3df216}{double {\bfseries gridlength}}\label{classRamachandranPlot_a608705177e4171c0488071468b3df216}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The class \hyperlink{classRamachandranPlot}{Ramachandran\-Plot} is used to initialize and store database for Ramachandran plot, sample backbone dihedral angles according to residue type and evaluate the probability of one conformation according to backbone structure. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classRamachandranPlot_ab1c3ad4e59732c7b8800c7ebc616e125}{\index{Ramachandran\-Plot@{Ramachandran\-Plot}!Ramachandran\-Plot@{Ramachandran\-Plot}}
+\index{Ramachandran\-Plot@{Ramachandran\-Plot}!RamachandranPlot@{Ramachandran\-Plot}}
+\subsubsection[{Ramachandran\-Plot}]{\setlength{\rightskip}{0pt plus 5cm}Ramachandran\-Plot\-::\-Ramachandran\-Plot (
+\begin{DoxyParamCaption}
+\item[{int}]{size = {\ttfamily 36}, }
+\item[{char $\ast$}]{file\-\_\-pro = {\ttfamily \char`\"{}../Data/{\bf Ramachandran\-Plot}/pro.txt\char`\"{}}, }
+\item[{char $\ast$}]{file\-\_\-pre\-\_\-pro = {\ttfamily \char`\"{}../Data/{\bf Ramachandran\-Plot}/pre\-\_\-pro.txt\char`\"{}}, }
+\item[{char $\ast$}]{file\-\_\-gly = {\ttfamily \char`\"{}../Data/{\bf Ramachandran\-Plot}/gly.txt\char`\"{}}, }
+\item[{char $\ast$}]{file\-\_\-generic = {\ttfamily \char`\"{}../Data/{\bf Ramachandran\-Plot}/gen.txt\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{classRamachandranPlot_ab1c3ad4e59732c7b8800c7ebc616e125}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & number of grids to discretize the angle space \mbox{[}-\/180.\-0, 180.\-0\mbox{]}. By default, 10-\/degree is the width of a grid. \\
+\hline
+{\em file\-\_\-pro} & library location for Proline \\
+\hline
+{\em file\-\_\-pre\-\_\-pro} & library location for pre-\/\-Prolines \\
+\hline
+{\em file\-\_\-gly} & library location for Glycine \\
+\hline
+{\em file\-\_\-generic} & library location for generic residues \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classRamachandranPlot_a742cd67cdd45fdeae7003958114b1502}{\index{Ramachandran\-Plot@{Ramachandran\-Plot}!construct@{construct}}
+\index{construct@{construct}!RamachandranPlot@{Ramachandran\-Plot}}
+\subsubsection[{construct}]{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ Ramachandran\-Plot\-::construct (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classRamachandranPlot_a742cd67cdd45fdeae7003958114b1502}
+
+
+Construct the Ramachandran plot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & data file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a database 
+\end{DoxyReturn}
+\hypertarget{classRamachandranPlot_a73249700e3ac5ff556de348eb46224bc}{\index{Ramachandran\-Plot@{Ramachandran\-Plot}!get\-Random\-Dihedral\-Angle@{get\-Random\-Dihedral\-Angle}}
+\index{get\-Random\-Dihedral\-Angle@{get\-Random\-Dihedral\-Angle}!RamachandranPlot@{Ramachandran\-Plot}}
+\subsubsection[{get\-Random\-Dihedral\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}Dihedral\-Angle $\ast$ Ramachandran\-Plot\-::get\-Random\-Dihedral\-Angle (
+\begin{DoxyParamCaption}
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}}\label{classRamachandranPlot_a73249700e3ac5ff556de348eb46224bc}
+
+
+Randomly generate a pair of backbone dihedral angles of specific type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & residue type \{P\-R\-O, P\-R\-E\-\_\-\-P\-R\-O, G\-L\-Y, G\-E\-N\-E\-R\-I\-C\} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pair of dihedral angles 
+\end{DoxyReturn}
+\hypertarget{classRamachandranPlot_a389830f21dbca4084c854f797718a922}{\index{Ramachandran\-Plot@{Ramachandran\-Plot}!get\-Random\-Dihedral\-Angle@{get\-Random\-Dihedral\-Angle}}
+\index{get\-Random\-Dihedral\-Angle@{get\-Random\-Dihedral\-Angle}!RamachandranPlot@{Ramachandran\-Plot}}
+\subsubsection[{get\-Random\-Dihedral\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}Dihedral\-Angle $\ast$ Ramachandran\-Plot\-::get\-Random\-Dihedral\-Angle (
+\begin{DoxyParamCaption}
+\item[{string}]{name, }
+\item[{string}]{name\-\_\-next}
+\end{DoxyParamCaption}
+)}}\label{classRamachandranPlot_a389830f21dbca4084c854f797718a922}
+
+
+Randomly generate a pair of backbone dihedral angles given residue name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the residue \\
+\hline
+{\em name\-\_\-next} & name of the succeeding residue (for pre-\/\-Pro residues) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pair of dihedral angles 
+\end{DoxyReturn}
+\hypertarget{classRamachandranPlot_a37be1f0f5adbbf0bc00ba678a910d365}{\index{Ramachandran\-Plot@{Ramachandran\-Plot}!get\-Residue\-Angle\-Probability@{get\-Residue\-Angle\-Probability}}
+\index{get\-Residue\-Angle\-Probability@{get\-Residue\-Angle\-Probability}!RamachandranPlot@{Ramachandran\-Plot}}
+\subsubsection[{get\-Residue\-Angle\-Probability}]{\setlength{\rightskip}{0pt plus 5cm}double Ramachandran\-Plot\-::get\-Residue\-Angle\-Probability (
+\begin{DoxyParamCaption}
+\item[{P\-Chain $\ast$}]{chain, }
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}}\label{classRamachandranPlot_a37be1f0f5adbbf0bc00ba678a910d365}
+
+
+Evaluate the probability of a residue's structure according to Ramachandran plot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chain} & the chain which contains the residue \\
+\hline
+{\em index} & the index of the residue in the chain \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+probability of the residue structure 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Ramachandran\-Plot.\-h\item 
+Ramachandran\-Plot.\-cc\end{DoxyCompactItemize}

@@ -1,0 +1,212 @@
+\section{PBlock Class Reference}
+\label{classPBlock}\index{PBlock@{PBlock}}
+{\tt \#include $<$PBlock.h$>$}
+
+
+
+\subsection{Detailed Description}
+Encapsulates a set of atoms and bonds between them. Blocks may be connected together to form residues. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf PBlock} ({\bf PResidue} $\ast$my\-Res, const string \&shell\-Name)
+\item 
+{\bf PBlock} ({\bf PResidue} $\ast$my\-Res, const string \&shell\-Name, const {\bf PAtom\-Positions\-Spec} \&spec)
+\item 
+{\bf PBlock} ({\bf PResidue} $\ast$my\-Res, const string \&shell\-Name, const {\bf PAtom\-Positions\-Spec} \&spec, {\bf PBlock} $\ast$to\-Connect)
+\item 
+{\bf PBlock} ({\bf PResidue} $\ast$my\-Res, const string \&shell\-Name, {\bf PBlock} $\ast$to\-Connect)
+\item 
+{\bf $\sim$PBlock} ()
+\item 
+string {\bf get\-Name} () const
+\item 
+string {\bf get\-Type} () const
+\item 
+bool {\bf is\-On} () const
+\item 
+{\bf PResidue} $\ast$ {\bf get\-Parent\-Residue} ()
+\item 
+int {\bf size} ()
+\item 
+{\bf PChain} $\ast$ {\bf get\-Chain} () const
+\item 
+void {\bf Detach} (const string \&block\-Type)
+\item 
+void {\bf Reattach} ()
+\item 
+bool {\bf In\-Static\-Collision} () const
+\item 
+bool {\bf In\-Self\-Collision} () const
+\item 
+bool {\bf In\-Any\-Collision} () const
+\item 
+pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ {\bf Find\-Static\-Collision} () const
+\item 
+pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ {\bf Find\-Self\-Collision} () const
+\item 
+pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ {\bf Find\-Any\-Collision} () const
+\item 
+{\bf Atom\-Collisions} $\ast$ {\bf get\-All\-Colliding\-Static} () const
+\item 
+{\bf Atom\-Collisions} $\ast$ {\bf get\-All\-Colliding\-Self} () const
+\item 
+{\bf Atom\-Collisions} $\ast$ {\bf get\-All\-Colliding\-Either} () const
+\item 
+void {\bf Add\-Atoms\-To\-Map} (HASH\_\-MAP\_\-STR({\bf PAtom} $\ast$)\&atom\-Cache) const
+\item 
+const {\bf PSpace\-Manager} $\ast$ {\bf get\-Space\-Manager} () const
+\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+class {\bf PBlock\-Connection}
+\item 
+class {\bf PBlock\-Reconnector}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{PBlock@{PBlock}!PBlock@{PBlock}}
+\index{PBlock@{PBlock}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PBlock::PBlock ({\bf PResidue} $\ast$ {\em my\-Res}, const string \& {\em shell\-Name})}\label{classPBlock_da8d34754f4652c35ce087add7b2ea7f}
+
+
+Constructs a new {\tt \doxyref{PBlock}{p.}{classPBlock}} as a member of the residue {\tt my\-Res} and with a block shell specified by {\tt shell\-Name}. This constructor uses relative coordinates as global positions. \index{PBlock@{PBlock}!PBlock@{PBlock}}
+\index{PBlock@{PBlock}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PBlock::PBlock ({\bf PResidue} $\ast$ {\em my\-Res}, const string \& {\em shell\-Name}, const {\bf PAtom\-Positions\-Spec} \& {\em spec})}\label{classPBlock_4f9fa2f4e1ba55624db7b79c889ecb34}
+
+
+Constructs a new {\tt \doxyref{PBlock}{p.}{classPBlock}} as a member of the residue {\tt my\-Res} and with a block shell specified by {\tt shell\-Name}. This constructor uses the atom positions specified by {\tt spec} and should be called when the {\tt \doxyref{PBlock}{p.}{classPBlock}} is created \char`\"{}in isolation\char`\"{} (not connected to other blocks). \index{PBlock@{PBlock}!PBlock@{PBlock}}
+\index{PBlock@{PBlock}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PBlock::PBlock ({\bf PResidue} $\ast$ {\em my\-Res}, const string \& {\em shell\-Name}, const {\bf PAtom\-Positions\-Spec} \& {\em spec}, {\bf PBlock} $\ast$ {\em to\-Connect})}\label{classPBlock_3179f0df2b0b04ba5bdd8629b85431c2}
+
+
+Constructs a new {\tt \doxyref{PBlock}{p.}{classPBlock}} as a member of the residue {\tt my\-Res} and with a block shell specified by {\tt shell\-Name}. This constructor uses the atom positions specified by {\tt spec} and connects the new {\tt \doxyref{PBlock}{p.}{classPBlock}} to the block {\tt to\-Connect}; it should be called when the block's positions are known, e.g. from a PDB file, but the block must also be connected to an existing block. \index{PBlock@{PBlock}!PBlock@{PBlock}}
+\index{PBlock@{PBlock}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PBlock::PBlock ({\bf PResidue} $\ast$ {\em my\-Res}, const string \& {\em shell\-Name}, {\bf PBlock} $\ast$ {\em to\-Connect})}\label{classPBlock_9fee4df74115bb8bb8fd08b7e7abf184}
+
+
+Constructs a new {\tt \doxyref{PBlock}{p.}{classPBlock}} as a member of the residue {\tt my\-Res} and with a block shell specified by {\tt shell\-Name}. This constructor uses the block's default atom positions and connects the new {\tt \doxyref{PBlock}{p.}{classPBlock}} to the block {\tt to\-Connect}; it should be called when the block's positions are not known (and thus should be determined randomly) but the block must still be connected to an existing block. \index{PBlock@{PBlock}!~PBlock@{$\sim$PBlock}}
+\index{~PBlock@{$\sim$PBlock}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PBlock::$\sim$PBlock ()}\label{classPBlock_bfc1ff4329a5d67daa2f132eac30ebdb}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{PBlock@{PBlock}!getName@{getName}}
+\index{getName@{getName}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string PBlock::get\-Name () const\hspace{0.3cm}{\tt  [inline]}}\label{classPBlock_61d3cbb44bdccb3a5c4303e52ed18aa5}
+
+
+Returns the block's name, e.g. \char`\"{}TRP\char`\"{}. \index{PBlock@{PBlock}!getType@{getType}}
+\index{getType@{getType}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string PBlock::get\-Type () const\hspace{0.3cm}{\tt  [inline]}}\label{classPBlock_a127e65b0fbb34d6c1344183c1e0c104}
+
+
+Returns the block's type, e.g. \char`\"{}backbone\char`\"{} or \char`\"{}sidechain\char`\"{}. \index{PBlock@{PBlock}!isOn@{isOn}}
+\index{isOn@{isOn}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PBlock::is\-On () const\hspace{0.3cm}{\tt  [inline]}}\label{classPBlock_f7143dd279402d3233e42be1d55bc458}
+
+
+Returns {\tt true} if this block is active, {\tt false} otherwise. \index{PBlock@{PBlock}!getParentResidue@{getParentResidue}}
+\index{getParentResidue@{getParentResidue}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PResidue}$\ast$ PBlock::get\-Parent\-Residue ()\hspace{0.3cm}{\tt  [inline]}}\label{classPBlock_7e08a5bfdd720bb363837b6cfd2792e6}
+
+
+Returns this block's parent residue. \index{PBlock@{PBlock}!size@{size}}
+\index{size@{size}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PBlock::size ()\hspace{0.3cm}{\tt  [inline]}}\label{classPBlock_71c12fe20043ec8c33c36481f75fdcfa}
+
+
+Returns the number of atoms within this block. \index{PBlock@{PBlock}!getChain@{getChain}}
+\index{getChain@{getChain}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PChain} $\ast$ PBlock::get\-Chain () const}\label{classPBlock_a2d3b4bc3166f11bded7f9ccd7017265}
+
+
+Returns this block's parent chain. \index{PBlock@{PBlock}!Detach@{Detach}}
+\index{Detach@{Detach}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PBlock::Detach (const string \& {\em block\-Type})}\label{classPBlock_3ad1d520d81c6fdb3a0378b87d6f1279}
+
+
+Detaches this block from the parent {\tt \doxyref{PChain}{p.}{classPChain}}. The {\tt \doxyref{PBlock}{p.}{classPBlock}} \char`\"{}remembers\char`\"{} the relative coordinates to the first block it can find of type {\tt block\-Type}, so the {\tt Detach} method can only be called once. \index{PBlock@{PBlock}!Reattach@{Reattach}}
+\index{Reattach@{Reattach}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PBlock::Reattach ()}\label{classPBlock_e6a3000e7bea725402e8601de594d894}
+
+
+Reattaches this block to its parent chain. \index{PBlock@{PBlock}!InStaticCollision@{InStaticCollision}}
+\index{InStaticCollision@{InStaticCollision}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PBlock::In\-Static\-Collision () const}\label{classPBlock_35b3552c8eaec33c2244b3ed95e432cd}
+
+
+Returns true if any atom in this {\tt \doxyref{PBlock}{p.}{classPBlock}} is in static collision, false otherwise. \index{PBlock@{PBlock}!InSelfCollision@{InSelfCollision}}
+\index{InSelfCollision@{InSelfCollision}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PBlock::In\-Self\-Collision () const}\label{classPBlock_1a032f410e5ec85e918d0f9a6323d2a1}
+
+
+Returns true if any atom in this {\tt \doxyref{PBlock}{p.}{classPBlock}} is in self collision, false otherwise. \index{PBlock@{PBlock}!InAnyCollision@{InAnyCollision}}
+\index{InAnyCollision@{InAnyCollision}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PBlock::In\-Any\-Collision () const}\label{classPBlock_44db31a84c4246ec1ff43e95a578bc10}
+
+
+Returns true if any atom in this {\tt \doxyref{PBlock}{p.}{classPBlock}} is in static or self collision, false otherwise. \index{PBlock@{PBlock}!FindStaticCollision@{FindStaticCollision}}
+\index{FindStaticCollision@{FindStaticCollision}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ PBlock::Find\-Static\-Collision () const}\label{classPBlock_cd53fec1e2ca3814bab919d33da55b9a}
+
+
+Returns a pair of atoms in static collision within this {\tt \doxyref{PBlock}{p.}{classPBlock}}, or {\tt (NULL, NULL)} if no such atoms exist. \index{PBlock@{PBlock}!FindSelfCollision@{FindSelfCollision}}
+\index{FindSelfCollision@{FindSelfCollision}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ PBlock::Find\-Self\-Collision () const}\label{classPBlock_f7e6986971d14bf61aa15728f0ad7942}
+
+
+Returns a pair of atoms in self collision within this {\tt \doxyref{PBlock}{p.}{classPBlock}}, or {\tt (NULL, NULL)} if no such atoms exist. \index{PBlock@{PBlock}!FindAnyCollision@{FindAnyCollision}}
+\index{FindAnyCollision@{FindAnyCollision}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ PBlock::Find\-Any\-Collision () const}\label{classPBlock_93e606ed76312e677b084aade1fcee32}
+
+
+Returns a pair of atoms in either static or self collision within this {\tt \doxyref{PBlock}{p.}{classPBlock}}, or {\tt (NULL, NULL)} if no such atoms exist. \index{PBlock@{PBlock}!getAllCollidingStatic@{getAllCollidingStatic}}
+\index{getAllCollidingStatic@{getAllCollidingStatic}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Atom\-Collisions} $\ast$ PBlock::get\-All\-Colliding\-Static () const}\label{classPBlock_d7409b6706e68e327efa242e9e15e3ef}
+
+
+Returns a set of all atoms in this {\tt \doxyref{PBlock}{p.}{classPBlock}} in static collision. \index{PBlock@{PBlock}!getAllCollidingSelf@{getAllCollidingSelf}}
+\index{getAllCollidingSelf@{getAllCollidingSelf}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Atom\-Collisions} $\ast$ PBlock::get\-All\-Colliding\-Self () const}\label{classPBlock_ec5531a5236b55ba135acf3e0a871b24}
+
+
+Returns a set of all atoms in this {\tt \doxyref{PBlock}{p.}{classPBlock}} in self collision. \index{PBlock@{PBlock}!getAllCollidingEither@{getAllCollidingEither}}
+\index{getAllCollidingEither@{getAllCollidingEither}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Atom\-Collisions} $\ast$ PBlock::get\-All\-Colliding\-Either () const}\label{classPBlock_54f3a557250929b952a32c84bdd77ecd}
+
+
+Returns a set of all atoms in this {\tt \doxyref{PBlock}{p.}{classPBlock}} in either static or self collision. \index{PBlock@{PBlock}!AddAtomsToMap@{AddAtomsToMap}}
+\index{AddAtomsToMap@{AddAtomsToMap}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PBlock::Add\-Atoms\-To\-Map (HASH\_\-MAP\_\-STR({\bf PAtom} $\ast$)\& {\em atom\-Cache}) const}\label{classPBlock_e9f4b2fd5c00bf8afde69668732c1832}
+
+
+Adds all atoms in this {\tt \doxyref{PBlock}{p.}{classPBlock}} to the map {\tt atom\-Cache}. \index{PBlock@{PBlock}!getSpaceManager@{getSpaceManager}}
+\index{getSpaceManager@{getSpaceManager}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const {\bf PSpace\-Manager} $\ast$ PBlock::get\-Space\-Manager () const}\label{classPBlock_765f1a4c1ec173fb3c262d2a39fc7e3a}
+
+
+Returns the space manager for the chain this block is in. 
+
+\subsection{Friends And Related Function Documentation}
+\index{PBlock@{PBlock}!PBlockConnection@{PBlockConnection}}
+\index{PBlockConnection@{PBlockConnection}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf PBlock\-Connection}\hspace{0.3cm}{\tt  [friend]}}\label{classPBlock_5af6eb094637b26a991fb555b7e6b6b1}
+
+
+\index{PBlock@{PBlock}!PBlockReconnector@{PBlockReconnector}}
+\index{PBlockReconnector@{PBlockReconnector}!PBlock@{PBlock}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf PBlock\-Reconnector}\hspace{0.3cm}{\tt  [friend]}}\label{classPBlock_8c094ca8335dcd5489a8024e842010ce}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PBlock.h}\item 
+src/core/{\bf PBlock.cc}\end{CompactItemize}

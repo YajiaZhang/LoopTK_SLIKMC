@@ -1,0 +1,357 @@
+\section{PAtom Class Reference}
+\label{classPAtom}\index{PAtom@{PAtom}}
+{\tt \#include $<$PAtom.h$>$}
+
+
+
+\subsection{Detailed Description}
+Encapsulates a single atom in the protein loop. \doxyref{PAtom}{p.}{classPAtom} contains methods to translate and apply matrix transformations to the atom's position; find other atom(s) in collision with it; and perform traversals of the graph represented by atoms and their bonds. Makes an assumption that the atoms of the same type are the same size. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf PAtom} ({\bf PBlock} $\ast$block, const string \&name, Vector3 position, const string \&id)
+\item 
+{\bf $\sim$PAtom} ()
+\item 
+string {\bf get\-ID} () const
+\item 
+void {\bf change\-Position} (const Vector3 \&new\-Position)
+\item 
+void {\bf Apply\-Transform} (const Matrix4 \&transform)
+\item 
+{\bf Atom\-Set} $\ast$ {\bf get\-All\-Colliding\-Static} () const
+\item 
+{\bf Atom\-Set} $\ast$ {\bf get\-All\-Colliding\-Self} () const
+\item 
+{\bf Atom\-Set} $\ast$ {\bf get\-All\-Colliding\-Either} () const
+\item 
+{\bf PBond} $\ast$ {\bf get\-Bond} ({\bf PResidue} $\ast$res, const string \&id)
+\item 
+{\bf PAtom} $\ast$ {\bf Find\-Static\-Collision} () const
+\item 
+{\bf PAtom} $\ast$ {\bf Find\-Self\-Collision} () const
+\item 
+{\bf PAtom} $\ast$ {\bf Find\-Any\-Collision} () const
+\item 
+bool {\bf In\-Static\-Collision} () const
+\item 
+bool {\bf In\-Self\-Collision} () const
+\item 
+bool {\bf In\-Any\-Collision} () const
+\item 
+bool {\bf is\-On\-Backbone} () const
+\item 
+{\bf PBlock} $\ast$ {\bf get\-Parent\-Block} ()
+\item 
+{\bf PResidue} $\ast$ {\bf get\-Parent\-Residue} ()
+\item 
+{\bf PChain} $\ast$ {\bf get\-Chain} () const
+\item 
+Vector3 {\bf get\-Pos} () const
+\item 
+const vector$<$ {\bf PBond} $\ast$ $>$ $\ast$ {\bf get\-Bonds} () const
+\item 
+Real {\bf get\-Covalent\-Radius} () const
+\item 
+Real {\bf get\-Van\-Der\-Waals\-Radius} () const
+\item 
+Real {\bf get\-Occupancy} () const
+\item 
+void {\bf set\-Occupancy} (Real new\-Val)
+\item 
+Real {\bf get\-Temp\-Factor} () const
+\item 
+void {\bf set\-Temp\-Factor} (Real new\-Val)
+\item 
+void {\bf set\-Color} (const GLColor set\-Color)
+\item 
+void {\bf revert\-Color} ()
+\item 
+GLColor {\bf get\-Color} () const
+\item 
+string {\bf get\-Name} () const
+\item 
+Vector3 {\bf get\-Grid\-Pos} () const
+\item 
+bool {\bf Within\-Active\-Block} () const
+\item 
+bool {\bf is\-Bonded} (const {\bf PAtom} $\ast$other) const
+\item 
+void {\bf traverse\-Chain} ({\bf Atom\-Functor} $\ast$atom\-Fn, {\bf Bond\-Functor} $\ast$bond\-Fn)
+\item 
+void {\bf traverse\-Atoms} ({\bf Atom\-Functor} $\ast$atom\-Fn)
+\item 
+void {\bf traverse\-Bonds} ({\bf Bond\-Functor} $\ast$bond\-Fn)
+\item 
+const {\bf PSpace\-Manager} $\ast$ {\bf get\-Space\-Manager} () const
+\item 
+bool {\bf is\-Active} () const
+\item 
+void {\bf inactivate} ()
+\item 
+void {\bf activate} ()
+\item 
+void {\bf print\-Collision} ()
+\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static int {\bf shortest\-Bond\-Path} (const {\bf PAtom} $\ast$a1, const {\bf PAtom} $\ast$a2, int threshold=-1)
+\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+class {\bf PBond}
+\item 
+class {\bf PResidue}
+\item 
+class {\bf PBlock}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{PAtom@{PAtom}!PAtom@{PAtom}}
+\index{PAtom@{PAtom}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PAtom::PAtom ({\bf PBlock} $\ast$ {\em block}, const string \& {\em name}, Vector3 {\em position}, const string \& {\em id})}\label{classPAtom_b371f0d5c50a7d67892fbf74d8f04843}
+
+
+Constructs a new \doxyref{PAtom}{p.}{classPAtom} in the specified block, with the given name and global coordinates. \index{PAtom@{PAtom}!~PAtom@{$\sim$PAtom}}
+\index{~PAtom@{$\sim$PAtom}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PAtom::$\sim$PAtom ()}\label{classPAtom_b5f0ecef3939b5958f99418f90fdb988}
+
+
+Destroys a \doxyref{PAtom}{p.}{classPAtom}, frees any memory associated with it, and removes it from the collision grid. 
+
+\subsection{Member Function Documentation}
+\index{PAtom@{PAtom}!getID@{getID}}
+\index{getID@{getID}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string PAtom::get\-ID () const\hspace{0.3cm}{\tt  [inline]}}\label{classPAtom_74c8e90b772969c90e3132f3eff8c16a}
+
+
+Returns the ID this atom has within its residue. \index{PAtom@{PAtom}!changePosition@{changePosition}}
+\index{changePosition@{changePosition}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PAtom::change\-Position (const Vector3 \& {\em new\-Position})}\label{classPAtom_1e0ff0aecf95221ca73968d95fea3309}
+
+
+Moves this atom to the specified global coordinates and updates its position in the collision grid. \index{PAtom@{PAtom}!ApplyTransform@{ApplyTransform}}
+\index{ApplyTransform@{ApplyTransform}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PAtom::Apply\-Transform (const Matrix4 \& {\em transform})}\label{classPAtom_3325ec5c32ae82ef620c48d186e1cbcc}
+
+
+Applies the specified matrix transformation to this atom's position. \index{PAtom@{PAtom}!getAllCollidingStatic@{getAllCollidingStatic}}
+\index{getAllCollidingStatic@{getAllCollidingStatic}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Atom\-Set} $\ast$ PAtom::get\-All\-Colliding\-Static () const}\label{classPAtom_4e535e823cca20658d307c1e69670426}
+
+
+Returns the set of all atoms in static collision with this atom. \index{PAtom@{PAtom}!getAllCollidingSelf@{getAllCollidingSelf}}
+\index{getAllCollidingSelf@{getAllCollidingSelf}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Atom\-Set} $\ast$ PAtom::get\-All\-Colliding\-Self () const}\label{classPAtom_19a5ca356df01dce700e9c1c0fba9bde}
+
+
+Returns the set of all atoms in self collision with this atom. \index{PAtom@{PAtom}!getAllCollidingEither@{getAllCollidingEither}}
+\index{getAllCollidingEither@{getAllCollidingEither}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Atom\-Set} $\ast$ PAtom::get\-All\-Colliding\-Either () const}\label{classPAtom_7497c10886fc507254bf73a40fc68465}
+
+
+Returns the set of atoms in any collision (self or static) with this atom. \index{PAtom@{PAtom}!getBond@{getBond}}
+\index{getBond@{getBond}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PBond} $\ast$ PAtom::get\-Bond ({\bf PResidue} $\ast$ {\em res}, const string \& {\em id})}\label{classPAtom_29217e636aa62a2be1bf47e5e0ce1f80}
+
+
+Returns bond to atom in residue res with id id. \index{PAtom@{PAtom}!FindStaticCollision@{FindStaticCollision}}
+\index{FindStaticCollision@{FindStaticCollision}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PAtom} $\ast$ PAtom::Find\-Static\-Collision () const}\label{classPAtom_c616c3753af88f3b8d8d54030112d5d0}
+
+
+Returns any atom in static collision with this atom, or NULL if no such atom exists. \index{PAtom@{PAtom}!FindSelfCollision@{FindSelfCollision}}
+\index{FindSelfCollision@{FindSelfCollision}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PAtom} $\ast$ PAtom::Find\-Self\-Collision () const}\label{classPAtom_8392cda75a727990864d7ce80cdbd3a6}
+
+
+Returns any atom in self collision with this atom, or NULL if no such atom exists. \index{PAtom@{PAtom}!FindAnyCollision@{FindAnyCollision}}
+\index{FindAnyCollision@{FindAnyCollision}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PAtom} $\ast$ PAtom::Find\-Any\-Collision () const}\label{classPAtom_052d78472215e77cedcf00371c5695cf}
+
+
+Returns any atom in either static or self collision with this atom, or NULL if no such atom exists. \index{PAtom@{PAtom}!InStaticCollision@{InStaticCollision}}
+\index{InStaticCollision@{InStaticCollision}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PAtom::In\-Static\-Collision () const}\label{classPAtom_a8b1122b03eebd95cb6f05502c90fdc7}
+
+
+Returns true if any atom is in static collision with this atom, false otherwise. \index{PAtom@{PAtom}!InSelfCollision@{InSelfCollision}}
+\index{InSelfCollision@{InSelfCollision}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PAtom::In\-Self\-Collision () const}\label{classPAtom_ec66f864fd78f3c2c7c8e47c7ab9a4fc}
+
+
+Returns true if any atom is in self collision with this atom, false otherwise. \index{PAtom@{PAtom}!InAnyCollision@{InAnyCollision}}
+\index{InAnyCollision@{InAnyCollision}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PAtom::In\-Any\-Collision () const}\label{classPAtom_ef58332d5864ffc2f358082e4ffd8f8d}
+
+
+Returns true if any atom is in either static or self collision with this atom, false otherwise. \index{PAtom@{PAtom}!isOnBackbone@{isOnBackbone}}
+\index{isOnBackbone@{isOnBackbone}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PAtom::is\-On\-Backbone () const}\label{classPAtom_c6e386e9fca59dd8949792e980f31bf1}
+
+
+Returns true if this atom is on the backbone \index{PAtom@{PAtom}!getParentBlock@{getParentBlock}}
+\index{getParentBlock@{getParentBlock}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PBlock}$\ast$ PAtom::get\-Parent\-Block ()\hspace{0.3cm}{\tt  [inline]}}\label{classPAtom_96156d336a322070496d144369438eca}
+
+
+Returns the atom's parent block. \index{PAtom@{PAtom}!getParentResidue@{getParentResidue}}
+\index{getParentResidue@{getParentResidue}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PResidue} $\ast$ PAtom::get\-Parent\-Residue ()}\label{classPAtom_b71d9a35b0c51ab0e1d3d95de48565d6}
+
+
+Returns the atom's parent residue. \index{PAtom@{PAtom}!getChain@{getChain}}
+\index{getChain@{getChain}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PChain} $\ast$ PAtom::get\-Chain () const}\label{classPAtom_2d50f43dd8e76e8a5ed0a19f40731965}
+
+
+Returns the atom's parent chain. \index{PAtom@{PAtom}!getPos@{getPos}}
+\index{getPos@{getPos}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Vector3 PAtom::get\-Pos () const\hspace{0.3cm}{\tt  [inline]}}\label{classPAtom_54c7ca4ba627fc38f381b5e2287665ea}
+
+
+Returns the atom's global coordinates. \index{PAtom@{PAtom}!getBonds@{getBonds}}
+\index{getBonds@{getBonds}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const vector$<${\bf PBond} $\ast$$>$$\ast$ PAtom::get\-Bonds () const\hspace{0.3cm}{\tt  [inline]}}\label{classPAtom_b5bfd2d3f2855469ed086f16c60e3838}
+
+
+Returns all the bonds that include this atom. \index{PAtom@{PAtom}!getCovalentRadius@{getCovalentRadius}}
+\index{getCovalentRadius@{getCovalentRadius}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real PAtom::get\-Covalent\-Radius () const\hspace{0.3cm}{\tt  [inline]}}\label{classPAtom_b08f560758c93d06875336b3671fffab}
+
+
+Returns the atom's covalent radius. \index{PAtom@{PAtom}!getVanDerWaalsRadius@{getVanDerWaalsRadius}}
+\index{getVanDerWaalsRadius@{getVanDerWaalsRadius}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real PAtom::get\-Van\-Der\-Waals\-Radius () const\hspace{0.3cm}{\tt  [inline]}}\label{classPAtom_9aa86fe3e207a386895ec5710c57127e}
+
+
+Returns the atom's van der Waals radius. \index{PAtom@{PAtom}!getOccupancy@{getOccupancy}}
+\index{getOccupancy@{getOccupancy}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real PAtom::get\-Occupancy () const\hspace{0.3cm}{\tt  [inline]}}\label{classPAtom_89eedb81771d0e71914ac9308cd04028}
+
+
+Returns the atom's occupancy. \index{PAtom@{PAtom}!setOccupancy@{setOccupancy}}
+\index{setOccupancy@{setOccupancy}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PAtom::set\-Occupancy (Real {\em new\-Val})\hspace{0.3cm}{\tt  [inline]}}\label{classPAtom_16ecf835b8d0686675916553775dddce}
+
+
+Sets the atom's occupancy to {\tt new\-Val}. \index{PAtom@{PAtom}!getTempFactor@{getTempFactor}}
+\index{getTempFactor@{getTempFactor}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real PAtom::get\-Temp\-Factor () const\hspace{0.3cm}{\tt  [inline]}}\label{classPAtom_b63e107852a2f5cec635acd8c4c5b3e0}
+
+
+Returns the atom's temperature factor. \index{PAtom@{PAtom}!setTempFactor@{setTempFactor}}
+\index{setTempFactor@{setTempFactor}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PAtom::set\-Temp\-Factor (Real {\em new\-Val})\hspace{0.3cm}{\tt  [inline]}}\label{classPAtom_416020b109b9f8a735ab0d5900618d50}
+
+
+Sets the atom's temperature factor to {\tt new\-Val}. \index{PAtom@{PAtom}!setColor@{setColor}}
+\index{setColor@{setColor}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PAtom::set\-Color (const GLColor {\em set\-Color})\hspace{0.3cm}{\tt  [inline]}}\label{classPAtom_29a478453e501c8eb7f8a58384d2231e}
+
+
+Sets the color to be drawn when this atom is displayed graphically. If not used, the default color is from \doxyref{PAtom\-Shell}{p.}{classPAtomShell}. \index{PAtom@{PAtom}!revertColor@{revertColor}}
+\index{revertColor@{revertColor}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PAtom::revert\-Color ()\hspace{0.3cm}{\tt  [inline]}}\label{classPAtom_f6888b989a975c63cc36025faad9f5e0}
+
+
+Reverts to the default color. \index{PAtom@{PAtom}!getColor@{getColor}}
+\index{getColor@{getColor}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}GLColor PAtom::get\-Color () const\hspace{0.3cm}{\tt  [inline]}}\label{classPAtom_fdeee15172ceb1567a7fbb0afa13b3d6}
+
+
+Returns the color to be drawn when this atom is displayed graphically. \index{PAtom@{PAtom}!getName@{getName}}
+\index{getName@{getName}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string PAtom::get\-Name () const\hspace{0.3cm}{\tt  [inline]}}\label{classPAtom_28d5c6da2bd2421cc6243acd0ac4f301}
+
+
+Returns this atom's name. \index{PAtom@{PAtom}!getGridPos@{getGridPos}}
+\index{getGridPos@{getGridPos}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Vector3 PAtom::get\-Grid\-Pos () const}\label{classPAtom_f92d785a5f063695767b3b5e005ebb7a}
+
+
+Returns this atom's coordinates in the collision grid. \index{PAtom@{PAtom}!WithinActiveBlock@{WithinActiveBlock}}
+\index{WithinActiveBlock@{WithinActiveBlock}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PAtom::Within\-Active\-Block () const}\label{classPAtom_e4dd8473a0a7ca4fefdfb97cecfd590c}
+
+
+Returns true if this atom's parent block is currently active, false otherwise. \index{PAtom@{PAtom}!isBonded@{isBonded}}
+\index{isBonded@{isBonded}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PAtom::is\-Bonded (const {\bf PAtom} $\ast$ {\em other}) const}\label{classPAtom_da2b473437dd2cb914feae633cd82bdc}
+
+
+Returns true if this atom is bonded to {\tt other}, false otherwise. \index{PAtom@{PAtom}!shortestBondPath@{shortestBondPath}}
+\index{shortestBondPath@{shortestBondPath}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PAtom::shortest\-Bond\-Path (const {\bf PAtom} $\ast$ {\em a1}, const {\bf PAtom} $\ast$ {\em a2}, int {\em threshold} = {\tt -1})\hspace{0.3cm}{\tt  [static]}}\label{classPAtom_5a513745f66adadaa6ff6f0dc91886a8}
+
+
+Returns the length of the shortest bond path between {\tt a1} and {\tt a2}. If {\tt a1 == a2}, returns 0; if {\tt a1} is bonded to {\tt a2}, returns 1.
+
+The optional parameter {\tt threshold} allows the caller to specify a \char`\"{}cutoff\char`\"{} for the maximum length of the path. If {\tt threshold $>$= 0} and the shortest path is found to be at least {\tt threshold} bonds long, this value will be returned immediately. The default value {\tt threshold = -1} specifies no cutoff. \index{PAtom@{PAtom}!traverseChain@{traverseChain}}
+\index{traverseChain@{traverseChain}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PAtom::traverse\-Chain ({\bf Atom\-Functor} $\ast$ {\em atom\-Fn}, {\bf Bond\-Functor} $\ast$ {\em bond\-Fn})}\label{classPAtom_7a5442fe8af89bd0a8d9577ddc646726}
+
+
+Initiates a traversal of the graph of atoms (nodes) and their bonds (vertices) at this atom, using the specified functors to be executed on each atom and bond. \index{PAtom@{PAtom}!traverseAtoms@{traverseAtoms}}
+\index{traverseAtoms@{traverseAtoms}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PAtom::traverse\-Atoms ({\bf Atom\-Functor} $\ast$ {\em atom\-Fn})\hspace{0.3cm}{\tt  [inline]}}\label{classPAtom_48ea9d6769a556c8817cb2713530429a}
+
+
+Initiates a traversal of the graph of atoms (nodes) and their bonds (vertices) at this atom, using the specified functor to be executed on each atom. \index{PAtom@{PAtom}!traverseBonds@{traverseBonds}}
+\index{traverseBonds@{traverseBonds}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PAtom::traverse\-Bonds ({\bf Bond\-Functor} $\ast$ {\em bond\-Fn})\hspace{0.3cm}{\tt  [inline]}}\label{classPAtom_93cbb1dd6080d3673690956070653684}
+
+
+Initiates a traversal of the graph of atoms (nodes) and their bonds (vertices) at this atom, using the specified functor to be executed on each bond. \index{PAtom@{PAtom}!getSpaceManager@{getSpaceManager}}
+\index{getSpaceManager@{getSpaceManager}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const {\bf PSpace\-Manager} $\ast$ PAtom::get\-Space\-Manager () const}\label{classPAtom_2bf14899eccd0643870f028e0887ae19}
+
+
+Returns the space manager for the chain this atom is in. \index{PAtom@{PAtom}!isActive@{isActive}}
+\index{isActive@{isActive}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PAtom::is\-Active () const\hspace{0.3cm}{\tt  [inline]}}\label{classPAtom_51055c95716fab0eb349af43ca3327db}
+
+
+Returns true if this atom is active for collision checking, false otherwise. \index{PAtom@{PAtom}!inactivate@{inactivate}}
+\index{inactivate@{inactivate}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PAtom::inactivate ()\hspace{0.3cm}{\tt  [inline]}}\label{classPAtom_548db88c5d4150ebabf5c3b548729d75}
+
+
+Makes this atom inactive for collision checking. \index{PAtom@{PAtom}!activate@{activate}}
+\index{activate@{activate}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PAtom::activate ()\hspace{0.3cm}{\tt  [inline]}}\label{classPAtom_7ba593db8661afcf6d20fbe894cc8080}
+
+
+Make the atom active for collision checking. \index{PAtom@{PAtom}!printCollision@{printCollision}}
+\index{printCollision@{printCollision}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PAtom::print\-Collision ()}\label{classPAtom_1cbb36f1d08fdef7083b5fa15fc2169a}
+
+
+Print one atom which is in collision with this atom. 
+
+\subsection{Friends And Related Function Documentation}
+\index{PAtom@{PAtom}!PBond@{PBond}}
+\index{PBond@{PBond}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf PBond}\hspace{0.3cm}{\tt  [friend]}}\label{classPAtom_2bea5be394d9e0f1450f00b38e9bf84b}
+
+
+\index{PAtom@{PAtom}!PResidue@{PResidue}}
+\index{PResidue@{PResidue}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf PResidue}\hspace{0.3cm}{\tt  [friend]}}\label{classPAtom_1d47f569c02d9725f6d4c296fe77e212}
+
+
+\index{PAtom@{PAtom}!PBlock@{PBlock}}
+\index{PBlock@{PBlock}!PAtom@{PAtom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf PBlock}\hspace{0.3cm}{\tt  [friend]}}\label{classPAtom_55a453f244b02b87bbec4470a074bcf9}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PAtom.h}\item 
+src/core/{\bf PAtom.cc}\end{CompactItemize}

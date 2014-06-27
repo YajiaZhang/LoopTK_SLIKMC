@@ -1,0 +1,113 @@
+\hypertarget{classStringTokenizer}{\section{String\-Tokenizer Class Reference}
+\label{classStringTokenizer}\index{String\-Tokenizer@{String\-Tokenizer}}
+}
+
+
+An auxiliary class. The class String\-Tokenzier is a java style utility class for retrieving tokens separated by delims.  
+
+
+
+
+{\ttfamily \#include $<$Utility.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classStringTokenizer_a04097390a7c9cddce20824648c17bb52}{String\-Tokenizer} (string s, string delims=\char`\"{}\textbackslash{}t\textbackslash{}n \char`\"{})
+\begin{DoxyCompactList}\small\item\em Construct a \hyperlink{classStringTokenizer}{String\-Tokenizer} for specific string. \end{DoxyCompactList}\item 
+string \hyperlink{classStringTokenizer_a9c95e7412890819dae3e20f23aaa76be}{next\-Token} ()
+\begin{DoxyCompactList}\small\item\em Get the next avaiable token. \end{DoxyCompactList}\item 
+bool \hyperlink{classStringTokenizer_aae2b0616e31bf6342f3417677f2a2c83}{has\-More\-Tokens} () const 
+\begin{DoxyCompactList}\small\item\em Check if there're more tokens left. \end{DoxyCompactList}\item 
+void \hyperlink{classStringTokenizer_a8b60b7ec2a45608e2909c872cf4a462a}{get\-All\-Tokens} (vector$<$ string $>$ \&tokens)
+\begin{DoxyCompactList}\small\item\em Get all tokens in the string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classStringTokenizer_a607a46c28004c9565580b88228c7135c}{string {\bfseries s}}\label{classStringTokenizer_a607a46c28004c9565580b88228c7135c}
+
+\item 
+\hypertarget{classStringTokenizer_ac9429222d794407025e69fbbbbe68f19}{vector$<$ char $>$ {\bfseries delims}}\label{classStringTokenizer_ac9429222d794407025e69fbbbbe68f19}
+
+\item 
+\hypertarget{classStringTokenizer_a8ac0d6eab57ac99e312c2475ef36dfc6}{int {\bfseries index}}\label{classStringTokenizer_a8ac0d6eab57ac99e312c2475ef36dfc6}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An auxiliary class. The class String\-Tokenzier is a java style utility class for retrieving tokens separated by delims. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classStringTokenizer_a04097390a7c9cddce20824648c17bb52}{\index{String\-Tokenizer@{String\-Tokenizer}!String\-Tokenizer@{String\-Tokenizer}}
+\index{String\-Tokenizer@{String\-Tokenizer}!StringTokenizer@{String\-Tokenizer}}
+\subsubsection[{String\-Tokenizer}]{\setlength{\rightskip}{0pt plus 5cm}String\-Tokenizer\-::\-String\-Tokenizer (
+\begin{DoxyParamCaption}
+\item[{string}]{s, }
+\item[{string}]{delims = {\ttfamily \char`\"{}\textbackslash{}t\textbackslash{}n~\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{classStringTokenizer_a04097390a7c9cddce20824648c17bb52}
+
+
+Construct a \hyperlink{classStringTokenizer}{String\-Tokenizer} for specific string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & string \\
+\hline
+{\em delims} & characters considered as separators. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classStringTokenizer_a8b60b7ec2a45608e2909c872cf4a462a}{\index{String\-Tokenizer@{String\-Tokenizer}!get\-All\-Tokens@{get\-All\-Tokens}}
+\index{get\-All\-Tokens@{get\-All\-Tokens}!StringTokenizer@{String\-Tokenizer}}
+\subsubsection[{get\-All\-Tokens}]{\setlength{\rightskip}{0pt plus 5cm}void String\-Tokenizer\-::get\-All\-Tokens (
+\begin{DoxyParamCaption}
+\item[{vector$<$ string $>$ \&}]{tokens}
+\end{DoxyParamCaption}
+)}}\label{classStringTokenizer_a8b60b7ec2a45608e2909c872cf4a462a}
+
+
+Get all tokens in the string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tokens} & stores the tokens \\
+\hline
+\end{DoxyParams}
+\hypertarget{classStringTokenizer_aae2b0616e31bf6342f3417677f2a2c83}{\index{String\-Tokenizer@{String\-Tokenizer}!has\-More\-Tokens@{has\-More\-Tokens}}
+\index{has\-More\-Tokens@{has\-More\-Tokens}!StringTokenizer@{String\-Tokenizer}}
+\subsubsection[{has\-More\-Tokens}]{\setlength{\rightskip}{0pt plus 5cm}bool String\-Tokenizer\-::has\-More\-Tokens (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classStringTokenizer_aae2b0616e31bf6342f3417677f2a2c83}
+
+
+Check if there're more tokens left. 
+
+\begin{DoxyReturn}{Returns}
+true if have more tokens; otherwise false 
+\end{DoxyReturn}
+\hypertarget{classStringTokenizer_a9c95e7412890819dae3e20f23aaa76be}{\index{String\-Tokenizer@{String\-Tokenizer}!next\-Token@{next\-Token}}
+\index{next\-Token@{next\-Token}!StringTokenizer@{String\-Tokenizer}}
+\subsubsection[{next\-Token}]{\setlength{\rightskip}{0pt plus 5cm}string String\-Tokenizer\-::next\-Token (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classStringTokenizer_a9c95e7412890819dae3e20f23aaa76be}
+
+
+Get the next avaiable token. 
+
+\begin{DoxyReturn}{Returns}
+a token 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Utility.\-h\item 
+Utility.\-cc\end{DoxyCompactItemize}

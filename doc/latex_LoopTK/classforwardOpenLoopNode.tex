@@ -1,0 +1,127 @@
+\section{forward\-Open\-Loop\-Node Class Reference}
+\label{classforwardOpenLoopNode}\index{forwardOpenLoopNode@{forwardOpenLoopNode}}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf forward\-Open\-Loop\-Node} (int i, string s, Real v, int id, int size)
+\item 
+{\bf forward\-Open\-Loop\-Node} (int i, string s, Real v, int size)
+\item 
+{\bf forward\-Open\-Loop\-Node} (int i, string s, int size)
+\item 
+bool {\bf equal} ({\bf forward\-Open\-Loop\-Node} n)
+\item 
+int {\bf get\-Dof} ()
+\item 
+int {\bf get\-Child\-Dof} ()
+\item 
+int {\bf get\-Child\-Rid} ()
+\item 
+{\bf forward\-Open\-Loop\-Node} $\ast$ {\bf next\-Child} (vector$<$ Real $>$ $\ast$Phi\-Values, vector$<$ Real $>$ $\ast$Psi\-Values)
+\item 
+int {\bf generate\-Children} (vector$<$ Real $>$ $\ast$Phi\-Values, vector$<$ Real $>$ $\ast$Psi\-Values, {\bf PPhi\-Psi\-Distribution} \&Phi\-Psi\-Distri)
+\item 
+void {\bf print} ()
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int {\bf Rid}
+\item 
+string {\bf Type}
+\item 
+Real {\bf Value}
+\item 
+int {\bf Last\-Visited\-Child\-Id}
+\item 
+int {\bf Loop\-Size}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{forwardOpenLoopNode@{forward\-Open\-Loop\-Node}!forwardOpenLoopNode@{forwardOpenLoopNode}}
+\index{forwardOpenLoopNode@{forwardOpenLoopNode}!forwardOpenLoopNode@{forward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}forward\-Open\-Loop\-Node::forward\-Open\-Loop\-Node (int {\em i}, string {\em s}, Real {\em v}, int {\em id}, int {\em size})\hspace{0.3cm}{\tt  [inline]}}\label{classforwardOpenLoopNode_8b678d60986d5e7367bcb4bf86bcf95b}
+
+
+\index{forwardOpenLoopNode@{forward\-Open\-Loop\-Node}!forwardOpenLoopNode@{forwardOpenLoopNode}}
+\index{forwardOpenLoopNode@{forwardOpenLoopNode}!forwardOpenLoopNode@{forward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}forward\-Open\-Loop\-Node::forward\-Open\-Loop\-Node (int {\em i}, string {\em s}, Real {\em v}, int {\em size})\hspace{0.3cm}{\tt  [inline]}}\label{classforwardOpenLoopNode_f8ad3aa186a81cb08cd85212fcc27427}
+
+
+\index{forwardOpenLoopNode@{forward\-Open\-Loop\-Node}!forwardOpenLoopNode@{forwardOpenLoopNode}}
+\index{forwardOpenLoopNode@{forwardOpenLoopNode}!forwardOpenLoopNode@{forward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}forward\-Open\-Loop\-Node::forward\-Open\-Loop\-Node (int {\em i}, string {\em s}, int {\em size})\hspace{0.3cm}{\tt  [inline]}}\label{classforwardOpenLoopNode_8a1b0e09d8a59c2ccde6d88a7b75d99b}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{forwardOpenLoopNode@{forward\-Open\-Loop\-Node}!equal@{equal}}
+\index{equal@{equal}!forwardOpenLoopNode@{forward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool forward\-Open\-Loop\-Node::equal ({\bf forward\-Open\-Loop\-Node} {\em n})\hspace{0.3cm}{\tt  [inline]}}\label{classforwardOpenLoopNode_2612e914bfd98e889e0cb775c9bdd33d}
+
+
+\index{forwardOpenLoopNode@{forward\-Open\-Loop\-Node}!getDof@{getDof}}
+\index{getDof@{getDof}!forwardOpenLoopNode@{forward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int forward\-Open\-Loop\-Node::get\-Dof ()\hspace{0.3cm}{\tt  [inline]}}\label{classforwardOpenLoopNode_b88bbebf214b62d8d524af1525a3aad1}
+
+
+\index{forwardOpenLoopNode@{forward\-Open\-Loop\-Node}!getChildDof@{getChildDof}}
+\index{getChildDof@{getChildDof}!forwardOpenLoopNode@{forward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int forward\-Open\-Loop\-Node::get\-Child\-Dof ()\hspace{0.3cm}{\tt  [inline]}}\label{classforwardOpenLoopNode_90a4f0e9835353d75f9e57409315d47a}
+
+
+\index{forwardOpenLoopNode@{forward\-Open\-Loop\-Node}!getChildRid@{getChildRid}}
+\index{getChildRid@{getChildRid}!forwardOpenLoopNode@{forward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int forward\-Open\-Loop\-Node::get\-Child\-Rid ()\hspace{0.3cm}{\tt  [inline]}}\label{classforwardOpenLoopNode_85c6e48203c3064a04f92733d4ecbd2a}
+
+
+\index{forwardOpenLoopNode@{forward\-Open\-Loop\-Node}!nextChild@{nextChild}}
+\index{nextChild@{nextChild}!forwardOpenLoopNode@{forward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf forward\-Open\-Loop\-Node}$\ast$ forward\-Open\-Loop\-Node::next\-Child (vector$<$ Real $>$ $\ast$ {\em Phi\-Values}, vector$<$ Real $>$ $\ast$ {\em Psi\-Values})\hspace{0.3cm}{\tt  [inline]}}\label{classforwardOpenLoopNode_b9e6b899373481e7f1d898bec83b2408}
+
+
+\index{forwardOpenLoopNode@{forward\-Open\-Loop\-Node}!generateChildren@{generateChildren}}
+\index{generateChildren@{generateChildren}!forwardOpenLoopNode@{forward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int forward\-Open\-Loop\-Node::generate\-Children (vector$<$ Real $>$ $\ast$ {\em Phi\-Values}, vector$<$ Real $>$ $\ast$ {\em Psi\-Values}, {\bf PPhi\-Psi\-Distribution} \& {\em Phi\-Psi\-Distri})\hspace{0.3cm}{\tt  [inline]}}\label{classforwardOpenLoopNode_ff7e83b87596251df49760f161a14975}
+
+
+\index{forwardOpenLoopNode@{forward\-Open\-Loop\-Node}!print@{print}}
+\index{print@{print}!forwardOpenLoopNode@{forward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void forward\-Open\-Loop\-Node::print ()\hspace{0.3cm}{\tt  [inline]}}\label{classforwardOpenLoopNode_ba5e34752e4d5a383df15901ec6ee1f8}
+
+
+
+
+\subsection{Member Data Documentation}
+\index{forwardOpenLoopNode@{forward\-Open\-Loop\-Node}!Rid@{Rid}}
+\index{Rid@{Rid}!forwardOpenLoopNode@{forward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf forward\-Open\-Loop\-Node::Rid}}\label{classforwardOpenLoopNode_44e2e5f80b09e4f07bd529de48cfb161}
+
+
+\index{forwardOpenLoopNode@{forward\-Open\-Loop\-Node}!Type@{Type}}
+\index{Type@{Type}!forwardOpenLoopNode@{forward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string {\bf forward\-Open\-Loop\-Node::Type}}\label{classforwardOpenLoopNode_6bbbbf6cb61c6894fe3ea4458fec2c7d}
+
+
+\index{forwardOpenLoopNode@{forward\-Open\-Loop\-Node}!Value@{Value}}
+\index{Value@{Value}!forwardOpenLoopNode@{forward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real {\bf forward\-Open\-Loop\-Node::Value}}\label{classforwardOpenLoopNode_e9b1356b7a30629578e0766c2c7802ec}
+
+
+\index{forwardOpenLoopNode@{forward\-Open\-Loop\-Node}!LastVisitedChildId@{LastVisitedChildId}}
+\index{LastVisitedChildId@{LastVisitedChildId}!forwardOpenLoopNode@{forward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf forward\-Open\-Loop\-Node::Last\-Visited\-Child\-Id}}\label{classforwardOpenLoopNode_4b3e8c76f910b6ca4d86cffeccab08d2}
+
+
+\index{forwardOpenLoopNode@{forward\-Open\-Loop\-Node}!LoopSize@{LoopSize}}
+\index{LoopSize@{LoopSize}!forwardOpenLoopNode@{forward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf forward\-Open\-Loop\-Node::Loop\-Size}}\label{classforwardOpenLoopNode_6c7f199d6a6bf247511365d49fabfed3}
+
+
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/core/{\bf PSamp\-Methods.cc}\end{CompactItemize}

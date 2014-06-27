@@ -1,0 +1,150 @@
+\hypertarget{classBFactor}{\section{B\-Factor Class Reference}
+\label{classBFactor}\index{B\-Factor@{B\-Factor}}
+}
+
+
+The class \hyperlink{classBFactor}{B\-Factor} is used to initialize and store B-\/factors database, evaluate the probability densities of conformations according to B-\/factors.  
+
+
+
+
+{\ttfamily \#include $<$B\-Factor.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classBFactor_a91f2c9fcac4abc6be3374ef211567763}{\hyperlink{classBFactor_a91f2c9fcac4abc6be3374ef211567763}{B\-Factor} (P\-Protein $\ast$protein)}\label{classBFactor_a91f2c9fcac4abc6be3374ef211567763}
+
+\begin{DoxyCompactList}\small\item\em Construct a B-\/factors database for a specific chain. The chain must be the top level chain in the sampling problem. \end{DoxyCompactList}\item 
+double \hyperlink{classBFactor_a6b7a1d4d58a97a8c85e5965d893f8072}{eval\-Atom\-Positions} (P\-Protein $\ast$chain, const int s, const int e)
+\begin{DoxyCompactList}\small\item\em Evaluate a chain (or its subchain) according to B-\/factors. \end{DoxyCompactList}\item 
+void \hyperlink{classBFactor_afcf1c404118d984d5e8298efb6c582c3}{output} (char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Output atom positions and their B-\/factors to a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classBFactor_a5752e0293ab96b891b7516e478f78fc9}{get\-Prob\-Density\-\_\-log} (const Vector3 \&mean, const double variance, const Vector3 \&position) const 
+\begin{DoxyCompactList}\small\item\em Evaluate probability density of an atom position given desired atom position and B-\/factor. \end{DoxyCompactList}\item 
+double \hyperlink{classBFactor_ada2e7f58e349903d37ab14fe0de6a982}{get\-Prob\-Density\-\_\-log} (const double mean, const double variance, const double x)
+\begin{DoxyCompactList}\small\item\em Get probability density of one value in a given normal distribution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classBFactor_adab76ed5a1c441b94c3e3551a305ec75}{vector$<$ string $>$ {\bfseries residue\-\_\-name}}\label{classBFactor_adab76ed5a1c441b94c3e3551a305ec75}
+
+\item 
+\hypertarget{classBFactor_af009183a1dd9d335e0398bd092b839af}{vector$<$ vector$<$ string $>$ $>$ {\bfseries atom\-\_\-name}}\label{classBFactor_af009183a1dd9d335e0398bd092b839af}
+
+\item 
+\hypertarget{classBFactor_ad80d6db61e218d8ca7072d70f8fdf518}{vector$<$ vector$<$ Vector3 $>$ $>$ {\bfseries atom\-\_\-pos}}\label{classBFactor_ad80d6db61e218d8ca7072d70f8fdf518}
+
+\item 
+\hypertarget{classBFactor_a1df76ff14c75494cc0da4310cd454146}{vector$<$ vector$<$ double $>$ $>$ {\bfseries atom\-\_\-bfactors}}\label{classBFactor_a1df76ff14c75494cc0da4310cd454146}
+
+\item 
+\hypertarget{classBFactor_a80956b6f7de1d29ea45eecba865f508e}{vector$<$ vector$<$ double $>$ $>$ {\bfseries atom\-\_\-variance}}\label{classBFactor_a80956b6f7de1d29ea45eecba865f508e}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The class \hyperlink{classBFactor}{B\-Factor} is used to initialize and store B-\/factors database, evaluate the probability densities of conformations according to B-\/factors. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classBFactor_a6b7a1d4d58a97a8c85e5965d893f8072}{\index{B\-Factor@{B\-Factor}!eval\-Atom\-Positions@{eval\-Atom\-Positions}}
+\index{eval\-Atom\-Positions@{eval\-Atom\-Positions}!BFactor@{B\-Factor}}
+\subsubsection[{eval\-Atom\-Positions}]{\setlength{\rightskip}{0pt plus 5cm}double B\-Factor\-::eval\-Atom\-Positions (
+\begin{DoxyParamCaption}
+\item[{P\-Protein $\ast$}]{chain, }
+\item[{const int}]{s, }
+\item[{const int}]{e}
+\end{DoxyParamCaption}
+)}}\label{classBFactor_a6b7a1d4d58a97a8c85e5965d893f8072}
+
+
+Evaluate a chain (or its subchain) according to B-\/factors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chain} & the chain to be evaluated \\
+\hline
+{\em s} & index of starting residue \\
+\hline
+{\em e} & index of ending residue \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+products of probability densities of all backbone atoms in logarithm 
+\end{DoxyReturn}
+\hypertarget{classBFactor_a5752e0293ab96b891b7516e478f78fc9}{\index{B\-Factor@{B\-Factor}!get\-Prob\-Density\-\_\-log@{get\-Prob\-Density\-\_\-log}}
+\index{get\-Prob\-Density\-\_\-log@{get\-Prob\-Density\-\_\-log}!BFactor@{B\-Factor}}
+\subsubsection[{get\-Prob\-Density\-\_\-log}]{\setlength{\rightskip}{0pt plus 5cm}double B\-Factor\-::get\-Prob\-Density\-\_\-log (
+\begin{DoxyParamCaption}
+\item[{const Vector3 \&}]{mean, }
+\item[{const double}]{variance, }
+\item[{const Vector3 \&}]{position}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}}\label{classBFactor_a5752e0293ab96b891b7516e478f78fc9}
+
+
+Evaluate probability density of an atom position given desired atom position and B-\/factor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mean} & desired atom position \\
+\hline
+{\em variance} & variance of each dimension \\
+\hline
+{\em position} & the atom position to be evaluated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+probability density of the atom position in logarithm 
+\end{DoxyReturn}
+\hypertarget{classBFactor_ada2e7f58e349903d37ab14fe0de6a982}{\index{B\-Factor@{B\-Factor}!get\-Prob\-Density\-\_\-log@{get\-Prob\-Density\-\_\-log}}
+\index{get\-Prob\-Density\-\_\-log@{get\-Prob\-Density\-\_\-log}!BFactor@{B\-Factor}}
+\subsubsection[{get\-Prob\-Density\-\_\-log}]{\setlength{\rightskip}{0pt plus 5cm}double B\-Factor\-::get\-Prob\-Density\-\_\-log (
+\begin{DoxyParamCaption}
+\item[{const double}]{mean, }
+\item[{const double}]{variance, }
+\item[{const double}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classBFactor_ada2e7f58e349903d37ab14fe0de6a982}
+
+
+Get probability density of one value in a given normal distribution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mean} & mean of the normal distribution \\
+\hline
+{\em variance} & variance of the normal distribution \\
+\hline
+{\em x} & value to be evaluated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+probability density of x in logarithm 
+\end{DoxyReturn}
+\hypertarget{classBFactor_afcf1c404118d984d5e8298efb6c582c3}{\index{B\-Factor@{B\-Factor}!output@{output}}
+\index{output@{output}!BFactor@{B\-Factor}}
+\subsubsection[{output}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Factor\-::output (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}}\label{classBFactor_afcf1c404118d984d5e8298efb6c582c3}
+
+
+Output atom positions and their B-\/factors to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & output filename \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+B\-Factor.\-h\item 
+B\-Factor.\-cc\end{DoxyCompactItemize}

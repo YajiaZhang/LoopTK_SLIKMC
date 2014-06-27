@@ -1,0 +1,56 @@
+\section{PAtom\-Positions\-Spec Class Reference}
+\label{classPAtomPositionsSpec}\index{PAtomPositionsSpec@{PAtomPositionsSpec}}
+{\tt \#include $<$PAtom\-Positions\-Spec.h$>$}
+
+
+
+\subsection{Detailed Description}
+Encapsulates a map of atom IDs to their respective positions. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+void {\bf add\-Atom} (const string \&id, const Vector3 \&position)
+\item 
+int {\bf size} () const
+\item 
+void {\bf clear} ()
+\item 
+bool {\bf contains} (const string \&id) const 
+\item 
+Vector3 {\bf get\-Atom\-Position} (const string \&id) const 
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{PAtomPositionsSpec@{PAtom\-Positions\-Spec}!addAtom@{addAtom}}
+\index{addAtom@{addAtom}!PAtomPositionsSpec@{PAtom\-Positions\-Spec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PAtom\-Positions\-Spec::add\-Atom (const string \& {\em id}, const Vector3 \& {\em position})}\label{classPAtomPositionsSpec_69b5fccc1824f83625481318c4b0d743}
+
+
+Adds an atom with the specified ID and specified position to the map. \index{PAtomPositionsSpec@{PAtom\-Positions\-Spec}!size@{size}}
+\index{size@{size}!PAtomPositionsSpec@{PAtom\-Positions\-Spec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PAtom\-Positions\-Spec::size () const\hspace{0.3cm}{\tt  [inline]}}\label{classPAtomPositionsSpec_9e672230f2968858dc941782b6588f9d}
+
+
+Returns the number of atom positions currently in the map. \index{PAtomPositionsSpec@{PAtom\-Positions\-Spec}!clear@{clear}}
+\index{clear@{clear}!PAtomPositionsSpec@{PAtom\-Positions\-Spec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PAtom\-Positions\-Spec::clear ()\hspace{0.3cm}{\tt  [inline]}}\label{classPAtomPositionsSpec_aa492684c66a526ee3654017ae7ae828}
+
+
+Clears all data in the map. \index{PAtomPositionsSpec@{PAtom\-Positions\-Spec}!contains@{contains}}
+\index{contains@{contains}!PAtomPositionsSpec@{PAtom\-Positions\-Spec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PAtom\-Positions\-Spec::contains (const string \& {\em id}) const\hspace{0.3cm}{\tt  [inline]}}\label{classPAtomPositionsSpec_536a6acbb5c52d0e01bfabd8947b3693}
+
+
+Returns true if the map contains {\tt id}, false otherwise. \index{PAtomPositionsSpec@{PAtom\-Positions\-Spec}!getAtomPosition@{getAtomPosition}}
+\index{getAtomPosition@{getAtomPosition}!PAtomPositionsSpec@{PAtom\-Positions\-Spec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Vector3 PAtom\-Positions\-Spec::get\-Atom\-Position (const string \& {\em id}) const}\label{classPAtomPositionsSpec_8299e825db261c5347bc45aaa16dc79d}
+
+
+Returns the position of the atom with the specified ID. Aborts the program if the atom does not exist in the map. 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PAtom\-Positions\-Spec.h}\item 
+src/core/{\bf PBlock.cc}\end{CompactItemize}

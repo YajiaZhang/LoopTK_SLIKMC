@@ -1,0 +1,36 @@
+\section{src/core/PUtilities.h File Reference}
+\label{PUtilities_8h}\index{src/core/PUtilities.h@{src/core/PUtilities.h}}
+
+
+{\tt \#include \char`\"{}PLibraries.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class {\bf PUtilities}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf is\-NAN}(x)~!((x) $<$= 0 $|$$|$ (x) $>$ 0)
+\item 
+\#define {\bf ends\_\-with}(str, x)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{PUtilities.h@{PUtilities.h}!ends_with@{ends\_\-with}}
+\index{ends_with@{ends\_\-with}!PUtilities.h@{PUtilities.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define ends\_\-with(str, x)}\label{PUtilities_8h_9a2fe04dc1f8cf15cfad55315d44cdd4}
+
+
+\textbf{Value:}
+
+\begin{Code}\begin{verbatim}(string(str).find(string(x)) != string::npos && \
+                                         string(str).find(string(x)) == string(str).length() - \
+                                         string(x).length())
+\end{verbatim}\end{Code}
+\index{PUtilities.h@{PUtilities.h}!isNAN@{isNAN}}
+\index{isNAN@{isNAN}!PUtilities.h@{PUtilities.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define is\-NAN(x)~!((x) $<$= 0 $|$$|$ (x) $>$ 0)}\label{PUtilities_8h_1100fb5c501ee6e1a6bdd58d959fe545}
+
+

@@ -1,0 +1,33 @@
+##
+## Makefile for LoopTK test cases.
+##
+
+# Edit these to point where GLUT(Mesa), GLUI, and GSL are located
+ROOT = /afs/cs/group/latombe
+SRCDIR = $(ROOT)/src
+GLUT_INCLUDE = $(SRCDIR)/Mesa-6.4.1/include
+GLUI_INCLUDE = $(SRCDIR)/glui-2.2
+GSL_INCLUDE = /usr/include/gsl
+
+# Edit these to point where the libraries are located
+LIBROOT = $(ROOT)/software/lib
+GLUILIBDIR = $(LIBROOT)/glui-2.2
+GLUTLIBDIR = $(LIBROOT)/glut-3.7.1
+XLIBDIR = /usr/X11R6/lib /usr/X11R6/lib/modules/extensions /usr/X11R6/lib64
+SYSLIBDIR = /lib
+GSLLIBDIR = /usr/lib/gsl
+LIBDIRS = $(TK) $(GLUILIBDIR) $(GLUTLIBDIR) $(XLIBDIR) $(SYSLIBDIR) $(GSLLIBDIR)
+
+GLUTLIBS = glui glut GLU GL
+GSLLIBS = gsl gslcblas
+SYSLIBS = Xm Xi Xext Xmu X11 SM ICE pthread
+LIBS = $(GLUTLIBS) $(GSLLIBS) $(SYSLIBS)
+
+# Where additional libraries (special thanks to Kris Hauser) is located
+UTILS_INCLUDE = ../../src/utils
+LOOPTK = ../../src/core
+MY_INCLUDE = $(UTILS_INCLUDE) $(LOOPTK) $(GLUT_INCLUDE) $(GLUI_INCLUDE) $(GSL_INCLUDE)
+
+CXX = g++
+LDFLAGS = ../../lib/looptk.a $(addprefix -L, $(LIBDIRS)) $(addprefix -l, $(LIBS)) $(shell xml2-config --libs)
+CPPFLAGS = -O3 $(addprefix -I,$(MY_INCLUDE)) -Wno-deprecated $(shell xml2-config --cflags)

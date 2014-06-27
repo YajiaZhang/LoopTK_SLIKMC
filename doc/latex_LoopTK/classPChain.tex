@@ -1,0 +1,631 @@
+\section{PChain Class Reference}
+\label{classPChain}\index{PChain@{PChain}}
+{\tt \#include $<$PChain.h$>$}
+
+Inheritance diagram for PChain::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{classPChain}
+\end{center}
+\end{figure}
+
+
+\subsection{Detailed Description}
+Encapsulates a linearly connected chain of residues. Methods are provided to add and access residues and check for collisions within the chain. This class makes no assumptions on the structure of the residues and atoms within. Use \doxyref{PProtein}{p.}{classPProtein} for extended functionality if building chains using the configuration data provided with Loop\-TK.
+
+Usage of a \doxyref{PChain}{p.}{classPChain} must follow the following sequence of steps:
+
+\begin{enumerate}
+\item {\bf Construction} - all residues are added to chain. Use the \doxyref{PChain::Add\-Residue()}{p.}{classPChain_8a42f1e7a59dbe7d3e9e463906054ef2} methods to do this.\item {\bf Finalization} - finishes construction of the chain and prepares it for manipulation. Use \doxyref{PChain::finalize()}{p.}{classPChain_4cb2a0f087cd2c70dca1349b15c12d53} to do this.\item {\bf Analysis} - the full range of functionality of \doxyref{PChain}{p.}{classPChain} can be used at this point. However, no more residues can be added. \end{enumerate}
+
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf PChain} ()
+\item 
+{\bf PChain} (const string \&first\-Residue\-Name)
+\item 
+{\bf PChain} (const string \&first\-Residue\-Name, {\bf PResidue\-Spec} \&first\-Residue\-Spec)
+\item 
+{\bf PChain} ({\bf PChain} $\ast$protein, int res\-Start\-Index, int res\-End\-Index)
+\item 
+{\bf $\sim$PChain} ()
+\item 
+void {\bf Obliterate} ()
+\item 
+{\bf PResidue} $\ast$ {\bf Add\-Residue} (const string \&res\-Name)
+\item 
+{\bf PResidue} $\ast$ {\bf Add\-Residue} (const string \&res\-Name, {\bf PResidue\-Spec} \&res\-Spec)
+\item 
+bool {\bf Is\-Sub\-Chain\-Of} (const {\bf PChain} $\ast$other) const
+\item 
+{\bf PChain} $\ast$ {\bf get\-Parent} () const
+\item 
+{\bf PChain} $\ast$ {\bf get\-Top\-Level\-Chain} ()
+\item 
+{\bf PBond} $\ast$ {\bf get\-Bond} (int res\_\-index, const string \&id1, const string \&id2)
+\item 
+{\bf PBond} $\ast$ {\bf get\-Bond} (int res\_\-index1, const string \&id1, int res\_\-index2, const string \&id2)
+\item 
+int {\bf size} () const
+\item 
+{\bf PResidue} $\ast$ {\bf get\-Residue} (int local\-Index)
+\item 
+int {\bf get\-Residue\-Index} (const {\bf PAtom} $\ast$atom)
+\item 
+{\bf PAtom} $\ast$ {\bf get\-Atom\-At\-Res} (const string \&atom\-ID, int res\-Num)
+\item 
+void {\bf set\-Atom\-Color\-At\-Res} (const string \&atom\-ID, int res\-Num, GLColor set\-Color)
+\item 
+void {\bf revert\-Atom\-Color\-At\-Res} (const string \&atom\-ID, int res\-Num)
+\item 
+{\bf PAtom} $\ast$ {\bf get\-Atom} (const string \&block\-Type, int index)
+\item 
+Vector3 {\bf get\-Atom\-Pos} (const string \&block\-Type, int index)
+\item 
+int {\bf Num\-Atoms} (const string \&block\-Type) const 
+\item 
+bool {\bf In\-Static\-Collision} ()
+\item 
+bool {\bf In\-Static\-Collision} (int res\-Index1, int res\-Index2)
+\item 
+bool {\bf In\-Self\-Collision} ()
+\item 
+bool {\bf In\-Self\-Collision} (int res\-Index1, int res\-Index2)
+\item 
+bool {\bf In\-Any\-Collision} ()
+\item 
+bool {\bf In\-Any\-Collision} (int res\-Index1, int res\-Index2)
+\item 
+pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ {\bf Find\-Static\-Collision} ()
+\item 
+pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ {\bf Find\-Static\-Collision} (int res\-Index1, int res\-Index2)
+\item 
+pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ {\bf Find\-Self\-Collision} ()
+\item 
+pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ {\bf Find\-Self\-Collision} (int res\-Index1, int res\-Index2)
+\item 
+pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ {\bf Find\-Any\-Collision} ()
+\item 
+pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ {\bf Find\-Any\-Collision} (int res\-Index1, int res\-Index2)
+\item 
+{\bf Atom\-Collisions} $\ast$ {\bf get\-All\-Colliding\-Static} ()
+\item 
+{\bf Atom\-Collisions} $\ast$ {\bf get\-All\-Colliding\-Static} (int res\-Index1, int res\-Index2)
+\item 
+{\bf Atom\-Collisions} $\ast$ {\bf get\-All\-Colliding\-Self} ()
+\item 
+{\bf Atom\-Collisions} $\ast$ {\bf get\-All\-Colliding\-Self} (int res\-Index1, int res\-Index2)
+\item 
+{\bf Atom\-Collisions} $\ast$ {\bf get\-All\-Colliding\-Either} ()
+\item 
+{\bf Atom\-Collisions} $\ast$ {\bf get\-All\-Colliding\-Either} (int res\-Index1, int res\-Index2)
+\item 
+vector$<$ {\bf PBond} $\ast$ $>$ \& {\bf Get\-DOFs} (const string \&block\-Type)
+\item 
+int {\bf Num\-DOF} (const string \&block\-Type) const 
+\item 
+void {\bf Rotate\-Chain} (const string \&block\-Type, int DOFindex, {\bf Bond\-Direction} dir, float degrees)
+\item 
+void {\bf Rotate\-Chain} (const {\bf Chain\-Move} \&move)
+\item 
+void {\bf Multi\-Rotate} (vector$<$ {\bf Chain\-Move} $>$ \&moves)
+\item 
+void {\bf Anti\-Multi\-Rotate} (vector$<$ {\bf Chain\-Move} $>$ \&moves)
+\item 
+vector$<$ string $>$ {\bf Get\-Block\-Types} () const
+\item 
+void {\bf Detach\-Blocks} (const string \&block\-Type, const string \&block\-Type\-To\-Detach\-From)
+\item 
+void {\bf Detach\-Blocks} (const string \&block\-Type, const string \&block\-Type\-To\-Detach\-From, int res\-Start\-Index, int res\-End\-Index)
+\item 
+void {\bf Reattach\-Blocks} (const string \&block\-Type)
+\item 
+void {\bf Reattach\-Blocks} (const string \&block\-Type, int res\-Start\-Index, int res\-End\-Index)
+\item 
+void {\bf Reattach\-All\-Blocks} ()
+\item 
+void {\bf Reattach\-All\-Blocks} (int res\-Start\-Index, int res\-End\-Index)
+\item 
+void {\bf Randomize\-DOFs} ({\bf Bond\-Direction} dir)
+\item 
+void {\bf finalize} ()
+\item 
+void {\bf Add\-Rotate\-Event\-Handler} ({\bf PRotate\-Event\-Handler} $\ast$handler)
+\item 
+void {\bf Remove\-Rotate\-Event\-Handler} ({\bf PRotate\-Event\-Handler} $\ast$handler)
+\item 
+void {\bf traverse\-From\-Start} ({\bf Atom\-Functor} $\ast$atom\-Fn)
+\item 
+void {\bf traverse\-From\-Start} ({\bf Bond\-Functor} $\ast$bond\-Fn)
+\item 
+void {\bf traverse\-From\-Start} ({\bf Atom\-Functor} $\ast$atom\-Fn, {\bf Bond\-Functor} $\ast$bond\-Fn)
+\item 
+pair$<$ int, int $>$ {\bf get\-Top\-Level\-Indices} () const
+\item 
+const {\bf PSpace\-Manager} $\ast$ {\bf get\-Space\-Manager} ()
+\item 
+{\bf PChain} $\ast$ {\bf Clone} ()
+\item 
+int {\bf get\-Residue\-Local\-Index} ({\bf PResidue} $\ast$res)
+\item 
+int {\bf get\-Residue\-Global\-Index} ({\bf PResidue} $\ast$res)
+\item 
+vector$<$ const {\bf PAtom} $\ast$ $>$ {\bf get\-Shortest\-Path} (const {\bf PAtom} $\ast$a1, {\bf Const\-Atom\-Set} a2Set, int max\-Length)
+\item 
+vector$<$ const {\bf PAtom} $\ast$ $>$ {\bf get\-Shortest\-Path} (const {\bf PAtom} $\ast$a1, const {\bf PAtom} $\ast$a2, int max\-Length)
+\item 
+vector$<$ const {\bf PAtom} $\ast$ $>$ {\bf get\-Shortest\-Path} (const {\bf PAtom} $\ast$a1, {\bf Const\-Atom\-Set} a2Set, int max\-Length, int extend\-Num)
+\item 
+void {\bf inactivate\-Residue} (int Rid1, int Rid2)
+\item 
+void {\bf activate\-Residue} (int Rid1, int Rid2)
+\item 
+unsigned int {\bf Num\-Children} ()
+\item 
+{\bf PChain} $\ast$ {\bf get\-Child} (unsigned int index)
+\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+void {\bf Clone\-Residues\-Into\-Chain} ({\bf PChain} $\ast$other)
+\item 
+virtual {\bf PResidue} $\ast$ {\bf Create\-Residue} (const string \&name)
+\item 
+virtual {\bf PResidue} $\ast$ {\bf Create\-Residue} (const string \&name, {\bf PResidue\-Spec} \&spec)
+\item 
+virtual {\bf PResidue} $\ast$ {\bf Create\-Residue} (const string \&name, {\bf PResidue} $\ast$res)
+\item 
+virtual {\bf PResidue} $\ast$ {\bf Create\-Residue} (const string \&name, {\bf PResidue\-Spec} \&spec, {\bf PResidue} $\ast$res)
+\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+class {\bf PAtom}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{PChain@{PChain}!PChain@{PChain}}
+\index{PChain@{PChain}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PChain::PChain ()}\label{classPChain_8ec1d9ef3c37d45b8cdca1c0cda09e58}
+
+
+Constructs a new {\tt \doxyref{PChain}{p.}{classPChain}} with no residues. \index{PChain@{PChain}!PChain@{PChain}}
+\index{PChain@{PChain}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PChain::PChain (const string \& {\em first\-Residue\-Name})}\label{classPChain_d83d3824a7dc2000690369b14e4e01a9}
+
+
+Constructs a new {\tt \doxyref{PChain}{p.}{classPChain}} with one residue, using the default positions for its atoms. \index{PChain@{PChain}!PChain@{PChain}}
+\index{PChain@{PChain}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PChain::PChain (const string \& {\em first\-Residue\-Name}, {\bf PResidue\-Spec} \& {\em first\-Residue\-Spec})}\label{classPChain_c9515a86cccac90cda39377ba8ee34fc}
+
+
+Constructs a new {\tt \doxyref{PChain}{p.}{classPChain}} with one residue ({\tt first\-Residue\-Name}), using the positions specified by {\tt first\-Residue\-Spec} for its atoms. \index{PChain@{PChain}!PChain@{PChain}}
+\index{PChain@{PChain}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PChain::PChain ({\bf PChain} $\ast$ {\em protein}, int {\em res\-Start\-Index}, int {\em res\-End\-Index})}\label{classPChain_2df80bf3621fe3c8c6efaaf80ca5b999}
+
+
+Constructs a new {\tt \doxyref{PChain}{p.}{classPChain}} as a subchain of {\tt protein}, from residue {\tt res\-Start\-Index} to residue {\tt res\-End\-Index}. \index{PChain@{PChain}!~PChain@{$\sim$PChain}}
+\index{~PChain@{$\sim$PChain}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PChain::$\sim$PChain ()}\label{classPChain_2882c6f002b99b989587df63134ca389}
+
+
+Destroys this {\tt \doxyref{PChain}{p.}{classPChain}} and its subchains, freeing any memory associated with them. 
+
+\subsection{Member Function Documentation}
+\index{PChain@{PChain}!Obliterate@{Obliterate}}
+\index{Obliterate@{Obliterate}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::Obliterate ()}\label{classPChain_199ae243010c650b3de1e0d4454b8da0}
+
+
+Obliterates this chain and all parents, brethren, and children, freeing all memory associated with them. \index{PChain@{PChain}!AddResidue@{AddResidue}}
+\index{AddResidue@{AddResidue}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PResidue} $\ast$ PChain::Add\-Residue (const string \& {\em res\-Name})}\label{classPChain_8a42f1e7a59dbe7d3e9e463906054ef2}
+
+
+Adds the residue {\tt res\-Name} to the end of the chain, using its default atom positions. Returns the created residue. \index{PChain@{PChain}!AddResidue@{AddResidue}}
+\index{AddResidue@{AddResidue}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PResidue} $\ast$ PChain::Add\-Residue (const string \& {\em res\-Name}, {\bf PResidue\-Spec} \& {\em res\-Spec})}\label{classPChain_a425543d70e74db342b9ee2cc1f057e5}
+
+
+Adds the specified residue to the end of the chain, using the specified atom positions. Returns the created residue. \index{PChain@{PChain}!IsSubChainOf@{IsSubChainOf}}
+\index{IsSubChainOf@{IsSubChainOf}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PChain::Is\-Sub\-Chain\-Of (const {\bf PChain} $\ast$ {\em other}) const}\label{classPChain_87fb40849a2115c389cb10f47aa1d52b}
+
+
+Returns true if this {\tt \doxyref{PChain}{p.}{classPChain}} is a subchain of {\tt other}, false otherwise. \index{PChain@{PChain}!getParent@{getParent}}
+\index{getParent@{getParent}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PChain} $\ast$ PChain::get\-Parent () const}\label{classPChain_e71d066e3e1290b8952bc071780bdf09}
+
+
+Gets parent chain. Returns {\tt NULL} if this is the top level chain. \index{PChain@{PChain}!getTopLevelChain@{getTopLevelChain}}
+\index{getTopLevelChain@{getTopLevelChain}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PChain} $\ast$ PChain::get\-Top\-Level\-Chain ()}\label{classPChain_d7a46bf8dbdf79c75a8394708ed02609}
+
+
+Gets top level chain (the one for which {\tt parent == NULL}). \index{PChain@{PChain}!getBond@{getBond}}
+\index{getBond@{getBond}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PBond} $\ast$ PChain::get\-Bond (int {\em res\_\-index}, const string \& {\em id1}, const string \& {\em id2})}\label{classPChain_33f48ae20cb3864fdc16578192b3de85}
+
+
+Returns the bond between atoms {\tt id1} and {\tt id2}, assuming both are in residue {\tt res\_\-index}.
+
+Returns {\tt NULL} if the bond cannot be found. \index{PChain@{PChain}!getBond@{getBond}}
+\index{getBond@{getBond}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PBond} $\ast$ PChain::get\-Bond (int {\em res\_\-index1}, const string \& {\em id1}, int {\em res\_\-index2}, const string \& {\em id2})}\label{classPChain_20d7d80269da885afd3da6b7bcc98363}
+
+
+Returns the bond between two atoms in different residues: the first has ID {\tt id1} in residue {\tt res\_\-index1}, the second has ID {\tt id2} in residue {\tt res\_\-index2}.
+
+Returns {\tt NULL} if the bond cannot be found. \index{PChain@{PChain}!size@{size}}
+\index{size@{size}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PChain::size () const\hspace{0.3cm}{\tt  [virtual]}}\label{classPChain_272293fc909f8061105dc60a965370a4}
+
+
+Returns the number of residues in this {\tt \doxyref{PChain}{p.}{classPChain}}. 
+
+Implements {\bf PLight\-Chain} \doxyref{}{p.}{classPLightChain_6dc22b36d7391c10a50a192324b0b0ba}.\index{PChain@{PChain}!getResidue@{getResidue}}
+\index{getResidue@{getResidue}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PResidue} $\ast$ PChain::get\-Residue (int {\em local\-Index})\hspace{0.3cm}{\tt  [virtual]}}\label{classPChain_7808cd02cc152a2143a62cea5a38a566}
+
+
+Returns the residue at the specified index. The index is \char`\"{}local\char`\"{} to this \doxyref{PChain}{p.}{classPChain}; for example, if this chain is a subchain of some other chain, accessing residue 0 in this chain might return the 20th residue in the parent chain. 
+
+Implements {\bf PLight\-Chain} \doxyref{}{p.}{classPLightChain_03c35beafe72084c80681d753ea8aa5c}.
+
+Reimplemented in {\bf PProtein} \doxyref{}{p.}{classPProtein_e075c499dc00f2b2094c826125a11029}.\index{PChain@{PChain}!getResidueIndex@{getResidueIndex}}
+\index{getResidueIndex@{getResidueIndex}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PChain::get\-Residue\-Index (const {\bf PAtom} $\ast$ {\em atom})}\label{classPChain_fccd5ea67b1e1932d0614e040f2cb518}
+
+
+Returns the residue index of the specified atom. \index{PChain@{PChain}!getAtomAtRes@{getAtomAtRes}}
+\index{getAtomAtRes@{getAtomAtRes}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PAtom} $\ast$ PChain::get\-Atom\-At\-Res (const string \& {\em atom\-ID}, int {\em res\-Num})\hspace{0.3cm}{\tt  [virtual]}}\label{classPChain_802dbb6a8e610cc9c0fb4b56b32f7406}
+
+
+Convenience method: returns the atom with the specified ID in the specified residue, or NULL if such an atom does not exist. 
+
+Implements {\bf PLight\-Chain} \doxyref{}{p.}{classPLightChain_020a55f4e8c926d147b9361236383265}.\index{PChain@{PChain}!setAtomColorAtRes@{setAtomColorAtRes}}
+\index{setAtomColorAtRes@{setAtomColorAtRes}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::set\-Atom\-Color\-At\-Res (const string \& {\em atom\-ID}, int {\em res\-Num}, GLColor {\em set\-Color})\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classPChain_6be5fb63146fcc86f36280f1a4467c0b}
+
+
+Sets color of the atom (displayed by \doxyref{PChain\-Navigator}{p.}{classPChainNavigator}) whose ID is {\tt atom\-ID} in residue {\tt res\-Num}. 
+
+Implements {\bf PLight\-Chain} \doxyref{}{p.}{classPLightChain_55ce049802ba06e1c0260b5bba2dcdb4}.\index{PChain@{PChain}!revertAtomColorAtRes@{revertAtomColorAtRes}}
+\index{revertAtomColorAtRes@{revertAtomColorAtRes}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::revert\-Atom\-Color\-At\-Res (const string \& {\em atom\-ID}, int {\em res\-Num})\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classPChain_b356f657a1ec0f1457a7b317d1bb6afa}
+
+
+Reverts the color of the atom whose ID is {\tt atom\-ID}, in residue {\tt res\-Num}, to its default value. 
+
+Implements {\bf PLight\-Chain} \doxyref{}{p.}{classPLightChain_721931ad0cde3f5213a78353d9069c33}.\index{PChain@{PChain}!getAtom@{getAtom}}
+\index{getAtom@{getAtom}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PAtom} $\ast$ PChain::get\-Atom (const string \& {\em block\-Type}, int {\em index})}\label{classPChain_27d4cb7fa2497948f23ad05f65d6a00b}
+
+
+Retrieves the atom at the given index for the block type (indices are in order of how the chain would be traversed from beginning to end). \index{PChain@{PChain}!getAtomPos@{getAtomPos}}
+\index{getAtomPos@{getAtomPos}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Vector3 PChain::get\-Atom\-Pos (const string \& {\em block\-Type}, int {\em index})}\label{classPChain_e0cc31b522de9459e2b6f6cb0aba8ac6}
+
+
+Gets the atom position at the given index (see \doxyref{PChain::get\-Atom}{p.}{classPChain_27d4cb7fa2497948f23ad05f65d6a00b}). \index{PChain@{PChain}!NumAtoms@{NumAtoms}}
+\index{NumAtoms@{NumAtoms}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PChain::Num\-Atoms (const string \& {\em block\-Type}) const}\label{classPChain_0973651684ecc4293c81bd30df1366b2}
+
+
+Returns the number of atoms in this chain of the given {\tt block\-Type}. \index{PChain@{PChain}!InStaticCollision@{InStaticCollision}}
+\index{InStaticCollision@{InStaticCollision}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PChain::In\-Static\-Collision ()}\label{classPChain_e35338f41701bbfe123fc5e936fce29c}
+
+
+Returns {\tt true} if any atom in this {\tt \doxyref{PChain}{p.}{classPChain}} is in static collision, {\tt false} otherwise. \index{PChain@{PChain}!InStaticCollision@{InStaticCollision}}
+\index{InStaticCollision@{InStaticCollision}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PChain::In\-Static\-Collision (int {\em res\-Index1}, int {\em res\-Index2})}\label{classPChain_a47ce146a74ffd3d18193083c1ddcfdb}
+
+
+Returns {\tt true} if any atom in this {\tt \doxyref{PChain}{p.}{classPChain}} between the specified residue indices is in static collision, {\tt false} otherwise. \index{PChain@{PChain}!InSelfCollision@{InSelfCollision}}
+\index{InSelfCollision@{InSelfCollision}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PChain::In\-Self\-Collision ()\hspace{0.3cm}{\tt  [virtual]}}\label{classPChain_0ee8dc2531fe21a47b03615476cb890c}
+
+
+Returns {\tt true} if any atom in this {\tt \doxyref{PChain}{p.}{classPChain}} is in self collision, {\tt false} otherwise. 
+
+Implements {\bf PLight\-Chain} \doxyref{}{p.}{classPLightChain_a4dd5d698c271c3f29c52eee404d270e}.\index{PChain@{PChain}!InSelfCollision@{InSelfCollision}}
+\index{InSelfCollision@{InSelfCollision}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PChain::In\-Self\-Collision (int {\em res\-Index1}, int {\em res\-Index2})\hspace{0.3cm}{\tt  [virtual]}}\label{classPChain_33bbf680ce3995c150f39b4a4cb539c7}
+
+
+Returns {\tt true} if any atom in this {\tt \doxyref{PChain}{p.}{classPChain}} between the specified residue indices is in self collision, {\tt false} otherwise. 
+
+Implements {\bf PLight\-Chain} \doxyref{}{p.}{classPLightChain_6979b856cc4feae89341effa62da1bfd}.\index{PChain@{PChain}!InAnyCollision@{InAnyCollision}}
+\index{InAnyCollision@{InAnyCollision}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PChain::In\-Any\-Collision ()}\label{classPChain_99c0378e25f506f0b272fc9e3bf723f7}
+
+
+Returns {\tt true} if any atom in this \doxyref{PChain}{p.}{classPChain} is in static or self collision, {\tt false} otherwise. \index{PChain@{PChain}!InAnyCollision@{InAnyCollision}}
+\index{InAnyCollision@{InAnyCollision}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PChain::In\-Any\-Collision (int {\em res\-Index1}, int {\em res\-Index2})}\label{classPChain_eae2c8e846f362aa9800affc1b0f4111}
+
+
+Returns {\tt true} if any atom in this {\tt \doxyref{PChain}{p.}{classPChain}} between the specified residue indices is in static or self collision, {\tt false} otherwise. \index{PChain@{PChain}!FindStaticCollision@{FindStaticCollision}}
+\index{FindStaticCollision@{FindStaticCollision}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ PChain::Find\-Static\-Collision ()}\label{classPChain_a71844d5c19ab4f18ea5aedf7fb2be0d}
+
+
+Returns a pair of atoms in static collision within the chain, or {\tt (NULL, NULL)} if no such atoms exist. \index{PChain@{PChain}!FindStaticCollision@{FindStaticCollision}}
+\index{FindStaticCollision@{FindStaticCollision}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ PChain::Find\-Static\-Collision (int {\em res\-Index1}, int {\em res\-Index2})}\label{classPChain_56b690f5aab2c9827950b0d38511bc4d}
+
+
+Returns a pair of atoms in static collision between the specified residue indices, or {\tt (NULL, NULL)} if no such atoms exist. \index{PChain@{PChain}!FindSelfCollision@{FindSelfCollision}}
+\index{FindSelfCollision@{FindSelfCollision}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ PChain::Find\-Self\-Collision ()\hspace{0.3cm}{\tt  [virtual]}}\label{classPChain_40f68d644c6e710c7c4433e26181b1dd}
+
+
+Returns a pair of atoms in self collision within the chain, or {\tt (NULL, NULL)} if no such atoms exist. 
+
+Implements {\bf PLight\-Chain} \doxyref{}{p.}{classPLightChain_925997f9d338149e1749ecfdb5357a95}.\index{PChain@{PChain}!FindSelfCollision@{FindSelfCollision}}
+\index{FindSelfCollision@{FindSelfCollision}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ PChain::Find\-Self\-Collision (int {\em res\-Index1}, int {\em res\-Index2})\hspace{0.3cm}{\tt  [virtual]}}\label{classPChain_1fd553132b978680de1959672950552d}
+
+
+Returns a pair of atoms in self collision between the specified residue indices, or {\tt (NULL, NULL)} if no such atoms exist. 
+
+Implements {\bf PLight\-Chain} \doxyref{}{p.}{classPLightChain_e1c0c39ce2ff304741ca4d85130c2580}.\index{PChain@{PChain}!FindAnyCollision@{FindAnyCollision}}
+\index{FindAnyCollision@{FindAnyCollision}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ PChain::Find\-Any\-Collision ()}\label{classPChain_40e8fe59b45aba2046b58872e08406e0}
+
+
+Returns a pair of atoms in either static or self collision in the chain, or {\tt (NULL, NULL)} if no such atoms exist. \index{PChain@{PChain}!FindAnyCollision@{FindAnyCollision}}
+\index{FindAnyCollision@{FindAnyCollision}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ PChain::Find\-Any\-Collision (int {\em res\-Index1}, int {\em res\-Index2})}\label{classPChain_abc4976ef0d9c2ce65ede09ce79f73f2}
+
+
+Returns a pair of atoms in either static or self collision between the specified residue indices, or {\tt (NULL, NULL)} if no such atoms exist. \index{PChain@{PChain}!getAllCollidingStatic@{getAllCollidingStatic}}
+\index{getAllCollidingStatic@{getAllCollidingStatic}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Atom\-Collisions} $\ast$ PChain::get\-All\-Colliding\-Static ()}\label{classPChain_ce1fb366ef923b144de44d8709ad8eab}
+
+
+Returns a set of all atoms in the chain in static collision. \index{PChain@{PChain}!getAllCollidingStatic@{getAllCollidingStatic}}
+\index{getAllCollidingStatic@{getAllCollidingStatic}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Atom\-Collisions} $\ast$ PChain::get\-All\-Colliding\-Static (int {\em res\-Index1}, int {\em res\-Index2})}\label{classPChain_fbf59bcb377e7268774bccaa5d8131d2}
+
+
+Returns a set of all atoms between the specified residue indices in static collision. \index{PChain@{PChain}!getAllCollidingSelf@{getAllCollidingSelf}}
+\index{getAllCollidingSelf@{getAllCollidingSelf}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Atom\-Collisions} $\ast$ PChain::get\-All\-Colliding\-Self ()\hspace{0.3cm}{\tt  [virtual]}}\label{classPChain_85644c37cbb0a583cabfbb54a1fb967d}
+
+
+Returns a set of all atoms in the chain in self collision. 
+
+Implements {\bf PLight\-Chain} \doxyref{}{p.}{classPLightChain_51eadecf73fdba2a96184720811812e0}.\index{PChain@{PChain}!getAllCollidingSelf@{getAllCollidingSelf}}
+\index{getAllCollidingSelf@{getAllCollidingSelf}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Atom\-Collisions} $\ast$ PChain::get\-All\-Colliding\-Self (int {\em res\-Index1}, int {\em res\-Index2})\hspace{0.3cm}{\tt  [virtual]}}\label{classPChain_c9188160d48cc72a72bdde1b44cdcbcf}
+
+
+Returns a set of all atoms between the specified residue indices in self collision. 
+
+Implements {\bf PLight\-Chain} \doxyref{}{p.}{classPLightChain_02fe5f02de94f1e782af4de3386a1806}.\index{PChain@{PChain}!getAllCollidingEither@{getAllCollidingEither}}
+\index{getAllCollidingEither@{getAllCollidingEither}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Atom\-Collisions} $\ast$ PChain::get\-All\-Colliding\-Either ()}\label{classPChain_bad9585033c5ffb59e5c47e820271dd6}
+
+
+Returns a set of all atoms in the chain in either static or self collision. \index{PChain@{PChain}!getAllCollidingEither@{getAllCollidingEither}}
+\index{getAllCollidingEither@{getAllCollidingEither}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Atom\-Collisions} $\ast$ PChain::get\-All\-Colliding\-Either (int {\em res\-Index1}, int {\em res\-Index2})}\label{classPChain_0b21af7aa38bcb5b5ce9d30861cd4fac}
+
+
+Returns a set of all atoms between the specified residue indices in either static or self collision. \index{PChain@{PChain}!GetDOFs@{GetDOFs}}
+\index{GetDOFs@{GetDOFs}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf PBond} $\ast$ $>$ \& PChain::Get\-DOFs (const string \& {\em block\-Type})}\label{classPChain_fe020292eb43535ecbccb45d39093c9a}
+
+
+Returns all the degrees of freedom for the specified type of block (such as backbone or sidechain) in the \doxyref{PChain}{p.}{classPChain}. \index{PChain@{PChain}!NumDOF@{NumDOF}}
+\index{NumDOF@{NumDOF}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PChain::Num\-DOF (const string \& {\em block\-Type}) const}\label{classPChain_b7e964c1fd08fd50e5830b1af1518d59}
+
+
+Returns the number of degrees of freedom (DOF) of the specified block type within this chain. \index{PChain@{PChain}!RotateChain@{RotateChain}}
+\index{RotateChain@{RotateChain}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::Rotate\-Chain (const string \& {\em block\-Type}, int {\em DOFindex}, {\bf Bond\-Direction} {\em dir}, float {\em degrees})}\label{classPChain_336827d97327e9ac46cd737802569830}
+
+
+Rotates the chain for a given blocktype, degrees of freedom (DOF), direction, and angle in degrees. \index{PChain@{PChain}!RotateChain@{RotateChain}}
+\index{RotateChain@{RotateChain}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::Rotate\-Chain (const {\bf Chain\-Move} \& {\em move})}\label{classPChain_62aab743d9f886d3684fc6b6aef78eeb}
+
+
+Rotates the chain given a {\tt \doxyref{Chain\-Move}{p.}{structChainMove}}. \index{PChain@{PChain}!MultiRotate@{MultiRotate}}
+\index{MultiRotate@{MultiRotate}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::Multi\-Rotate (vector$<$ {\bf Chain\-Move} $>$ \& {\em moves})}\label{classPChain_937e64c197be867f1af8e418fd186d50}
+
+
+Multi\-Rotates the chain given a vector of {\tt \doxyref{Chain\-Move}{p.}{structChainMove}}. \index{PChain@{PChain}!AntiMultiRotate@{AntiMultiRotate}}
+\index{AntiMultiRotate@{AntiMultiRotate}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::Anti\-Multi\-Rotate (vector$<$ {\bf Chain\-Move} $>$ \& {\em moves})}\label{classPChain_8d6aeaf8a889edba88d43ae6e4f90f10}
+
+
+Does the opposite rotations in the opposite order as \doxyref{Multi\-Rotate()}{p.}{classPChain_937e64c197be867f1af8e418fd186d50} would do. \index{PChain@{PChain}!GetBlockTypes@{GetBlockTypes}}
+\index{GetBlockTypes@{GetBlockTypes}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ string $>$ PChain::Get\-Block\-Types () const}\label{classPChain_6f4e9efbf29e920ca5d495b982dcaef2}
+
+
+Returns all the block types in this {\tt \doxyref{PChain}{p.}{classPChain}}. \index{PChain@{PChain}!DetachBlocks@{DetachBlocks}}
+\index{DetachBlocks@{DetachBlocks}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::Detach\-Blocks (const string \& {\em block\-Type}, const string \& {\em block\-Type\-To\-Detach\-From})}\label{classPChain_3ad5cee8b116787c89a0a7e6f180258e}
+
+
+Detaches all {\tt block\-Type} blocks attached to {\tt block\-Type\-To\-Detach\-From}. \index{PChain@{PChain}!DetachBlocks@{DetachBlocks}}
+\index{DetachBlocks@{DetachBlocks}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::Detach\-Blocks (const string \& {\em block\-Type}, const string \& {\em block\-Type\-To\-Detach\-From}, int {\em res\-Start\-Index}, int {\em res\-End\-Index})}\label{classPChain_12e9d4433eef78e70251ebf67ebb3657}
+
+
+Detaches {\tt block\-Type} blocks attached to {\tt block\-Type\-To\-Detach\-From} from {\tt res\-Start\-Index} to {\tt res\-End\-Index}. \index{PChain@{PChain}!ReattachBlocks@{ReattachBlocks}}
+\index{ReattachBlocks@{ReattachBlocks}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::Reattach\-Blocks (const string \& {\em block\-Type})}\label{classPChain_59a06ab66ae69845935cc4d4e7ca5432}
+
+
+Reattaches blocks of type {\tt block\-Type} to the original position. \index{PChain@{PChain}!ReattachBlocks@{ReattachBlocks}}
+\index{ReattachBlocks@{ReattachBlocks}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::Reattach\-Blocks (const string \& {\em block\-Type}, int {\em res\-Start\-Index}, int {\em res\-End\-Index})}\label{classPChain_989a7342273bddfe40d5713f5f3a80a9}
+
+
+Returns blocks of type {\tt block\-Type} and within the range of {\tt res\-Start\-Index} to {\tt res\-End\-Index} to their original positions. \index{PChain@{PChain}!ReattachAllBlocks@{ReattachAllBlocks}}
+\index{ReattachAllBlocks@{ReattachAllBlocks}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::Reattach\-All\-Blocks ()}\label{classPChain_3ebeaff753fe2ce9abd34c92654d8c10}
+
+
+Reattaches all detached blocks regardless of block type. \index{PChain@{PChain}!ReattachAllBlocks@{ReattachAllBlocks}}
+\index{ReattachAllBlocks@{ReattachAllBlocks}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::Reattach\-All\-Blocks (int {\em res\-Start\-Index}, int {\em res\-End\-Index})}\label{classPChain_f0dbbd4d8cfd1033daf2945497793a32}
+
+
+Reattaches all detached blocks regardless of blocktype from res\-Start\-Index to res\-End\-Index. \index{PChain@{PChain}!RandomizeDOFs@{RandomizeDOFs}}
+\index{RandomizeDOFs@{RandomizeDOFs}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::Randomize\-DOFs ({\bf Bond\-Direction} {\em dir})}\label{classPChain_09f910c262db7488ca5a858f4d3509c1}
+
+
+Applies a random rotation in the given direction to all degrees of freedom in the chain (or subchain). \index{PChain@{PChain}!finalize@{finalize}}
+\index{finalize@{finalize}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::finalize ()}\label{classPChain_4cb2a0f087cd2c70dca1349b15c12d53}
+
+
+Finalizes the chain and makes it ready for manipulation. Must be called as soon as the chain is finished being constructed or it will be unstable. \index{PChain@{PChain}!AddRotateEventHandler@{AddRotateEventHandler}}
+\index{AddRotateEventHandler@{AddRotateEventHandler}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::Add\-Rotate\-Event\-Handler ({\bf PRotate\-Event\-Handler} $\ast$ {\em handler})}\label{classPChain_9cd6f4289fa49ac405186ff28c59c362}
+
+
+Adds the object to the event list for rotations (Handle\-Rotation function invoked whenever there is a rotation) \index{PChain@{PChain}!RemoveRotateEventHandler@{RemoveRotateEventHandler}}
+\index{RemoveRotateEventHandler@{RemoveRotateEventHandler}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::Remove\-Rotate\-Event\-Handler ({\bf PRotate\-Event\-Handler} $\ast$ {\em handler})}\label{classPChain_e6cadc492176778a8a5fbcf68d760507}
+
+
+Removes the given event handler from the rotation list. Aborts program if it's not in the list \index{PChain@{PChain}!traverseFromStart@{traverseFromStart}}
+\index{traverseFromStart@{traverseFromStart}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::traverse\-From\-Start ({\bf Atom\-Functor} $\ast$ {\em atom\-Fn})\hspace{0.3cm}{\tt  [inline]}}\label{classPChain_fa4c56a7d0c20920f8f614f2bd633136}
+
+
+Traverses the chain from the start atom of residue 0, calling the specified {\tt \doxyref{Atom\-Functor}{p.}{classAtomFunctor}} at each atom. \index{PChain@{PChain}!traverseFromStart@{traverseFromStart}}
+\index{traverseFromStart@{traverseFromStart}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::traverse\-From\-Start ({\bf Bond\-Functor} $\ast$ {\em bond\-Fn})\hspace{0.3cm}{\tt  [inline]}}\label{classPChain_1a63725603e73ddab78253c30a116bee}
+
+
+Traverses the chain from the start atom of residue 0, calling the specified {\tt \doxyref{Bond\-Functor}{p.}{classBondFunctor}} at each bond. \index{PChain@{PChain}!traverseFromStart@{traverseFromStart}}
+\index{traverseFromStart@{traverseFromStart}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::traverse\-From\-Start ({\bf Atom\-Functor} $\ast$ {\em atom\-Fn}, {\bf Bond\-Functor} $\ast$ {\em bond\-Fn})}\label{classPChain_6faec4c56f3812de52879df9dfbc96a5}
+
+
+Traverses the chain from the start atom of residue 0, calling the specified {\tt \doxyref{Atom\-Functor}{p.}{classAtomFunctor}} at each atom {\em and\/} the specified {\tt \doxyref{Bond\-Functor}{p.}{classBondFunctor}} at each bond. \index{PChain@{PChain}!getTopLevelIndices@{getTopLevelIndices}}
+\index{getTopLevelIndices@{getTopLevelIndices}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}pair$<$ int, int $>$ PChain::get\-Top\-Level\-Indices () const}\label{classPChain_36eaa36a20f2b7b29e534506c69c55c6}
+
+
+Returns a {\tt pair} of integers indicating the residues in the top-level chain represented by this {\tt \doxyref{PChain}{p.}{classPChain}}. The first element of the {\tt pair} is the start residue index; the second element of the {\tt pair} is the end index. \index{PChain@{PChain}!getSpaceManager@{getSpaceManager}}
+\index{getSpaceManager@{getSpaceManager}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const {\bf PSpace\-Manager}$\ast$ PChain::get\-Space\-Manager ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classPChain_683ef59c11a60fbf19552bf2d8e08f32}
+
+
+Returns the space manager of this {\tt \doxyref{PChain}{p.}{classPChain}}. 
+
+Implements {\bf PLight\-Chain} \doxyref{}{p.}{classPLightChain_32590087112f549f26f4e1f3d5bd1506}.\index{PChain@{PChain}!Clone@{Clone}}
+\index{Clone@{Clone}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PChain} $\ast$ PChain::Clone ()}\label{classPChain_8115f6036a942d75343039a1be25bfa0}
+
+
+Creates an exact copy of this {\tt \doxyref{PChain}{p.}{classPChain}}. If a subchain is cloned, all its parents will be replicated as well; thus, to fully deallocate the newly-cloned chain's memory, invoke {\tt \doxyref{Obliterate()}{p.}{classPChain_199ae243010c650b3de1e0d4454b8da0}} when it is no longer needed. 
+
+Reimplemented in {\bf PProtein} \doxyref{}{p.}{classPProtein_c810d340296e5d6217e19439397f56d1}.\index{PChain@{PChain}!getResidueLocalIndex@{getResidueLocalIndex}}
+\index{getResidueLocalIndex@{getResidueLocalIndex}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PChain::get\-Residue\-Local\-Index ({\bf PResidue} $\ast$ {\em res})}\label{classPChain_ea4fc996b3e7f55a2e2b1ab939a75e31}
+
+
+Return the local index of a residue in the chain. Return -1 if there is no such residue in the chain. \index{PChain@{PChain}!getResidueGlobalIndex@{getResidueGlobalIndex}}
+\index{getResidueGlobalIndex@{getResidueGlobalIndex}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PChain::get\-Residue\-Global\-Index ({\bf PResidue} $\ast$ {\em res})}\label{classPChain_1476b6981e6b0b8ab91cc7beb7cf1e2f}
+
+
+Return the global index of a residue in the top level chain. Return -1 if there is no such residue. \index{PChain@{PChain}!getShortestPath@{getShortestPath}}
+\index{getShortestPath@{getShortestPath}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ const {\bf PAtom} $\ast$ $>$ PChain::get\-Shortest\-Path (const {\bf PAtom} $\ast$ {\em a1}, {\bf Const\-Atom\-Set} {\em a2Set}, int {\em max\-Length})}\label{classPChain_8cba1af1ed8388c30ccfbcefec9e0419}
+
+
+Returns a {\tt Atom\-Path} which is a vector going through a set of atoms. This path is generated from an atom to a set of atoms and the returning path will be the shortest one. \index{PChain@{PChain}!getShortestPath@{getShortestPath}}
+\index{getShortestPath@{getShortestPath}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ const {\bf PAtom} $\ast$ $>$ PChain::get\-Shortest\-Path (const {\bf PAtom} $\ast$ {\em a1}, const {\bf PAtom} $\ast$ {\em a2}, int {\em max\-Length})}\label{classPChain_0ad5de7bc3634d5976792ca7bd81b9be}
+
+
+Returns a {\tt Atom\-Path} which is a vector going through a set of atoms. This path is generated from an atom to another atom. \index{PChain@{PChain}!getShortestPath@{getShortestPath}}
+\index{getShortestPath@{getShortestPath}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ const {\bf PAtom} $\ast$ $>$ PChain::get\-Shortest\-Path (const {\bf PAtom} $\ast$ {\em a1}, {\bf Const\-Atom\-Set} {\em a2Set}, int {\em max\-Length}, int {\em extend\-Num})}\label{classPChain_d04a720b8142fed0623138bbba1d181f}
+
+
+Returns a {\tt Atom\-Path} which is a vector going through a set of atoms. This path is generated from an atom to another atom with some additional atoms in two end. \index{PChain@{PChain}!inactivateResidue@{inactivateResidue}}
+\index{inactivateResidue@{inactivateResidue}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::inactivate\-Residue (int {\em Rid1}, int {\em Rid2})}\label{classPChain_d33f7361ce277d73a4f29a355069d75f}
+
+
+Inactivates the residues from index {\tt Rid1} to {\tt Rid2} so that these residues are not considered in collision detection. \index{PChain@{PChain}!activateResidue@{activateResidue}}
+\index{activateResidue@{activateResidue}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::activate\-Residue (int {\em Rid1}, int {\em Rid2})}\label{classPChain_044adaec89fc04b993022604c514b2bd}
+
+
+Activates the residues from index {\tt Rid1} to {\tt Rid2} so that these residues are considered inc collision \index{PChain@{PChain}!NumChildren@{NumChildren}}
+\index{NumChildren@{NumChildren}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned int PChain::Num\-Children ()\hspace{0.3cm}{\tt  [inline]}}\label{classPChain_676b5fae370a730463139fb34f5c4855}
+
+
+Returns number of children to this \doxyref{PChain}{p.}{classPChain}. \index{PChain@{PChain}!getChild@{getChild}}
+\index{getChild@{getChild}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PChain}$\ast$ PChain::get\-Child (unsigned int {\em index})\hspace{0.3cm}{\tt  [inline]}}\label{classPChain_1b7e1d5e2adce521562bcceb47ab4504}
+
+
+Returns child \doxyref{PChain}{p.}{classPChain} to this \doxyref{PChain}{p.}{classPChain} at the given index. \index{PChain@{PChain}!CloneResiduesIntoChain@{CloneResiduesIntoChain}}
+\index{CloneResiduesIntoChain@{CloneResiduesIntoChain}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain::Clone\-Residues\-Into\-Chain ({\bf PChain} $\ast$ {\em other})\hspace{0.3cm}{\tt  [protected]}}\label{classPChain_259e410794cd4ce76bcb5c2d47d82105}
+
+
+\index{PChain@{PChain}!CreateResidue@{CreateResidue}}
+\index{CreateResidue@{CreateResidue}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf PResidue}$\ast$ PChain::Create\-Residue (const string \& {\em name})\hspace{0.3cm}{\tt  [inline, protected, virtual]}}\label{classPChain_aebfd70bdaab86b174c23495f206d53d}
+
+
+
+
+Reimplemented in {\bf PProtein} \doxyref{}{p.}{classPProtein_c454a7d32c99aa5e7a63d84e0e5bfeef}.\index{PChain@{PChain}!CreateResidue@{CreateResidue}}
+\index{CreateResidue@{CreateResidue}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf PResidue}$\ast$ PChain::Create\-Residue (const string \& {\em name}, {\bf PResidue\-Spec} \& {\em spec})\hspace{0.3cm}{\tt  [inline, protected, virtual]}}\label{classPChain_0a1c47977015ea729956514f07a732d7}
+
+
+
+
+Reimplemented in {\bf PProtein} \doxyref{}{p.}{classPProtein_ae52c19c8fbd3f56c4979e1a8bbad698}.\index{PChain@{PChain}!CreateResidue@{CreateResidue}}
+\index{CreateResidue@{CreateResidue}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf PResidue}$\ast$ PChain::Create\-Residue (const string \& {\em name}, {\bf PResidue} $\ast$ {\em res})\hspace{0.3cm}{\tt  [inline, protected, virtual]}}\label{classPChain_941b0460962ddefe5e566d520f1623fb}
+
+
+
+
+Reimplemented in {\bf PProtein} \doxyref{}{p.}{classPProtein_b1a766c4f6b24ad299e277878d976c44}.\index{PChain@{PChain}!CreateResidue@{CreateResidue}}
+\index{CreateResidue@{CreateResidue}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf PResidue}$\ast$ PChain::Create\-Residue (const string \& {\em name}, {\bf PResidue\-Spec} \& {\em spec}, {\bf PResidue} $\ast$ {\em res})\hspace{0.3cm}{\tt  [inline, protected, virtual]}}\label{classPChain_e1003230d8b1ef95662d395da68a510d}
+
+
+
+
+Reimplemented in {\bf PProtein} \doxyref{}{p.}{classPProtein_fc492cf141623e5c44ec321072edbb91}.
+
+\subsection{Friends And Related Function Documentation}
+\index{PChain@{PChain}!PAtom@{PAtom}}
+\index{PAtom@{PAtom}!PChain@{PChain}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf PAtom}\hspace{0.3cm}{\tt  [friend]}}\label{classPChain_adbf74af5b7a2906a513bfcfdcb35047}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PChain.h}\item 
+src/core/{\bf PChain.cc}\end{CompactItemize}

@@ -1,0 +1,140 @@
+\section{PSamp\-Methods Class Reference}
+\label{classPSampMethods}\index{PSampMethods@{PSampMethods}}
+{\tt \#include $<$PSamp\-Methods.h$>$}
+
+
+
+\subsection{Detailed Description}
+This contains methods for generating samples using various strategies 
+
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static {\bf IKSolution} {\bf Rand\-And\-IKClose} ({\bf PProtein} $\ast$loop, bool clash\_\-free)
+\item 
+static {\bf IKSolution} {\bf Rand\-And\-IKClose} ({\bf PProtein} $\ast$loop, const string \&pdb\-File\-Name, bool clash\_\-free)
+\item 
+static {\bf IKSolutions} {\bf Permute\-IK} ({\bf PProtein} $\ast$loop, int num\_\-wanted)
+\item 
+static vector$<$ {\bf PProtein} $\ast$ $>$ {\bf Deform\-Sample\-Backbone} ({\bf PProtein} $\ast$orig\_\-protein, int loop\-Sid, int loop\-Eid, int num\_\-wanted, double deform\_\-mag)
+\item 
+static vector$<$ {\bf PProtein} $\ast$ $>$ {\bf Seed\-Sample\-Backbone} ({\bf PProtein} $\ast$protein, int loop\-Sid, int loop\-Eid, int num\_\-wanted=1)
+\item 
+static vector$<$ {\bf PProtein} $\ast$ $>$ {\bf Seed\-Sample\-Backbone\-With\-Sidechain} ({\bf PProtein} $\ast$protein, int loop\-Sid, int loop\-Eid, string scwrl3\_\-path, int num\_\-wanted=1)
+\item 
+static vector$<$ {\bf PProtein} $\ast$ $>$ {\bf Seed\-Sample\-Backbone\-With\-Sidechain\-Loop\-Only} ({\bf PProtein} $\ast$original\_\-protein, int loop\-Sid, int loop\-Eid, string scwrl3\_\-path, int num\_\-wanted=1)
+\item 
+static vector$<$ {\bf PProtein} $\ast$ $>$ {\bf Seed\-Sample\-Backbone} ({\bf PProtein} $\ast$protein, int loop\-Sid, int loop\-Eid, map$<$ string, {\bf PPhi\-Psi\-Distribution} $>$ \&distri\_\-map, int num\_\-wanted=1)
+\item 
+static vector$<$ {\bf PProtein} $\ast$ $>$ {\bf Seed\-Sample\-Backbone\-With\-Sidechain} ({\bf PProtein} $\ast$protein, int loop\-Sid, int loop\-Eid, map$<$ string, {\bf PPhi\-Psi\-Distribution} $>$ \&distri\_\-map, string scwrl3\_\-path, int num\_\-wanted)
+\item 
+static vector$<$ {\bf PProtein} $\ast$ $>$ {\bf Seed\-Sample\-Backbone\-With\-Sidechain\-Loop\-Only} ({\bf PProtein} $\ast$original\_\-protein, int loop\-Sid, int loop\-Eid, map$<$ string, {\bf PPhi\-Psi\-Distribution} $>$ \&distri\_\-map, string scwrl3\_\-path, int num\_\-wanted)
+\item 
+static {\bf PProtein} $\ast$ {\bf Merge\-Protein} ({\bf PProtein} $\ast$loop, {\bf PProtein} $\ast$original\_\-protein, int start\-Rid)
+\item 
+static {\bf PProtein} $\ast$ {\bf Merge\-Protein\-By\-Pdb\-Id} ({\bf PProtein} $\ast$loop, {\bf PProtein} $\ast$original\_\-protein, int start\-Pdb\-Id)
+\item 
+static void {\bf add\-Sidechain} (string loop\-File, string boundary\-File, string scwrl3\_\-path, string out\-Loop\-File)
+\item 
+static void {\bf Add\-Sidechain} (string protein\_\-input, int add\-Start, int add\-End, string scwrl3\_\-path, string protein\_\-output)
+\item 
+static vector$<$ {\bf PProtein} $\ast$ $>$ {\bf Seed\-Sample\-Backbone\-Loop\-Only} ({\bf PProtein} $\ast$original\_\-protein, int loop\-Sid, int loop\-Eid, int num\_\-wanted=1)
+\item 
+static vector$<$ {\bf PProtein} $\ast$ $>$ {\bf Seed\-Sample\-Backbone\-Loop\-Only} ({\bf PProtein} $\ast$original\_\-protein, int loop\-Sid, int loop\-Eid, map$<$ string, {\bf PPhi\-Psi\-Distribution} $>$ \&distri\_\-map, int num\_\-wanted=1)
+\item 
+static {\bf PProtein} $\ast$ {\bf Fill\-Missing\-Loop} ({\bf PProtein} $\ast$original\_\-p, int start\_\-pdb\_\-id, int end\_\-pdb\_\-id, vector$<$ string $>$ loop\_\-seq)
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{PSampMethods@{PSamp\-Methods}!RandAndIKClose@{RandAndIKClose}}
+\index{RandAndIKClose@{RandAndIKClose}!PSampMethods@{PSamp\-Methods}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf IKSolution} PSamp\-Methods::Rand\-And\-IKClose ({\bf PProtein} $\ast$ {\em loop}, bool {\em clash\_\-free})\hspace{0.3cm}{\tt  [static]}}\label{classPSampMethods_1aab3b233f25a87c694a167bb3581e75}
+
+
+Randomizes the {\tt loop} and then closes it using Exact IK method Coutsias et al. Sampled conformation is collision free or not depending on {\tt clash\_\-free}. \index{PSampMethods@{PSamp\-Methods}!RandAndIKClose@{RandAndIKClose}}
+\index{RandAndIKClose@{RandAndIKClose}!PSampMethods@{PSamp\-Methods}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf IKSolution} PSamp\-Methods::Rand\-And\-IKClose ({\bf PProtein} $\ast$ {\em loop}, const string \& {\em pdb\-File\-Name}, bool {\em clash\_\-free})\hspace{0.3cm}{\tt  [static]}}\label{classPSampMethods_1f7d67a9865c713b8ef2b2fe5b1746f8}
+
+
+Randomizes the {\tt loop} and then closes it using Exact IK method Coutsias et al. Sampled conformation is collision free or not depending on {\tt clash\_\-free}. The conformation is output to {\tt pdb\-File\-Name}. \index{PSampMethods@{PSamp\-Methods}!PermuteIK@{PermuteIK}}
+\index{PermuteIK@{PermuteIK}!PSampMethods@{PSamp\-Methods}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf IKSolutions} PSamp\-Methods::Permute\-IK ({\bf PProtein} $\ast$ {\em loop}, int {\em num\_\-wanted})\hspace{0.3cm}{\tt  [static]}}\label{classPSampMethods_4ec94f747b704b0e178a20440bd4396e}
+
+
+Generates {\tt num\_\-wanted} (number of) closed conformations starting from a closed conformation of a loop {\tt loop}, by using various permutations of 6DOFs as needed by Exact\-IK solution method developed by Coutsias et al. \index{PSampMethods@{PSamp\-Methods}!DeformSampleBackbone@{DeformSampleBackbone}}
+\index{DeformSampleBackbone@{DeformSampleBackbone}!PSampMethods@{PSamp\-Methods}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf PProtein} $\ast$ $>$ PSamp\-Methods::Deform\-Sample\-Backbone ({\bf PProtein} $\ast$ {\em orig\_\-protein}, int {\em loop\-Sid}, int {\em loop\-Eid}, int {\em num\_\-wanted}, double {\em deform\_\-mag})\hspace{0.3cm}{\tt  [static]}}\label{classPSampMethods_76d020f9a7d1f0ca7acede28b09ecfa8}
+
+
+Generates {\tt num\_\-wanted} (number of) closed clash-free,backbone conformations by deforming a loop specified by residue indices {\tt loop\-Sid} and {\tt loop\-Eid} of protein chain specified by {\tt orig\_\-protein}. The loop is deformed in a random direction in its null/tangent space and the magnitude of deformation is specified by {\tt deform\_\-mag}. {\tt orig\_\-protein} stays unchanged. Side chains act like rigid bodies attached to the backbone. New side chains can be placed using add\-Side\-Chain method defined in this class. \index{PSampMethods@{PSamp\-Methods}!SeedSampleBackbone@{SeedSampleBackbone}}
+\index{SeedSampleBackbone@{SeedSampleBackbone}!PSampMethods@{PSamp\-Methods}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf PProtein} $\ast$ $>$ PSamp\-Methods::Seed\-Sample\-Backbone ({\bf PProtein} $\ast$ {\em protein}, int {\em loop\-Sid}, int {\em loop\-Eid}, int {\em num\_\-wanted} = {\tt 1})\hspace{0.3cm}{\tt  [static]}}\label{classPSampMethods_1027a24a189663d4b2279cd83d2eafbf}
+
+
+Generates {\tt num\_\-wanted} (number of)closed, clash-free backbone conformations of a loop specified by residue indices {\tt loop\-Sid} and {\tt loop\-Eid} of protein chain specified by {\tt protein}. Note that, the residue index starts from 0. If {\tt num\_\-wanted} is not specified, the default is 1. The {\tt protein} is not changed at all in the function. The output is a vector of pointers to proteins containing the desired loop conformation. The resulting closed, collsion-free loop backbones will only consist of N, C\_\-alpha, C\_\-beta, C and O atoms. There will be no collision between any atom on the loop backbone with any other atom on the loop backbone or with any atom on the rest of the protein.The phi and psi angles in the loop are sampled uniformly between 0 and 2 pi. \index{PSampMethods@{PSamp\-Methods}!SeedSampleBackboneWithSidechain@{SeedSampleBackboneWithSidechain}}
+\index{SeedSampleBackboneWithSidechain@{SeedSampleBackboneWithSidechain}!PSampMethods@{PSamp\-Methods}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf PProtein} $\ast$ $>$ PSamp\-Methods::Seed\-Sample\-Backbone\-With\-Sidechain ({\bf PProtein} $\ast$ {\em protein}, int {\em loop\-Sid}, int {\em loop\-Eid}, string {\em scwrl3\_\-path}, int {\em num\_\-wanted} = {\tt 1})\hspace{0.3cm}{\tt  [static]}}\label{classPSampMethods_5f141827dacb75c6b3b2a54806ef7d81}
+
+
+Similar to the above function. In addition, the loops are with side chains, which are also not in collision. Side-chains are added using SCWRL3. User needs to provide the path of the executable of SCWRL3 as {\tt scwrl3\_\-path}. \index{PSampMethods@{PSamp\-Methods}!SeedSampleBackboneWithSidechainLoopOnly@{SeedSampleBackboneWithSidechainLoopOnly}}
+\index{SeedSampleBackboneWithSidechainLoopOnly@{SeedSampleBackboneWithSidechainLoopOnly}!PSampMethods@{PSamp\-Methods}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf PProtein} $\ast$ $>$ PSamp\-Methods::Seed\-Sample\-Backbone\-With\-Sidechain\-Loop\-Only ({\bf PProtein} $\ast$ {\em original\_\-protein}, int {\em loop\-Sid}, int {\em loop\-Eid}, string {\em scwrl3\_\-path}, int {\em num\_\-wanted} = {\tt 1})\hspace{0.3cm}{\tt  [static]}}\label{classPSampMethods_e073841f484c145d13cbc5fab8f13ee3}
+
+
+Similar to the above function. However, rather than returning the entire protein, only the loop portion is returned. \index{PSampMethods@{PSamp\-Methods}!SeedSampleBackbone@{SeedSampleBackbone}}
+\index{SeedSampleBackbone@{SeedSampleBackbone}!PSampMethods@{PSamp\-Methods}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf PProtein} $\ast$ $>$ PSamp\-Methods::Seed\-Sample\-Backbone ({\bf PProtein} $\ast$ {\em protein}, int {\em loop\-Sid}, int {\em loop\-Eid}, map$<$ string, {\bf PPhi\-Psi\-Distribution} $>$ \& {\em distri\_\-map}, int {\em num\_\-wanted} = {\tt 1})\hspace{0.3cm}{\tt  [static]}}\label{classPSampMethods_2c309a5c30ed00a2796e918fab4379e2}
+
+
+Same as the other Seed\-Sample\-Backbone method, but the phi and psi angles are sampled according a distribution. If the distribution map {\tt distri\_\-map} only has one element, then this distribution will be applied on all amino acids. Otherwise, there should be 20 distributions in the map. Each distribution corresponds to one amino acid, and the corresponding name of a distribution should be the 3-letter amino acid name in all capital letters. \index{PSampMethods@{PSamp\-Methods}!SeedSampleBackboneWithSidechain@{SeedSampleBackboneWithSidechain}}
+\index{SeedSampleBackboneWithSidechain@{SeedSampleBackboneWithSidechain}!PSampMethods@{PSamp\-Methods}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf PProtein} $\ast$ $>$ PSamp\-Methods::Seed\-Sample\-Backbone\-With\-Sidechain ({\bf PProtein} $\ast$ {\em protein}, int {\em loop\-Sid}, int {\em loop\-Eid}, map$<$ string, {\bf PPhi\-Psi\-Distribution} $>$ \& {\em distri\_\-map}, string {\em scwrl3\_\-path}, int {\em num\_\-wanted})\hspace{0.3cm}{\tt  [static]}}\label{classPSampMethods_a6ff6d0d4c7a9345e44bd9a6eed8efae}
+
+
+Similar to the above function. In addition, the loops are with side chains, which are also not in collision. Side-chains are added using SCWRL3. User needs to provide the path of the executable of SCWRL3 as {\tt scwrl3\_\-path}. \index{PSampMethods@{PSamp\-Methods}!SeedSampleBackboneWithSidechainLoopOnly@{SeedSampleBackboneWithSidechainLoopOnly}}
+\index{SeedSampleBackboneWithSidechainLoopOnly@{SeedSampleBackboneWithSidechainLoopOnly}!PSampMethods@{PSamp\-Methods}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf PProtein} $\ast$ $>$ PSamp\-Methods::Seed\-Sample\-Backbone\-With\-Sidechain\-Loop\-Only ({\bf PProtein} $\ast$ {\em original\_\-protein}, int {\em loop\-Sid}, int {\em loop\-Eid}, map$<$ string, {\bf PPhi\-Psi\-Distribution} $>$ \& {\em distri\_\-map}, string {\em scwrl3\_\-path}, int {\em num\_\-wanted})\hspace{0.3cm}{\tt  [static]}}\label{classPSampMethods_30e5c430ba0ef875203858f9e84d0c2f}
+
+
+Similar to the above function. However, rather than returning the entire protein, only the loop portion is returned. \index{PSampMethods@{PSamp\-Methods}!MergeProtein@{MergeProtein}}
+\index{MergeProtein@{MergeProtein}!PSampMethods@{PSamp\-Methods}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PProtein} $\ast$ PSamp\-Methods::Merge\-Protein ({\bf PProtein} $\ast$ {\em loop}, {\bf PProtein} $\ast$ {\em original\_\-protein}, int {\em start\-Rid})\hspace{0.3cm}{\tt  [static]}}\label{classPSampMethods_6b9fea52c286774ccf5986db95890c63}
+
+
+Merges the {\tt loop} with the {\tt original\_\-protein}. The 0-th residue in the loop becomes the {\tt start\-Rid}-th residue in the resulting protein. Neither {\tt loop} or {\tt original\_\-protein} is changed in the function. Users are responsible to delete the returned protein if they don't need it any more. \index{PSampMethods@{PSamp\-Methods}!MergeProteinByPdbId@{MergeProteinByPdbId}}
+\index{MergeProteinByPdbId@{MergeProteinByPdbId}!PSampMethods@{PSamp\-Methods}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PProtein} $\ast$ PSamp\-Methods::Merge\-Protein\-By\-Pdb\-Id ({\bf PProtein} $\ast$ {\em loop}, {\bf PProtein} $\ast$ {\em original\_\-protein}, int {\em start\-Pdb\-Id})\hspace{0.3cm}{\tt  [static]}}\label{classPSampMethods_c335c3953f0823baa5e6db49348cef5a}
+
+
+Similar to the above function. However, the 0-th residue in the loop becomes the residue with PDB ID {\tt start\-Pdb\-Id} in the protein. \index{PSampMethods@{PSamp\-Methods}!addSidechain@{addSidechain}}
+\index{addSidechain@{addSidechain}!PSampMethods@{PSamp\-Methods}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PSamp\-Methods::add\-Sidechain (string {\em loop\-File}, string {\em boundary\-File}, string {\em scwrl3\_\-path}, string {\em out\-Loop\-File})\hspace{0.3cm}{\tt  [static]}}\label{classPSampMethods_09502e6560a9b691d8f4da1d7c89ddee}
+
+
+Add side chains to a loop using SCWRL3 with option -i, -o and -f. For the details of SCWRL3 and its usage, please go to {\tt http://dunbrack.fccc.edu/SCWRL3.php.} The loop is specified in a pdb file {\tt loop\-File} (option -i). A boundary is specified in a pdb file {\tt boundary\-File} (option -f). Please specify the FULL path of your scwrl3 program at {\tt scwrl3\_\-path}. The loop with side chain will be written into a pdb format file {\tt out\-Loop\-File}. Note that, in the output loop file {\tt out\-Loop\-File}, columns after the 3D coordinates are not meaningful. \index{PSampMethods@{PSamp\-Methods}!AddSidechain@{AddSidechain}}
+\index{AddSidechain@{AddSidechain}!PSampMethods@{PSamp\-Methods}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PSamp\-Methods::Add\-Sidechain (string {\em protein\_\-input}, int {\em add\-Start}, int {\em add\-End}, string {\em scwrl3\_\-path}, string {\em protein\_\-output})\hspace{0.3cm}{\tt  [static]}}\label{classPSampMethods_ef56d22a8444cbcf1b0ff836ca6bd584}
+
+
+Add side chains to a portion of a protein using SCWRL3 with option -i, -o and -s. For the details of SCWRL3 and its usage, please go to {\tt http://dunbrack.fccc.edu/SCWRL3.php.} The protein is specified in PDB format in file {\tt protein\_\-input}. The protion of the protein from the residue {\tt add\-Start} (as in the PDB file) to the residue {\tt add\-End} is to be placed side chains, while the rest is to serve as the boundary. Please specify the FULL path of your scwrl3 program at {\tt scwrl3\_\-path}. The entire protein with side-chain-placement in the portion will be written into the file {\tt protein\_\-output}. Note that, in the output loop file {\tt out\-Loop\-File}, columns after the 3D coordinates are not meaningful. \index{PSampMethods@{PSamp\-Methods}!SeedSampleBackboneLoopOnly@{SeedSampleBackboneLoopOnly}}
+\index{SeedSampleBackboneLoopOnly@{SeedSampleBackboneLoopOnly}!PSampMethods@{PSamp\-Methods}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf PProtein} $\ast$ $>$ PSamp\-Methods::Seed\-Sample\-Backbone\-Loop\-Only ({\bf PProtein} $\ast$ {\em original\_\-protein}, int {\em loop\-Sid}, int {\em loop\-Eid}, int {\em num\_\-wanted} = {\tt 1})\hspace{0.3cm}{\tt  [static]}}\label{classPSampMethods_3896a34b3e75abcb8845d236c92ca750}
+
+
+\index{PSampMethods@{PSamp\-Methods}!SeedSampleBackboneLoopOnly@{SeedSampleBackboneLoopOnly}}
+\index{SeedSampleBackboneLoopOnly@{SeedSampleBackboneLoopOnly}!PSampMethods@{PSamp\-Methods}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf PProtein} $\ast$ $>$ PSamp\-Methods::Seed\-Sample\-Backbone\-Loop\-Only ({\bf PProtein} $\ast$ {\em original\_\-protein}, int {\em loop\-Sid}, int {\em loop\-Eid}, map$<$ string, {\bf PPhi\-Psi\-Distribution} $>$ \& {\em distri\_\-map}, int {\em num\_\-wanted} = {\tt 1})\hspace{0.3cm}{\tt  [static]}}\label{classPSampMethods_fd1bd616e931daf2fa4cdcd0acad21ee}
+
+
+\index{PSampMethods@{PSamp\-Methods}!FillMissingLoop@{FillMissingLoop}}
+\index{FillMissingLoop@{FillMissingLoop}!PSampMethods@{PSamp\-Methods}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PProtein} $\ast$ PSamp\-Methods::Fill\-Missing\-Loop ({\bf PProtein} $\ast$ {\em original\_\-p}, int {\em start\_\-pdb\_\-id}, int {\em end\_\-pdb\_\-id}, vector$<$ string $>$ {\em loop\_\-seq})\hspace{0.3cm}{\tt  [static]}}\label{classPSampMethods_d3b1003eaa9e09d32939b6c22f46db5e}
+
+
+Fill in a missing loop in protein {\tt original\_\-p} from residue ID as in the PDB file {\tt start\_\-pdb\_\-id} to {\tt end\_\-pdb\_\-id} with a randomly generated and closed conformation. This conformation is not guaranteed to be collision-free. The {\tt original\_\-p} is not modified. This function is useful when you want to do seed sampling on a missing loop. Invoke this function first, and then invoke one of the seed sampling functions. 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PSamp\-Methods.h}\item 
+src/core/{\bf PSamp\-Methods.cc}\end{CompactItemize}

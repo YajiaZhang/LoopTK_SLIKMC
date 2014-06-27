@@ -1,0 +1,77 @@
+\section{CS2IO Class Reference}
+\label{classCS2IO}\index{CS2IO@{CS2IO}}
+{\tt \#include $<$PExtension.h$>$}
+
+
+
+\subsection{Detailed Description}
+Contains methods to read and write from CS2 (second-generation chainspace) files. See DATA\_\-COLLECTOR\_\-DESIGN for more information about these files. 
+
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static {\bf PProtein} $\ast$ {\bf read\-Conformation} (const string \&cs2File, int conf\-Num)
+\item 
+static {\bf PLight\-Chain} $\ast$ {\bf read\-Conformation\-Loop\-Only} (const string \&cs2File, int conf\-Num)
+\item 
+static {\bf PConformation\-Space} $\ast$ {\bf read\-Conformation\-Space} (const string \&cs2File)
+\item 
+static pair$<$ {\bf PLight\-Chain} $\ast$, {\bf PLight\-Chain} $\ast$ $>$ {\bf get\-Non\-Loop\-Chains} (const string \&cs2File)
+\item 
+static void {\bf append\-Conformation} (const string \&cs2File, {\bf PProtein} $\ast$loop)
+\item 
+static void {\bf write\-To\-File} (const string \&cs2File, {\bf PProtein} $\ast$loop)
+\item 
+static int {\bf get\-Num\-Conformations} (const string \&cs2File)
+\item 
+static void {\bf create\-PDBDirectory} (const string \&cs2File, const string \&directory\-Name)
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{CS2IO@{CS2IO}!readConformation@{readConformation}}
+\index{readConformation@{readConformation}!CS2IO@{CS2IO}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PProtein} $\ast$ CS2IO::read\-Conformation (const string \& {\em cs2File}, int {\em conf\-Num})\hspace{0.3cm}{\tt  [static]}}\label{classCS2IO_f4633f29c2b6feab0bf87c19ba6da516}
+
+
+Reads the {\tt conf\-Num}'th loop conformation from {\tt cs2File}. This function creates a finalized version of the entire protein: the {\tt \doxyref{PProtein}{p.}{classPProtein}} pointer returned to the caller points to the loop, and the entire chain may be accessed with the method {\tt get\-Top\-Level\-Protein()}. Conformation \char`\"{}1\char`\"{} is the original conformation from when this file was created. \index{CS2IO@{CS2IO}!readConformationLoopOnly@{readConformationLoopOnly}}
+\index{readConformationLoopOnly@{readConformationLoopOnly}!CS2IO@{CS2IO}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PLight\-Chain} $\ast$ CS2IO::read\-Conformation\-Loop\-Only (const string \& {\em cs2File}, int {\em conf\-Num})\hspace{0.3cm}{\tt  [static]}}\label{classCS2IO_0e7cd8dd95896de007f70140f2f18365}
+
+
+Reads the {\tt conf\-Num}'th loop conformation from {\tt cs2File}. This function returns a {\tt \doxyref{PLight\-Chain}{p.}{classPLightChain}} containing only data for the loop, with no information about the protein's static portions. \index{CS2IO@{CS2IO}!readConformationSpace@{readConformationSpace}}
+\index{readConformationSpace@{readConformationSpace}!CS2IO@{CS2IO}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PConformation\-Space} $\ast$ CS2IO::read\-Conformation\-Space (const string \& {\em cs2File})\hspace{0.3cm}{\tt  [static]}}\label{classCS2IO_4eb022851fb5df0aecf67c9533927a90}
+
+
+Reads the entire conformation space contained in {\tt cs2File}, including the protein's static portions and all loop conformations. This function allocates dynamic memory, so the resulting {\tt \doxyref{PConformation\-Space}{p.}{classPConformationSpace}} should be deleted by the caller when no longer needed. \index{CS2IO@{CS2IO}!getNonLoopChains@{getNonLoopChains}}
+\index{getNonLoopChains@{getNonLoopChains}!CS2IO@{CS2IO}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}pair$<$ {\bf PLight\-Chain} $\ast$, {\bf PLight\-Chain} $\ast$ $>$ CS2IO::get\-Non\-Loop\-Chains (const string \& {\em cs2File})\hspace{0.3cm}{\tt  [static]}}\label{classCS2IO_4ebc53502726eec0ccc9f1e5977bf22a}
+
+
+Reads only the static portions of the protein represented in {\tt cs2File}. The first member of the {\tt pair} returned is the subchain before the loop; the second member is the subchain after the loop. \index{CS2IO@{CS2IO}!appendConformation@{appendConformation}}
+\index{appendConformation@{appendConformation}!CS2IO@{CS2IO}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CS2IO::append\-Conformation (const string \& {\em cs2File}, {\bf PProtein} $\ast$ {\em loop})\hspace{0.3cm}{\tt  [static]}}\label{classCS2IO_0cf13cfe3d94afec1a9013f610a09d86}
+
+
+Appends a new conformation to the specified CS2 file. {\tt loop} is assumed to represent only that subchain of the parent chain whose conformation has changed. Furthermore, the file {\tt cs2File} must already contain at least one conformation of {\tt loop} or the program will abort. \index{CS2IO@{CS2IO}!writeToFile@{writeToFile}}
+\index{writeToFile@{writeToFile}!CS2IO@{CS2IO}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CS2IO::write\-To\-File (const string \& {\em cs2File}, {\bf PProtein} $\ast$ {\em loop})\hspace{0.3cm}{\tt  [static]}}\label{classCS2IO_c7a6728b3c49b6b72d53e12af7656bd1}
+
+
+Writes a new CS2 file to the file specified by {\tt cs2file}. The output is a new file containing the PDB representation of {\tt loop}'s parent protein; the single \char`\"{}loop\char`\"{} line indicating the start and end residues represented by {\tt loop}; and the single conformation of the atoms in {\tt loop}. \index{CS2IO@{CS2IO}!getNumConformations@{getNumConformations}}
+\index{getNumConformations@{getNumConformations}!CS2IO@{CS2IO}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int CS2IO::get\-Num\-Conformations (const string \& {\em cs2File})\hspace{0.3cm}{\tt  [static]}}\label{classCS2IO_68d34ce14fc9d0fa1596f4e7f48590e1}
+
+
+Returns the number of conformations present within the given file. \index{CS2IO@{CS2IO}!createPDBDirectory@{createPDBDirectory}}
+\index{createPDBDirectory@{createPDBDirectory}!CS2IO@{CS2IO}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CS2IO::create\-PDBDirectory (const string \& {\em cs2File}, const string \& {\em directory\-Name})\hspace{0.3cm}{\tt  [static]}}\label{classCS2IO_2e630373cf78f961bd458b6dad50d6e6}
+
+
+Creates a directory of PDB files given input {\tt cs2File}, one for each conformation. 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PExtension.h}\item 
+src/core/{\bf CS2IO.cc}\end{CompactItemize}

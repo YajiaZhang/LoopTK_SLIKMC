@@ -1,0 +1,59 @@
+\section{PAtom\-Shell Class Reference}
+\label{classPAtomShell}\index{PAtomShell@{PAtomShell}}
+{\tt \#include $<$PAtom\-Shell.h$>$}
+
+
+
+\subsection{Detailed Description}
+Encapsulates data common to all atoms of the same element. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf PAtom\-Shell} (Real covalent\-Radius, Real van\-Der\-Waals\-Radius, const string \&name, GLColor color)
+\item 
+Real {\bf get\-Covalent\-Radius} () const
+\item 
+Real {\bf get\-Van\-Der\-Waals\-Radius} () const
+\item 
+string {\bf get\-Name} () const
+\item 
+GLColor {\bf get\-Color} () const
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{PAtomShell@{PAtom\-Shell}!PAtomShell@{PAtomShell}}
+\index{PAtomShell@{PAtomShell}!PAtomShell@{PAtom\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PAtom\-Shell::PAtom\-Shell (Real {\em covalent\-Radius}, Real {\em van\-Der\-Waals\-Radius}, const string \& {\em name}, GLColor {\em color})}\label{classPAtomShell_cbfe0116ae819e6f436cc0808988642a}
+
+
+Constructs a new \doxyref{PAtom\-Shell}{p.}{classPAtomShell}. Caller must specify both the covalent and van der Waals radius, in Angstroms; the {\tt name} of the atom; and the {\tt color} to be used when drawing the atom. 
+
+\subsection{Member Function Documentation}
+\index{PAtomShell@{PAtom\-Shell}!getCovalentRadius@{getCovalentRadius}}
+\index{getCovalentRadius@{getCovalentRadius}!PAtomShell@{PAtom\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real PAtom\-Shell::get\-Covalent\-Radius () const\hspace{0.3cm}{\tt  [inline]}}\label{classPAtomShell_a9acfd2997a312075cfdafb415c9aa2e}
+
+
+Returns the covalent radius of this atom. \index{PAtomShell@{PAtom\-Shell}!getVanDerWaalsRadius@{getVanDerWaalsRadius}}
+\index{getVanDerWaalsRadius@{getVanDerWaalsRadius}!PAtomShell@{PAtom\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real PAtom\-Shell::get\-Van\-Der\-Waals\-Radius () const\hspace{0.3cm}{\tt  [inline]}}\label{classPAtomShell_9fe9d022fee3468a59b09b14f1f66c99}
+
+
+Returns the van der Waals radius of this atom. \index{PAtomShell@{PAtom\-Shell}!getName@{getName}}
+\index{getName@{getName}!PAtomShell@{PAtom\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string PAtom\-Shell::get\-Name () const\hspace{0.3cm}{\tt  [inline]}}\label{classPAtomShell_d09b204f42e51e1080b125091e8c9de4}
+
+
+Returns the name of this atom. \index{PAtomShell@{PAtom\-Shell}!getColor@{getColor}}
+\index{getColor@{getColor}!PAtomShell@{PAtom\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}GLColor PAtom\-Shell::get\-Color () const\hspace{0.3cm}{\tt  [inline]}}\label{classPAtomShell_4f3526942c6d74f0134a73a136e3ea3c}
+
+
+Returns the color to be drawn when this atom is displayed graphically. 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PAtom\-Shell.h}\item 
+src/core/{\bf PAtom\-Shell.cc}\end{CompactItemize}

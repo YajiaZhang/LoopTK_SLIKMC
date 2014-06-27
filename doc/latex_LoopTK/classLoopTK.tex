@@ -1,0 +1,49 @@
+\section{Loop\-TK Class Reference}
+\label{classLoopTK}\index{LoopTK@{LoopTK}}
+{\tt \#include $<$PExtension.h$>$}
+
+
+
+\subsection{Detailed Description}
+Used to initialize the program. A call to {\tt \doxyref{Initialize()}{p.}{classLoopTK_d0539a59f9d1ce6cd4e56836d98dbbd0}} will load all resources needed by the infrastructure and set warnings on or off. 
+
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static void {\bf Initialize} ({\bf Warning\-Indicator} ind, const string \&resource\-Path=\char`\"{}resources\char`\"{})
+\item 
+static void {\bf Suppress\-Warnings} ()
+\item 
+static void {\bf Enable\-Warnings} ()
+\item 
+static void {\bf Display\-Warning} (const string \&warning)
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{LoopTK@{Loop\-TK}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!LoopTK@{Loop\-TK}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Loop\-TK::Initialize ({\bf Warning\-Indicator} {\em ind}, const string \& {\em resource\-Path} = {\tt \char`\"{}resources\char`\"{}})\hspace{0.3cm}{\tt  [static]}}\label{classLoopTK_d0539a59f9d1ce6cd4e56836d98dbbd0}
+
+
+Initializes \doxyref{Loop\-TK}{p.}{classLoopTK} with the resources found at the directory at path {\tt resource\-Path}. Sets warnings on or off, as specified by {\tt ind}. \index{LoopTK@{Loop\-TK}!SuppressWarnings@{SuppressWarnings}}
+\index{SuppressWarnings@{SuppressWarnings}!LoopTK@{Loop\-TK}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Loop\-TK::Suppress\-Warnings ()\hspace{0.3cm}{\tt  [static]}}\label{classLoopTK_1ad7d08e9f9592bcb3d784a7187f2d21}
+
+
+Suppresses all \doxyref{Loop\-TK}{p.}{classLoopTK} warnings. \index{LoopTK@{Loop\-TK}!EnableWarnings@{EnableWarnings}}
+\index{EnableWarnings@{EnableWarnings}!LoopTK@{Loop\-TK}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Loop\-TK::Enable\-Warnings ()\hspace{0.3cm}{\tt  [static]}}\label{classLoopTK_6e1733457dfce5d8c3c7f1a75928af25}
+
+
+Enables all \doxyref{Loop\-TK}{p.}{classLoopTK} warnings. \index{LoopTK@{Loop\-TK}!DisplayWarning@{DisplayWarning}}
+\index{DisplayWarning@{DisplayWarning}!LoopTK@{Loop\-TK}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Loop\-TK::Display\-Warning (const string \& {\em warning})\hspace{0.3cm}{\tt  [static]}}\label{classLoopTK_a4c35d0a533525a576b4529ba9adca87}
+
+
+Displays the specified {\tt warning} if and only if warnings are enabled. 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PExtension.h}\item 
+src/core/{\bf Loop\-TK.cc}\end{CompactItemize}

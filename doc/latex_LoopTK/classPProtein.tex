@@ -1,0 +1,270 @@
+\section{PProtein Class Reference}
+\label{classPProtein}\index{PProtein@{PProtein}}
+{\tt \#include $<$PProtein.h$>$}
+
+Inheritance diagram for PProtein::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{classPProtein}
+\end{center}
+\end{figure}
+
+
+\subsection{Detailed Description}
+A subclass of \doxyref{PChain}{p.}{classPChain} which makes strong assumptions about the properties the loop should have. Specifically, convenience methods are provided to selectively manipulate the backbone and sidechain or to retrieve anchor/end effector atoms at the amino or carboxy terminus. This class should be used when using the builtin resources with Loop\-TK.
+
+Usage of a \doxyref{PProtein}{p.}{classPProtein} must follow the following sequence of steps:
+
+\begin{enumerate}
+\item {\bf Construction} - all residues are added to chain. Use the \doxyref{PProtein::Add\-Residue()}{p.}{classPChain_8a42f1e7a59dbe7d3e9e463906054ef2} methods to do this.\item {\bf Finalization} - finishes construction of the protein and prepares it for manipulation. Use \doxyref{PProtein::finalize()}{p.}{classPChain_4cb2a0f087cd2c70dca1349b15c12d53} to do this.\item {\bf Analysis} - the full range of functionality of \doxyref{PProtein}{p.}{classPProtein} can be used at this point. However, no more residues can be added.\end{enumerate}
+
+
+Creating a \doxyref{PProtein}{p.}{classPProtein} using \doxyref{PDBIO}{p.}{classPDBIO} automatically completes the first two steps. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf PProtein} ()
+\item 
+{\bf PProtein} (const string \&first\-Residue\-Name)
+\item 
+{\bf PProtein} (const string \&first\-Residue\-Name, {\bf PResidue\-Spec} \&first\-Residue\-Spec)
+\item 
+{\bf PProtein} ({\bf PProtein} $\ast$protein, int res\-Start\-Index, int res\-End\-Index)
+\item 
+{\bf PProtein} (int num\-Residues)
+\item 
+{\bf PProtein} $\ast$ {\bf get\-Parent} ()
+\item 
+{\bf PProtein} $\ast$ {\bf get\-Top\-Level\-Protein} ()
+\item 
+{\bf PProtein\-Residue} $\ast$ {\bf get\-Residue} (int local\-Index)
+\item 
+int {\bf pdb\-Index\-To\-Local\-Index} (int pdb\_\-index)
+\item 
+{\bf PProtein\-Residue} $\ast$ {\bf get\-Residue\-By\-Pdb\-Index} (int pdb\-Index)
+\item 
+{\bf PProtein} $\ast$ {\bf get\-Subchain\-By\-Pdb\-Indices} (int start\-Pdb\-Index, int end\-Pdb\-Index)
+\item 
+int {\bf Num\-Backbone\-DOFs} () const
+\item 
+int {\bf Num\-Sidechain\-DOFs} () const
+\item 
+void {\bf Randomize\-Sidechain\-At\-Res} (int res\-Index)
+\item 
+void {\bf Randomize\-All\-Sidechains} ()
+\item 
+void {\bf Get\-End\-Effectors} ({\bf Protein\-Side} side, {\bf PAtom} $\ast$\&end\-Atom, {\bf PAtom} $\ast$\&end\-Prior\-Atom)
+\item 
+void {\bf Get\-Anchors} ({\bf Protein\-Side} side, {\bf PAtom} $\ast$\&end\-Anchor, {\bf PAtom} $\ast$\&end\-Prior\-Anchor)
+\item 
+void {\bf Disable\-Sidechains} ()
+\item 
+void {\bf Disable\-Sidechains} (int res\-Index1, int res\-Index2)
+\item 
+void {\bf Enable\-Sidechains} ()
+\item 
+void {\bf Enable\-Sidechains} (int res\-Index1, int res\-Index2)
+\item 
+void {\bf Rotate\-Backbone} (int DOF\_\-index, {\bf Bond\-Direction} dir, Real num\-Degrees)
+\item 
+void {\bf Rotate\-Sidechain} (int DOF\_\-index, float num\-Degrees)
+\item 
+{\bf PProtein} $\ast$ {\bf Clone} ()
+\item 
+void {\bf Randomize\-Backbone} ()
+\item 
+{\bf PProtein} $\ast$ {\bf get\-Child\-Protein} (unsigned int index)
+\item 
+void {\bf print\-Collision} ()
+\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+virtual {\bf PResidue} $\ast$ {\bf Create\-Residue} (const string \&name)
+\item 
+virtual {\bf PResidue} $\ast$ {\bf Create\-Residue} (const string \&name, {\bf PResidue\-Spec} \&spec)
+\item 
+virtual {\bf PResidue} $\ast$ {\bf Create\-Residue} (const string \&name, {\bf PResidue} $\ast$res)
+\item 
+virtual {\bf PResidue} $\ast$ {\bf Create\-Residue} (const string \&name, {\bf PResidue\-Spec} \&spec, {\bf PResidue} $\ast$res)
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{PProtein@{PProtein}!PProtein@{PProtein}}
+\index{PProtein@{PProtein}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PProtein::PProtein ()}\label{classPProtein_02136d6371d110c504e47ed0be133a4b}
+
+
+Constructs a new {\tt \doxyref{PProtein}{p.}{classPProtein}} with no residues. \index{PProtein@{PProtein}!PProtein@{PProtein}}
+\index{PProtein@{PProtein}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PProtein::PProtein (const string \& {\em first\-Residue\-Name})}\label{classPProtein_16d262c395cb1567221caba32a5e474b}
+
+
+Constructs a new {\tt \doxyref{PProtein}{p.}{classPProtein}} with one residue, using the default positions for its atoms. \index{PProtein@{PProtein}!PProtein@{PProtein}}
+\index{PProtein@{PProtein}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PProtein::PProtein (const string \& {\em first\-Residue\-Name}, {\bf PResidue\-Spec} \& {\em first\-Residue\-Spec})}\label{classPProtein_00f059c074b1ca06bb7f08644d941df4}
+
+
+Constructs a new {\tt \doxyref{PProtein}{p.}{classPProtein}} with one residue, using the specified positions for its atoms. \index{PProtein@{PProtein}!PProtein@{PProtein}}
+\index{PProtein@{PProtein}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PProtein::PProtein ({\bf PProtein} $\ast$ {\em protein}, int {\em res\-Start\-Index}, int {\em res\-End\-Index})}\label{classPProtein_46012b9b065e073ff7dfaed80b218799}
+
+
+Constructs a new {\tt \doxyref{PProtein}{p.}{classPProtein}} as a subchain of {\tt protein}, from residue {\tt res\-Start\-Index} to residue {\tt res\-End\-Index}. \index{PProtein@{PProtein}!PProtein@{PProtein}}
+\index{PProtein@{PProtein}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PProtein::PProtein (int {\em num\-Residues})}\label{classPProtein_59f57e2658efe34621fce703797d6987}
+
+
+Constructs a new {\tt \doxyref{PProtein}{p.}{classPProtein}} with {\tt num\-Residues} random residues. 
+
+\subsection{Member Function Documentation}
+\index{PProtein@{PProtein}!getParent@{getParent}}
+\index{getParent@{getParent}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PProtein}$\ast$ PProtein::get\-Parent ()\hspace{0.3cm}{\tt  [inline]}}\label{classPProtein_5baa13649983960fb3e8e01090c7d888}
+
+
+Returns the parent {\tt \doxyref{PProtein}{p.}{classPProtein}} of this {\tt \doxyref{PProtein}{p.}{classPProtein}}, or {\tt NULL} if this is the top level protein. \index{PProtein@{PProtein}!getTopLevelProtein@{getTopLevelProtein}}
+\index{getTopLevelProtein@{getTopLevelProtein}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PProtein} $\ast$ PProtein::get\-Top\-Level\-Protein ()}\label{classPProtein_ea0821643bcdfa7aa9067cc8dc0f8a02}
+
+
+Returns the top level protein in the hierarchy this protein belongs to. \index{PProtein@{PProtein}!getResidue@{getResidue}}
+\index{getResidue@{getResidue}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PProtein\-Residue}$\ast$ PProtein::get\-Residue (int {\em local\-Index})\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classPProtein_e075c499dc00f2b2094c826125a11029}
+
+
+Returns the residue at the given index. Residues are indexed from 0 to \doxyref{size()}{p.}{classPChain_272293fc909f8061105dc60a965370a4}-1 inclusive. 
+
+Reimplemented from {\bf PChain} \doxyref{}{p.}{classPChain_7808cd02cc152a2143a62cea5a38a566}.\index{PProtein@{PProtein}!pdbIndexToLocalIndex@{pdbIndexToLocalIndex}}
+\index{pdbIndexToLocalIndex@{pdbIndexToLocalIndex}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PProtein::pdb\-Index\-To\-Local\-Index (int {\em pdb\_\-index})}\label{classPProtein_dd0a1138f19524e4d00b2a161892edbd}
+
+
+Returns the local index of the residue with PDB index {\tt pdb\_\-index}. \index{PProtein@{PProtein}!getResidueByPdbIndex@{getResidueByPdbIndex}}
+\index{getResidueByPdbIndex@{getResidueByPdbIndex}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PProtein\-Residue} $\ast$ PProtein::get\-Residue\-By\-Pdb\-Index (int {\em pdb\-Index})}\label{classPProtein_b0c86fa024cc21fee6ad3cf79027df04}
+
+
+Returns the residue with the specified PDB index, or NULL if no such residue exists in the {\tt \doxyref{PProtein}{p.}{classPProtein}}. \index{PProtein@{PProtein}!getSubchainByPdbIndices@{getSubchainByPdbIndices}}
+\index{getSubchainByPdbIndices@{getSubchainByPdbIndices}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PProtein} $\ast$ PProtein::get\-Subchain\-By\-Pdb\-Indices (int {\em start\-Pdb\-Index}, int {\em end\-Pdb\-Index})}\label{classPProtein_4d0ed63439c5a94508c306f3253de54e}
+
+
+Returns a subchain of this {\tt \doxyref{PProtein}{p.}{classPProtein}} in which the first residue has PDB index {\tt start\-Pdb\-Index}, the second residue has PDB index {\tt start\-Pdb\-Index + 1}, ..., and the last residue has PDB index {\tt end\-Pdb\-Index}. \index{PProtein@{PProtein}!NumBackboneDOFs@{NumBackboneDOFs}}
+\index{NumBackboneDOFs@{NumBackboneDOFs}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PProtein::Num\-Backbone\-DOFs () const}\label{classPProtein_0efe0349c0010f76f517295251fea0f1}
+
+
+Returns the number of degrees of freedom in this {\tt \doxyref{PProtein}{p.}{classPProtein}}'s backbone. \index{PProtein@{PProtein}!NumSidechainDOFs@{NumSidechainDOFs}}
+\index{NumSidechainDOFs@{NumSidechainDOFs}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PProtein::Num\-Sidechain\-DOFs () const}\label{classPProtein_4b6f05b012e7a3d6fb67eac0e858a240}
+
+
+Returns the number of degrees of freedom in this {\tt \doxyref{PProtein}{p.}{classPProtein}}'s side chains. \index{PProtein@{PProtein}!RandomizeSidechainAtRes@{RandomizeSidechainAtRes}}
+\index{RandomizeSidechainAtRes@{RandomizeSidechainAtRes}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PProtein::Randomize\-Sidechain\-At\-Res (int {\em res\-Index})}\label{classPProtein_4b541cc025db9b3da17727bc4f2fa848}
+
+
+Randomizes the DOFs of the side-chain at the given residue index. \index{PProtein@{PProtein}!RandomizeAllSidechains@{RandomizeAllSidechains}}
+\index{RandomizeAllSidechains@{RandomizeAllSidechains}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PProtein::Randomize\-All\-Sidechains ()}\label{classPProtein_4af11dd07e3a0911fed48bcedd530a69}
+
+
+Randomizes all side-chains in this protein. \index{PProtein@{PProtein}!GetEndEffectors@{GetEndEffectors}}
+\index{GetEndEffectors@{GetEndEffectors}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PProtein::Get\-End\-Effectors ({\bf Protein\-Side} {\em side}, {\bf PAtom} $\ast$\& {\em end\-Atom}, {\bf PAtom} $\ast$\& {\em end\-Prior\-Atom})}\label{classPProtein_771f861a68626a38cb665c91a8d76da2}
+
+
+Returns the loop closure end effectors on the specified {\tt side} of this {\tt \doxyref{PProtein}{p.}{classPProtein}} (front or back). \index{PProtein@{PProtein}!GetAnchors@{GetAnchors}}
+\index{GetAnchors@{GetAnchors}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PProtein::Get\-Anchors ({\bf Protein\-Side} {\em side}, {\bf PAtom} $\ast$\& {\em end\-Anchor}, {\bf PAtom} $\ast$\& {\em end\-Prior\-Anchor})}\label{classPProtein_e37cbf027dd84fe48388ccb2ec98496f}
+
+
+Returns the loop closure anchors on the specified side of the protein (front or back). \index{PProtein@{PProtein}!DisableSidechains@{DisableSidechains}}
+\index{DisableSidechains@{DisableSidechains}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PProtein::Disable\-Sidechains ()}\label{classPProtein_49a8d7abda0d9633a1ae8bdcf5f82d14}
+
+
+Disables all side chain blocks in the protein. \index{PProtein@{PProtein}!DisableSidechains@{DisableSidechains}}
+\index{DisableSidechains@{DisableSidechains}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PProtein::Disable\-Sidechains (int {\em res\-Index1}, int {\em res\-Index2})}\label{classPProtein_984e42b3a8847c8dd9e787dca1f6f576}
+
+
+Disables all side chain blocks between the specified start and end residues. \index{PProtein@{PProtein}!EnableSidechains@{EnableSidechains}}
+\index{EnableSidechains@{EnableSidechains}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PProtein::Enable\-Sidechains ()}\label{classPProtein_3a2c99ae9631659c1cbd674ee54c7fd6}
+
+
+Enables all side chain blocks in the protein. \index{PProtein@{PProtein}!EnableSidechains@{EnableSidechains}}
+\index{EnableSidechains@{EnableSidechains}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PProtein::Enable\-Sidechains (int {\em res\-Index1}, int {\em res\-Index2})}\label{classPProtein_d79752a9363c0de3130e6e2b0a440b41}
+
+
+Enables all side chain blocks between the specified start and end residues. \index{PProtein@{PProtein}!RotateBackbone@{RotateBackbone}}
+\index{RotateBackbone@{RotateBackbone}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PProtein::Rotate\-Backbone (int {\em DOF\_\-index}, {\bf Bond\-Direction} {\em dir}, Real {\em num\-Degrees})}\label{classPProtein_bd40b52ceed19ebca25de66a435b9383}
+
+
+Rotates the backbone {\tt num\-Degrees} degrees, starting from the degree of freedom {\tt DOF\_\-index} in the direction {\tt dir}. \index{PProtein@{PProtein}!RotateSidechain@{RotateSidechain}}
+\index{RotateSidechain@{RotateSidechain}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PProtein::Rotate\-Sidechain (int {\em DOF\_\-index}, float {\em num\-Degrees})}\label{classPProtein_389e7780312b699c13727454266d2426}
+
+
+Rotates the sidechain at index {\tt DOF\_\-index} by {\tt num\-Degrees} degrees. \index{PProtein@{PProtein}!Clone@{Clone}}
+\index{Clone@{Clone}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PProtein} $\ast$ PProtein::Clone ()}\label{classPProtein_c810d340296e5d6217e19439397f56d1}
+
+
+Creates an exact copy of the protein. If a sub-chain is being copied, it creates a top-level protein as well. So, to free the memory of the sub-chain, \doxyref{Obliterate()}{p.}{classPChain_199ae243010c650b3de1e0d4454b8da0} must be called. 
+
+Reimplemented from {\bf PChain} \doxyref{}{p.}{classPChain_8115f6036a942d75343039a1be25bfa0}.\index{PProtein@{PProtein}!RandomizeBackbone@{RandomizeBackbone}}
+\index{RandomizeBackbone@{RandomizeBackbone}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PProtein::Randomize\-Backbone ()}\label{classPProtein_daee5b2ce91d3121ffdd40da2fcd00d2}
+
+
+Randomize backbone DOFs, but does not check collision \index{PProtein@{PProtein}!getChildProtein@{getChildProtein}}
+\index{getChildProtein@{getChildProtein}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PProtein}$\ast$ PProtein::get\-Child\-Protein (unsigned int {\em index})\hspace{0.3cm}{\tt  [inline]}}\label{classPProtein_98f22098fdd25ecd6c01fd19a458ca31}
+
+
+Returns the child \doxyref{PProtein}{p.}{classPProtein} to this \doxyref{PProtein}{p.}{classPProtein} at the given index. Use \doxyref{Num\-Children()}{p.}{classPChain_676b5fae370a730463139fb34f5c4855} to get the number of child PProtein's. \index{PProtein@{PProtein}!printCollision@{printCollision}}
+\index{printCollision@{printCollision}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PProtein::print\-Collision ()}\label{classPProtein_fe1f55f5f414c3f1eb4783e3c4193e5c}
+
+
+Print all the atom pairs that are in collision. \index{PProtein@{PProtein}!CreateResidue@{CreateResidue}}
+\index{CreateResidue@{CreateResidue}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf PResidue}$\ast$ PProtein::Create\-Residue (const string \& {\em name})\hspace{0.3cm}{\tt  [inline, protected, virtual]}}\label{classPProtein_c454a7d32c99aa5e7a63d84e0e5bfeef}
+
+
+
+
+Reimplemented from {\bf PChain} \doxyref{}{p.}{classPChain_aebfd70bdaab86b174c23495f206d53d}.\index{PProtein@{PProtein}!CreateResidue@{CreateResidue}}
+\index{CreateResidue@{CreateResidue}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf PResidue}$\ast$ PProtein::Create\-Residue (const string \& {\em name}, {\bf PResidue\-Spec} \& {\em spec})\hspace{0.3cm}{\tt  [inline, protected, virtual]}}\label{classPProtein_ae52c19c8fbd3f56c4979e1a8bbad698}
+
+
+
+
+Reimplemented from {\bf PChain} \doxyref{}{p.}{classPChain_0a1c47977015ea729956514f07a732d7}.\index{PProtein@{PProtein}!CreateResidue@{CreateResidue}}
+\index{CreateResidue@{CreateResidue}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf PResidue}$\ast$ PProtein::Create\-Residue (const string \& {\em name}, {\bf PResidue} $\ast$ {\em res})\hspace{0.3cm}{\tt  [inline, protected, virtual]}}\label{classPProtein_b1a766c4f6b24ad299e277878d976c44}
+
+
+
+
+Reimplemented from {\bf PChain} \doxyref{}{p.}{classPChain_941b0460962ddefe5e566d520f1623fb}.\index{PProtein@{PProtein}!CreateResidue@{CreateResidue}}
+\index{CreateResidue@{CreateResidue}!PProtein@{PProtein}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf PResidue}$\ast$ PProtein::Create\-Residue (const string \& {\em name}, {\bf PResidue\-Spec} \& {\em spec}, {\bf PResidue} $\ast$ {\em res})\hspace{0.3cm}{\tt  [inline, protected, virtual]}}\label{classPProtein_fc492cf141623e5c44ec321072edbb91}
+
+
+
+
+Reimplemented from {\bf PChain} \doxyref{}{p.}{classPChain_e1003230d8b1ef95662d395da68a510d}.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PProtein.h}\item 
+src/core/{\bf PProtein.cc}\end{CompactItemize}

@@ -1,0 +1,55 @@
+\section{PEnergy Class Reference}
+\label{classPEnergy}\index{PEnergy@{PEnergy}}
+{\tt \#include $<$PExtension.h$>$}
+
+
+
+\subsection{Detailed Description}
+{\tt \doxyref{PEnergy}{p.}{classPEnergy}} contains methods to calculate the free energy for pairs of atoms and proteins. 
+
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static Real {\bf van\-Der\-Waals\-Energy} (const {\bf PAtom} $\ast$a1, const {\bf PAtom} $\ast$a2)
+\item 
+static Real {\bf energy\-Of\-Chain} ({\bf PChain} $\ast$chain, {\bf Energy\-Calc\-Fn} energy\-Fn=van\-Der\-Waals\-Energy, Real threshold={\bf DEFAULT\_\-THRESHOLD})
+\item 
+static Real {\bf collision\-Energy} (const {\bf PAtom} $\ast$a1, const {\bf PAtom} $\ast$a2)
+\end{CompactItemize}
+\subsection*{Static Public Attributes}
+\begin{CompactItemize}
+\item 
+static const Real {\bf DEFAULT\_\-THRESHOLD} = 10
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{PEnergy@{PEnergy}!vanDerWaalsEnergy@{vanDerWaalsEnergy}}
+\index{vanDerWaalsEnergy@{vanDerWaalsEnergy}!PEnergy@{PEnergy}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real PEnergy::van\-Der\-Waals\-Energy (const {\bf PAtom} $\ast$ {\em a1}, const {\bf PAtom} $\ast$ {\em a2})\hspace{0.3cm}{\tt  [static]}}\label{classPEnergy_e013b60284ff3344eba5620197106126}
+
+
+Calculates the van der Waals energy between atoms {\tt a1} and {\tt a2}. \index{PEnergy@{PEnergy}!energyOfChain@{energyOfChain}}
+\index{energyOfChain@{energyOfChain}!PEnergy@{PEnergy}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real PEnergy::energy\-Of\-Chain ({\bf PChain} $\ast$ {\em chain}, {\bf Energy\-Calc\-Fn} {\em energy\-Fn} = {\tt vanDerWaalsEnergy}, Real {\em threshold} = {\tt {\bf DEFAULT\_\-THRESHOLD}})\hspace{0.3cm}{\tt  [static]}}\label{classPEnergy_78f62c395ab1561c9269b85feba474ef}
+
+
+Calculates the potential energy for the entire chain specified by {\tt chain}, ignoring pairs of bonded atoms as well as pairs of atoms more than {\tt threshold} Angstroms apart. A user-defined {\tt Energy\-Calc\-Fn} may be specified to define the potential energy of a pair of atoms, or the default {\tt van\-Der\-Waals\-Energy} will be used. \index{PEnergy@{PEnergy}!collisionEnergy@{collisionEnergy}}
+\index{collisionEnergy@{collisionEnergy}!PEnergy@{PEnergy}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real PEnergy::collision\-Energy (const {\bf PAtom} $\ast$ {\em a1}, const {\bf PAtom} $\ast$ {\em a2})\hspace{0.3cm}{\tt  [static]}}\label{classPEnergy_7f6a8f3fc01357c03d67ebad7867339a}
+
+
+Calculates the collision energy between atoms {\tt a1} and {\tt a2}. If the radius of {\tt a1} and {\tt a2} are r1 and r2 respectively, the collision energy is 1/d$^\wedge$2 - 1/d0$^\wedge$2, where d is the distance between two atom centers, and d0=COLLISION\_\-THRESHOLD$\ast$(r1+r2). The COLLISION\_\-THRESHOLD is set to 0.75 in \doxyref{PConstants.h}{p.}{PConstants_8h}. 
+
+\subsection{Member Data Documentation}
+\index{PEnergy@{PEnergy}!DEFAULT_THRESHOLD@{DEFAULT\_\-THRESHOLD}}
+\index{DEFAULT_THRESHOLD@{DEFAULT\_\-THRESHOLD}!PEnergy@{PEnergy}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const Real {\bf PEnergy::DEFAULT\_\-THRESHOLD} = 10\hspace{0.3cm}{\tt  [static]}}\label{classPEnergy_ac0dea1ca391239dab853b861c3fd485}
+
+
+The default distance threshold used by {\tt energy\-Of\-Chain} if none is provided. 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PExtension.h}\item 
+src/core/{\bf PEnergy.cc}\end{CompactItemize}

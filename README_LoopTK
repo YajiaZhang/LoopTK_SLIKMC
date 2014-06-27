@@ -1,0 +1,689 @@
+0. LoopTK README TOC
+--------------------
+
+1. Setting up LoopTK
+2. LoopTK Tutorials
+	1. Enabling the infrastructure for use
+	2. Reading in a chain from PDB file and displaying it
+	3. Generating an arbitrary chain of some set of residues
+	4. Creating a subchain of a protein
+	5. Manipulating a protein
+	6. Querying a chain for data in various ways
+	7. Applying Rotamer
+	8. Visualizing a protein and conformations
+	9. Deleting / obliterating a protein
+	10. Accessing collision checking methods
+	11. Creating a protein with the trimmed sidechain
+3. Customizing LoopTK
+	1. Defining custom blocks
+	2. Defining custom block connections
+	3. Defining custom residues
+	4. Defining custom rotamers
+	5. Defining custom bond length and bond angles
+4. LoopTK File Formats
+	1. Block shell file format
+	2. Block connection file format
+	3. Residue shell file format
+	4. List file formats
+	5. Rotamer format
+	6. CS2 format
+5. Credits
+6. Acknowledgements
+7. License
+
+
+
+1. Setting up LoopTK
+--------------------
+
+Download & Install libraries listed on the web page (ai.stanford.edu/looptk):
+	1) Mesa 
+	2) GLUI
+	3) GSL
+	
+Compile the LoopTK library:
+	1) Edit ./Makefile
+		a) GLUT_INCLUDE - location of GLUT
+		b) GLUI_INCLUDE - location of GLUI
+	2) Compile by ./make 
+		a) Compiles and installs the loopTK library in ./lib/looptk.a
+
+Example of using LoopTK:
+	1) Edit ./doc/examples/Makefile
+		a) XLIBDIR - location of XLIB
+		b) SYSLIBDIR - location of sys lib
+		d) GLUILIBDIR - location of GLUI
+		e) GLUTLIBDIR - location of GLUT
+	2) Edit ./doc/examples/main.cc
+	3) Compile by ./make
+		a) Compiles and makes an executable called example.
+
+LoopTK API:
+	1) Available in html and tex format here: ./doc
+
+
+
+
+
+2. LoopTK Tutorials
+-------------------
+
+This section outlines common usage scenarios of the LoopTK 
+infrastructure and provide a how-to for each of these scenarios.
+
+1. Enabling the infrastructure for use
+2. Reading in a chain from PDB file and displaying it
+3. Generating an arbitrary chain of some set of residues
+4. Creating a subchain of a protein
+5. Manipulating a protein
+6. Querying a chain for data in various ways
+7. Applying Rotamer
+8. Visualizing a protein and conformations
+9. Deleting / obliterating a protein
+10. Accessing collision checking methods
+11. Creating a protein with the trimmed sidechain
+
+
+*******************************************
+1. Enabling the infrastructure for use
+
+   To use the LoopTK infrastructure for protein manipulation, it needs to first load in data from the "resources/"  directory. 
+The data in this directories defines all the atoms, blocks, and residues. This directory MUST be in the same directory as 
+the executable using LoopTK. Once this is done, initialize the infrastructure by calling:
+
+   LoopTK::Initialize(ENABLE_WARNINGS);
+
+One can also pass in SUPPRESS_WARNINGS so that the infrastructure never displays warnings. A warning is displayed when a 
+non-fatal situation is encountered that may be contrary to what the user wanted to accomplish.
+
+*******************************************
+2. Reading in a chain from PDB file and displaying it
+
+Suppose we have a pdb file called "pdbTest.pdb". The following code will do the trick:
+
+	PProtein *protein = PDBIO::readFromFile("pdbTest.pdb"); //gets the protein
+	PChainNavigator(protein).Run(); //makes and executes a visualizer for the protein
+
+*******************************************
+3. Generating an arbitrary chain of some set of residues
+
+The identifiers for residues are locating in the PID class within "PConstants.h". Use these identifiers to specify which 
+residues to add to a PProtein. When all the residues are added, make sure to call finalize() on the PProtein. This is the 
+function that will actually finish constructing the chain and make it functional. Suppose we want to make a 4 residue chain 
+with the residues "PHE", "HIS", "ALA", and "TRP":
+
+    PProtein *protein = new PProtein();
+    protein->AddResidue(PID::PHE);
+    protein->AddResidue(PID::HIS);
+    protein->AddResidue(PID::ALA);
+    protein->AddResidue(PID::TRP);
+    protein->finalize(); //completes construction
+
+*******************************************
+4. Creating a subchain of a protein
+
+A subchain of a protein shares all the atoms and bonds. So, manipulating a subchain manipulates the protein too, but the 
+subchain only affects the residues within it. The following code grabs the residues indexed from 1 to 7 from an already 
+generated PProtein called "protein":
+
+  PProtein *subchain = new PProtein(protein,1,7);
+
+For example, when subchain is rotated, the residues in the rest of the protein will not be affected.
+
+*******************************************
+5. Manipulating a protein
+
+A protein is manipulated by rotating a it around some bond some number of degrees. Manipulation requires a specification of 
+"direction", since during a rotation, one part of the protein remains static and the other part is moving. The following code 
+takes the 3rd DOF on the backbone, and rotates the protein 120 degrees in the "forward direction".
+
+  protein->RotateBackbone(2,forward,120);
+
+Note that this is equivalent to:
+
+  protein->RotateChain(PID::BACKBONE,2,forward,120); 
+
+where this function takes as a parameter the block type the DOF should be queried from.
+
+Remember that in protein, there are two DOF for each amino acid backbone: N-Ca and Ca-C.
+The DOF of the sidechain is dependent on the type of amino acid. 
+Look at the *.blk files to see which bonds in the side chain has DOF set to 1.
+
+When manipulating a protein which has a subchain, manipulating the residue
+that is part of a subchain will only affect the subchain. This provides an alternative
+method of manipulating the subchain using consistent indexing. 
+
+*******************************************
+6. Querying a chain for data in various ways
+
+There are various hierarchies of data stored in a PProtein. The chain level contains information about residues, DOFs, 
+anchors, and end effectors of the chain. The residue level contains information about what atoms exist in a residue, and the 
+atoms know about their position and what they're colliding with. Here are a number of queries:
+
+Getting the first residue in the chain:
+	PResidue *firstRes = protein->GetResidue(0);
+Getting the number of residues in the chain:
+	int numResidues = protein->size();
+Getting the C_Alpha atom's position in the 5th residue:
+	Vector3 ca_position = protein->GetResidue(4)->getAtomPosition(PID::C_ALPHA);
+Detect if there are self-collisions (collisions of the chain with itself):
+	if(subChain->InSelfCollision()) cout<<"Subchain is in collision with itself."<<endl;
+Detecting if the 5th residue is in collision:
+	if(subChain->getResidue(4)->InAnyCollision()) cout<<"Residue at index 4 is in collisions."<<endl;
+
+*******************************************
+7. Applying Rotamer
+
+It is possible to apply rotamer conformations to the sidechains so that most likely sidechain conformation can be found 
+quickly.
+
+To apply rotamer to a particular residue that is collision free: 
+(Run multiple times to cycle through all possible rotamers.)
+	protein->getResidue(1)->ApplyRotamer();
+
+Alternatively, to manually apply a desired rotamer, first check how many rotamers are available for a residue:
+	int rotamersize = PResources::GetRotamerSize(PID::HIS);
+	
+Then, save the current sidechain position (so it can be undone later):
+	protein->getResidue(1)->SaveSideChain();
+
+Apply the desired rotamer on the given residue:
+	protein->getResidue(1)->ApplyRotamer(0);
+
+Undo rotamer to saved state if not desired:
+	protein->getResidue(1)->ResetSideChain();
+
+*******************************************
+8. Visualizing a protein and conformations
+
+LoopTK provides a method of visualizing and manipulating protein.  
+Use PchainNavigator.h or PConfSpaceNavigator.h
+
+PChainNavigator:
+
+Manipulation
+r: Rotate current backbone DOF by 5 degrees
+e: Rotate current backbone DOF by -5 degrees
+>: Increase backbone DOF Index
+<: Decrease backbone DOF Index
+[: Set backbone DOF Index to 0
+]: Set backbone DOF Index to last
+v: Randomize DOFs of protein
+
+Sidechain
+b: Toggle Sidechain visibility.
+D: Disable sidechain
+E: Enable sidechain
+
+CCD 
+a: CCD Descent 1 step
+c: CCD Descent until 0.001
+
+IO:
+s: Write PDB to "output.pdb"
+
+Rotamer
+1: Set sidechain DOF index to 0
+2: Increment sidechain DOF index
+3: Decrement sidechain DOF index
+4: Rotate the current sidechain DOF by 5 degrees
+5: Rotate the current sidechain DOF by -5 degrees
+6: Set Residue index to 0
+7: Increment Residue index
+8: Decrement Residue index
+9: Apply Rotamer to currentl residue
+0: Reset the sidechain config
+/: Toggle current residue highlight
+
+PConfSpaceNavigator:
+b: Toggle sidechain visibility
+l: Toggle loop visibility
+-: Derement conformation index.
+=: Increment conformation index.
+d: Display one conformation only.
+s: Toggle section display.
++: Incresase quality
+-: Decrease quality.
+
+*******************************************
+9. Deleting / obliterating a protein
+
+When should we use "delete" and when should we use "obliterate"?
+What's the differences between them? 
+
+Deleting a protein will deallocate it and all of its children but not its parents. Calling "obliterate" is equivalent to 
+deleting the top-level protein. PDBIO::readFromFile returns the entire protein, so deleting it and calling "obliterate" will 
+do the same thing. The reason for including "obliterate" is that if you only have a subchain, you can still deallocate the 
+whole protein. Consider the following examples:
+
+PProtein *p = PDBIO::readFromFile("2CRO.pdb");
+PProtein *p2 = new PProtein(p,5,10);
+delete p2;
+PProtein *p3 = new PProtein(p,12,15); // valid
+
+PProtein *p = PDBIO::readFromFile("2CRO.pdb ");
+PProtein *p2 = new PProtein(p,5,10);
+p2->Obliterate();
+PProtein *p3 = new PProtein(p,12,15); // invalid since "p" is now deallocated
+
+*******************************************
+10. Accessing collision checking methods
+
+PChain objects have a method called "getSpaceManager()" which gives direct access to the grid (via an abstract interface). 
+Recall that PProtein objects are subtypes of PChain. For example, to get atoms from "PProtein *p" that collide with a ball 
+centered at (1,2,3) with radius 5, the following code will do the trick:
+
+PSpaceManager *m = p->getSpaceManager();
+list<PAtom *> colliding = m->AtomsNearPoint(Vector3(1,2,3),5); 
+
+*******************************************
+11. Creating a protein with the trimmed sidechain
+
+PTools::CreateSlimProtein() does this. It takes as input a PProtein and returns a new PProtein object with the sidechains 
+trimmed to only contain the c-beta atom.
+
+
+
+
+
+3. Customizing LoopTK
+---------------------
+
+The purpose of this section is to describe how to cusomize the LoopTK infrastructure.
+
+1. Defining custom blocks
+2. Defining custom block connections
+3. Defining custom residues
+4. Defining custom rotamers
+5. Defining custom bond length and bond angles
+
+*******************************************
+
+1. Defining custom blocks
+
+Blocks are the individual sub-units that, when connected together,
+comprise a residue.
+
+The resources provided with LoopTK define two types of blocks: 
+the backbone block and the sidechain block. There is only one 
+backbone block (consisting of N, C, C-alpha and O atoms) but 
+there are 20 sidechain blocks defined, one for each amino acid.
+
+Defining a custom block consists of two steps:
+  (1) Create the block definition file in the "resources" directory.
+      Consult 4. LoopTK File Formats for full details about the necessary file format.
+  (2) Add the name of the file you just created to "blocks.lst" in 
+      the "lists" directory.
+
+*******************************************
+
+2. Defining custom block connections
+
+Block connection files include two components that, together, describe
+how two blocks are connected. First, a block connection defines the pairs
+of atoms that form inter-block bonds. Second, the file lists relative
+positions of three atoms in the block already defined to each of three atoms
+in the block being defined.
+
+The resources provided by LoopTK define a block connection for the backbone
+block to each sidechain block, as well as a backbone-backbone block connection.
+
+Defining a custom block connection consists of two steps:
+  (1) Create the block conenction definition file in the "resources" directory.
+      Consult 4. LoopTK File Formats for full details about the necessary file format.
+  (2) Add the name of the file you just created to "block-conn.lst" in 
+      the "lists" directory.
+
+*******************************************
+
+3. Defining custom residues
+
+A residue is a collection of one or more blocks and, implicitly,
+any defined connections between them.
+
+There are 20 residue shells provided with LoopTK, one for
+every amino acid. Each residue shell consists of the backbone
+block connected to the appropriate sidechain block.
+
+Defining a custom residue consists of two steps:
+  (1) Create the residue definition file in the "resources" directory.
+      Consult 4. LoopTK File Formats for full details about the necessary file format.
+  (2) Add the name of the file you just created to "residues.lst" in 
+      the "lists" directory.
+
+*******************************************
+
+4. Defining custom rotamers 
+
+Rotamer is a collection of likely conformation of sidechains of a particular residue defined by chi-angles. LoopTK includes by 
+default IUPAC convention for definition of chi-angles and back-bone independent rotamer library by SC Lovell, JM Word, JS 
+Richardson and DC Richardson (2000). This rotamer was compiled using database of 240 structures at 1.7 A resolution or better 
+and all applicable filters.
+
+Following Rotamers are defined:
+  ARG
+  ASN
+  ASP
+  CYS
+  GLN
+  GLU
+  HIS
+  ILE
+  LEU
+  LYS
+  MET
+  PHE
+  PRO
+  SER
+  THR
+  TRP
+  TYR
+  VAL
+
+Following Rotamers are not defined:
+  ALA (only one structure) 
+  GLY (only H)
+
+The angles are defined in degrees. 
++ is defined as counterclockwise rotation.
+- is defined as clockwise rotation.
+
+Defining a custom romater consists of one step:
+  (1) Create the rotamer definition file in the "rotamers" directory.
+      Consult FORMATS for full details about the necessary file format.
+  (2) Consult "chi.lst" for the IUPAC convention of chi-angles definition. 
+  
+*******************************************
+
+5. Defining custom rotamers 
+
+Parameters such as bond length and bond angles can be customized by editing PConstants.h
+
+
+
+
+
+4. LoopTK File Formats
+----------------------
+
+The purpose of this section is to describe the file formats
+used to describe block shells, residue shells, and other
+data included as LoopTK resources.
+
+1. Block shell file format
+2. Block connection file format
+3. Residue shell file format
+4. List file formats
+5. Rotamer format
+6. CS2 format
+
+*******************************************
+
+1. Block shell file format
+
+Block shell files have the ".blk" extension. They should be placed
+in the "resources" directory.
+
+Block shell files have the following format:
+
+	(a) The first line must be of the form:
+
+		block <name> <type>
+
+	    where <name> is the block's name, such as PRO (proline),
+	    and <type> is the block's type, such as backbone or sidechain.
+
+	(b) The next set of lines defines the atoms in this block. They
+	    must be of the form:
+
+		atom <name> <type> <x> <y> <z>
+
+	    where <name> is a unique atom ID within its residue (not
+	    just this block); <type> is the atom's element, such as C or N;
+	    and <x>, <y> and <z> are the atom's relative coordinates within
+	    the block. In general, it is easiest to define one atom as the
+	    "origin" for the block (i.e., <x> = <y> = <z> = 0) and then
+	    give the relative positions of the other atoms with respect to
+	    the origin.
+
+	(c) The last set of lines defines which pairs of atoms are bonded
+	    in this block. They must be of the form:
+
+		bond <name1> <name2> <isDOF>
+
+	    where <name1> and <name2> are the previously defined names of the two atoms that
+	    are bonded.  <isDOF> should be 1 if this bond is a degree of
+	    freedom, and 0 otherwise.
+
+*******************************************
+
+2. Block connection file format
+
+Block connection files have the ".pbc" extension. They should be placed
+in the "resources" directory.
+
+Block connection files have the following format:
+
+	(a) The first line must be of the form:
+
+		connection <defined> <toDefine>
+
+	    where <defined> and <toDefine> are the names of the blocks already
+	    defined and currently being defined, respectively.
+
+	(b) The next set of lines defines which atoms form inter-block bonds.
+	    They must be of the form:
+
+		bond <atomDefined> <atomToDefine> <isDOF>
+
+	    where <atomDefined> and <atomToDefine> are the names (IDs) of the
+	    bonding atoms in the "defined" block and te "toDefine" block,
+	    respectively. <isDOF> should be 1 if this bond is a degree of freedom, 
+	    and 0 otherwise.
+
+	(c) The last set of lines defines the relative positions of atoms
+	    in the block already defined to atoms in the block being defined.
+	    These lines must be of the form:
+
+		<atomDefined> <atomToDefine> <x> <y> <z>
+
+	    where <atomDefined> and <atomToDefine> are the names (IDs) of the
+	    bonding atoms in the already-defined block and the block being
+	    defined, respectively. <x>, <y> and <z> are the atoms' relative
+	    positions.  When there are 3 or more atoms in the "toDefine" block,
+      minimum of 9 relative positions should be defined -- 3 atoms in the 
+      "defined" block to each of 3 atoms in the "toDefine" block.  
+      When there are less than 3 atoms in the "toDefine" block -- for example, 
+      in a sidechain bloc with fewer than three atoms -- each atoms in the "toDefine"
+      block should be given coordinate relative to 3 atoms in the "defined" block.
+      
+
+*******************************************
+
+3. Residue shell file format
+
+Residue shell files have the ".res" extension. They should be placed
+in the "resources" directory.
+
+Residue shell files have the following format:
+
+	(a) The first line must be of the form:
+
+		residue <name> <coreID> <coreName> <atom>
+
+	    where <name> is the name of the residue, such as "TRP";
+	    <coreID> is the identifier for the residue's "core" block,
+	    such as "A"; <coreName> is the name of the core block, such 
+	    as "backbone"; and <atom> is the name of the atom from which
+	    graph traversals of the residue's atoms will begin, such as "N".
+
+	    Note that <name> and <coreID> may be chosen freely, but
+	    <coreName> and <atom> must match valid, previously-defined
+	    block and atom names. Additionally, a residue's name may be
+	    the same as the name of a block that has already been defined,
+	    though it need not be.
+
+	(b) The next set of lines define additional blocks in this residue.
+	    They must be of the form:
+
+		block <ID> <name>
+
+	    where <ID> is an identifier for this block and <name> is the
+	    block's name. Again, <ID> may be chosen freely (with the restriction
+	    that all the blocks in a residue must have distinct IDs), but
+	    <name> must refer to a block that has already been defined.
+
+	(c) The last set of lines defines the pairs of blocks that are
+	    connected. These lines must be of the form:
+
+		connection <idDefined> <idToDefine>
+
+	    where <idDefined> and <idToDefine> are the IDs of the block
+	    already defined and the block being defined, respectively.
+
+*******************************************
+
+4. List file formats
+
+Files in the "lists" directory are lists of resource files. Each file
+referenced by a list will be loaded when LoopTK initializes. The exception
+is "atoms.lst", which for simplicity contains all of LoopTK's atom shell
+definitions and does not reference other files. Specifically, each line
+in "atoms.lst" is of the form
+
+	<element> <radius> <r> <g> <b>
+
+where <element> is the element name, such as "C" or "H"; <radius> is the
+atom's covalent radius; and <r>, <g>, <b> specify the color that should
+be drawn when graphical navigator displays an atom of this type. RGB values
+are each specified on a scale of 0 to 1, where 0 is black and 1 is white.
+
+*******************************************
+
+5. Rotamer format
+
+Rotamer files have the ".rot" extension. They should be placed
+in the "rotamers" directory. IUPAC convention is used to define the chi-angles. 
+Angles are defined in chi.lst in the "lists" directory. 
+
+Rotamer files are defined by tab-deliminating the chi-angles for particular conformation per line. For example, ARG with four 
+chi-angles are defined by:
+
+	<chi-1>	<chi-2>	<chi-3>	<chi-4>
+
+*******************************************
+
+6. CS2 format
+
+A CS2 (second-generation chainspace) file represents a set of conformations
+for *one specific loop* within *one specific protein*.
+
+Each CS2 file specifies:
+	(1) The core protein environment, in PDB format. Each PDB line
+	    is prefaced with "pdb".
+	(2) The residues in the core protein containing the loop. This data
+	    is specified by a line of the format "loop <resStart> <resEnd>"
+	    immediately following the PDB lines.
+	(3) A series of loop conformations. Each loop conformation specifies
+	    ONLY the positions of atoms in the loop, represented by their
+	    residue numbers and atom IDs.
+
+For example, the following is a valid CS2 file:
+
+pdb <first PDB line>
+pdb <second PDB line>
+...
+pdb <n'th PDB line>
+loop 250 350
+cn1 250 <atomID> <x> <y> <z>
+cn1 250 <atomID> <x> <y> <z>
+...
+cn1 251 <atomID> <x> <y> <z>
+cn1 251 <atomID> <x> <y> <z>
+...
+cn1 350 <atomID> <x> <y> <z>
+cn1 350 <atomID> <x> <y> <z>
+...
+cn2 250 <atomID> <x> <y> <z>
+...
+
+Rationale
+=========
+
+The CS2 file format has several properties that make it desirable:
+
+1. Highly memory efficient
+	- The core protein is represented only once, not k times (if
+	  the file contains k conformations). 
+2. Easy to understand
+	- The CS2 file format reflects our intuitive definition of
+	  a loop conformation: only those atoms whose positions have
+	  changed are represented in the "cn" lines.
+3. Robust
+	- Each file represents exactly one protein environment and
+	  one loop.
+
+Interface
+=========
+
+The CS2IO class provides utility methods for reading from and writing to
+CS2 files. Otherwise, the interface should closely resemble the old proteinloop
+infrastructure.
+
+
+
+
+
+5. Credits
+----------
+LoopTK was developed in Professor Latombe's laboratory as part of the 
+Protein Loop Conformation project. 
+
+	Lead Designer:
+
+	Nathan Marz
+
+
+	Programmers:
+
+	Nathan Marz
+	Ryan Propper
+	Ankur Dhanik
+	Charles Kou
+	Peggy Yao
+
+
+
+
+
+6. Acknowledgements
+------------------
+This work has been partially funded by NSF grant DMS-0443939. Any
+opinions, findings, and conclusions or recommendations expressed in the
+above material are those of the author(s) and do not necessarily reflect
+the views of the National Science Foundation.
+
+We would like to thank Kris Hauser, Guanfeng Liu and Professor Michael Levitt for their help.
+
+7. License
+----------
+This toolkit is released under the GNU General Public License. The full license can be found
+in the file doc/LICENSE.
+
+    Copyright (C) 2007 Stanford University
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License along
+    with this program; if not, write to the Free Software Foundation, Inc.,
+    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+

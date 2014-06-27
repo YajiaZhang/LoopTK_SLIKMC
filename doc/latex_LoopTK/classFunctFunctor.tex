@@ -1,0 +1,44 @@
+\section{Funct\-Functor Class Reference}
+\label{classFunctFunctor}\index{FunctFunctor@{FunctFunctor}}
+{\tt \#include $<$PFunctors.h$>$}
+
+Inheritance diagram for Funct\-Functor::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classFunctFunctor}
+\end{center}
+\end{figure}
+
+
+\subsection{Detailed Description}
+A functor which contains the objective function to be minimized over certain DOFs of loop. Create a subclass of {\tt \doxyref{Funct\-Functor}{p.}{classFunctFunctor}} to specify custom behavior. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual double {\bf operator()} (double {\bf p}[$\,$])=0
+\item 
+virtual double {\bf operator()} (double {\bf p}[$\,$], int i)=0
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{FunctFunctor@{Funct\-Functor}!operator()@{operator()}}
+\index{operator()@{operator()}!FunctFunctor@{Funct\-Functor}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual double Funct\-Functor::operator() (double {\em p}[$\,$])\hspace{0.3cm}{\tt  [pure virtual]}}\label{classFunctFunctor_dfac5bcc6729288706d589daa4f92373}
+
+
+
+
+Implemented in {\bf Funct\-Calculator} \doxyref{}{p.}{classFunctCalculator_aa0805ec925d7abb23a429e74ba1fc03}.\index{FunctFunctor@{Funct\-Functor}!operator()@{operator()}}
+\index{operator()@{operator()}!FunctFunctor@{Funct\-Functor}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual double Funct\-Functor::operator() (double {\em p}[$\,$], int {\em i})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classFunctFunctor_6e0e522babd06f261d034b51e22bf32a}
+
+
+
+
+Implemented in {\bf Funct\-Calculator} \doxyref{}{p.}{classFunctCalculator_8d72918ffccb74429574524f2c7ab714}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/core/{\bf PFunctors.h}\end{CompactItemize}

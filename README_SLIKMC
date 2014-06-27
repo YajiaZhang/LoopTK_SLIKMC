@@ -1,0 +1,67 @@
+SLIKMC Readme
+Author: Yajia Zhang, Kris Hauser at Indiana University Bloomington
+
+Outline
+1. Setting up SLIKMC
+2. Quick tutorial
+3. Contact info
+
+1. Setting up SLIKMC
+For setting up LoopTK package, please refer to README_LoopTK
+Once LoopTK has been setup, go to folder slikmc and "make". An executable file named slikmc will be generated.
+
+2. Quick tutorial
+Example 1. Given one protein chain 1B8C, how to sample possible conformations of a subloop from residue with index 0 to residue with index 10?
+
+1. Create an instance of PProtein for protein 1B8C by providing the PDB file.
+PProtein* chain = PDBIO::readFromFile("1B8C.pdb");
+
+2. Create an instance of class SLIKMCSampler with chain as parameter:
+SLIKMCSampler sampler(chain);
+
+3. Set up the sampler. Several settings, such as using B-factors as prior, enable side-chain sampling, enable logging output conformation files, etc., can be defined according to user's preference.By default, these settings are all disabled. To enable these settings, user can call functions like:
+
+Enable collision checking. The sampler will check the steric-clash of the conformation with itself and rest of the chain.
+sampler.enableCollisionChecking();
+
+Enable using B-factors as prior. User can provide a protein file with desired distribution of atom positions. By default, the distributions of atom positions are defined according to chain p.
+sampler.enableBFactors();
+
+Enable recording the generated conformations. User can provide the number of skipped samples. By default, skip length equals to 1. All the generated files will be put in the pdbfiles_out folder with name slikmc_i.pdb which i is a index starting from 0.
+sampler.enableLog(10);
+
+Display settings. Once finishing the settings, the user can call function display() to print the current setting status of the sampler.
+sampler.display();
+
+4. Call the sampler User can call function sample() to sample conformations of the chain/subchain for 60 seconds.
+sampler.sample( 60.0, 0, 10);
+
+Example 2. How to define a custom energy function and incorporate into sampling?
+1. Define a custom energy class by inheriting the interface class Prior
+class SamplePrior:public Prior { ... }
+
+2. Override the function evaluate. Note: the density value MUST be returned in logarithm.
+double SamplePrior::evaluate( PChain* chain){
+
+   //The following is a toy example: the probability of the distance d between two C-alpha atoms is proportional to exp(-d). Use your custom code to replace it.
+
+   Vector3 p1 = chain->getResidue(3)->getAtomPosition( PID::C_ALPHA);
+
+   Vector3 p2 = chain->getResidue(6)->getAtomPosition( PID::C_ALPHA);
+
+   return -p1.distance(p2);
+
+}
+
+3. Enable the setting of using custom energy function for a SLIKMCSampler instance sampler.
+sampler.enableCustomPriors();
+
+4. Add the custom prior into the sampler. There is no limitation for the number of custom priors.
+SamplePrior prior;
+sampler.addCustomPrior( prior);
+
+
+
+
+3. Contact info
+Please contact Yajia Zhang (zhangyaj@indiana.edu) for any questions and bug issue. 

@@ -1,0 +1,35 @@
+\section{Atom\-Functor Class Reference}
+\label{classAtomFunctor}\index{AtomFunctor@{AtomFunctor}}
+{\tt \#include $<$PFunctors.h$>$}
+
+Inheritance diagram for Atom\-Functor::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.56863cm]{classAtomFunctor}
+\end{center}
+\end{figure}
+
+
+\subsection{Detailed Description}
+A functor to be called on an atom and its source bond ({\em not\/} destination bond) during a graph traversal of atoms and bonds. Create a subclass of {\tt \doxyref{Atom\-Functor}{p.}{classAtomFunctor}} to specify custom behavior. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual void {\bf operator()} ({\bf PAtom} $\ast$atom, {\bf PBond} $\ast$bond\-From)=0
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{AtomFunctor@{Atom\-Functor}!operator()@{operator()}}
+\index{operator()@{operator()}!AtomFunctor@{Atom\-Functor}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void Atom\-Functor::operator() ({\bf PAtom} $\ast$ {\em atom}, {\bf PBond} $\ast$ {\em bond\-From})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAtomFunctor_aa588ee89fb4632e7a88868319730201}
+
+
+
+
+Implemented in {\bf Rotater} \doxyref{}{p.}{structRotater_725fe4767c0f1470f0e322e903038da4}, {\bf Centering\-Getter} \doxyref{}{p.}{structCenteringGetter_843ad38a7a0069b9d6e6f7ecaa5d00a3}, {\bf Energy\-Calculator} \doxyref{}{p.}{classEnergyCalculator_20ec3bf286b6a2640a4e7c1298f9034d}, {\bf Hydro\-Atom\-Getter} \doxyref{}{p.}{structHydroAtomGetter_cb403f54bf51cd24831a29f36fede969}, {\bf Transformer} \doxyref{}{p.}{structTransformer_cbef4f301ca32b1f5cf24729c1571439}, and {\bf Atom\-Cacher} \doxyref{}{p.}{structAtomCacher_b461c7f33e61a288225445e84a2fe294}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/core/{\bf PFunctors.h}\end{CompactItemize}

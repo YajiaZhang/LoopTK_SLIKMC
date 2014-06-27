@@ -1,0 +1,56 @@
+\section{PProtein\-CCDSolver Class Reference}
+\label{classPProteinCCDSolver}\index{PProteinCCDSolver@{PProteinCCDSolver}}
+{\tt \#include $<$PIKAlgorithms.h$>$}
+
+
+
+\subsection{Detailed Description}
+Simplifies the construction of a CCD solver for a {\tt \doxyref{PProtein}{p.}{classPProtein}}, allowing the user to pass only a pointer to the loop and, if desired, the direction as a {\tt Protein\-Side} parameter. The standard {\tt \doxyref{PCCDSolver}{p.}{classPCCDSolver}} functions can then be used to perform cyclic coordinate descent. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf PProtein\-CCDSolver} ({\bf PProtein} $\ast$loop)
+\item 
+{\bf PProtein\-CCDSolver} ({\bf PProtein} $\ast$loop, {\bf Protein\-Side} side)
+\item 
+{\bf $\sim$PProtein\-CCDSolver} ()
+\item 
+Real {\bf Do\-Descent} ()
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{PProteinCCDSolver@{PProtein\-CCDSolver}!PProteinCCDSolver@{PProteinCCDSolver}}
+\index{PProteinCCDSolver@{PProteinCCDSolver}!PProteinCCDSolver@{PProtein\-CCDSolver}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PProtein\-CCDSolver::PProtein\-CCDSolver ({\bf PProtein} $\ast$ {\em loop})}\label{classPProteinCCDSolver_99ecb4e974675048a1d8b22423cab377}
+
+
+Constructs a new {\tt \doxyref{PProtein\-CCDSolver}{p.}{classPProteinCCDSolver}} for the specified {\tt loop}. The direction is selected automatically based on distances between anchor and end effector atoms: whichever {\tt Protein\-Side} (start/end) has the greater C-N anchor-effector distance is used. \index{PProteinCCDSolver@{PProtein\-CCDSolver}!PProteinCCDSolver@{PProteinCCDSolver}}
+\index{PProteinCCDSolver@{PProteinCCDSolver}!PProteinCCDSolver@{PProtein\-CCDSolver}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PProtein\-CCDSolver::PProtein\-CCDSolver ({\bf PProtein} $\ast$ {\em loop}, {\bf Protein\-Side} {\em side})}\label{classPProteinCCDSolver_dcdda7849fb8e0dbab71593fde1462a1}
+
+
+Constructs a new \doxyref{PProtein\-CCDSolver}{p.}{classPProteinCCDSolver} for the specified protein, using the specified Protein\-Side to select anchors/end effectors. \index{PProteinCCDSolver@{PProtein\-CCDSolver}!~PProteinCCDSolver@{$\sim$PProteinCCDSolver}}
+\index{~PProteinCCDSolver@{$\sim$PProteinCCDSolver}!PProteinCCDSolver@{PProtein\-CCDSolver}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PProtein\-CCDSolver::$\sim$PProtein\-CCDSolver ()\hspace{0.3cm}{\tt  [inline]}}\label{classPProteinCCDSolver_bee012f1726f341e852de678b6fb6712}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{PProteinCCDSolver@{PProtein\-CCDSolver}!DoDescent@{DoDescent}}
+\index{DoDescent@{DoDescent}!PProteinCCDSolver@{PProtein\-CCDSolver}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real PProtein\-CCDSolver::Do\-Descent ()\hspace{0.3cm}{\tt  [inline]}}\label{classPProteinCCDSolver_2f0f3fa461feeda7ebc36891253f0809}
+
+
+Performs the same function as {\tt \doxyref{PCCDSolver::Do\-Descent()}{p.}{classPCCDSolver_33c16d1eb8cddda9899edbf8d860d5b4}}.
+
+\begin{Desc}
+\item[See also:]\doxyref{PCCDSolver::Do\-Descent}{p.}{classPCCDSolver_33c16d1eb8cddda9899edbf8d860d5b4} \end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PIKAlgorithms.h}\item 
+src/core/{\bf PProtein\-CCDSolver.cc}\end{CompactItemize}

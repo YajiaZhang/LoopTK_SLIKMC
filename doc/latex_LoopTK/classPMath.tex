@@ -1,0 +1,126 @@
+\section{PMath Class Reference}
+\label{classPMath}\index{PMath@{PMath}}
+{\tt \#include $<$PExtension.h$>$}
+
+
+
+\subsection{Detailed Description}
+Contains mathematical functions needed in various \doxyref{Loop\-TK}{p.}{classLoopTK} computations, such as cyclic coordinate descent (CCD) and chain manipulations. 
+
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static Real {\bf Angle\-Between\-Planes} (const Vector3 \&p1, const Vector3 \&p2, const Vector3 \&p3, const Vector3 \&p4)
+\item 
+static Real {\bf get\-Angle} (const Vector3 \&v1, const Vector3 \&v2)
+\item 
+static Vector3 {\bf Compute\-Pos} (const Vector3 \&prev, const Vector3 \&cur, Real angle, Real bond\-Length)
+\item 
+static bool {\bf sphere\-Intersects\-Cube} (const Vector3 \&sphere\-Center, Real sphere\-Radius, const Vector3 \&cube\-Vertex1, const Vector3 \&cube\-Vertex2)
+\item 
+static Vector3 {\bf Arbitrary\-Non\-Parallel} (const Vector3 \&v)
+\item 
+static void {\bf normalize} (vector$<$ double $>$ \&v)
+\item 
+static Matrix4 {\bf Find2Pt\-Transform} (Vector3 s1, Vector3 s2, Vector3 e1, Vector3 e2)
+\item 
+static Matrix3 {\bf Find\-Rotation\-Matrix} (const Vector3 \&axis, Real angle)
+\item 
+static Vector3 {\bf Local\-To\-Global\-Coord} (const vector$<$ Vector3 $>$ defined\-Relative\-Coordinates, const vector$<$ Vector3 $>$ defined\-Global\-Coordinates)
+\item 
+static void {\bf Convert\-To\-Quaternion} (double $\ast$$\ast$input, Vector4 $\ast$output, vector$<$ int $>$ sign)
+\item 
+static void {\bf Interpolate\-Quaternion} (Vector4 qi, Vector4 qf, Vector4 $\ast$qu, double u)
+\item 
+static void {\bf Delta\-Quater\-To\-Delta\-Vel} (Vector4 qi, Vector4 qf, Vector3 $\ast$delat\-V)
+\item 
+static int {\bf signum} (double a)
+\item 
+static double {\bf Torsion\-Angle} (Vector3 u, Vector3 v, Vector3 w)
+\item 
+static double {\bf abs} (double d)
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{PMath@{PMath}!AngleBetweenPlanes@{AngleBetweenPlanes}}
+\index{AngleBetweenPlanes@{AngleBetweenPlanes}!PMath@{PMath}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real PMath::Angle\-Between\-Planes (const Vector3 \& {\em p1}, const Vector3 \& {\em p2}, const Vector3 \& {\em p3}, const Vector3 \& {\em p4})\hspace{0.3cm}{\tt  [static]}}\label{classPMath_0daf5c7b8245645c7708043dded13e82}
+
+
+Computes the angle between the planes determined by the specified four points. \index{PMath@{PMath}!getAngle@{getAngle}}
+\index{getAngle@{getAngle}!PMath@{PMath}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real PMath::get\-Angle (const Vector3 \& {\em v1}, const Vector3 \& {\em v2})\hspace{0.3cm}{\tt  [static]}}\label{classPMath_dcc5e3123f98af97c39a4d7bc24a1e9b}
+
+
+Computes the angle (in radians) between vectors v1 and v2. \index{PMath@{PMath}!ComputePos@{ComputePos}}
+\index{ComputePos@{ComputePos}!PMath@{PMath}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Vector3 PMath::Compute\-Pos (const Vector3 \& {\em prev}, const Vector3 \& {\em cur}, Real {\em angle}, Real {\em bond\-Length})\hspace{0.3cm}{\tt  [static]}}\label{classPMath_b92f88b3962cbbdd9c5bc8f83faede5b}
+
+
+Computes the position of the point \char`\"{}next\char`\"{} given points prev and cur, the angle prev-cur-next, and the distance between cur and next. \index{PMath@{PMath}!sphereIntersectsCube@{sphereIntersectsCube}}
+\index{sphereIntersectsCube@{sphereIntersectsCube}!PMath@{PMath}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PMath::sphere\-Intersects\-Cube (const Vector3 \& {\em sphere\-Center}, Real {\em sphere\-Radius}, const Vector3 \& {\em cube\-Vertex1}, const Vector3 \& {\em cube\-Vertex2})\hspace{0.3cm}{\tt  [static]}}\label{classPMath_b82025e93d9f8882f0415c5804bb69e3}
+
+
+Returns {\tt true} if the sphere with specified center and radius intersects any part of the cube with the specified pair of opposing vertices. \index{PMath@{PMath}!ArbitraryNonParallel@{ArbitraryNonParallel}}
+\index{ArbitraryNonParallel@{ArbitraryNonParallel}!PMath@{PMath}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Vector3 PMath::Arbitrary\-Non\-Parallel (const Vector3 \& {\em v})\hspace{0.3cm}{\tt  [static]}}\label{classPMath_14863965f63b388a42c0c7c3e6eb94fb}
+
+
+Given the vector v, computes and returns a vector not parallel to v. \index{PMath@{PMath}!normalize@{normalize}}
+\index{normalize@{normalize}!PMath@{PMath}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PMath::normalize (vector$<$ double $>$ \& {\em v})\hspace{0.3cm}{\tt  [static]}}\label{classPMath_3f2dd23cff208cb152b9245c825e9de5}
+
+
+Divides each element in v by the sum of all elements in v. \index{PMath@{PMath}!Find2PtTransform@{Find2PtTransform}}
+\index{Find2PtTransform@{Find2PtTransform}!PMath@{PMath}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Matrix4 PMath::Find2Pt\-Transform (Vector3 {\em s1}, Vector3 {\em s2}, Vector3 {\em e1}, Vector3 {\em e2})\hspace{0.3cm}{\tt  [static]}}\label{classPMath_c39299d157082c9f794c308b0afc1205}
+
+
+\index{PMath@{PMath}!FindRotationMatrix@{FindRotationMatrix}}
+\index{FindRotationMatrix@{FindRotationMatrix}!PMath@{PMath}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Matrix3 PMath::Find\-Rotation\-Matrix (const Vector3 \& {\em axis}, Real {\em angle})\hspace{0.3cm}{\tt  [static]}}\label{classPMath_5baf046e9036507ba05ac12fb2ca7608}
+
+
+Finds and returns a rotation matrix for rotating a vector the specified number of radians around the specified axis according to left-hand rule. \index{PMath@{PMath}!LocalToGlobalCoord@{LocalToGlobalCoord}}
+\index{LocalToGlobalCoord@{LocalToGlobalCoord}!PMath@{PMath}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Vector3 PMath::Local\-To\-Global\-Coord (const vector$<$ Vector3 $>$ {\em defined\-Relative\-Coordinates}, const vector$<$ Vector3 $>$ {\em defined\-Global\-Coordinates})\hspace{0.3cm}{\tt  [static]}}\label{classPMath_90a2fd3da64a0f917687a0cb59be1638}
+
+
+Converts the vector of defined relative coordinates into a vector of global coordinates. \index{PMath@{PMath}!ConvertToQuaternion@{ConvertToQuaternion}}
+\index{ConvertToQuaternion@{ConvertToQuaternion}!PMath@{PMath}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PMath::Convert\-To\-Quaternion (double $\ast$$\ast$ {\em input}, Vector4 $\ast$ {\em output}, vector$<$ int $>$ {\em sign})\hspace{0.3cm}{\tt  [static]}}\label{classPMath_f7315dd88a323ebcd490d84af94389db}
+
+
+Converts a 3X3 rotation matrix specified by {\tt  input } to a quaternion vector returned in {\tt output}. \index{PMath@{PMath}!InterpolateQuaternion@{InterpolateQuaternion}}
+\index{InterpolateQuaternion@{InterpolateQuaternion}!PMath@{PMath}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PMath::Interpolate\-Quaternion (Vector4 {\em qi}, Vector4 {\em qf}, Vector4 $\ast$ {\em qu}, double {\em u})\hspace{0.3cm}{\tt  [static]}}\label{classPMath_e7d96165f6a3d75aedeb150f8754e269}
+
+
+Interpolates between two quaternions specified by {\tt qi} and {\tt qf} and returns the interpolated quternion in {\tt qu}. {\tt u} ranges from 0.0 to 1.0 \index{PMath@{PMath}!DeltaQuaterToDeltaVel@{DeltaQuaterToDeltaVel}}
+\index{DeltaQuaterToDeltaVel@{DeltaQuaterToDeltaVel}!PMath@{PMath}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PMath::Delta\-Quater\-To\-Delta\-Vel (Vector4 {\em qi}, Vector4 {\em qf}, Vector3 $\ast$ {\em delat\-V})\hspace{0.3cm}{\tt  [static]}}\label{classPMath_3b08b9522659ef7ce779f38ae380a457}
+
+
+Converts a change in quaternion space specified by difference between {\tt qi} and {\tt qf} to a change in velocity space and returns it in {\tt delta\-V}. \index{PMath@{PMath}!signum@{signum}}
+\index{signum@{signum}!PMath@{PMath}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PMath::signum (double {\em a})\hspace{0.3cm}{\tt  [static]}}\label{classPMath_1debcc42a239f8497008f1de10f8b0ba}
+
+
+Returns the signum of {\tt a} \index{PMath@{PMath}!TorsionAngle@{TorsionAngle}}
+\index{TorsionAngle@{TorsionAngle}!PMath@{PMath}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double PMath::Torsion\-Angle (Vector3 {\em u}, Vector3 {\em v}, Vector3 {\em w})\hspace{0.3cm}{\tt  [static]}}\label{classPMath_d06ab5beb507dd64d01be0e5a7920ce7}
+
+
+returns the torsion angle between the plane defined by vectors {\tt w} and {\tt u} and the plane defined by vectors {\tt w} and {\tt v}. \index{PMath@{PMath}!abs@{abs}}
+\index{abs@{abs}!PMath@{PMath}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double PMath::abs (double {\em d})\hspace{0.3cm}{\tt  [static]}}\label{classPMath_5b1c8a6bcfd10a99714b48523bf8bfd1}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PExtension.h}\item 
+src/core/{\bf PMath.cc}\end{CompactItemize}

@@ -1,0 +1,127 @@
+\section{backward\-Open\-Loop\-Node Class Reference}
+\label{classbackwardOpenLoopNode}\index{backwardOpenLoopNode@{backwardOpenLoopNode}}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf backward\-Open\-Loop\-Node} (int i, string s, Real v, int id, int loopsize)
+\item 
+{\bf backward\-Open\-Loop\-Node} (int i, string s, Real v, int loopsize)
+\item 
+{\bf backward\-Open\-Loop\-Node} (int i, string s, int loopsize)
+\item 
+bool {\bf equal} ({\bf backward\-Open\-Loop\-Node} n)
+\item 
+int {\bf get\-Dof} ()
+\item 
+int {\bf get\-Child\-Dof} ()
+\item 
+int {\bf get\-Child\-Rid} ()
+\item 
+{\bf backward\-Open\-Loop\-Node} $\ast$ {\bf next\-Child} (vector$<$ Real $>$ $\ast$Phi\-Values, vector$<$ Real $>$ $\ast$Psi\-Values)
+\item 
+int {\bf generate\-Children} (vector$<$ Real $>$ $\ast$Phi\-Values, vector$<$ Real $>$ $\ast$Psi\-Values, {\bf PPhi\-Psi\-Distribution} \&Phi\-Psi\-Distri)
+\item 
+void {\bf print} ()
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int {\bf Rid}
+\item 
+string {\bf Type}
+\item 
+Real {\bf Value}
+\item 
+int {\bf Last\-Visited\-Child\-Id}
+\item 
+int {\bf Loop\-Size}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{backwardOpenLoopNode@{backward\-Open\-Loop\-Node}!backwardOpenLoopNode@{backwardOpenLoopNode}}
+\index{backwardOpenLoopNode@{backwardOpenLoopNode}!backwardOpenLoopNode@{backward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}backward\-Open\-Loop\-Node::backward\-Open\-Loop\-Node (int {\em i}, string {\em s}, Real {\em v}, int {\em id}, int {\em loopsize})\hspace{0.3cm}{\tt  [inline]}}\label{classbackwardOpenLoopNode_a853e397e0500b5463ff6d5ecca736de}
+
+
+\index{backwardOpenLoopNode@{backward\-Open\-Loop\-Node}!backwardOpenLoopNode@{backwardOpenLoopNode}}
+\index{backwardOpenLoopNode@{backwardOpenLoopNode}!backwardOpenLoopNode@{backward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}backward\-Open\-Loop\-Node::backward\-Open\-Loop\-Node (int {\em i}, string {\em s}, Real {\em v}, int {\em loopsize})\hspace{0.3cm}{\tt  [inline]}}\label{classbackwardOpenLoopNode_866a75ebe59eedbaf94c612a0ce37125}
+
+
+\index{backwardOpenLoopNode@{backward\-Open\-Loop\-Node}!backwardOpenLoopNode@{backwardOpenLoopNode}}
+\index{backwardOpenLoopNode@{backwardOpenLoopNode}!backwardOpenLoopNode@{backward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}backward\-Open\-Loop\-Node::backward\-Open\-Loop\-Node (int {\em i}, string {\em s}, int {\em loopsize})\hspace{0.3cm}{\tt  [inline]}}\label{classbackwardOpenLoopNode_87581e6c6599a83b5e37f4ccc7ec824d}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{backwardOpenLoopNode@{backward\-Open\-Loop\-Node}!equal@{equal}}
+\index{equal@{equal}!backwardOpenLoopNode@{backward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool backward\-Open\-Loop\-Node::equal ({\bf backward\-Open\-Loop\-Node} {\em n})\hspace{0.3cm}{\tt  [inline]}}\label{classbackwardOpenLoopNode_d7b41d4e386b87a533fbe05608386272}
+
+
+\index{backwardOpenLoopNode@{backward\-Open\-Loop\-Node}!getDof@{getDof}}
+\index{getDof@{getDof}!backwardOpenLoopNode@{backward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int backward\-Open\-Loop\-Node::get\-Dof ()\hspace{0.3cm}{\tt  [inline]}}\label{classbackwardOpenLoopNode_40636fbe409ec18ae46ece4f94864ae7}
+
+
+\index{backwardOpenLoopNode@{backward\-Open\-Loop\-Node}!getChildDof@{getChildDof}}
+\index{getChildDof@{getChildDof}!backwardOpenLoopNode@{backward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int backward\-Open\-Loop\-Node::get\-Child\-Dof ()\hspace{0.3cm}{\tt  [inline]}}\label{classbackwardOpenLoopNode_67fa90e11187a096a63bbae160ea518a}
+
+
+\index{backwardOpenLoopNode@{backward\-Open\-Loop\-Node}!getChildRid@{getChildRid}}
+\index{getChildRid@{getChildRid}!backwardOpenLoopNode@{backward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int backward\-Open\-Loop\-Node::get\-Child\-Rid ()\hspace{0.3cm}{\tt  [inline]}}\label{classbackwardOpenLoopNode_d3369b67f96f61bf0b2f778d45263805}
+
+
+\index{backwardOpenLoopNode@{backward\-Open\-Loop\-Node}!nextChild@{nextChild}}
+\index{nextChild@{nextChild}!backwardOpenLoopNode@{backward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf backward\-Open\-Loop\-Node}$\ast$ backward\-Open\-Loop\-Node::next\-Child (vector$<$ Real $>$ $\ast$ {\em Phi\-Values}, vector$<$ Real $>$ $\ast$ {\em Psi\-Values})\hspace{0.3cm}{\tt  [inline]}}\label{classbackwardOpenLoopNode_fb220ca939f9a4ab7eaba7b2d99e9fc4}
+
+
+\index{backwardOpenLoopNode@{backward\-Open\-Loop\-Node}!generateChildren@{generateChildren}}
+\index{generateChildren@{generateChildren}!backwardOpenLoopNode@{backward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int backward\-Open\-Loop\-Node::generate\-Children (vector$<$ Real $>$ $\ast$ {\em Phi\-Values}, vector$<$ Real $>$ $\ast$ {\em Psi\-Values}, {\bf PPhi\-Psi\-Distribution} \& {\em Phi\-Psi\-Distri})\hspace{0.3cm}{\tt  [inline]}}\label{classbackwardOpenLoopNode_d76668215977e9d383d051b256224ac3}
+
+
+\index{backwardOpenLoopNode@{backward\-Open\-Loop\-Node}!print@{print}}
+\index{print@{print}!backwardOpenLoopNode@{backward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void backward\-Open\-Loop\-Node::print ()\hspace{0.3cm}{\tt  [inline]}}\label{classbackwardOpenLoopNode_9a376a848ee68e202d45ce95aa67472d}
+
+
+
+
+\subsection{Member Data Documentation}
+\index{backwardOpenLoopNode@{backward\-Open\-Loop\-Node}!Rid@{Rid}}
+\index{Rid@{Rid}!backwardOpenLoopNode@{backward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf backward\-Open\-Loop\-Node::Rid}}\label{classbackwardOpenLoopNode_2ee00a25c13faaba5fe91b24aebde3c9}
+
+
+\index{backwardOpenLoopNode@{backward\-Open\-Loop\-Node}!Type@{Type}}
+\index{Type@{Type}!backwardOpenLoopNode@{backward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string {\bf backward\-Open\-Loop\-Node::Type}}\label{classbackwardOpenLoopNode_4e6aa9323467038fa8959e9d368c96d7}
+
+
+\index{backwardOpenLoopNode@{backward\-Open\-Loop\-Node}!Value@{Value}}
+\index{Value@{Value}!backwardOpenLoopNode@{backward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real {\bf backward\-Open\-Loop\-Node::Value}}\label{classbackwardOpenLoopNode_b6909a06ed7abc409f0f462a57be85ac}
+
+
+\index{backwardOpenLoopNode@{backward\-Open\-Loop\-Node}!LastVisitedChildId@{LastVisitedChildId}}
+\index{LastVisitedChildId@{LastVisitedChildId}!backwardOpenLoopNode@{backward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf backward\-Open\-Loop\-Node::Last\-Visited\-Child\-Id}}\label{classbackwardOpenLoopNode_dae81bb87767b0eddd48f9d8c12d76b8}
+
+
+\index{backwardOpenLoopNode@{backward\-Open\-Loop\-Node}!LoopSize@{LoopSize}}
+\index{LoopSize@{LoopSize}!backwardOpenLoopNode@{backward\-Open\-Loop\-Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf backward\-Open\-Loop\-Node::Loop\-Size}}\label{classbackwardOpenLoopNode_6a51efb0ce1661c4a36f7e752c023c3d}
+
+
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/core/{\bf PSamp\-Methods.cc}\end{CompactItemize}

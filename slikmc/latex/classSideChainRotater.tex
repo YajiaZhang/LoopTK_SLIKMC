@@ -1,0 +1,123 @@
+\hypertarget{classSidechainRotater}{\section{Sidechain\-Rotater Class Reference}
+\label{classSidechainRotater}\index{Sidechain\-Rotater@{Sidechain\-Rotater}}
+}
+
+
+The class \hyperlink{classSidechainRotater}{Sidechain\-Rotater} is used to rotate side-\/chain conformations for a given chain and evaluate a given chain according to its side-\/chain structure.  
+
+
+
+
+{\ttfamily \#include $<$Side\-Chain\-Rotater.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSidechainRotater_a1c6c7248459aef075f5025eaaf1884cf}{Sidechain\-Rotater} (P\-Protein $\ast$chain)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hypertarget{classSidechainRotater_a2203b921e0064088e8d875b3990c1bdb}{virtual \hyperlink{classSidechainRotater_a2203b921e0064088e8d875b3990c1bdb}{$\sim$\-Sidechain\-Rotater} ()}\label{classSidechainRotater_a2203b921e0064088e8d875b3990c1bdb}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classSidechainRotater_ac1ee6fb7ca4916bee7ce636fdf365a34}{rotate\-Sidechain} (P\-Chain $\ast$chain, const vector$<$ Dihedral\-Angle $>$ \&a\-Backbone)
+\begin{DoxyCompactList}\small\item\em Sample and rotate side-\/chains. \end{DoxyCompactList}\item 
+double \hyperlink{classSidechainRotater_a70b676fec39124ff681392115cf58667}{eval\-Sidechain} (P\-Chain $\ast$chain)
+\begin{DoxyCompactList}\small\item\em Evaluate the chain according to side-\/chain conformations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classSidechainRotater_aa4a840afe53d821f99f03a00e477caff}{get\-Sidechain\-Angles} (P\-Protein $\ast$chain, vector$<$ vector$<$ double $>$ $>$ \&angles)
+\begin{DoxyCompactList}\small\item\em Get all side-\/chain angles for a given chain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classSidechainRotater_ac7ca55fc28828958952de9c6fa321cb4}{\hyperlink{classRotamer}{Rotamer} $\ast$ {\bfseries rotamer}}\label{classSidechainRotater_ac7ca55fc28828958952de9c6fa321cb4}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The class \hyperlink{classSidechainRotater}{Sidechain\-Rotater} is used to rotate side-\/chain conformations for a given chain and evaluate a given chain according to its side-\/chain structure. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classSidechainRotater_a1c6c7248459aef075f5025eaaf1884cf}{\index{Sidechain\-Rotater@{Sidechain\-Rotater}!Sidechain\-Rotater@{Sidechain\-Rotater}}
+\index{Sidechain\-Rotater@{Sidechain\-Rotater}!SidechainRotater@{Sidechain\-Rotater}}
+\subsubsection[{Sidechain\-Rotater}]{\setlength{\rightskip}{0pt plus 5cm}Sidechain\-Rotater\-::\-Sidechain\-Rotater (
+\begin{DoxyParamCaption}
+\item[{P\-Protein $\ast$}]{chain}
+\end{DoxyParamCaption}
+)}}\label{classSidechainRotater_a1c6c7248459aef075f5025eaaf1884cf}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chain} & the chain to be sampled, used for initialization of side-\/chain database. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classSidechainRotater_a70b676fec39124ff681392115cf58667}{\index{Sidechain\-Rotater@{Sidechain\-Rotater}!eval\-Sidechain@{eval\-Sidechain}}
+\index{eval\-Sidechain@{eval\-Sidechain}!SidechainRotater@{Sidechain\-Rotater}}
+\subsubsection[{eval\-Sidechain}]{\setlength{\rightskip}{0pt plus 5cm}double Sidechain\-Rotater\-::eval\-Sidechain (
+\begin{DoxyParamCaption}
+\item[{P\-Chain $\ast$}]{chain}
+\end{DoxyParamCaption}
+)}}\label{classSidechainRotater_a70b676fec39124ff681392115cf58667}
+
+
+Evaluate the chain according to side-\/chain conformations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chain} & the chain to be evaluated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+probability in logarithm 
+\end{DoxyReturn}
+\hypertarget{classSidechainRotater_aa4a840afe53d821f99f03a00e477caff}{\index{Sidechain\-Rotater@{Sidechain\-Rotater}!get\-Sidechain\-Angles@{get\-Sidechain\-Angles}}
+\index{get\-Sidechain\-Angles@{get\-Sidechain\-Angles}!SidechainRotater@{Sidechain\-Rotater}}
+\subsubsection[{get\-Sidechain\-Angles}]{\setlength{\rightskip}{0pt plus 5cm}void Sidechain\-Rotater\-::get\-Sidechain\-Angles (
+\begin{DoxyParamCaption}
+\item[{P\-Protein $\ast$}]{chain, }
+\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{angles}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classSidechainRotater_aa4a840afe53d821f99f03a00e477caff}
+
+
+Get all side-\/chain angles for a given chain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chain} & the given chain \\
+\hline
+{\em angles} & stores the side-\/chain angles \\
+\hline
+\end{DoxyParams}
+\hypertarget{classSidechainRotater_ac1ee6fb7ca4916bee7ce636fdf365a34}{\index{Sidechain\-Rotater@{Sidechain\-Rotater}!rotate\-Sidechain@{rotate\-Sidechain}}
+\index{rotate\-Sidechain@{rotate\-Sidechain}!SidechainRotater@{Sidechain\-Rotater}}
+\subsubsection[{rotate\-Sidechain}]{\setlength{\rightskip}{0pt plus 5cm}void Sidechain\-Rotater\-::rotate\-Sidechain (
+\begin{DoxyParamCaption}
+\item[{P\-Chain $\ast$}]{chain, }
+\item[{const vector$<$ Dihedral\-Angle $>$ \&}]{a\-Backbone}
+\end{DoxyParamCaption}
+)}}\label{classSidechainRotater_ac1ee6fb7ca4916bee7ce636fdf365a34}
+
+
+Sample and rotate side-\/chains. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chain} & the chain to be sampled. \\
+\hline
+{\em a\-Backbone} & backbone dihedral angles of the chain. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Side\-Chain\-Rotater.\-h\item 
+Side\-Chain\-Rotater.\-cc\end{DoxyCompactItemize}

@@ -1,0 +1,141 @@
+\hypertarget{classGibbsSampling}{\section{Gibbs\-Sampling Class Reference}
+\label{classGibbsSampling}\index{Gibbs\-Sampling@{Gibbs\-Sampling}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGibbsSampling_aedbcd582133607373c87dccadd9f5b10}{Gibbs\-Sampling} (P\-Protein $\ast$p)
+\begin{DoxyCompactList}\small\item\em Constructor of \hyperlink{classGibbsSampling}{Gibbs\-Sampling}. \end{DoxyCompactList}\item 
+\hypertarget{classGibbsSampling_aa7f8351b4088af4e8d6f889219c14169}{virtual \hyperlink{classGibbsSampling_aa7f8351b4088af4e8d6f889219c14169}{$\sim$\-Gibbs\-Sampling} ()}\label{classGibbsSampling_aa7f8351b4088af4e8d6f889219c14169}
+
+\begin{DoxyCompactList}\small\item\em Destructor of \hyperlink{classGibbsSampling}{Gibbs\-Sampling}. \end{DoxyCompactList}\item 
+void \hyperlink{classGibbsSampling_a16d1cf9d2c27e85cbeed37e393442ab1}{sample} (const double time, const int s, const int e)
+\begin{DoxyCompactList}\small\item\em Sample conformations of sub-\/loop from residue s to residue e. \end{DoxyCompactList}\item 
+void \hyperlink{classGibbsSampling_ad470768f4f91a8ed81b31402452505d4}{use\-B\-Factor} (const bool, P\-Protein $\ast$p\-\_\-bfactor=N\-U\-L\-L)
+\begin{DoxyCompactList}\small\item\em Enable/disable using B-\/factor priors in sampling. \end{DoxyCompactList}\item 
+void \hyperlink{classGibbsSampling_af336b5f1c0fb3d1200db90924756e457}{activate\-Sidechain} (const bool)
+\begin{DoxyCompactList}\small\item\em Enable/disable side-\/chain sampling. \end{DoxyCompactList}\item 
+void \hyperlink{classGibbsSampling_af71db5285d0caba71b67cc12bbfa93c9}{is\-Free\-End} (const bool)
+\begin{DoxyCompactList}\small\item\em Enable/disable handling two ends of chain. \end{DoxyCompactList}\item 
+void \hyperlink{classGibbsSampling_a1de603dfe8c7ffface7cbe009229f0f7}{enable\-Log} (const int skip\-Length)
+\begin{DoxyCompactList}\small\item\em Enable logging generated conformations. \end{DoxyCompactList}\item 
+\hypertarget{classGibbsSampling_a10ce4ab220d6a458fc17074de177d68b}{void \hyperlink{classGibbsSampling_a10ce4ab220d6a458fc17074de177d68b}{disable\-Log} ()}\label{classGibbsSampling_a10ce4ab220d6a458fc17074de177d68b}
+
+\begin{DoxyCompactList}\small\item\em Disable logging generated conformations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGibbsSampling_aedbcd582133607373c87dccadd9f5b10}{\index{Gibbs\-Sampling@{Gibbs\-Sampling}!Gibbs\-Sampling@{Gibbs\-Sampling}}
+\index{Gibbs\-Sampling@{Gibbs\-Sampling}!GibbsSampling@{Gibbs\-Sampling}}
+\subsubsection[{Gibbs\-Sampling}]{\setlength{\rightskip}{0pt plus 5cm}Gibbs\-Sampling\-::\-Gibbs\-Sampling (
+\begin{DoxyParamCaption}
+\item[{P\-Protein $\ast$}]{p}
+\end{DoxyParamCaption}
+)}}\label{classGibbsSampling_aedbcd582133607373c87dccadd9f5b10}
+
+
+Constructor of \hyperlink{classGibbsSampling}{Gibbs\-Sampling}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The protein chain want to be sampled. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classGibbsSampling_af336b5f1c0fb3d1200db90924756e457}{\index{Gibbs\-Sampling@{Gibbs\-Sampling}!activate\-Sidechain@{activate\-Sidechain}}
+\index{activate\-Sidechain@{activate\-Sidechain}!GibbsSampling@{Gibbs\-Sampling}}
+\subsubsection[{activate\-Sidechain}]{\setlength{\rightskip}{0pt plus 5cm}void Gibbs\-Sampling\-::activate\-Sidechain (
+\begin{DoxyParamCaption}
+\item[{const bool}]{enable\-Sidechain}
+\end{DoxyParamCaption}
+)}}\label{classGibbsSampling_af336b5f1c0fb3d1200db90924756e457}
+
+
+Enable/disable side-\/chain sampling. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em true,\-:} & enable side-\/chain; false\-: disable side-\/chain \\
+\hline
+\end{DoxyParams}
+\hypertarget{classGibbsSampling_a1de603dfe8c7ffface7cbe009229f0f7}{\index{Gibbs\-Sampling@{Gibbs\-Sampling}!enable\-Log@{enable\-Log}}
+\index{enable\-Log@{enable\-Log}!GibbsSampling@{Gibbs\-Sampling}}
+\subsubsection[{enable\-Log}]{\setlength{\rightskip}{0pt plus 5cm}void Gibbs\-Sampling\-::enable\-Log (
+\begin{DoxyParamCaption}
+\item[{const int}]{skip\-Length}
+\end{DoxyParamCaption}
+)}}\label{classGibbsSampling_a1de603dfe8c7ffface7cbe009229f0f7}
+
+
+Enable logging generated conformations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em skip\-Length} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classGibbsSampling_af71db5285d0caba71b67cc12bbfa93c9}{\index{Gibbs\-Sampling@{Gibbs\-Sampling}!is\-Free\-End@{is\-Free\-End}}
+\index{is\-Free\-End@{is\-Free\-End}!GibbsSampling@{Gibbs\-Sampling}}
+\subsubsection[{is\-Free\-End}]{\setlength{\rightskip}{0pt plus 5cm}void Gibbs\-Sampling\-::is\-Free\-End (
+\begin{DoxyParamCaption}
+\item[{const bool}]{free\-End}
+\end{DoxyParamCaption}
+)}}\label{classGibbsSampling_af71db5285d0caba71b67cc12bbfa93c9}
+
+
+Enable/disable handling two ends of chain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em true,\-:} & enable sampling two ends; false\-: disable sampling two ends. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classGibbsSampling_a16d1cf9d2c27e85cbeed37e393442ab1}{\index{Gibbs\-Sampling@{Gibbs\-Sampling}!sample@{sample}}
+\index{sample@{sample}!GibbsSampling@{Gibbs\-Sampling}}
+\subsubsection[{sample}]{\setlength{\rightskip}{0pt plus 5cm}void Gibbs\-Sampling\-::sample (
+\begin{DoxyParamCaption}
+\item[{const double}]{time, }
+\item[{const int}]{s, }
+\item[{const int}]{e}
+\end{DoxyParamCaption}
+)}}\label{classGibbsSampling_a16d1cf9d2c27e85cbeed37e393442ab1}
+
+
+Sample conformations of sub-\/loop from residue s to residue e. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & time duration for sampling \\
+\hline
+{\em s} & index of starting residue \\
+\hline
+{\em e} & index of ending residue \\
+\hline
+\end{DoxyParams}
+\hypertarget{classGibbsSampling_ad470768f4f91a8ed81b31402452505d4}{\index{Gibbs\-Sampling@{Gibbs\-Sampling}!use\-B\-Factor@{use\-B\-Factor}}
+\index{use\-B\-Factor@{use\-B\-Factor}!GibbsSampling@{Gibbs\-Sampling}}
+\subsubsection[{use\-B\-Factor}]{\setlength{\rightskip}{0pt plus 5cm}void Gibbs\-Sampling\-::use\-B\-Factor (
+\begin{DoxyParamCaption}
+\item[{const bool}]{use\-Bfactor, }
+\item[{P\-Protein $\ast$}]{p\-\_\-bfactor = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}}\label{classGibbsSampling_ad470768f4f91a8ed81b31402452505d4}
+
+
+Enable/disable using B-\/factor priors in sampling. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em true,\-:} & enable; false\-: disable \\
+\hline
+{\em p\-\_\-bfactor,\-:} & if enable B-\/factor priors, provide a protein conformation with desired atom positions. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+S\-L\-I\-K\-M\-C.\-h\item 
+S\-L\-I\-K\-M\-C.\-cc\end{DoxyCompactItemize}

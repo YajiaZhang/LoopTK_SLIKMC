@@ -1,0 +1,53 @@
+\hypertarget{classPrior}{\section{Prior Class Reference}
+\label{classPrior}\index{Prior@{Prior}}
+}
+
+
+Interface for user defined priors.  
+
+
+
+
+{\ttfamily \#include $<$Prior.\-h$>$}
+
+Inheritance diagram for Prior\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classPrior}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual double \hyperlink{classPrior_a4c130ca9913663eb13d423045640345f}{evaluate} (P\-Chain $\ast$protein)
+\begin{DoxyCompactList}\small\item\em Override this function to define custom energy/prior function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interface for user defined priors. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classPrior_a4c130ca9913663eb13d423045640345f}{\index{Prior@{Prior}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!Prior@{Prior}}
+\subsubsection[{evaluate}]{\setlength{\rightskip}{0pt plus 5cm}double Prior\-::evaluate (
+\begin{DoxyParamCaption}
+\item[{P\-Chain $\ast$}]{protein}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classPrior_a4c130ca9913663eb13d423045640345f}
+
+
+Override this function to define custom energy/prior function. 
+
+\begin{DoxyReturn}{Returns}
+Probability density in logarithm. 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classSamplePrior_af1209bf9710e4c336084c18b3eba3547}{Sample\-Prior}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Prior.\-h\item 
+Prior.\-cc\end{DoxyCompactItemize}

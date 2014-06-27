@@ -1,0 +1,144 @@
+\hypertarget{classMHSampler}{\section{M\-H\-Sampler Class Reference}
+\label{classMHSampler}\index{M\-H\-Sampler@{M\-H\-Sampler}}
+}
+
+
+The class M\-H\-Sample is a sampler based on standard Metropolis-\/\-Hastings algorithm. This class can be used to generate free-\/end conformations.  
+
+
+
+
+{\ttfamily \#include $<$Metropolis\-Hastings\-Sampler.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classMHSampler_a679bcaeb40eb2c93d6c887aa0caf5ffb}{\hyperlink{classMHSampler_a679bcaeb40eb2c93d6c887aa0caf5ffb}{M\-H\-Sampler} (P\-Protein $\ast$chain)}\label{classMHSampler_a679bcaeb40eb2c93d6c887aa0caf5ffb}
+
+\begin{DoxyCompactList}\small\item\em Construct a standard Metropolis-\/\-Hastings sampler for specific chain. \end{DoxyCompactList}\item 
+\hypertarget{classMHSampler_a616f50fbfd701e216ec0fe001e43fae2}{virtual \hyperlink{classMHSampler_a616f50fbfd701e216ec0fe001e43fae2}{$\sim$\-M\-H\-Sampler} ()}\label{classMHSampler_a616f50fbfd701e216ec0fe001e43fae2}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classMHSampler_acc6e5c4d51b6515abcc08826e086a19b}{sample} (const double time, const double radius)
+\begin{DoxyCompactList}\small\item\em Sample conformations of protein. \end{DoxyCompactList}\item 
+void \hyperlink{classMHSampler_ae959c85bfd635c79bc1530128c974e92}{enable\-Bfactors} (P\-Protein $\ast$chain=N\-U\-L\-L)
+\begin{DoxyCompactList}\small\item\em Enable using B-\/factors as priors. \end{DoxyCompactList}\item 
+\hypertarget{classMHSampler_a04e42f35ed5a96b32640cb3cb6f14220}{void \hyperlink{classMHSampler_a04e42f35ed5a96b32640cb3cb6f14220}{disable\-Bfactors} ()}\label{classMHSampler_a04e42f35ed5a96b32640cb3cb6f14220}
+
+\begin{DoxyCompactList}\small\item\em Disable using B-\/factors as priors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classMHSampler_a36f466ea9201e93ea3eb71a4f2063a60}{M\-H\-Step} (double P, double Q, double P\-\_\-proposal, double Q\-\_\-proposal)
+\begin{DoxyCompactList}\small\item\em Metropolis-\/\-Hastings step to decide whether to accept a proposal conformation. \end{DoxyCompactList}\item 
+double \hyperlink{classMHSampler_afe35e0ae0a4947a384b609c22f3f32fe}{get\-P\-\_\-log} (P\-Protein $\ast$chain)
+\begin{DoxyCompactList}\small\item\em Evaluate probability density given one conformation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classMHSampler_a4445f1e47f03f4ce46aec20e53d0b37c}{\hyperlink{classBFactor}{B\-Factor} $\ast$ {\bfseries bfactor}}\label{classMHSampler_a4445f1e47f03f4ce46aec20e53d0b37c}
+
+\item 
+\hypertarget{classMHSampler_a2ad6faf428663daa72b99bdc74206001}{\hyperlink{classRamachandranPlot}{Ramachandran\-Plot} {\bfseries rplot}}\label{classMHSampler_a2ad6faf428663daa72b99bdc74206001}
+
+\item 
+\hypertarget{classMHSampler_a67283d544597d06cca5bedcb173ce8c4}{P\-Protein $\ast$ {\bfseries chain}}\label{classMHSampler_a67283d544597d06cca5bedcb173ce8c4}
+
+\item 
+\hypertarget{classMHSampler_a12f29b8e5530202ceb3a785f0a7a93a2}{bool {\bfseries use\-\_\-\-B\-Factor}}\label{classMHSampler_a12f29b8e5530202ceb3a785f0a7a93a2}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The class M\-H\-Sample is a sampler based on standard Metropolis-\/\-Hastings algorithm. This class can be used to generate free-\/end conformations. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classMHSampler_ae959c85bfd635c79bc1530128c974e92}{\index{M\-H\-Sampler@{M\-H\-Sampler}!enable\-Bfactors@{enable\-Bfactors}}
+\index{enable\-Bfactors@{enable\-Bfactors}!MHSampler@{M\-H\-Sampler}}
+\subsubsection[{enable\-Bfactors}]{\setlength{\rightskip}{0pt plus 5cm}void M\-H\-Sampler\-::enable\-Bfactors (
+\begin{DoxyParamCaption}
+\item[{P\-Protein $\ast$}]{chain = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}}\label{classMHSampler_ae959c85bfd635c79bc1530128c974e92}
+
+
+Enable using B-\/factors as priors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chain} & a chain conformation with desired atom positions and B-\/factors. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classMHSampler_afe35e0ae0a4947a384b609c22f3f32fe}{\index{M\-H\-Sampler@{M\-H\-Sampler}!get\-P\-\_\-log@{get\-P\-\_\-log}}
+\index{get\-P\-\_\-log@{get\-P\-\_\-log}!MHSampler@{M\-H\-Sampler}}
+\subsubsection[{get\-P\-\_\-log}]{\setlength{\rightskip}{0pt plus 5cm}double M\-H\-Sampler\-::get\-P\-\_\-log (
+\begin{DoxyParamCaption}
+\item[{P\-Protein $\ast$}]{chain}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classMHSampler_afe35e0ae0a4947a384b609c22f3f32fe}
+
+
+Evaluate probability density given one conformation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em conformation} & to be evaluated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+probability density in logarithm 
+\end{DoxyReturn}
+\hypertarget{classMHSampler_a36f466ea9201e93ea3eb71a4f2063a60}{\index{M\-H\-Sampler@{M\-H\-Sampler}!M\-H\-Step@{M\-H\-Step}}
+\index{M\-H\-Step@{M\-H\-Step}!MHSampler@{M\-H\-Sampler}}
+\subsubsection[{M\-H\-Step}]{\setlength{\rightskip}{0pt plus 5cm}bool M\-H\-Sampler\-::\-M\-H\-Step (
+\begin{DoxyParamCaption}
+\item[{double}]{P, }
+\item[{double}]{Q, }
+\item[{double}]{P\-\_\-proposal, }
+\item[{double}]{Q\-\_\-proposal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classMHSampler_a36f466ea9201e93ea3eb71a4f2063a60}
+
+
+Metropolis-\/\-Hastings step to decide whether to accept a proposal conformation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em P} & Probability density of initial conformation \\
+\hline
+{\em Q} & Proposal density of initial conformation to proposal conformation \\
+\hline
+{\em P\-\_\-proposal} & Probability density of proposal conformation \\
+\hline
+{\em Q\-\_\-proposal} & Proposal density of proposal conformation to initial conformation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true\-: accept; false\-: reject 
+\end{DoxyReturn}
+\hypertarget{classMHSampler_acc6e5c4d51b6515abcc08826e086a19b}{\index{M\-H\-Sampler@{M\-H\-Sampler}!sample@{sample}}
+\index{sample@{sample}!MHSampler@{M\-H\-Sampler}}
+\subsubsection[{sample}]{\setlength{\rightskip}{0pt plus 5cm}void M\-H\-Sampler\-::sample (
+\begin{DoxyParamCaption}
+\item[{const double}]{time, }
+\item[{const double}]{radius}
+\end{DoxyParamCaption}
+)}}\label{classMHSampler_acc6e5c4d51b6515abcc08826e086a19b}
+
+
+Sample conformations of protein. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & time duration for sampling \\
+\hline
+{\em radius} & perturbation radius in degrees \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Metropolis\-Hastings\-Sampler.\-h\item 
+Metropolis\-Hastings\-Sampler.\-cc\end{DoxyCompactItemize}

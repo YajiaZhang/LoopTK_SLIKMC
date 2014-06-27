@@ -1,0 +1,122 @@
+\section{PGrid Class Reference}
+\label{classPGrid}\index{PGrid@{PGrid}}
+{\tt \#include $<$PGrid.h$>$}
+
+Inheritance diagram for PGrid::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classPGrid}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+Real {\bf get\-Side\-Length} () const
+\item 
+void {\bf set\-Side\-Length} (int new\-Val)
+\item 
+list$<$ {\bf PAtom} $\ast$ $>$ {\bf Atoms\-Near\-Point} (const Vector3 \&point, Real distance) const
+\item 
+pair$<$ Vector3, Vector3 $>$ {\bf get\-Cell\-Bounding\-Box} (const Vector3 \&pos) const
+\item 
+pair$<$ Vector3, Vector3 $>$ {\bf get\-Global\-Bounding\-Box} () const
+\item 
+{\bf Occupancy\-Map} {\bf get\-Occupancy} () const
+\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static int {\bf get\-Occupancy\-Neighbor\-Number} (const pair$<$ Vector3, Vector3 $>$ \&bound, {\bf Occupancy\-Map} \&occupancy, Vector3 pt)
+\end{CompactItemize}
+\subsection*{Static Public Attributes}
+\begin{CompactItemize}
+\item 
+static const int {\bf BOND\_\-THRESHOLD} = 3
+\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+class {\bf PAtom}
+\item 
+class {\bf PAtom\-Shell}
+\item 
+class {\bf PChain}
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{PGrid@{PGrid}!getSideLength@{getSideLength}}
+\index{getSideLength@{getSideLength}!PGrid@{PGrid}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real PGrid::get\-Side\-Length () const\hspace{0.3cm}{\tt  [inline]}}\label{classPGrid_a59e75dbeaa589d950ffe70438bc6284}
+
+
+Returns the length of the grid box. \index{PGrid@{PGrid}!setSideLength@{setSideLength}}
+\index{setSideLength@{setSideLength}!PGrid@{PGrid}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PGrid::set\-Side\-Length (int {\em new\-Val})}\label{classPGrid_e53862b25c16211643a497213b470fba}
+
+
+Sets the length of the grid box. \index{PGrid@{PGrid}!AtomsNearPoint@{AtomsNearPoint}}
+\index{AtomsNearPoint@{AtomsNearPoint}!PGrid@{PGrid}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}list$<$ {\bf PAtom} $\ast$ $>$ PGrid::Atoms\-Near\-Point (const Vector3 \& {\em point}, Real {\em distance}) const\hspace{0.3cm}{\tt  [virtual]}}\label{classPGrid_d02c8f3f9624f6bafa0d8607d0e91f10}
+
+
+Given a point and a distance, returns list of atoms that satisfies the constraint. 
+
+Implements {\bf PSpace\-Manager} \doxyref{}{p.}{classPSpaceManager_d7c593ce8843953132b6356d77ca3a77}.\index{PGrid@{PGrid}!getCellBoundingBox@{getCellBoundingBox}}
+\index{getCellBoundingBox@{getCellBoundingBox}!PGrid@{PGrid}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}pair$<$ Vector3, Vector3 $>$ PGrid::get\-Cell\-Bounding\-Box (const Vector3 \& {\em pos}) const\hspace{0.3cm}{\tt  [virtual]}}\label{classPGrid_5e90994e38781467c20bb697d28a85a6}
+
+
+
+
+Implements {\bf PSpace\-Manager} \doxyref{}{p.}{classPSpaceManager_a82e282d78325a3b541b937e47a46485}.\index{PGrid@{PGrid}!getGlobalBoundingBox@{getGlobalBoundingBox}}
+\index{getGlobalBoundingBox@{getGlobalBoundingBox}!PGrid@{PGrid}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}pair$<$ Vector3, Vector3 $>$ PGrid::get\-Global\-Bounding\-Box () const\hspace{0.3cm}{\tt  [virtual]}}\label{classPGrid_dc9723e424205aa638e85eb0fbeb8280}
+
+
+
+
+Implements {\bf PSpace\-Manager} \doxyref{}{p.}{classPSpaceManager_3e81f280c0c10822d55f2c0a2bb5e6d6}.\index{PGrid@{PGrid}!getOccupancy@{getOccupancy}}
+\index{getOccupancy@{getOccupancy}!PGrid@{PGrid}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Occupancy\-Map} PGrid::get\-Occupancy () const\hspace{0.3cm}{\tt  [virtual]}}\label{classPGrid_86f12e72436a6fddd804041ff8e1031b}
+
+
+
+
+Implements {\bf PSpace\-Manager} \doxyref{}{p.}{classPSpaceManager_ce52be73af0f6ce0ae3a6105a55d8173}.\index{PGrid@{PGrid}!getOccupancyNeighborNumber@{getOccupancyNeighborNumber}}
+\index{getOccupancyNeighborNumber@{getOccupancyNeighborNumber}!PGrid@{PGrid}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PGrid::get\-Occupancy\-Neighbor\-Number (const pair$<$ Vector3, Vector3 $>$ \& {\em bound}, {\bf Occupancy\-Map} \& {\em occupancy}, Vector3 {\em pt})\hspace{0.3cm}{\tt  [static]}}\label{classPGrid_0906299780a9715a775de3a97f2c87f7}
+
+
+
+
+\subsection{Friends And Related Function Documentation}
+\index{PGrid@{PGrid}!PAtom@{PAtom}}
+\index{PAtom@{PAtom}!PGrid@{PGrid}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf PAtom}\hspace{0.3cm}{\tt  [friend]}}\label{classPGrid_adbf74af5b7a2906a513bfcfdcb35047}
+
+
+\index{PGrid@{PGrid}!PAtomShell@{PAtomShell}}
+\index{PAtomShell@{PAtomShell}!PGrid@{PGrid}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf PAtom\-Shell}\hspace{0.3cm}{\tt  [friend]}}\label{classPGrid_e37292f75e33dbef55c2cca8689f4eb0}
+
+
+\index{PGrid@{PGrid}!PChain@{PChain}}
+\index{PChain@{PChain}!PGrid@{PGrid}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf PChain}\hspace{0.3cm}{\tt  [friend]}}\label{classPGrid_fd4b4c8b0a35b5ceae58d2178e30521f}
+
+
+
+
+\subsection{Member Data Documentation}
+\index{PGrid@{PGrid}!BOND_THRESHOLD@{BOND\_\-THRESHOLD}}
+\index{BOND_THRESHOLD@{BOND\_\-THRESHOLD}!PGrid@{PGrid}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const int {\bf PGrid::BOND\_\-THRESHOLD} = 3\hspace{0.3cm}{\tt  [static]}}\label{classPGrid_4170234d495f03890fed7332707b0f36}
+
+
+Sets the atoms that are included within bond threshold for the collision test. 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PGrid.h}\item 
+src/core/{\bf PGrid.cc}\end{CompactItemize}

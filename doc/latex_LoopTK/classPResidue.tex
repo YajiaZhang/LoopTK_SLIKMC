@@ -1,0 +1,353 @@
+\section{PResidue Class Reference}
+\label{classPResidue}\index{PResidue@{PResidue}}
+{\tt \#include $<$PResidue.h$>$}
+
+Inheritance diagram for PResidue::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classPResidue}
+\end{center}
+\end{figure}
+
+
+\subsection{Detailed Description}
+Encapsulates a single residue in a chain as a set of connected blocks. It is assumed that {\tt \doxyref{PBlock}{p.}{classPBlock}} are not connected cyclically residues have a head and a tail and they connect together head to tail. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf PResidue} ({\bf PChain} $\ast$loop, const string \&shell\-Name)
+\item 
+{\bf PResidue} ({\bf PChain} $\ast$loop, const string \&shell\-Name, {\bf PResidue\-Spec} \&spec)
+\item 
+{\bf PResidue} ({\bf PChain} $\ast$loop, const string \&shell\-Name, {\bf PResidue} $\ast$to\-Connect)
+\item 
+{\bf PResidue} ({\bf PChain} $\ast$loop, const string \&shell\-Name, {\bf PResidue\-Spec} \&spec, {\bf PResidue} $\ast$to\-Connect)
+\item 
+{\bf $\sim$PResidue} ()
+\item 
+{\bf PResidue} $\ast$ {\bf Next\-Residue} () const
+\item 
+{\bf PResidue} $\ast$ {\bf Previous\-Residue} () const
+\item 
+{\bf PBond} $\ast$ {\bf get\-DOF} (const string \&block\-Type, const string \&atom\-Id1, const string \&atom\-Id2)
+\item 
+const ID\_\-To\_\-DOF\_\-Map $\ast$ {\bf get\-DOFs\-For\-Block} (const string \&block\-Type)
+\item 
+void {\bf Randomize\-DOFs} (const string \&block\-Type, {\bf PChain} $\ast$root\-Chain)
+\item 
+void {\bf Randomize\-DOFs} (const string \&block\-Type)
+\item 
+void {\bf Detach\-Blocks} (const string \&block\-Type, const string \&block\-To\-Detach\-From)
+\item 
+void {\bf Reattach\-Blocks} (const string \&block\-Type)
+\item 
+void {\bf Reattach\-All\-Blocks} ()
+\item 
+{\bf PBond} $\ast$ {\bf get\-Bond} (const string \&id1, const string \&id2)
+\item 
+{\bf PChain} $\ast$ {\bf get\-Chain} () const
+\item 
+string {\bf get\-Resource\-Name} () const
+\item 
+string {\bf get\-Name} () const
+\item 
+void {\bf set\-Name} (string name)
+\item 
+{\bf PBlock} $\ast$ {\bf get\-Head\-Block} ()
+\item 
+{\bf PBlock} $\ast$ {\bf get\-Tail\-Block} ()
+\item 
+vector$<$ {\bf PAtom} $\ast$ $>$ $\ast$ {\bf get\-Atoms} ()
+\item 
+{\bf HASH\_\-MAP\_\-STR} ({\bf PAtom} $\ast$)$\ast$get\-Atom\-Map()
+\item 
+{\bf PAtom} $\ast$ {\bf get\-Atom} (const string \&id)
+\item 
+Vector3 {\bf get\-Atom\-Position} (const string \&id)
+\item 
+bool {\bf In\-Static\-Collision} () const
+\item 
+bool {\bf In\-Self\-Collision} () const
+\item 
+bool {\bf In\-Any\-Collision} () const
+\item 
+pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ {\bf Find\-Static\-Collision} () const
+\item 
+pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ {\bf Find\-Self\-Collision} () const
+\item 
+pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ {\bf Find\-Any\-Collision} () const
+\item 
+{\bf Atom\-Collisions} $\ast$ {\bf get\-All\-Colliding\-Static} () const
+\item 
+{\bf Atom\-Collisions} $\ast$ {\bf get\-All\-Colliding\-Self} () const
+\item 
+{\bf Atom\-Collisions} $\ast$ {\bf get\-All\-Colliding\-Either} () const
+\item 
+const {\bf PSpace\-Manager} $\ast$ {\bf get\-Space\-Manager} () const
+\item 
+{\bf PResidue\-Spec} {\bf get\-Spec} ()
+\item 
+void {\bf set\-Positions} (const {\bf PAtom\-Positions\-Spec} \&spec)
+\item 
+int {\bf get\-Pdb\-Id} () const
+\item 
+void {\bf set\-Pdb\-Id} (int id)
+\item 
+void {\bf inactivate} ()
+\item 
+void {\bf activate} ()
+\item 
+bool {\bf is\-Active} ()
+\item 
+void {\bf print\-Collision} ()
+\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+class {\bf PChain}
+\item 
+struct {\bf DOFCacher}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{PResidue@{PResidue}!PResidue@{PResidue}}
+\index{PResidue@{PResidue}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PResidue::PResidue ({\bf PChain} $\ast$ {\em loop}, const string \& {\em shell\-Name})}\label{classPResidue_e0ae8df888db3b23b6175f9efac5c61e}
+
+
+Constructs a new {\tt \doxyref{PResidue}{p.}{classPResidue}} as a member of the specified \doxyref{PChain}{p.}{classPChain} {\tt loop}. This constructor uses default positions for all blocks in the residue shell specified by {\tt shell\-Name}, starting with default positions for the head block. After construction, the new {\tt \doxyref{PResidue}{p.}{classPResidue}} is \char`\"{}isolated\char`\"{}, i.e. it is not connected to any other residues \index{PResidue@{PResidue}!PResidue@{PResidue}}
+\index{PResidue@{PResidue}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PResidue::PResidue ({\bf PChain} $\ast$ {\em loop}, const string \& {\em shell\-Name}, {\bf PResidue\-Spec} \& {\em spec})}\label{classPResidue_943b93e9d6d2900d5776ad97e74ed50f}
+
+
+Constructs a new {\tt \doxyref{PResidue}{p.}{classPResidue}} as a member of the specified \doxyref{PChain}{p.}{classPChain} {\tt loop}. This constructor specifies the residue shell ({\tt shell\-Name}) for the new residue but also uses the atom positions defined in {\tt spec}. After construction, the new {\tt \doxyref{PResidue}{p.}{classPResidue}} is \char`\"{}isolated\char`\"{}, i.e. it is not connected to any other residues. \index{PResidue@{PResidue}!PResidue@{PResidue}}
+\index{PResidue@{PResidue}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PResidue::PResidue ({\bf PChain} $\ast$ {\em loop}, const string \& {\em shell\-Name}, {\bf PResidue} $\ast$ {\em to\-Connect})}\label{classPResidue_675fd698c77c6bf4ad0ca17da0c618fe}
+
+
+Constructs a new {\tt \doxyref{PResidue}{p.}{classPResidue}} as a member of the specified \doxyref{PChain}{p.}{classPChain} {\tt loop}. This constructor uses default positions for all blocks in the residue shell specified by {\tt shell\-Name}, starting with default positions for the head block. After construction, the new {\tt \doxyref{PResidue}{p.}{classPResidue}}'s \char`\"{}head\char`\"{} is connected to the tail of {\tt to\-Connect}. \index{PResidue@{PResidue}!PResidue@{PResidue}}
+\index{PResidue@{PResidue}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PResidue::PResidue ({\bf PChain} $\ast$ {\em loop}, const string \& {\em shell\-Name}, {\bf PResidue\-Spec} \& {\em spec}, {\bf PResidue} $\ast$ {\em to\-Connect})}\label{classPResidue_436d783f1b9e196ba85099e89a64a960}
+
+
+Constructs a new {\tt \doxyref{PResidue}{p.}{classPResidue}} as a member of the specified \doxyref{PChain}{p.}{classPChain} {\tt loop}. This constructor specifies the residue shell ({\tt shell\-Name}) for the new residue but also uses the atom positions defined in {\tt spec}. After construction, the new {\tt \doxyref{PResidue}{p.}{classPResidue}}'s \char`\"{}head\char`\"{} is connected to the tail of {\tt to\-Connect}. \index{PResidue@{PResidue}!~PResidue@{$\sim$PResidue}}
+\index{~PResidue@{$\sim$PResidue}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PResidue::$\sim$PResidue ()}\label{classPResidue_d1def13c18c272de8f8c67f1aa0f3f91}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{PResidue@{PResidue}!NextResidue@{NextResidue}}
+\index{NextResidue@{NextResidue}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PResidue}$\ast$ PResidue::Next\-Residue () const\hspace{0.3cm}{\tt  [inline]}}\label{classPResidue_a89696ae40acb06d6e8fab9e4a574337}
+
+
+Returns the next residue in the chain following this {\tt \doxyref{PResidue}{p.}{classPResidue}}, or {\tt NULL} if this residue is not part of a chain. \index{PResidue@{PResidue}!PreviousResidue@{PreviousResidue}}
+\index{PreviousResidue@{PreviousResidue}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PResidue}$\ast$ PResidue::Previous\-Residue () const\hspace{0.3cm}{\tt  [inline]}}\label{classPResidue_eb7af829ef443b9ffc69d1c6898e6081}
+
+
+Returns the previous residue in the chain before this {\tt \doxyref{PResidue}{p.}{classPResidue}}, or {\tt NULL} if this residue is not part of a chain. \index{PResidue@{PResidue}!getDOF@{getDOF}}
+\index{getDOF@{getDOF}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PBond} $\ast$ PResidue::get\-DOF (const string \& {\em block\-Type}, const string \& {\em atom\-Id1}, const string \& {\em atom\-Id2})}\label{classPResidue_ca76aff90574d5803e105b4b8fa54146}
+
+
+Returns the DOF between the two given atom ID's in the specified block type. \index{PResidue@{PResidue}!getDOFsForBlock@{getDOFsForBlock}}
+\index{getDOFsForBlock@{getDOFsForBlock}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const ID\_\-To\_\-DOF\_\-Map $\ast$ PResidue::get\-DOFs\-For\-Block (const string \& {\em block\-Type})}\label{classPResidue_caaf0888b07c68220ed44521d8bc1860}
+
+
+Returns a pointer to a mapping of atom Id's to bonds for all DOF's associated with the given block. Use an iterator to iterate through all the bonds.
+
+Returns NULL if it can't find the block\-Type. Return should NOT be deleted. \index{PResidue@{PResidue}!RandomizeDOFs@{RandomizeDOFs}}
+\index{RandomizeDOFs@{RandomizeDOFs}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PResidue::Randomize\-DOFs (const string \& {\em block\-Type}, {\bf PChain} $\ast$ {\em root\-Chain})}\label{classPResidue_3f924b81b28765018e438cdb8073341d}
+
+
+Randomizes the DOFs associated with the given block\-Type. \index{PResidue@{PResidue}!RandomizeDOFs@{RandomizeDOFs}}
+\index{RandomizeDOFs@{RandomizeDOFs}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PResidue::Randomize\-DOFs (const string \& {\em block\-Type})}\label{classPResidue_e42aa540808d54e93c896f9466b9ffa4}
+
+
+\index{PResidue@{PResidue}!DetachBlocks@{DetachBlocks}}
+\index{DetachBlocks@{DetachBlocks}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PResidue::Detach\-Blocks (const string \& {\em block\-Type}, const string \& {\em block\-To\-Detach\-From})}\label{classPResidue_88e418bb0f45bb9a60e31f6765f3b31f}
+
+
+\index{PResidue@{PResidue}!ReattachBlocks@{ReattachBlocks}}
+\index{ReattachBlocks@{ReattachBlocks}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PResidue::Reattach\-Blocks (const string \& {\em block\-Type})}\label{classPResidue_c5740c4542f9852d206a9a3cf2fe71c8}
+
+
+\index{PResidue@{PResidue}!ReattachAllBlocks@{ReattachAllBlocks}}
+\index{ReattachAllBlocks@{ReattachAllBlocks}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PResidue::Reattach\-All\-Blocks ()}\label{classPResidue_8a0dcec18064433e82b346f1ce3e336a}
+
+
+\index{PResidue@{PResidue}!getBond@{getBond}}
+\index{getBond@{getBond}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PBond} $\ast$ PResidue::get\-Bond (const string \& {\em id1}, const string \& {\em id2})}\label{classPResidue_c4af71d6d799522586322d24124f9648}
+
+
+Returns bond between given atoms, or NULL if bond or either atom does not exist. \index{PResidue@{PResidue}!getChain@{getChain}}
+\index{getChain@{getChain}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PChain} $\ast$ PResidue::get\-Chain () const}\label{classPResidue_f68cbfb82a84ee6cd752f755011d8721}
+
+
+Returns a pointer to this residue's parent chain. \index{PResidue@{PResidue}!getResourceName@{getResourceName}}
+\index{getResourceName@{getResourceName}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string PResidue::get\-Resource\-Name () const\hspace{0.3cm}{\tt  [inline]}}\label{classPResidue_035391fe178f53c9a25ac2fe525a8ea6}
+
+
+Returns this residue's name, currently just the name of its underlying {\tt \doxyref{PResidue\-Shell}{p.}{classPResidueShell}}. \index{PResidue@{PResidue}!getName@{getName}}
+\index{getName@{getName}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string PResidue::get\-Name () const\hspace{0.3cm}{\tt  [inline]}}\label{classPResidue_786f8add67323cace7102a56118df33d}
+
+
+Returns this residue's name which can be custom set \index{PResidue@{PResidue}!setName@{setName}}
+\index{setName@{setName}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PResidue::set\-Name (string {\em name})\hspace{0.3cm}{\tt  [inline]}}\label{classPResidue_2834372bc242288f66cc6a3c9a15e4d3}
+
+
+Sets the name of the residue \index{PResidue@{PResidue}!getHeadBlock@{getHeadBlock}}
+\index{getHeadBlock@{getHeadBlock}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PBlock}$\ast$ PResidue::get\-Head\-Block ()\hspace{0.3cm}{\tt  [inline]}}\label{classPResidue_da8a98d07f1c9503319c8db87d788557}
+
+
+Returns a pointer to this residue's head block. \index{PResidue@{PResidue}!getTailBlock@{getTailBlock}}
+\index{getTailBlock@{getTailBlock}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PBlock}$\ast$ PResidue::get\-Tail\-Block ()\hspace{0.3cm}{\tt  [inline]}}\label{classPResidue_4cf6a04a0be50f62b77f563ce6060eda}
+
+
+Returns a pointer to this residue's tail block. \index{PResidue@{PResidue}!getAtoms@{getAtoms}}
+\index{getAtoms@{getAtoms}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf PAtom} $\ast$$>$$\ast$ PResidue::get\-Atoms ()\hspace{0.3cm}{\tt  [inline]}}\label{classPResidue_a8053ef20384f7545fd7a0fe4d33fb96}
+
+
+Returns a pointer to a {\tt vector} of all atoms in this residue. \index{PResidue@{PResidue}!HASH_MAP_STR@{HASH\_\-MAP\_\-STR}}
+\index{HASH_MAP_STR@{HASH\_\-MAP\_\-STR}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PResidue::HASH\_\-MAP\_\-STR ({\bf PAtom} $\ast$)\hspace{0.3cm}{\tt  [inline]}}\label{classPResidue_4b6c183aa885723c49440251cee28476}
+
+
+Returns a pointer to a {\tt hash\_\-map} mapping all atom IDs to atom pointers in this residue. \index{PResidue@{PResidue}!getAtom@{getAtom}}
+\index{getAtom@{getAtom}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PAtom}$\ast$ PResidue::get\-Atom (const string \& {\em id})\hspace{0.3cm}{\tt  [inline]}}\label{classPResidue_a6794a14105bbc31998caa03a68e36ac}
+
+
+Returns a pointer to the {\tt \doxyref{PAtom}{p.}{classPAtom}} in this residue with the specified ID, or {\tt NULL} if no atom with this ID exists in the residue. \index{PResidue@{PResidue}!getAtomPosition@{getAtomPosition}}
+\index{getAtomPosition@{getAtomPosition}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Vector3 PResidue::get\-Atom\-Position (const string \& {\em id})\hspace{0.3cm}{\tt  [inline]}}\label{classPResidue_f228f3d474d7e0f752c249c5b395d189}
+
+
+Returns the {\tt Vector3} position of the atom in this residue with the specified ID. \index{PResidue@{PResidue}!InStaticCollision@{InStaticCollision}}
+\index{InStaticCollision@{InStaticCollision}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PResidue::In\-Static\-Collision () const}\label{classPResidue_695455defbfee91afd32ce14b929bd90}
+
+
+Returns true if any atom in this {\tt \doxyref{PResidue}{p.}{classPResidue}} is in static collision, false otherwise. \index{PResidue@{PResidue}!InSelfCollision@{InSelfCollision}}
+\index{InSelfCollision@{InSelfCollision}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PResidue::In\-Self\-Collision () const}\label{classPResidue_26f96eb6a49e11068642d2277c0a4c1f}
+
+
+Returns true if any atom in this {\tt \doxyref{PResidue}{p.}{classPResidue}} is in self collision, false otherwise. \index{PResidue@{PResidue}!InAnyCollision@{InAnyCollision}}
+\index{InAnyCollision@{InAnyCollision}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PResidue::In\-Any\-Collision () const}\label{classPResidue_743c9b5a126eab4a7ace1bf59f8d5aef}
+
+
+Returns true if any atom in this {\tt \doxyref{PResidue}{p.}{classPResidue}} is in either static or self collision, false otherwise. \index{PResidue@{PResidue}!FindStaticCollision@{FindStaticCollision}}
+\index{FindStaticCollision@{FindStaticCollision}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ PResidue::Find\-Static\-Collision () const}\label{classPResidue_bbec2be3527b99a434fd6c5626adc2d2}
+
+
+Returns a pair of atoms in static collision within this {\tt \doxyref{PResidue}{p.}{classPResidue}}, or {\tt (NULL, NULL)} if no such atoms exist. \index{PResidue@{PResidue}!FindSelfCollision@{FindSelfCollision}}
+\index{FindSelfCollision@{FindSelfCollision}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ PResidue::Find\-Self\-Collision () const}\label{classPResidue_9264572d67133a309cfe97fb4db7308c}
+
+
+Returns a pair of atoms in self collision within this {\tt \doxyref{PResidue}{p.}{classPResidue}}, or {\tt (NULL, NULL)} if no such atoms exist. \index{PResidue@{PResidue}!FindAnyCollision@{FindAnyCollision}}
+\index{FindAnyCollision@{FindAnyCollision}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}pair$<$ {\bf PAtom} $\ast$, {\bf PAtom} $\ast$ $>$ PResidue::Find\-Any\-Collision () const}\label{classPResidue_667d0bf5400ec4a8b564f764d82ba008}
+
+
+Returns a pair of atoms in either static or self collision within this {\tt \doxyref{PResidue}{p.}{classPResidue}}, or {\tt (NULL, NULL)} if no such atoms exist. \index{PResidue@{PResidue}!getAllCollidingStatic@{getAllCollidingStatic}}
+\index{getAllCollidingStatic@{getAllCollidingStatic}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Atom\-Collisions} $\ast$ PResidue::get\-All\-Colliding\-Static () const}\label{classPResidue_1f4372f31de28cf53f6c66b7cc0e3838}
+
+
+Returns a set of all atoms in static collision in this {\tt \doxyref{PResidue}{p.}{classPResidue}}. \index{PResidue@{PResidue}!getAllCollidingSelf@{getAllCollidingSelf}}
+\index{getAllCollidingSelf@{getAllCollidingSelf}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Atom\-Collisions} $\ast$ PResidue::get\-All\-Colliding\-Self () const}\label{classPResidue_94e936a5fab7745b8959ab0c5b593e37}
+
+
+Returns a set of all atoms in self collision in this {\tt \doxyref{PResidue}{p.}{classPResidue}}. \index{PResidue@{PResidue}!getAllCollidingEither@{getAllCollidingEither}}
+\index{getAllCollidingEither@{getAllCollidingEither}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Atom\-Collisions} $\ast$ PResidue::get\-All\-Colliding\-Either () const}\label{classPResidue_fc1eb7d5b0ced1041913d842afbe7ec7}
+
+
+Returns a set of all atoms in either static or self collision in this {\tt \doxyref{PResidue}{p.}{classPResidue}}. \index{PResidue@{PResidue}!getSpaceManager@{getSpaceManager}}
+\index{getSpaceManager@{getSpaceManager}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const {\bf PSpace\-Manager} $\ast$ PResidue::get\-Space\-Manager () const}\label{classPResidue_60482729117c4ad3ee4cd8a1635290b9}
+
+
+Returns the space manager of the chain this residue is in. \index{PResidue@{PResidue}!getSpec@{getSpec}}
+\index{getSpec@{getSpec}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PResidue\-Spec} PResidue::get\-Spec ()}\label{classPResidue_473c9c56acf89aadf755c770e62ce9ee}
+
+
+Gets a \doxyref{PResidue\-Spec}{p.}{classPResidueSpec} with the information about this residue's atom positions. \index{PResidue@{PResidue}!setPositions@{setPositions}}
+\index{setPositions@{setPositions}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PResidue::set\-Positions (const {\bf PAtom\-Positions\-Spec} \& {\em spec})}\label{classPResidue_9c5242fea6ea4b38c6f573203e516cbb}
+
+
+Sets the residue's atom positions from the \doxyref{PAtom\-Positions\-Spec}{p.}{classPAtomPositionsSpec} {\tt spec}. Atoms in the residue that are not found in {\tt spec} are ignored. \index{PResidue@{PResidue}!getPdbId@{getPdbId}}
+\index{getPdbId@{getPdbId}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PResidue::get\-Pdb\-Id () const\hspace{0.3cm}{\tt  [inline]}}\label{classPResidue_43ebf574be4cc2f7f07249e3b518e31c}
+
+
+Returns the index of this residue in a PDB file. \index{PResidue@{PResidue}!setPdbId@{setPdbId}}
+\index{setPdbId@{setPdbId}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PResidue::set\-Pdb\-Id (int {\em id})\hspace{0.3cm}{\tt  [inline]}}\label{classPResidue_a3ebee66c135c0f0359550e82e35d808}
+
+
+Set the PDB index of this residue. \index{PResidue@{PResidue}!inactivate@{inactivate}}
+\index{inactivate@{inactivate}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PResidue::inactivate ()}\label{classPResidue_71f7322f42b275c1ba1d7eba991f9c33}
+
+
+Inactivate the residue so that it won't be considered in collision \index{PResidue@{PResidue}!activate@{activate}}
+\index{activate@{activate}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PResidue::activate ()}\label{classPResidue_fbba41b9655465f34e12a6a093da2d42}
+
+
+Activate the residue so that it will be considered in collision \index{PResidue@{PResidue}!isActive@{isActive}}
+\index{isActive@{isActive}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PResidue::is\-Active ()}\label{classPResidue_d1b08c4f4c35f25cb44fff59db4677db}
+
+
+Returns true if there is at least one atom in the residue is active for collision checking. \index{PResidue@{PResidue}!printCollision@{printCollision}}
+\index{printCollision@{printCollision}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PResidue::print\-Collision ()}\label{classPResidue_b0943dff255419655f67295daaf8a016}
+
+
+Print out all the collision atom pairs in this residue. 
+
+\subsection{Friends And Related Function Documentation}
+\index{PResidue@{PResidue}!PChain@{PChain}}
+\index{PChain@{PChain}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf PChain}\hspace{0.3cm}{\tt  [friend]}}\label{classPResidue_fd4b4c8b0a35b5ceae58d2178e30521f}
+
+
+\index{PResidue@{PResidue}!DOFCacher@{DOFCacher}}
+\index{DOFCacher@{DOFCacher}!PResidue@{PResidue}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}friend struct {\bf DOFCacher}\hspace{0.3cm}{\tt  [friend]}}\label{classPResidue_7d2f7ec5292ccb52dce2c2739c2f4beb}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PResidue.h}\item 
+src/core/{\bf PResidue.cc}\end{CompactItemize}

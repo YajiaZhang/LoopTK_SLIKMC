@@ -1,0 +1,998 @@
+Index: PMath.cc
+===================================================================
+--- PMath.cc	(revision 23)
++++ PMath.cc	(working copy)
+@@ -109,8 +109,9 @@
+ //negative is clockwise and positive is counterclockwise.
+ Real PMath::AngleBetweenPlanes(const Vector3 &p1, const Vector3 &p2, const Vector3 &p3, const Vector3 &p4)
+ {
+-  Vector3 u = p2 - p1, v = p4 - p3, w = p3 - p2;
+-  return -(180-TorsionAngle(u, v, w));
++  Vector3 u = p1-p2, v = p4 - p3, w = p3 - p2;
++//  return -(180-TorsionAngle(u, v, w));
++	return TorsionAngle(u,v,w);
+ }
+ 
+ Vector3 PMath::LocalToGlobalCoord(const vector<Vector3> definedRelativeCoordinates, const vector<Vector3> definedGlobalCoordinates){
+Index: PDBIO.cc
+===================================================================
+--- PDBIO.cc	(revision 23)
++++ PDBIO.cc	(working copy)
+@@ -67,7 +67,13 @@
+       addAtomName(curLine, it->first, prefix.length());
+       addResName(curLine, curRes->getName(), prefix.length());
+       addChainID(curLine, 'A', prefix.length());
+-      addResNum(curLine, i + 1, prefix.length());
++
++// Removed by Peggy
++//      addResNum(curLine, i + 1, prefix.length());
++
++      // Added by Peggy
++      addResNum(curLine, curRes->getPdbId(), prefix.length());
++
+       addInsertionCode(curLine, " ", prefix.length());
+       addAtomPos(curLine, it->second->getPos(), prefix.length());
+       addAuxData(curLine, it->second->getOccupancy(), it->second->getTempFactor(), "", prefix.length());
+@@ -200,7 +206,6 @@
+   if (protein == NULL) {
+     PUtilities::AbortProgram("Error: PDB file couldn't be loaded.");
+   }
+-  
+   protein->finalize();
+   return protein;
+ }
+@@ -208,6 +213,7 @@
+ void PDBIO::updateProtein(PProtein* &protein, const string &resName, PResidueSpec &spec,
+         int resNum)
+ {
++
+   string shellToUse = resName;
+ 
+   if (definesBackbone(spec)) {
+Index: PGrid.cc
+===================================================================
+--- PGrid.cc	(revision 23)
++++ PGrid.cc	(working copy)
+@@ -150,7 +150,13 @@
+   if (collSet->size() == 0) {
+     return NULL;
+   } else {
+-    return *(collSet->begin());
++	AtomSet::iterator it;
++	for (it=collSet->begin(); it!=collSet->end(); ++it) {
++		if ((*it)->isActive())
++			return *it;
++	}
++	return NULL;
++
+   }
+ }
+ 
+@@ -161,7 +167,13 @@
+   if (collSet->size() == 0) {
+     return NULL;
+   } else {
+-    return *(collSet->begin());
++        AtomSet::iterator it;
++        for (it=collSet->begin(); it!=collSet->end(); ++it) {
++                if ((*it)->isActive())
++                        return *it;
++        }
++        return NULL;
++
+   }
+ }
+ 
+Index: PAtom.h
+===================================================================
+--- PAtom.h	(revision 23)
++++ PAtom.h	(working copy)
+@@ -305,6 +305,11 @@
+      */
+     void activate() { m_active = true; }
+ 
++    /**
++     * Print one atom which is in collision with this atom.
++     */
++    void printCollision();
++
+   private:
+ 
+     /* Helper functions. */
+Index: PSampMethods.h
+===================================================================
+--- PSampMethods.h	(revision 23)
++++ PSampMethods.h	(working copy)
+@@ -116,6 +116,9 @@
+          */
+ 	static vector<PProtein*> SeedSampleBackbone (PProtein *protein, int loopSid, int loopEid, int num_wanted=1);
+ 
++	static vector<PProtein*> SeedSampleBackboneWithSidechainLoopOnly (PProtein *original_protein, int loopSid, int loopEid, string scwrl3_path, int num_wanted=1);
++
++
+         /**
+          * Same as the other SeedSampleBackbone method, but the phi and psi angles are sampled according a distribution. If the distribution map <code>distri_map</code> only has one element, then this distribution will be applied on all amino acids. Otherwise, there should be 20 distributions in the map. Each distribution corresponds to one amino acid, and the corresponding name of a distribution should be the 3-letter amino acid name in all capital letters.
+ 	 */
+@@ -135,6 +138,8 @@
+          */
+ 	static vector<PProtein*> SeedSampleBackbone (PProtein *protein, int loopSid, int loopEid, map<string,PPhiPsiDistribution> &distri_map, int num_wanted=1);
+ 
++	static vector<PProtein*> SeedSampleBackboneWithSidechainLoopOnly (PProtein* original_protein, int loopSid, int loopEid, map<string,PPhiPsiDistribution> &distri_map, string scwrl3_path, int num_wanted);
++
+ 	/**
+ 	 * Merges the <code>loop</code> with the <code>original_protein</code>. The 0-th residue in the loop becomes
+ 	 * the <code>startRid</code>-th residue in the resulting protein.
+@@ -143,6 +148,8 @@
+ 	 */
+ 	static PProtein* MergeProtein (PProtein *loop, PProtein* original_protein, int startRid);
+ 
++	static PProtein* MergeProteinByPdbId (PProtein *loop, PProtein* original_protein, int startPdbId);
++
+ 	/**
+ 	 * Add side chains to a loop using SCWRL3 with option -i, -o and -f.
+ 	 * For the details of SCWRL3 and its usage, please go to http://dunbrack.fccc.edu/SCWRL3.php. 
+@@ -155,12 +162,28 @@
+ 	 */
+ 	static void addSidechain (string loopFile, string boundaryFile, string scwrl3_path, string outLoopFile);
+ 
++	
++	/**
++	 * Add side chains to a portion of a protein using SCWRL3 with option -i, -o and -s.
++	 * For the details of SCWRL3 and its usage, please go to http://dunbrack.fccc.edu/SCWRL3.php. 
++	 * The protein is specified in PDB format in file <code>protein_input</code>.
++	 * The protion of the protein from the residue <code>addStart</code> (as in the PDB file)
++	 * to the <code>addEnd</code>-th residue is to be placed side chains, while the rest
++	 * is to serve as the boundary.
++	 * Please specify the FULL path of your scwrl3 program at <code>scwrl3_path</code>.
++	 * The entire protein with side-chain-placement in the portion will be written into the file
++	 * <code>protein_output</code>.
++	 *  Note that, in the output loop file <code>outLoopFile</code>, columns after the 3D coordinates
++         * are not meaningful. 
++	 */
++	static void AddSidechain (string protein_input, int addStart, int addEnd, string scwrl3_path, string protein_output);
+ 
+-    private:
+         static vector<PProtein*> SeedSampleBackboneLoopOnly (PProtein* original_protein, int loopSid, int loopEid, int num_wanted=1);
+ 
+         static vector<PProtein*> SeedSampleBackboneLoopOnly (PProtein* original_protein, int loopSid, int loopEid, map<string,PPhiPsiDistribution> &distri_map, int num_wanted=1);
+ 
++
++//    private:
+         static vector<Real>* generateForwardOpenLoop(PProtein *loopEntire, int collisionFreeResNum);
+         static vector<Real>* generateForwardOpenLoop (PProtein* loopEntire, int collisionFreeResNum, map<string,PPhiPsiDistribution> &map_distri, vector<string> &aa_names);
+         static vector<Real>* generateBackwardOpenLoop (PProtein* loop);
+Index: PNumRoutines.cc
+===================================================================
+--- PNumRoutines.cc	(revision 23)
++++ PNumRoutines.cc	(working copy)
+@@ -136,7 +136,6 @@
+ 	T = gsl_multimin_fdfminimizer_steepest_descent;
+ //	T = gsl_multimin_fdfminimizer_vector_bfgs;
+ 	s = gsl_multimin_fdfminimizer_alloc (T, n);
+-	
+ 	gsl_multimin_fdfminimizer_set (s, &my_func, x, 0.1, 0.5);//with SDescent
+ //	gsl_multimin_fdfminimizer_set(s,&my_func,x,0.0001,0.0001);
+ 	
+Index: PAtom.cc
+===================================================================
+--- PAtom.cc	(revision 23)
++++ PAtom.cc	(working copy)
+@@ -292,3 +292,16 @@
+ const PSpaceManager* PAtom::getSpaceManager() const { 
+   return getChain()->getSpaceManager(); 
+ }
++
++void PAtom::printCollision() {
++	PAtom* a2 = m_grid->getAnyCollidingAtom(this);
++	if (a2!=NULL) {
++		PResidue *r1 = this->getParentResidue();
++		PResidue *r2 = a2->getParentResidue();
++		cout << "Colliding: " << r1->getPdbId() << " " << this->getID() << " with ";
++		cout << r2->getPdbId() << " " << a2->getID() << endl;
++	}
++	else {
++		cout << "no collision" << endl;
++	}
++}
+Index: PResidue.h
+===================================================================
+--- PResidue.h	(revision 23)
++++ PResidue.h	(working copy)
+@@ -290,7 +290,12 @@
+    */
+   int getPdbId() const { return m_pdb_id; }
+ 
++  /**
++   * Set the PDB index of this residue.
++   */
++  void setPdbId(int id) {m_pdb_id=id;}
+ 
++
+   /**
+    * Inactivate the residue so that it won't be considered in collision 
+    */
+@@ -301,6 +306,10 @@
+    */
+   void activate();
+ 
++  /**
++   * Returns true if there is at least one atom in the residue is active for collision checking.
++   */
++  bool isActive();
+ 
+  private:
+ 
+Index: PTools.h
+===================================================================
+--- PTools.h	(revision 23)
++++ PTools.h	(working copy)
+@@ -165,6 +165,14 @@
+     static vector<vector<CDof> > GetBBDofs(vector<PProtein *> loops);
+ 
+     /**
++     * Returns RMSD between C_alpha taoms of two proteins <code>protein0</code> and
++     * <code>protein1</code> starting from residue <code>loopstart</code> and ending
++     * at residue <code>loopend</code>.
++     */
++    static double RMSDCalpha (PProtein *protein0, PProtein *protein1, int loopstart, int loopend);
++
++
++    /**
+      * Returns RMSD between backbones of two proteins <code>protein0</code>
+      * and <code>protein1</code> starting from residue <code>loopstart</code>
+      * and ending at residue <code>loopend</code>.
+Index: PSampMethods.cc
+===================================================================
+--- PSampMethods.cc	(revision 23)
++++ PSampMethods.cc	(working copy)
+@@ -512,8 +512,6 @@
+         for (int i=loopSize*2-1; i>=0; --i)
+                 angles->push_back(0);
+ 
+-        loopEntire->inactivateResidue(0,loopEntire->size()-1);
+-
+         forwardOpenLoopNode *root = new forwardOpenLoopNode(-1,"Psi",collisionFreeResNum); // root node
+         if (single_distri)
+                 root->generateChildren(PhiValues,PsiValues,map_distri.begin()->second);
+@@ -527,6 +525,7 @@
+         forwardOpenLoopNode *node;
+         while (!stk.empty()) {
+                 node = stk.top();
++
+                 if (node->Rid==collisionFreeResNum-1 && node->Type=="Psi") {
+                         success = true;
+                         break;
+@@ -571,7 +570,6 @@
+                                                 child_aa_name = aa_names[child->getChildRid()];
+                                                 child->generateChildren(PhiValues,PsiValues,map_distri.find(child_aa_name)->second);
+                                         }
+-                                        res->getAtom("O")->activate();
+                                 }
+                                 else {
+                                         loopEntire->RotateBackbone(child->getDof(),forward,-rotate_angle);
+@@ -587,7 +585,9 @@
+                                 }
+                                 loopEntire->RotateBackbone(child->getDof(),forward,rotate_angle);
+                                 PProteinResidue *res = loopEntire->getResidue(child->Rid);
+-                                if ( !res->getAtom("O")->InAnyCollision() ) {
++				PAtom *currentO = res->getAtom("O");
++				currentO->activate();
++                                if ( !currentO->InAnyCollision() ) {
+                                         if (child->Rid<loopEntire->size()-1) {
+                                                 res = loopEntire->getResidue(child->Rid+1);
+                                                 res->getAtom("N")->activate();
+@@ -603,13 +603,13 @@
+                                                                 child_aa_name = aa_names[child->getChildRid()];
+                                                                 child->generateChildren(PhiValues,PsiValues,map_distri.find(child_aa_name)->second);
+                                                         }
+-                                                        res->getAtom("N")->inactivate();
+-                                                        res->getAtom("CA")->inactivate();
+                                                 }
+                                                 else {
+                                                         loopEntire->RotateBackbone(child->getDof(),forward,-rotate_angle);
+                                                         delete child;
+                                                 }
++						res->getAtom("N")->inactivate();
++						res->getAtom("CA")->inactivate();	
+                                         }
+                                         else {
+                                                 stk.push(child);
+@@ -628,6 +628,7 @@
+                                         loopEntire->RotateBackbone(child->getDof(),forward,-rotate_angle);
+                                         delete child;
+                                 }
++				currentO->inactivate(); 
+                         }
+ 
+                 }
+@@ -640,6 +641,7 @@
+ 
+         if (!success) {
+                 angles->clear();
++		loopEntire->inactivateResidue(0,loopEntire->size()-1); 
+         }
+ 
+         return angles;
+@@ -674,8 +676,6 @@
+                 angles->push_back(0);
+         }
+ 
+-        loop->inactivateResidue(0,loopSize-1); 
+-
+         backwardOpenLoopNode *node = new backwardOpenLoopNode(loopSize,"Phi",-1,loopSize); // Root node
+         if (single_distri)
+                 node->generateChildren(PhiValues,PsiValues,map_distri.begin()->second);
+@@ -752,22 +752,25 @@
+                                         bool ok = true;
+                                         PAtom *atom = res->getAtom("C");
+                                         atom->activate();
+-                                        if (atom->InAnyCollision())
++                                        if (atom->InAnyCollision()) {
+                                                 ok = false;
++					}
+                                         atom->inactivate();
+                                         if (ok) {
+                                                 atom = res->getAtom("O");
+                                                 atom->activate();
+-                                                if (atom->InAnyCollision())
++                                                if (atom->InAnyCollision()) {
+                                                         ok = false;
++						}
+                                                 atom->inactivate();
+                                         }
+                                         if (ok) {
+                                                 atom = res->getAtom("CA");
+                                                 if (atom!=NULL) {
+                                                         atom->activate();
+-                                                        if (atom->InAnyCollision())
++                                                        if (atom->InAnyCollision()) {
+                                                                 ok = false;
++							}
+                                                         atom->inactivate();
+                                                 }
+                                         }
+@@ -807,6 +810,7 @@
+                 stk.pop();
+         }
+         if (!success) {
++		loop->inactivateResidue(0,loop->size()-1); 
+                 angles->clear();
+         }
+         return angles;
+@@ -934,7 +938,6 @@
+ }
+ 
+ /*
+-vector<PProtein*> PSampMethods::SeedSampleBackbone (PProtein *protein, int loopSid, int loopEid, int num_wanted) {
+         vector<PProtein*> loops = SeedSampleBackboneLoopOnly(protein,loopSid,loopEid,num_wanted);
+         vector<PProtein*> merged;
+         for (int i=0; i<loops.size(); ++i) {
+@@ -1014,6 +1017,60 @@
+                 return temp_protein;
+ }
+ 
++PProtein* PSampMethods::MergeProteinByPdbId (PProtein *loop, PProtein* original_protein, int startPdbId) {
++	int endPdbId = startPdbId+loop->size()-1;
++	int original_end = original_protein->getResidue(original_protein->size()-1)->getPdbId();
++
++	PProtein *temp_protein = new PProtein();
++	PResidueSpec prs;
++	PResidue *original_cur_res, *loop_cur_res;
++	original_cur_res = original_protein->getResidue(0);
++	loop_cur_res = loop->getResidue(0);
++	int original_cur_pdb_id = original_cur_res->getPdbId();
++	int loop_cur_pdb_id = startPdbId;
++
++	while (original_cur_pdb_id<=original_end && loop_cur_pdb_id<=endPdbId) {
++		if (original_cur_pdb_id<loop_cur_pdb_id) {
++			prs = original_cur_res->getSpec();
++			temp_protein->AddResidue(original_cur_res->getResourceName(),prs);
++			if (original_cur_pdb_id<original_end) {
++				original_cur_res = original_cur_res->NextResidue();
++				original_cur_pdb_id = original_cur_res->getPdbId();
++			}
++			else if (original_cur_pdb_id<loop_cur_pdb_id) {
++				original_cur_pdb_id = endPdbId;
++			}
++			else {
++				original_cur_pdb_id++;
++			}
++		}
++		else {
++			prs = loop_cur_res->getSpec();
++			temp_protein->AddResidue(loop_cur_res->getResourceName(),prs);
++			temp_protein->getResidue(temp_protein->size()-1)->setPdbId(loop_cur_pdb_id);
++			if (loop_cur_pdb_id==original_cur_pdb_id) {
++				if (original_cur_pdb_id<original_end) {
++					original_cur_res = original_cur_res->NextResidue();
++					original_cur_pdb_id = original_cur_res->getPdbId();
++				}
++			}
++			if (loop_cur_pdb_id<endPdbId) {
++				loop_cur_res = loop_cur_res->NextResidue();
++				loop_cur_pdb_id++;
++			}
++			else if (loop_cur_pdb_id<original_cur_pdb_id) {
++				loop_cur_pdb_id = original_end;
++			}
++			else {
++				loop_cur_pdb_id++;
++			}
++		}
++	}
++	temp_protein->finalize();
++	return temp_protein;
++}
++	
++
+ // Only the residue order, atom name and atom position are correct in the final output. The temperature, residue name and ect. might not be correct.
+ void PSampMethods::addSidechain (string loopFile, string boundaryFile, string scwrl3_path, string outLoopFile) {
+         string command = scwrl3_path+"/scwrl3 -i "+loopFile+" -o temp.out -f "+boundaryFile+" > scwrl3.log";
+@@ -1034,7 +1091,8 @@
+         fin.close();
+         fout.close();
+ 	
+-//	system("rm temp.out");
++	system("rm temp.out");
++	system("rm scwrl3.log");
+ }
+ 
+ vector<PProtein*> PSampMethods::SeedSampleBackboneLoopOnly (PProtein* original_protein, int loopSid, int loopEid, int num_wanted) {
+@@ -1088,14 +1146,27 @@
+                                         backLoop->RotateBackbone(i,backward,rand()%360);
+ 
+                                 // Generate new initial forward and backward ends
+-                                do {
+-                                        angles = generateForwardOpenLoop(frontLoop,cfFrontEndLength);
+-                                } while(angles->empty());
+-				delete angles;
+-                                do {
+-                                        angles = generateBackwardOpenLoop(backLoop);
+-                                } while(angles->empty());
+-				delete angles;
++                                loop->inactivateResidue(0,loop->size()-1);
++                                bool gotends=false;                                                               
++                                while (!gotends) {
++                                        while (true) {                                                            
++                                                angles = generateForwardOpenLoop(frontLoop,cfFrontEndLength);
++                                                if (!angles->empty()) {                                           
++							angles->clear();
++                                                        delete angles;                                            
++                                                        break;                                                    
++                                                }                                                                 
++                                        }                                                                         
++                                        for (int i=0; i<10; ++i) {                                                
++                                                angles = generateBackwardOpenLoop(backLoop);
++                                                if (!angles->empty()) {                                           
++                                                        gotends = true;                                           
++							angles->clear();
++                                                        break;                                                    
++                                                }                                                                 
++                                        }                                                                         
++                                }
++
+                                 frontLastAtomPos = frontLoop->getResidue(cfFrontEndLength-1)->getAtomPosition("C");
+                                 backFirstAtomPos = backLoop->getResidue(0)->getAtomPosition("N");
+                         okEndPair = true;
+@@ -1230,14 +1301,28 @@
+                                         backLoop->RotateBackbone(i,backward,rand()%360);
+ 
+                                 // Generate new initial forward and backward ends
+-                                do {
+-                                        angles = generateForwardOpenLoop(frontLoop,cfFrontEndLength,distri_map,front_aa_names);
+-                                } while(angles->empty());
+-                                delete angles;
+-                                do {
+-                                        angles = generateBackwardOpenLoop(backLoop,distri_map,back_aa_names);
+-                                } while(angles->empty());
+-                                delete angles;
++				loop->inactivateResidue(0,loop->size()-1);
++				bool gotends=false;
++				while (!gotends) {
++					while (true) {
++						angles = generateForwardOpenLoop(frontLoop,cfFrontEndLength,distri_map,front_aa_names);
++						if (!angles->empty()) {
++							angles->clear();
++							delete angles;
++							break;
++						}
++					}
++					for (int i=0; i<10; ++i) {
++						angles = generateBackwardOpenLoop(backLoop,distri_map,back_aa_names);
++						if (!angles->empty()) {
++							gotends = true;
++							angles->clear();
++							delete angles;
++							break;
++						}
++					}
++				}
++			
+                                 frontLastAtomPos = frontLoop->getResidue(cfFrontEndLength-1)->getAtomPosition("C");
+                                 backFirstAtomPos = backLoop->getResidue(0)->getAtomPosition("N");
+                         okEndPair = true;
+@@ -1303,4 +1388,428 @@
+         delete protein;         
+                                 
+         return result;  
+-}                               
++}
++
++// For AddSidechain
++    class equalString
++    {
++        public:
++            size_t operator()(string const &s1, string const &s2) const
++            {
++                return (s1 == s2);
++            }
++    };
++
++    class hashString
++    {
++        public:
++            size_t operator()(string const &str) const
++            {
++                __gnu_cxx::hash<char const *>
++                    h;
++
++                return (h(str.c_str()));
++            }
++    };
++
++void PSampMethods::AddSidechain (string protein_input, int addStart, int addEnd, string scwrl3_path, string protein_output) {
++	// Create the sequence file
++	__gnu_cxx::hash_map<string,char,hashString,equalString> ResNameMap;
++	ResNameMap["ALA"] = 'a';
++	ResNameMap["ARG"] = 'r';
++	ResNameMap["ASN"] = 'n';
++	ResNameMap["ASP"] = 'd';
++	ResNameMap["CYS"] = 'c';
++	ResNameMap["GLU"] = 'e';
++	ResNameMap["GLN"] = 'q';
++	ResNameMap["GLY"] = 'g';
++	ResNameMap["HIS"] = 'h';
++	ResNameMap["ILE"] = 'i';
++	ResNameMap["LEU"] = 'l';
++	ResNameMap["LYS"] = 'k';
++	ResNameMap["MET"] = 'm';
++	ResNameMap["PHE"] = 'f';
++	ResNameMap["PRO"] = 'p';
++	ResNameMap["SER"] = 's';
++	ResNameMap["THR"] = 't';
++	ResNameMap["TRP"] = 'w';
++	ResNameMap["TYR"] = 'y';
++	ResNameMap["VAL"] = 'v';
++	ofstream seq_out("seq.out",ios::out);
++	PProtein *p = PDBIO::readFromFile(protein_input);
++	for (int i=0; i<p->size(); ++i) {
++		PResidue *res = p->getResidue(i);
++		string res_string_name = res->getName();
++		char res_c_name = ResNameMap[res_string_name];
++		int pdbid = res->getPdbId();
++		if (pdbid>=addStart && pdbid<=addEnd) {
++			res_c_name = toupper(res_c_name);
++		}
++		seq_out << res_c_name;
++	}
++	delete p;
++	seq_out << endl;
++	seq_out.close();
++
++	// Run SCWRL3	
++	string command = scwrl3_path+"/scwrl3 -i "+protein_input+" -o temp.out -s seq.out > scwrl3.log";
++	system(command.c_str());
++	
++	// Re-format the output file so that it is in proper PDB format
++        ifstream fin("temp.out");
++        ofstream fout(protein_output.c_str());
++        string s, s1, s2=" 1.00                  ";
++        while (!fin.eof()) {
++                getline(fin,s);
++                if (s.size()<30)
++                        break;
++                s.erase(30,1);
++                s1 = s.substr(0,55);
++                fout << s1 << s2 << endl;
++        }
++        fin.close();
++        fout.close();
++
++	system("rm seq.out");
++	system("rm temp.out");
++	system("rm scwrl3.log");
++}
++		
++		
++
++vector<PProtein*> PSampMethods::SeedSampleBackboneWithSidechainLoopOnly (PProtein* original_protein, int loopSid, int loopEid, string scwrl3_path, int num_wanted) {
++
++        static int MIN_MOVE_LOOP_SIZE=4;
++        static int MAX_TRIAL_PER_PAIR=50;
++        static int C_THRESHOLD=0, MAX_ENDS_NUM=max(num_wanted*2,20);
++        static double MIDDLE_SIZE_RATIO=0.5;
++        static double MAX_LENGTH_DISCOUNT_RATIO = 1;
++        int cfFrontEndLength=0, cfBackEndLength=0;
++        PProtein *frontLoop, *backLoop, *loop, *move_loop, *protein;
++        Vector3 endG, endPriorG, endNextG, frontLastAtomPos, backFirstAtomPos;
++        SpaceRelationship *sr;
++        bool workFrontEnd=false, okEndPair=true;
++        double endsDistanceThreshold=0;
++        vector<PProtein*> result;
++        vector<Real> *angles;
++
++        protein = PTools::CreateSlimProtein(original_protein,loopSid,loopEid);
++
++        int loopSize = loopEid-loopSid+1;
++        int middleSize = (int)(floor(MIDDLE_SIZE_RATIO*loopSize));
++        bool split = middleSize>=MIN_MOVE_LOOP_SIZE;
++
++        loop = new PProtein(protein,loopSid,loopEid);
++        if (split) {
++                cfFrontEndLength = (loopSize-middleSize)/2;
++                cfBackEndLength = loopSize-middleSize-cfFrontEndLength;
++                frontLoop = new PProtein(loop,0,loop->size()-cfBackEndLength-1);
++                backLoop = new PProtein(loop,loop->size()-cfBackEndLength,loop->size()-1);
++                move_loop = new PProtein(frontLoop,cfFrontEndLength,frontLoop->size()-1);
++                endsDistanceThreshold = computeMaxLength(middleSize) * MAX_LENGTH_DISCOUNT_RATIO;
++                sr = new SpaceRelationship(
++                                original_protein->getResidue(loopEid-cfBackEndLength),
++                                original_protein->getResidue(loopEid-cfBackEndLength+1));
++        }
++        else {
++                move_loop = loop;
++                PResidue *res = protein->getResidue(loopEid);
++                endPriorG = res->getAtomPosition("CA");
++                endG = res->getAtomPosition("C");
++                endNextG = res->getAtomPosition("O");
++        }
++
++        while (result.size() < num_wanted) {
++                if (split) {
++                                // Randomize the loop
++                                for (int i=0; i<2*frontLoop->size(); ++i)
++                                        frontLoop->RotateBackbone(i,forward,rand()%360);
++                                for (int i=0; i<2*backLoop->size(); ++i)
++                                        backLoop->RotateBackbone(i,backward,rand()%360);
++
++                                // Generate new initial forward and backward ends
++                                loop->inactivateResidue(0,loop->size()-1);
++                                bool gotends=false;                                                               
++                                while (!gotends) {
++                                        while (true) {                                                            
++                                                angles = generateForwardOpenLoop(frontLoop,cfFrontEndLength);
++                                                if (!angles->empty()) {                                           
++							angles->clear();
++                                                        delete angles;                                            
++                                                        break;                                                    
++                                                }                                                                 
++                                        }                                                                         
++                                        for (int i=0; i<10; ++i) {                                                
++                                                angles = generateBackwardOpenLoop(backLoop);
++                                                if (!angles->empty()) {                                           
++                                                        gotends = true;                                          
++							angles->clear();
++							delete angles; 
++                                                        break;                                                    
++                                                }                                                                 
++                                        }                                                                         
++                                }
++
++                                frontLastAtomPos = frontLoop->getResidue(cfFrontEndLength-1)->getAtomPosition("C");
++                                backFirstAtomPos = backLoop->getResidue(0)->getAtomPosition("N");
++                        okEndPair = true;
++                        if (frontLastAtomPos.distance(backFirstAtomPos) > endsDistanceThreshold) {
++                                okEndPair = false;
++                        }
++                         // Check if these two ends collide
++                        if (okEndPair) {
++                                move_loop->inactivateResidue(0,move_loop->size()-1);
++                                okEndPair = !(backLoop->InAnyCollision());
++                                move_loop->activateResidue(0,move_loop->size()-1);
++                        }
++
++                        if (okEndPair) {
++                                PResidue *backHeadResInProtein = protein->getResidue(loopEid-cfBackEndLength+1);
++                                PSampMethods::computeGoal(backHeadResInProtein,sr,&endPriorG,&endG,&endNextG);
++                        }
++                } // end if
++
++                for (int tryNum=0; okEndPair && tryNum<MAX_TRIAL_PER_PAIR; ++tryNum) {
++                        // Randomize backbone DOFs
++                        vector<ChainMove> cms;
++                        ChainMove cm;
++                        for (int j=0; j<2*move_loop->size(); ++j) {
++                                cm.blockType = PID::BACKBONE;
++                                cm.dir = forward;
++                                cm.DOF_index = j;
++                                cm.degrees = rand()%360;
++                                cms.push_back(cm);
++                        }
++                        move_loop->MultiRotate(cms);
++
++                        // Close the loop
++                        bool no_sol = PSampMethods::IKClose(move_loop,endPriorG,endG,endNextG);
++                        // Check collision and avoid collision if less enough
++                        if (no_sol) {
++                                continue;
++                        }       
++                        if (!move_loop->InAnyCollision()) {
++                        	// Add sidechain
++                        	PDBIO::writeToFile(protein,"temp.pdb");
++                        	int pdbSid = protein->pdbIndexToLocalIndex(loopSid);
++                        	int pdbEid = protein->pdbIndexToLocalIndex(loopEid);
++                        	AddSidechain("temp.pdb",pdbSid,pdbEid,scwrl3_path,"tempSC.pdb");
++                        	// Check for collision
++                        	FILE *file = fopen("tempSC.pdb","r");
++                        	if (file!=NULL) {
++                        		fclose(file);
++                        		PProtein *seed_with_sc = PDBIO::readFromFile("tempSC.pdb");
++                        		PProtein *loop_with_sc = new PProtein(seed_with_sc,loopSid,loopEid);
++                        		if (!loop_with_sc->InAnyCollision()) {
++                        			result.push_back(loop_with_sc->Clone());
++						seed_with_sc->Obliterate();         			
++						system("rm tempSC.pdb");
++						system("rm temp.pdb");
++                        			break;
++                        		}
++                        		seed_with_sc->Obliterate();
++                        		system("rm tempSC.pdb");
++                        	}
++                        	system("rm temp.pdb");
++                        }
++                } // end for
++        } // end while  
++                        
++        if (split)      
++                delete sr;      
++        delete protein;         
++
++        return result;
++}
++
++vector<PProtein*> PSampMethods::SeedSampleBackboneWithSidechainLoopOnly (PProtein* original_protein, int loopSid, int loopEid, map<string,PPhiPsiDistribution> &distri_map, string scwrl3_path, int num_wanted){
++
++        if (distri_map.size()==20) {
++                if (distri_map.count("ALA")==0 || distri_map.count("ARG")==0 || distri_map.count("ASN")==0
++                || distri_map.count("ASP")==0 || distri_map.count("CYS")==0 || distri_map.count("GLN")==0
++                || distri_map.count("GLU")==0 || distri_map.count("GLY")==0 || distri_map.count("HIS")==0
++                || distri_map.count("ILE")==0 || distri_map.count("LEU")==0 || distri_map.count("LYS")==0
++                || distri_map.count("MET")==0 || distri_map.count("PHE")==0 || distri_map.count("PRO")==0
++                || distri_map.count("SER")==0 || distri_map.count("THR")==0 || distri_map.count("TRP")==0
++                || distri_map.count("TYR")==0 || distri_map.count("VAL")==0 ) {
++                        cerr << "Wrong distribution names. Please read the documentation carefull." << endl;
++                        exit(1);
++                }
++        }
++
++        static int MIN_MOVE_LOOP_SIZE=4;
++        static int MAX_TRIAL_PER_PAIR=50;
++        static int C_THRESHOLD=0, MAX_ENDS_NUM=max(num_wanted*2,20);
++        static double MIDDLE_SIZE_RATIO=0.5;
++        static double MAX_LENGTH_DISCOUNT_RATIO = 1;
++        int cfFrontEndLength=0, cfBackEndLength=0;
++        PProtein *frontLoop, *backLoop, *loop, *move_loop, *protein;
++        Vector3 endG, endPriorG, endNextG, frontLastAtomPos, backFirstAtomPos;
++        SpaceRelationship *sr;
++        bool workFrontEnd=false, okEndPair=true;
++        double endsDistanceThreshold=0;
++        vector<PProtein*> result;
++        vector<Real> *angles;
++
++        protein = PTools::CreateSlimProtein(original_protein,loopSid,loopEid);
++        
++        int loopSize = loopEid-loopSid+1;
++        int middleSize = (int)(floor(MIDDLE_SIZE_RATIO*loopSize));
++//        bool split = middleSize>=(MIN_MOVE_LOOP_SIZE+1);
++        bool split = middleSize>=MIN_MOVE_LOOP_SIZE;
++
++	vector<string> front_aa_names, back_aa_names, move_aa_names;
++	map<string,PPhiPsiDistribution>::iterator map_iter;
++	string aa_name;
++	double phi, psi, curPhi, curPsi;
++        
++        loop = new PProtein(protein,loopSid,loopEid);
++        if (split) {
++                cfFrontEndLength = (loopSize-middleSize)/2;
++                cfBackEndLength = loopSize-middleSize-cfFrontEndLength;
++                frontLoop = new PProtein(loop,0,loop->size()-cfBackEndLength-1);
++                backLoop = new PProtein(loop,loop->size()-cfBackEndLength,loop->size()-1);
++                move_loop = new PProtein(frontLoop,cfFrontEndLength,frontLoop->size()-1);
++                endsDistanceThreshold = computeMaxLength(middleSize) * MAX_LENGTH_DISCOUNT_RATIO;
++                sr = new SpaceRelationship(
++                                original_protein->getResidue(loopEid-cfBackEndLength),
++                                original_protein->getResidue(loopEid-cfBackEndLength+1));
++
++        for (int i=0; i<cfFrontEndLength; ++i) {
++                front_aa_names.push_back(original_protein->getResidue(loopSid+i)->getResourceName());
++        }
++        for (int i=0; i<cfBackEndLength; ++i) {
++                back_aa_names.push_back(original_protein->getResidue(loopSid+frontLoop->size()+i)->getResourceName());
++        }
++
++        }
++        else {
++                move_loop = loop;
++                PResidue *res = protein->getResidue(loopEid);
++                endPriorG = res->getAtomPosition("CA");
++                endG = res->getAtomPosition("C");
++                endNextG = res->getAtomPosition("O");
++        }
++
++        for (int i=0; i<move_loop->size(); ++i) {
++                move_aa_names.push_back(original_protein->getResidue(loopSid+cfFrontEndLength+i)->getResourceName());
++        }
++
++        while (result.size() < num_wanted) {
++                if (split) {
++                                // Randomize the loop
++                                for (int i=0; i<2*frontLoop->size(); ++i)
++                                        frontLoop->RotateBackbone(i,forward,rand()%360);
++                                for (int i=0; i<2*backLoop->size(); ++i)
++                                        backLoop->RotateBackbone(i,backward,rand()%360);
++
++                                // Generate new initial forward and backward ends
++				loop->inactivateResidue(0,loop->size()-1);
++				bool gotends=false;
++				while (!gotends) {
++					while (true) {
++						angles = generateForwardOpenLoop(frontLoop,cfFrontEndLength,distri_map,front_aa_names);
++						if (!angles->empty()) {
++							angles->clear();
++							delete angles;
++							break;
++						}
++					}
++					for (int i=0; i<10; ++i) {
++						angles = generateBackwardOpenLoop(backLoop,distri_map,back_aa_names);
++						if (!angles->empty()) {
++							gotends = true;
++							angles->clear();
++							delete angles;
++							break;
++						}
++					}
++				}
++			
++                                frontLastAtomPos = frontLoop->getResidue(cfFrontEndLength-1)->getAtomPosition("C");
++                                backFirstAtomPos = backLoop->getResidue(0)->getAtomPosition("N");
++                        okEndPair = true;
++                        if (frontLastAtomPos.distance(backFirstAtomPos) > endsDistanceThreshold) {
++                                okEndPair = false;
++                        }
++                         // Check if these two ends collide
++                        if (okEndPair) {
++                                move_loop->inactivateResidue(0,move_loop->size()-1);
++                                okEndPair = !(backLoop->InAnyCollision());
++                                move_loop->activateResidue(0,move_loop->size()-1);
++                        }
++
++                        if (okEndPair) {
++                                PResidue *backHeadResInProtein = protein->getResidue(loopEid-cfBackEndLength+1);
++                                PSampMethods::computeGoal(backHeadResInProtein,sr,&endPriorG,&endG,&endNextG);
++                        }
++                } // end if
++
++                for (int tryNum=0; okEndPair && tryNum<MAX_TRIAL_PER_PAIR; ++tryNum) {
++                        // Randomize backbone DOFs
++                        vector<ChainMove> cms;
++                        ChainMove cm;
++                        for (int j=0; j<2*move_loop->size(); ++j) {
++                                cm.blockType = PID::BACKBONE;
++                                cm.dir = forward;
++                                cm.DOF_index = j;
++//                                cm.degrees = rand()%360;
++                                        aa_name = move_aa_names[j/2];
++                                        map_iter = distri_map.find(aa_name);
++				        if (j%2==0) { // Phi 
++                                                phi = sampleAngle((map_iter->second).getPhiDistribution());
++                                                curPhi = move_loop->getResidue(j/2)->GetPhi();
++                                                cm.degrees = curPhi - phi;
++                                        }
++                                        else { // Psi
++                                                vector<double> psiDistri = (map_iter->second).getPsiDistribution(phi);
++                                                psi = sampleAngle(psiDistri);
++                                                curPsi = move_loop->getResidue(j/2)->GetPsi();
++                                                cm.degrees = curPsi - psi;
++                                        }
++
++
++                                cms.push_back(cm);
++                        }
++                        move_loop->MultiRotate(cms);
++
++                        // Close the loop
++                        bool no_sol = PSampMethods::IKClose(move_loop,endPriorG,endG,endNextG);
++                        // Check collision and avoid collision if less enough
++                        if (no_sol) {
++                                continue;
++                        }
++                        if (!move_loop->InAnyCollision()) {
++                        	// Add sidechain
++                        	PDBIO::writeToFile(protein,"temp.pdb");
++                        	int pdbSid = protein->pdbIndexToLocalIndex(loopSid);
++                        	int pdbEid = protein->pdbIndexToLocalIndex(loopEid);
++                        	AddSidechain("temp.pdb",pdbSid,pdbEid,scwrl3_path,"tempSC.pdb");
++                        	// Check for collision
++                        	FILE *file = fopen("tempSC.pdb","r");
++                        	if (file!=NULL) {
++                        		fclose(file);
++                        		PProtein *seed_with_sc = PDBIO::readFromFile("tempSC.pdb");
++                        		PProtein *loop_with_sc = new PProtein(seed_with_sc,loopSid,loopEid);
++                        		if (!loop_with_sc->InAnyCollision()) {
++                        			result.push_back(loop_with_sc->Clone());
++						seed_with_sc->Obliterate();
++						system("rm tempSC.pdb");
++						system("rm temp.pdb");
++                        			break;
++                        		}
++                        		seed_with_sc->Obliterate();
++                        		system("rm tempSC.pdb");
++                        	}
++                        	system("rm temp.pdb");
++                        }             
++                } // end for
++        } // end while          
++                                
++        if (split)                      
++                delete sr;      
++        delete protein;         
++                                
++        return result;  
++}
++
+Index: PResidue.cc
+===================================================================
+--- PResidue.cc	(revision 23)
++++ PResidue.cc	(working copy)
+@@ -502,3 +502,14 @@
+         }
+ }
+ 
++// returns true if there is at least one atom in the residue is active
++bool PResidue::isActive () {
++	vector<PAtom*> *atoms = getAtoms();
++	vector<PAtom*>::iterator it;
++	for (it=atoms->begin(); it!=atoms->end(); ++it) {
++		if ( (*it)->isActive() ) 
++			return true;
++	}
++	return false;
++}
++
+Index: PTools.cc
+===================================================================
+--- PTools.cc	(revision 23)
++++ PTools.cc	(working copy)
+@@ -405,6 +405,22 @@
+   return Dofs; 
+ }
+ 
++double PTools::RMSDCalpha (PProtein *protein0, PProtein *protein1, int loopstart, int loopend){
++  double rmsd=0.0;
++  Vector3 temp;
++  int num_atoms=0;
++  for(int j=loopstart; j<=loopend; j++){
++    PResidue *res0 = protein0->getResidue(j);
++    PResidue *res1 = protein1->getResidue(j);
++    PAtom * atom0 = res0->getAtom(PID::C_ALPHA);
++    PAtom * atom1 = res1->getAtom(PID::C_ALPHA);
++    ++num_atoms;
++    temp = (atom0->getPos() - atom1->getPos());
++    rmsd += (temp.norm())*(temp.norm());
++  }
++  return sqrt(rmsd/num_atoms);
++}
++
+ double PTools::RMSDBackbone(PProtein *protein0, PProtein *protein1, int loopstart, int loopend){
+   double rmsd=0.0;
+   Vector3 temp;
+@@ -549,7 +565,7 @@
+ 	vector<int> JacInd;
+ 	int i=0;
+ 	int loopsize = Dofs[i].size();
+-	srand(time(NULL));
++//	srand(time(NULL));
+ 	for(int j=0;j<loopsize;j++){
+ 		if((Dofs[i])[j].blockType==PID::BACKBONE){
+ 		JacInd.push_back((Dofs[i])[j].DOF_index);

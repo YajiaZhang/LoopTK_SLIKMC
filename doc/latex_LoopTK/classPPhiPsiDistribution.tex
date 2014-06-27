@@ -1,0 +1,111 @@
+\section{PPhi\-Psi\-Distribution Class Reference}
+\label{classPPhiPsiDistribution}\index{PPhiPsiDistribution@{PPhiPsiDistribution}}
+{\tt \#include $<$PPhi\-Psi\-Distribution.h$>$}
+
+
+
+\subsection{Detailed Description}
+The \doxyref{PPhi\-Psi\-Distribution}{p.}{classPPhiPsiDistribution} class is for sampling backbone conformations according to a certain distribution. Currenlty, the seed sampling methods can take in only 1 distribution (for all amino acids) or 20 distributions (one for each amino acid, such as a Ramachandran distribution). In the later case, the name of the distribution must be 3-letter amino acid name in all capital letters. In the previous case, name doesn't matter, and set to \char`\"{}anything\char`\"{} by default. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf PPhi\-Psi\-Distribution} ()
+\item 
+{\bf PPhi\-Psi\-Distribution} (const vector$<$ vector$<$ double $>$ $>$ \&v, const string \&name=\char`\"{}anything\char`\"{})
+\item 
+void {\bf print} (ostream \&out) const 
+\item 
+double {\bf get\-Prob\-Phi\-Psi} (double phi, double psi) const
+\item 
+vector$<$ double $>$ {\bf get\-Phi\-Distribution} (double psi\-Value) const 
+\item 
+vector$<$ double $>$ {\bf get\-Psi\-Distribution} (double phi\-Value) const 
+\item 
+vector$<$ double $>$ {\bf get\-Phi\-Distribution} () const
+\item 
+vector$<$ double $>$ {\bf get\-Psi\-Distribution} () const
+\item 
+bool {\bf is\-Empty} () const
+\item 
+int {\bf num\-Phi\-Intervals} () const
+\item 
+int {\bf num\-Psi\-Intervals} () const
+\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static map$<$ string, {\bf PPhi\-Psi\-Distribution} $>$ {\bf generate\-Ramachandran} ()
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{PPhiPsiDistribution@{PPhi\-Psi\-Distribution}!PPhiPsiDistribution@{PPhiPsiDistribution}}
+\index{PPhiPsiDistribution@{PPhiPsiDistribution}!PPhiPsiDistribution@{PPhi\-Psi\-Distribution}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PPhi\-Psi\-Distribution::PPhi\-Psi\-Distribution ()\hspace{0.3cm}{\tt  [inline]}}\label{classPPhiPsiDistribution_d7eb7a093b403a09101d40b23b7a387c}
+
+
+\index{PPhiPsiDistribution@{PPhi\-Psi\-Distribution}!PPhiPsiDistribution@{PPhiPsiDistribution}}
+\index{PPhiPsiDistribution@{PPhiPsiDistribution}!PPhiPsiDistribution@{PPhi\-Psi\-Distribution}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PPhi\-Psi\-Distribution::PPhi\-Psi\-Distribution (const vector$<$ vector$<$ double $>$ $>$ \& {\em v}, const string \& {\em name} = {\tt \char`\"{}anything\char`\"{}})}\label{classPPhiPsiDistribution_0d7517c4783363de8ce8972dd557497c}
+
+
+Construct a \doxyref{PPhi\-Psi\-Distribution}{p.}{classPPhiPsiDistribution} object by providing the distribution {\tt v} and a corresponding {\tt name}. In v, the 1st dimension is about Phi and the 2nd dimension is about Psi i.e., v[i][j] is the probability of taking the Phi in the ith interval and Psi in the jth interval. Important: 1. All inner vectors must have the same size. 2. All entries should sum up to 1. 3. v[i][0] to v[i][n-1] store the probability of Psi in 360/n degree intervals from -180 to +179. v[0][j] to v[n-1][j] store the probability of Phi in 360/n degree intervals from -180 to +179. For example: vector$<$double$>$ row1, row2; row1.push\_\-back(0.1); row1.push\_\-back(0.2); row1.push\_\-back(0.3); row2.push\_\-back(0.2); row2.push\_\-back(0.1); row2.push\_\-back(0.1); vector$<$ vector$<$double$>$ $>$ phipsi; phipsi.push\_\-back(row1); phipsi.push\_\-back(row2); This means: the phi angle has two intervals: [-180,0) and [0,+179], and psi angle has three intervals: [-180,-60), [-60,+60) and [+60,179]. The probabilty of a residue taking phi angle in [-180,0) and psi angle in [+60,+179] is 0.3. 
+
+\subsection{Member Function Documentation}
+\index{PPhiPsiDistribution@{PPhi\-Psi\-Distribution}!print@{print}}
+\index{print@{print}!PPhiPsiDistribution@{PPhi\-Psi\-Distribution}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PPhi\-Psi\-Distribution::print (ostream \& {\em out}) const}\label{classPPhiPsiDistribution_0144b405f3fabcb1ae8a72c5d59f5de5}
+
+
+\index{PPhiPsiDistribution@{PPhi\-Psi\-Distribution}!getProbPhiPsi@{getProbPhiPsi}}
+\index{getProbPhiPsi@{getProbPhiPsi}!PPhiPsiDistribution@{PPhi\-Psi\-Distribution}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double PPhi\-Psi\-Distribution::get\-Prob\-Phi\-Psi (double {\em phi}, double {\em psi}) const}\label{classPPhiPsiDistribution_b485f31981ea0d2182eef57b8cb0ca46}
+
+
+\index{PPhiPsiDistribution@{PPhi\-Psi\-Distribution}!getPhiDistribution@{getPhiDistribution}}
+\index{getPhiDistribution@{getPhiDistribution}!PPhiPsiDistribution@{PPhi\-Psi\-Distribution}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ double $>$ PPhi\-Psi\-Distribution::get\-Phi\-Distribution (double {\em psi\-Value}) const}\label{classPPhiPsiDistribution_900718586c60a5963058b848351860bd}
+
+
+\index{PPhiPsiDistribution@{PPhi\-Psi\-Distribution}!getPsiDistribution@{getPsiDistribution}}
+\index{getPsiDistribution@{getPsiDistribution}!PPhiPsiDistribution@{PPhi\-Psi\-Distribution}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ double $>$ PPhi\-Psi\-Distribution::get\-Psi\-Distribution (double {\em phi\-Value}) const}\label{classPPhiPsiDistribution_ef383fc450576303151240ef1678d26e}
+
+
+\index{PPhiPsiDistribution@{PPhi\-Psi\-Distribution}!getPhiDistribution@{getPhiDistribution}}
+\index{getPhiDistribution@{getPhiDistribution}!PPhiPsiDistribution@{PPhi\-Psi\-Distribution}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$double$>$ PPhi\-Psi\-Distribution::get\-Phi\-Distribution () const\hspace{0.3cm}{\tt  [inline]}}\label{classPPhiPsiDistribution_627f9dc214971958a0939fe5286be0f9}
+
+
+\index{PPhiPsiDistribution@{PPhi\-Psi\-Distribution}!getPsiDistribution@{getPsiDistribution}}
+\index{getPsiDistribution@{getPsiDistribution}!PPhiPsiDistribution@{PPhi\-Psi\-Distribution}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$double$>$ PPhi\-Psi\-Distribution::get\-Psi\-Distribution () const\hspace{0.3cm}{\tt  [inline]}}\label{classPPhiPsiDistribution_29ed330b8ca740121a2ac71dae1a872d}
+
+
+\index{PPhiPsiDistribution@{PPhi\-Psi\-Distribution}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!PPhiPsiDistribution@{PPhi\-Psi\-Distribution}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PPhi\-Psi\-Distribution::is\-Empty () const\hspace{0.3cm}{\tt  [inline]}}\label{classPPhiPsiDistribution_8dd5ed8521438e2cb0abccd510f75aad}
+
+
+\index{PPhiPsiDistribution@{PPhi\-Psi\-Distribution}!numPhiIntervals@{numPhiIntervals}}
+\index{numPhiIntervals@{numPhiIntervals}!PPhiPsiDistribution@{PPhi\-Psi\-Distribution}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PPhi\-Psi\-Distribution::num\-Phi\-Intervals () const\hspace{0.3cm}{\tt  [inline]}}\label{classPPhiPsiDistribution_9657d5e6e8160e5948a764649c77c1e8}
+
+
+Returns the number of phi intervals in this distribution. \index{PPhiPsiDistribution@{PPhi\-Psi\-Distribution}!numPsiIntervals@{numPsiIntervals}}
+\index{numPsiIntervals@{numPsiIntervals}!PPhiPsiDistribution@{PPhi\-Psi\-Distribution}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PPhi\-Psi\-Distribution::num\-Psi\-Intervals () const\hspace{0.3cm}{\tt  [inline]}}\label{classPPhiPsiDistribution_f0c0351f7ba271c812457d7302e80e43}
+
+
+Returns the number of psi intervals in this distribution. \index{PPhiPsiDistribution@{PPhi\-Psi\-Distribution}!generateRamachandran@{generateRamachandran}}
+\index{generateRamachandran@{generateRamachandran}!PPhiPsiDistribution@{PPhi\-Psi\-Distribution}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}map$<$ string, {\bf PPhi\-Psi\-Distribution} $>$ PPhi\-Psi\-Distribution::generate\-Ramachandran ()\hspace{0.3cm}{\tt  [static]}}\label{classPPhiPsiDistribution_51ba83b7f42aee5ad3a5008d6fe95f2a}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PPhi\-Psi\-Distribution.h}\item 
+src/core/{\bf PPhi\-Psi\-Distribution.cc}\end{CompactItemize}

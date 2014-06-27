@@ -1,0 +1,41 @@
+\section{PExact\-IKSolver Class Reference}
+\label{classPExactIKSolver}\index{PExactIKSolver@{PExactIKSolver}}
+{\tt \#include $<$PIKAlgorithms.h$>$}
+
+
+
+\subsection{Detailed Description}
+Finds exact inverse kinematic solutions for protein loops. 
+
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static {\bf IKSolutions} {\bf Find\-Solutions} ({\bf PProtein} $\ast$loop, int Res\_\-indices\_\-to\_\-use[3])
+\item 
+static {\bf IKSolutions} {\bf Find\-Solutions} ({\bf PProtein} $\ast$loop, int Res\_\-indices\_\-to\_\-use[3], Vector3 $\ast$end\-Prior\-G, Vector3 $\ast$end\-G, Vector3 $\ast$end\-Next\-G)
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{PExactIKSolver@{PExact\-IKSolver}!FindSolutions@{FindSolutions}}
+\index{FindSolutions@{FindSolutions}!PExactIKSolver@{PExact\-IKSolver}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf IKSolutions} PExact\-IKSolver::Find\-Solutions ({\bf PProtein} $\ast$ {\em loop}, int {\em Res\_\-indices\_\-to\_\-use}[3])\hspace{0.3cm}{\tt  [static]}}\label{classPExactIKSolver_6d1190d7dbca9cb0ace75888ee34b522}
+
+
+Given a closed loop and three residue indices, it finds Exact IK solutions using Coutsias method. Note for a certain pose Exact IK can give maximum 16 solutions. The loop in its current state corresponds to one of the solutions. \index{PExactIKSolver@{PExact\-IKSolver}!FindSolutions@{FindSolutions}}
+\index{FindSolutions@{FindSolutions}!PExactIKSolver@{PExact\-IKSolver}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf IKSolutions} PExact\-IKSolver::Find\-Solutions ({\bf PProtein} $\ast$ {\em loop}, int {\em Res\_\-indices\_\-to\_\-use}[3], Vector3 $\ast$ {\em end\-Prior\-G}, Vector3 $\ast$ {\em end\-G}, Vector3 $\ast$ {\em end\-Next\-G})\hspace{0.3cm}{\tt  [static]}}\label{classPExactIKSolver_ab96f8318d551dd1131795be4c39c5de}
+
+
+Given a loop, three residue indices, and a goal pose defined by three atoms, it finds Exact IK solutions using Coutsias method. The loop conformation can be open or closed. 
+
+----------------------------------------------------------------------- This is a sample driver routine to reconstruct tripeptide loops from the coordinates in a pdb file using a canonical bond lengths and angles. -----------------------------------------------------------------------
+
+-----------------------------------------------------------------------
+
+----------------------------------------------------------------------- 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PIKAlgorithms.h}\item 
+src/core/{\bf PExact\-IKSolver.cc}\end{CompactItemize}

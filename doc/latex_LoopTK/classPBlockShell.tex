@@ -1,0 +1,87 @@
+\section{PBlock\-Shell Class Reference}
+\label{classPBlockShell}\index{PBlockShell@{PBlockShell}}
+{\tt \#include $<$PBlock\-Shell.h$>$}
+
+
+
+\subsection{Detailed Description}
+Encapsulates data common to all blocks. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf PBlock\-Shell} (const string \&name, const string \&type)
+\item 
+void {\bf add\-Atom} (const string \&id, const string \&name, Vector3 relative\-Position)
+\item 
+void {\bf add\-Bond} (const string \&id1, const string \&id2, bool is\-DOF)
+\item 
+void {\bf add\-Bond} (const {\bf PBond\-Shell} \&pbs)
+\item 
+string {\bf get\-Name} () const
+\item 
+string {\bf get\-Type} () const
+\item 
+vector$<$ {\bf PBond\-Shell} $>$ $\ast$ {\bf get\-Bonds} ()
+\item 
+String\-Map $\ast$ {\bf get\-Atoms} ()
+\item 
+{\bf PAtom\-Positions\-Spec} $\ast$ {\bf get\-Default\-Positions} ()
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{PBlockShell@{PBlock\-Shell}!PBlockShell@{PBlockShell}}
+\index{PBlockShell@{PBlockShell}!PBlockShell@{PBlock\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PBlock\-Shell::PBlock\-Shell (const string \& {\em name}, const string \& {\em type})}\label{classPBlockShell_8df5c1229857ef9d6efcd6d0a6e3de94}
+
+
+Constructs a new \doxyref{PBlock\-Shell}{p.}{classPBlockShell} with the given name and type (such as backbone or sidechain). 
+
+\subsection{Member Function Documentation}
+\index{PBlockShell@{PBlock\-Shell}!addAtom@{addAtom}}
+\index{addAtom@{addAtom}!PBlockShell@{PBlock\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PBlock\-Shell::add\-Atom (const string \& {\em id}, const string \& {\em name}, Vector3 {\em relative\-Position})}\label{classPBlockShell_c8df14037b96c94f1a16f21b03766ed2}
+
+
+Adds an atom to this block: id is the atom's unique identifier within the block (CA, CB, CG, etc.) whereas name is the type of atom (C, N, O, etc.) to add. \index{PBlockShell@{PBlock\-Shell}!addBond@{addBond}}
+\index{addBond@{addBond}!PBlockShell@{PBlock\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PBlock\-Shell::add\-Bond (const string \& {\em id1}, const string \& {\em id2}, bool {\em is\-DOF})}\label{classPBlockShell_4a0ec48842a98eb9e4e9dd768d9b98a1}
+
+
+Adds a bond to this block. id1 and id2 specify the identifiers of the bonded atoms. is\-DOF is true if this bond is a degree of freedom, false otherwise. \index{PBlockShell@{PBlock\-Shell}!addBond@{addBond}}
+\index{addBond@{addBond}!PBlockShell@{PBlock\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PBlock\-Shell::add\-Bond (const {\bf PBond\-Shell} \& {\em pbs})}\label{classPBlockShell_a3d642b6f302ff1fc1acb11fc3c42bcf}
+
+
+Adds the specified \doxyref{PBond\-Shell}{p.}{classPBondShell} to this block. \index{PBlockShell@{PBlock\-Shell}!getName@{getName}}
+\index{getName@{getName}!PBlockShell@{PBlock\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string PBlock\-Shell::get\-Name () const\hspace{0.3cm}{\tt  [inline]}}\label{classPBlockShell_46544befef4a3c29cc5688e33735288a}
+
+
+Returns the block's name. \index{PBlockShell@{PBlock\-Shell}!getType@{getType}}
+\index{getType@{getType}!PBlockShell@{PBlock\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string PBlock\-Shell::get\-Type () const\hspace{0.3cm}{\tt  [inline]}}\label{classPBlockShell_7c1fd1621d7ec17f6aec432d7436bea4}
+
+
+Returns the block's type. \index{PBlockShell@{PBlock\-Shell}!getBonds@{getBonds}}
+\index{getBonds@{getBonds}!PBlockShell@{PBlock\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf PBond\-Shell}$>$$\ast$ PBlock\-Shell::get\-Bonds ()\hspace{0.3cm}{\tt  [inline]}}\label{classPBlockShell_c67308407e005093e4824446869ef4e3}
+
+
+Returns the list of bonds in this block. \index{PBlockShell@{PBlock\-Shell}!getAtoms@{getAtoms}}
+\index{getAtoms@{getAtoms}!PBlockShell@{PBlock\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}String\-Map$\ast$ PBlock\-Shell::get\-Atoms ()\hspace{0.3cm}{\tt  [inline]}}\label{classPBlockShell_b00e417a69bf91ff188251ab71bc1923}
+
+
+Returns the map of atom names to atom types for this {\tt \doxyref{PBlock\-Shell}{p.}{classPBlockShell}}. \index{PBlockShell@{PBlock\-Shell}!getDefaultPositions@{getDefaultPositions}}
+\index{getDefaultPositions@{getDefaultPositions}!PBlockShell@{PBlock\-Shell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PAtom\-Positions\-Spec}$\ast$ PBlock\-Shell::get\-Default\-Positions ()\hspace{0.3cm}{\tt  [inline]}}\label{classPBlockShell_2c28e50310359df867339bc0219eb898}
+
+
+Returns the map of default positions for atoms in this {\tt \doxyref{PBlock\-Shell}{p.}{classPBlockShell}}. 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PBlock\-Shell.h}\item 
+src/core/{\bf PBlock.cc}\end{CompactItemize}

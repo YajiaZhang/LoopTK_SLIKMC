@@ -1,0 +1,5 @@
+clean : 
+	/bin/rm -f *.o *.result $(EXECUTABLES) $(EXECUTABLE).purify core Makefile.dependencies
+
+immaculate: clean
+	rm -fr *~

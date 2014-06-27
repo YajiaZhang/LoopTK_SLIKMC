@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<indices>
+<residue name="ARG">
+<chi index="1" first="N" second="CA" third="CB" fourth="CG" />
+<chi index="2" first="CA" second="CB" third="CG" fourth="CD" />
+<chi index="3" first="CB" second="CG" third="CD" fourth="NE" />
+<chi index="4" first="CG" second="CD" third="NE" fourth="CZ" />
+</residue>
+<residue name="ASN">
+<chi index="1" first="N" second="CA" third="CB" fourth="CG" />
+<chi index="2" first="CA" second="CB" third="CG" fourth="OD1" />
+</residue>
+<residue name="ASP">
+<chi index="1" first="N" second="CA" third="CB" fourth="CG" />
+<chi index="2" first="CA" second="CB" third="CG" fourth="OD1" />
+</residue>
+<residue name="CYS">
+<chi index="1" first="N" second="CA" third="CB" fourth="SG" />
+</residue>
+<residue name="GLN">
+<chi index="1" first="N" second="CA" third="CB" fourth="CG" />
+<chi index="2" first="CA" second="CB" third="CG" fourth="CD" />
+<chi index="3" first="CB" second="CG" third="CD" fourth="OE1" />
+</residue>
+<residue name="GLU">
+<chi index="1" first="N" second="CA" third="CB" fourth="CG" />
+<chi index="2" first="CA" second="CB" third="CG" fourth="CD" />
+<chi index="3" first="CB" second="CG" third="CD" fourth="OE1" />
+</residue>
+<residue name="HIS">
+<chi index="1" first="N" second="CA" third="CB" fourth="CG" />
+<chi index="2" first="CA" second="CB" third="CG" fourth="ND1" />
+</residue>
+<residue name="ILE">
+<chi index="1" first="N" second="CA" third="CB" fourth="CG1" />
+<chi index="2" first="CA" second="CB" third="CG1" fourth="CD1" />
+</residue>
+<residue name="LEU">
+<chi index="1" first="N" second="CA" third="CB" fourth="CG" />
+<chi index="2" first="CA" second="CB" third="CG" fourth="CD1" />
+</residue>
+<residue name="LYS">
+<chi index="1" first="N" second="CA" third="CB" fourth="CG" />
+<chi index="2" first="CA" second="CB" third="CG" fourth="CD" />
+<chi index="3" first="CB" second="CG" third="CD" fourth="CE" />
+<chi index="4" first="CG" second="CD" third="CE" fourth="NZ" />
+</residue>
+<residue name="MET">
+<chi index="1" first="N" second="CA" third="CB" fourth="CG" />
+<chi index="2" first="CA" second="CB" third="CG" fourth="SD" />
+<chi index="3" first="CB" second="CG" third="SD" fourth="CE" />
+</residue>
+<residue name="PHE">
+<chi index="1" first="N" second="CA" third="CB" fourth="CG" />
+<chi index="2" first="CA" second="CB" third="CG" fourth="CD1" />
+</residue>
+<residue name="PRO">
+<chi index="1" first="N" second="CA" third="CB" fourth="CG" />
+</residue>
+<residue name="SER">
+<chi index="1" first="N" second="CA" third="CB" fourth="OG" />
+</residue>
+<residue name="THR">
+<chi index="1" first="N" second="CA" third="CB" fourth="OG1" />
+</residue>
+<residue name="TRP">
+<chi index="1" first="N" second="CA" third="CB" fourth="CG" />
+<chi index="2" first="CA" second="CB" third="CG" fourth="CD1" />
+</residue>
+<residue name="TYR">
+<chi index="1" first="N" second="CA" third="CB" fourth="CG" />
+<chi index="2" first="CA" second="CB" third="CG" fourth="CD1" />
+</residue>
+<residue name="VAL">
+<chi index="1" first="N" second="CA" third="CB" fourth="CG1" />
+</residue>
+</indices>

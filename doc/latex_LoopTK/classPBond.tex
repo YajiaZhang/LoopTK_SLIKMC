@@ -1,0 +1,114 @@
+\section{PBond Class Reference}
+\label{classPBond}\index{PBond@{PBond}}
+{\tt \#include $<$PBond.h$>$}
+
+
+
+\subsection{Detailed Description}
+Encapsulates a bond between two atoms. Contains pointers to the two bonded atoms and a binary bit indicating whether the bond is a degree of freedom. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf PBond} ({\bf PAtom} $\ast$a1, {\bf PAtom} $\ast$a2, bool is\-DOF)
+\item 
+Real {\bf get\-Length} ()
+\item 
+void {\bf traverse\-Chain} ({\bf Bond\-Direction} dir, {\bf Atom\-Functor} $\ast$atom\-Fn, {\bf Bond\-Functor} $\ast$bond\-Fn, {\bf PChain} $\ast$root\-Chain)
+\item 
+void {\bf traverse\-Atoms} ({\bf Bond\-Direction} dir, {\bf Atom\-Functor} $\ast$atom\-Fn, {\bf PChain} $\ast$root\-Chain)
+\item 
+void {\bf traverse\-Bonds} ({\bf Bond\-Direction} dir, {\bf Bond\-Functor} $\ast$bond\-Fn, {\bf PChain} $\ast$root\-Chain)
+\item 
+void {\bf Rotate} ({\bf Bond\-Direction} dir, float degrees, {\bf PChain} $\ast$chain)
+\item 
+void {\bf Rotate} ({\bf Bond\-Direction} dir, float degrees)
+\item 
+{\bf PAtom} $\ast$ {\bf get\-Atom1} () const
+\item 
+{\bf PAtom} $\ast$ {\bf get\-Atom2} () const
+\item 
+{\bf PAtom} $\ast$ {\bf get\-Atom} ({\bf Bond\-Direction} dir) const 
+\item 
+bool {\bf is\-DOF} () const
+\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+struct {\bf DOFCacher}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{PBond@{PBond}!PBond@{PBond}}
+\index{PBond@{PBond}!PBond@{PBond}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PBond::PBond ({\bf PAtom} $\ast$ {\em a1}, {\bf PAtom} $\ast$ {\em a2}, bool {\em is\-DOF})\hspace{0.3cm}{\tt  [inline]}}\label{classPBond_870ff0a94f1cfd01c6ccaeabe3a47a4f}
+
+
+Constructs a new \doxyref{PBond}{p.}{classPBond}. 
+
+\subsection{Member Function Documentation}
+\index{PBond@{PBond}!getLength@{getLength}}
+\index{getLength@{getLength}!PBond@{PBond}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real PBond::get\-Length ()}\label{classPBond_190236d16f696a4dd5697137af58f156}
+
+
+Returns the length of this bond. \index{PBond@{PBond}!traverseChain@{traverseChain}}
+\index{traverseChain@{traverseChain}!PBond@{PBond}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PBond::traverse\-Chain ({\bf Bond\-Direction} {\em dir}, {\bf Atom\-Functor} $\ast$ {\em atom\-Fn}, {\bf Bond\-Functor} $\ast$ {\em bond\-Fn}, {\bf PChain} $\ast$ {\em root\-Chain})}\label{classPBond_b84d30ce764d0d518ffb918534f2ec8d}
+
+
+Initiates a traversal of the graph of atoms and bonds in the specified direction, calling the given atom functor at each atom and the given bond functor at each bond. \index{PBond@{PBond}!traverseAtoms@{traverseAtoms}}
+\index{traverseAtoms@{traverseAtoms}!PBond@{PBond}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PBond::traverse\-Atoms ({\bf Bond\-Direction} {\em dir}, {\bf Atom\-Functor} $\ast$ {\em atom\-Fn}, {\bf PChain} $\ast$ {\em root\-Chain})\hspace{0.3cm}{\tt  [inline]}}\label{classPBond_9c642b7fc1e88c5f296ee94451110edf}
+
+
+Initiates a traversal of the graph of atoms and bonds in the specified direction, calling the given atom functor at each atom. \index{PBond@{PBond}!traverseBonds@{traverseBonds}}
+\index{traverseBonds@{traverseBonds}!PBond@{PBond}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PBond::traverse\-Bonds ({\bf Bond\-Direction} {\em dir}, {\bf Bond\-Functor} $\ast$ {\em bond\-Fn}, {\bf PChain} $\ast$ {\em root\-Chain})\hspace{0.3cm}{\tt  [inline]}}\label{classPBond_31d9edeeac44eceaf2e1472ec080c76c}
+
+
+Initiates a traversal of the graph of atoms and bonds in the specified direction, calling the given bond functor at each bond. \index{PBond@{PBond}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!PBond@{PBond}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PBond::Rotate ({\bf Bond\-Direction} {\em dir}, float {\em degrees}, {\bf PChain} $\ast$ {\em chain})}\label{classPBond_1d5e15b5ce042f29f0e34419d30c01c5}
+
+
+Rotates the chain starting from this bond by the specified number of degrees, moving in the direction indicated by dir, limiting the rotation to \char`\"{}chain\char`\"{}. \index{PBond@{PBond}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!PBond@{PBond}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PBond::Rotate ({\bf Bond\-Direction} {\em dir}, float {\em degrees})}\label{classPBond_fb6759aec91dc11cda6b330abe528406}
+
+
+Does a rotation on the smallest common subchain between the two atoms. \index{PBond@{PBond}!getAtom1@{getAtom1}}
+\index{getAtom1@{getAtom1}!PBond@{PBond}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PAtom}$\ast$ PBond::get\-Atom1 () const\hspace{0.3cm}{\tt  [inline]}}\label{classPBond_f3bc433efacbc26b917ab41784ea30cf}
+
+
+Returns the first atom in the bond. \index{PBond@{PBond}!getAtom2@{getAtom2}}
+\index{getAtom2@{getAtom2}!PBond@{PBond}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PAtom}$\ast$ PBond::get\-Atom2 () const\hspace{0.3cm}{\tt  [inline]}}\label{classPBond_0a9feb87c9bc8e7fedfb0e29ebcc902a}
+
+
+Returns the second atom in the bond. \index{PBond@{PBond}!getAtom@{getAtom}}
+\index{getAtom@{getAtom}!PBond@{PBond}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PAtom} $\ast$ PBond::get\-Atom ({\bf Bond\-Direction} {\em dir}) const}\label{classPBond_fe72963ea2b1c37bde4a7b46c33a03d2}
+
+
+Returns the bonded atom in the specified direction. \index{PBond@{PBond}!isDOF@{isDOF}}
+\index{isDOF@{isDOF}!PBond@{PBond}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PBond::is\-DOF () const\hspace{0.3cm}{\tt  [inline]}}\label{classPBond_7a8cc29340332032ce1887dca1a7a6d4}
+
+
+Returns true if this bond is a degree of freedom, false otherwise. 
+
+\subsection{Friends And Related Function Documentation}
+\index{PBond@{PBond}!DOFCacher@{DOFCacher}}
+\index{DOFCacher@{DOFCacher}!PBond@{PBond}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}friend struct {\bf DOFCacher}\hspace{0.3cm}{\tt  [friend]}}\label{classPBond_7d2f7ec5292ccb52dce2c2739c2f4beb}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PBond.h}\item 
+src/core/{\bf PBond.cc}\end{CompactItemize}

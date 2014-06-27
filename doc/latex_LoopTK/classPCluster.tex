@@ -1,0 +1,87 @@
+\section{PCluster Class Reference}
+\label{classPCluster}\index{PCluster@{PCluster}}
+{\tt \#include $<$PTools.h$>$}
+
+
+
+\subsection{Detailed Description}
+Represents a cluster of \char`\"{}similar\char`\"{} loop conformations. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf PCluster} ()
+\item 
+{\bf PCluster} (const {\bf PCluster} \&other)
+\item 
+{\bf $\sim$PCluster} ()
+\item 
+void {\bf Add\-Conformation} ({\bf PLight\-Chain} $\ast$to\-Add)
+\item 
+void {\bf Merge\-With\-Cluster} ({\bf PCluster} \&other)
+\item 
+{\bf PLight\-Chain} $\ast$ {\bf Get\-Representative\-Conformation} () const
+\item 
+int {\bf size} () const
+\item 
+bool {\bf empty} () const
+\item 
+list$<$ {\bf PLight\-Chain} $\ast$ $>$ {\bf get\-Conformations} () const
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{PCluster@{PCluster}!PCluster@{PCluster}}
+\index{PCluster@{PCluster}!PCluster@{PCluster}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PCluster::PCluster ()}\label{classPCluster_1f2b1d435d0302123a5683bb5a0abf63}
+
+
+Creates a new {\tt \doxyref{PCluster}{p.}{classPCluster}}. \index{PCluster@{PCluster}!PCluster@{PCluster}}
+\index{PCluster@{PCluster}!PCluster@{PCluster}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PCluster::PCluster (const {\bf PCluster} \& {\em other})}\label{classPCluster_e2922535b8748abcf076c0ba9fbcb834}
+
+
+Creates a new {\tt \doxyref{PCluster}{p.}{classPCluster}} as a copy of {\tt other}. \index{PCluster@{PCluster}!~PCluster@{$\sim$PCluster}}
+\index{~PCluster@{$\sim$PCluster}!PCluster@{PCluster}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PCluster::$\sim$PCluster ()}\label{classPCluster_2581646277c36a470b1db60220ae417a}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{PCluster@{PCluster}!AddConformation@{AddConformation}}
+\index{AddConformation@{AddConformation}!PCluster@{PCluster}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PCluster::Add\-Conformation ({\bf PLight\-Chain} $\ast$ {\em to\-Add})}\label{classPCluster_328f38d267ca1a6986c71de4f8ab9e4f}
+
+
+Adds the specified {\tt PConformation} to this cluster. \index{PCluster@{PCluster}!MergeWithCluster@{MergeWithCluster}}
+\index{MergeWithCluster@{MergeWithCluster}!PCluster@{PCluster}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PCluster::Merge\-With\-Cluster ({\bf PCluster} \& {\em other})}\label{classPCluster_8ef5b1d6f72c86fe49c101030ce3511d}
+
+
+Merges the conformation cluster {\tt other} with this {\tt \doxyref{PCluster}{p.}{classPCluster}}, clearing the contents of the {\tt other} cluster. \index{PCluster@{PCluster}!GetRepresentativeConformation@{GetRepresentativeConformation}}
+\index{GetRepresentativeConformation@{GetRepresentativeConformation}!PCluster@{PCluster}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf PLight\-Chain} $\ast$ PCluster::Get\-Representative\-Conformation () const}\label{classPCluster_51c77b0bb833a18bcd64fc052d9bf79d}
+
+
+Returns a \char`\"{}representative conformation\char`\"{} for this cluster. \index{PCluster@{PCluster}!size@{size}}
+\index{size@{size}!PCluster@{PCluster}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int PCluster::size () const\hspace{0.3cm}{\tt  [inline]}}\label{classPCluster_70e52bbf34dc3784422eabb90401a632}
+
+
+Returns the number of conformations in this cluster. \index{PCluster@{PCluster}!empty@{empty}}
+\index{empty@{empty}!PCluster@{PCluster}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PCluster::empty () const\hspace{0.3cm}{\tt  [inline]}}\label{classPCluster_ca97fcc3349bee4d4ca2efa63ea6a768}
+
+
+Returns {\tt true} if this cluster is empty, {\tt false} otherwise. \index{PCluster@{PCluster}!getConformations@{getConformations}}
+\index{getConformations@{getConformations}!PCluster@{PCluster}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}list$<${\bf PLight\-Chain} $\ast$$>$ PCluster::get\-Conformations () const\hspace{0.3cm}{\tt  [inline]}}\label{classPCluster_3cc8b92fd676b858cdeef64af6c0b766}
+
+
+Returns a new {\tt list} of the conformations in this cluster. 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PTools.h}\item 
+src/core/{\bf PCluster.cc}\end{CompactItemize}

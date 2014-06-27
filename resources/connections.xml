@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<connections>
+<connection first="backbone" second="ALA">
+<bond first="CA" second="CB" dof="1" />
+<relative_pos from="CA" to="CB" x="-1.189" y="-0.962002" z="-0.0959997" />
+<relative_pos from="C" to="CB" x="-1.047" y="-2.081" z="0.93" />
+<relative_pos from="N" to="CB" x="-2.439" y="-0.237999" z="0.11" />
+</connection>
+<connection first="backbone" second="ARG">
+<bond first="CA" second="CB" dof="1" />
+<relative_pos from="CA" to="CB" x="1.292" y="0.0620003" z="0.82" />
+<relative_pos from="C" to="CB" x="1.036" y="-0.231998" z="2.295" />
+<relative_pos from="N" to="CB" x="2.288" y="-0.841999" z="0.261" />
+<relative_pos from="CA" to="CG" x="1.15" y="-0.673" z="2.153" />
+<relative_pos from="C" to="CG" x="0.893997" y="-0.966999" z="3.628" />
+<relative_pos from="N" to="CG" x="2.146" y="-1.577" z="1.594" />
+<relative_pos from="CA" to="CD" x="2.284" y="-0.375" z="3.107" />
+<relative_pos from="C" to="CD" x="2.028" y="-0.668999" z="4.582" />
+<relative_pos from="N" to="CD" x="3.28001" y="-1.279" z="2.548" />
+</connection>
+<connection first="backbone" second="ASN">
+<bond first="CA" second="CB" dof="1" />
+<relative_pos from="CA" to="CB" x="-1.127" y="0.18" z="1.032" />
+<relative_pos from="C" to="CB" x="-0.558998" y="0.34" z="2.44" />
+<relative_pos from="N" to="CB" x="-1.973" y="1.311" z="0.675" />
+<relative_pos from="CA" to="CG" x="-2.155" y="-0.931999" z="0.989" />
+<relative_pos from="C" to="CG" x="-1.587" y="-0.771999" z="2.397" />
+<relative_pos from="N" to="CG" x="-3.001" y="0.199001" z="0.632" />
+<relative_pos from="CA" to="OD1" x="-2.856" y="-1.105" z="-0.00800037" />
+<relative_pos from="C" to="OD1" x="-2.288" y="-0.945" z="1.4" />
+<relative_pos from="N" to="OD1" x="-3.702" y="0.026001" z="-0.365" />
+</connection>
+<connection first="backbone" second="ASP">
+<bond first="CA" second="CB" dof="1" />
+<relative_pos from="CA" to="CB" x="0.940002" y="-0.438999" z="1.131" />
+<relative_pos from="C" to="CB" x="0.528" y="0.253002" z="2.427" />
+<relative_pos from="N" to="CB" x="1.016" y="-1.895" z="1.211" />
+<relative_pos from="CA" to="CG" x="0.315002" y="-0.278" z="2.507" />
+<relative_pos from="C" to="CG" x="-0.0970001" y="0.414001" z="3.803" />
+<relative_pos from="N" to="CG" x="0.390999" y="-1.734" z="2.587" />
+<relative_pos from="CA" to="OD1" x="-0.931" y="-0.327" z="2.612" />
+<relative_pos from="C" to="OD1" x="-1.343" y="0.365002" z="3.908" />
+<relative_pos from="N" to="OD1" x="-0.855003" y="-1.783" z="2.692" />
+</connection>
+<connection first="backbone" second="CB">
+<bond first="CA" second="CB" dof="1" />
+<relative_pos from="CA" to="CB" x="-0.298004" y="-0.960003" z="-1.155" />
+<relative_pos from="C" to="CB" x="-0.916" y="-2.239" z="-0.599999" />
+<relative_pos from="N" to="CB" x="-1.155" y="-0.313" z="-2.143" />
+</connection>
+<connection first="backbone" second="CYS">
+<bond first="CA" second="CB" dof="1" />
+<relative_pos from="CA" to="CB" x="-0.68" y="0.478001" z="-1.292" />
+<relative_pos from="C" to="CB" x="-1.049" y="1.943" z="-1.136" />
+<relative_pos from="N" to="CB" x="0.176994" y="0.240999" z="-2.447" />
+<relative_pos from="CA" to="SG" x="-2.119" y="-0.5" z="-1.839" />
+<relative_pos from="C" to="SG" x="-2.488" y="0.964998" z="-1.683" />
+<relative_pos from="N" to="SG" x="-1.262" y="-0.737001" z="-2.994" />
+</connection>
+<connection first="backbone" second="GLN">
+<bond first="CA" second="CB" dof="1" />
+<relative_pos from="CA" to="CB" x="-1.008" y="0.119999" z="1.155" />
+<relative_pos from="C" to="CB" x="-1.506" y="1.555" z="1.277" />
+<relative_pos from="N" to="CB" x="-2.118" y="-0.810001" z="0.969" />
+<relative_pos from="CA" to="CG" x="-2.202" y="-0.819" z="1.013" />
+<relative_pos from="C" to="CG" x="-2.7" y="0.616001" z="1.135" />
+<relative_pos from="N" to="CG" x="-3.312" y="-1.749" z="0.827" />
+<relative_pos from="CA" to="CD" x="-3.32" y="-0.550003" z="2.011" />
+<relative_pos from="C" to="CD" x="-3.818" y="0.884998" z="2.133" />
+<relative_pos from="N" to="CD" x="-4.43" y="-1.48" z="1.825" />
+</connection>
+<connection first="backbone" second="GLU">
+<bond first="CA" second="CB" dof="1" />
+<relative_pos from="CA" to="CB" x="-0.298004" y="-0.960003" z="-1.155" />
+<relative_pos from="C" to="CB" x="-0.916" y="-2.239" z="-0.599999" />
+<relative_pos from="N" to="CB" x="-1.155" y="-0.313" z="-2.143" />
+<relative_pos from="CA" to="CG" x="-1.33" y="-0.422001" z="-2.141" />
+<relative_pos from="C" to="CG" x="-1.948" y="-1.701" z="-1.586" />
+<relative_pos from="N" to="CG" x="-2.187" y="0.225002" z="-3.129" />
+<relative_pos from="CA" to="CD" x="-1.593" y="-1.37" z="-3.302" />
+<relative_pos from="C" to="CD" x="-2.211" y="-2.649" z="-2.747" />
+<relative_pos from="N" to="CD" x="-2.45" y="-0.723" z="-4.29" />
+</connection>
+<connection first="backbone" second="GLY" />
+<connection first="backbone" second="HIS">
+<bond first="CA" second="CB" dof="1" />
+<relative_pos from="CA" to="CB" x="0.318001" y="0.301998" z="-1.467" />
+<relative_pos from="C" to="CB" x="-0.575996" y="1.438" z="-1.954" />
+<relative_pos from="N" to="CB" x="1.762" y="0.425999" z="-1.611" />
+<relative_pos from="CA" to="CG" x="-0.421005" y="1.486" z="-2.01" />
+<relative_pos from="C" to="CG" x="-1.315" y="2.622" z="-2.497" />
+<relative_pos from="N" to="CG" x="1.02299" y="1.61" z="-2.154" />
+<relative_pos from="CA" to="ND1" x="-0.090004" y="2.784" z="-1.686" />
+<relative_pos from="C" to="ND1" x="-0.984001" y="3.92" z="-2.173" />
+<relative_pos from="N" to="ND1" x="1.354" y="2.908" z="-1.83" />
+</connection>
+<connection first="backbone" second="ILE">
+<bond first="CA" second="CB" dof="1" />
+<relative_pos from="CA" to="CB" x="-0.240997" y="1.521" z="-0.246" />
+<relative_pos from="C" to="CB" x="0.808006" y="2.303" z="0.55" />
+<relative_pos from="N" to="CB" x="-0.0690002" y="1.879" z="-1.652" />
+<relative_pos from="CA" to="CG1" x="0.873001" y="2.354" z="0.393" />
+<relative_pos from="C" to="CG1" x="1.922" y="3.136" z="1.189" />
+<relative_pos from="N" to="CG1" x="1.045" y="2.712" z="-1.013" />
+<relative_pos from="CA" to="CG2" x="-0.372002" y="1.789" z="-1.746" />
+<relative_pos from="C" to="CG2" x="0.677002" y="2.571" z="-0.95" />
+<relative_pos from="N" to="CG2" x="-0.200005" y="2.147" z="-3.152" />
+</connection>
+<connection first="backbone" second="LEU">
+<bond first="CA" second="CB" dof="1" />
+<relative_pos from="CA" to="CB" x="1.022" y="1.129" z="-0.148" />
+<relative_pos from="C" to="CB" x="1.889" y="1.237" z="1.102" />
+<relative_pos from="N" to="CB" x="1.808" y="0.938004" z="-1.36" />
+<relative_pos from="CA" to="CG" x="2.15" y="1.044" z="0.889" />
+<relative_pos from="C" to="CG" x="3.017" y="1.152" z="2.139" />
+<relative_pos from="N" to="CG" x="2.936" y="0.853001" z="-0.323" />
+<relative_pos from="CA" to="CD1" x="2.97601" y="2.309" z="0.861" />
+<relative_pos from="C" to="CD1" x="3.843" y="2.417" z="2.111" />
+<relative_pos from="N" to="CD1" x="3.762" y="2.118" z="-0.351" />
+</connection>
+<connection first="backbone" second="LYS">
+<bond first="CA" second="CB" dof="1" />
+<relative_pos from="CA" to="CB" x="-1.036" y="1.126" z="0.066" />
+<relative_pos from="C" to="CB" x="-0.347" y="2.489" z="0.196" />
+<relative_pos from="N" to="CB" x="-1.92799" y="1.067" z="-1.085" />
+<relative_pos from="CA" to="CG" x="-0.473999" y="2.482" z="-0.356" />
+<relative_pos from="C" to="CG" x="0.214996" y="3.845" z="-0.226" />
+<relative_pos from="N" to="CG" x="-1.366" y="2.423" z="-1.507" />
+<relative_pos from="CA" to="CD" x="-1.54" y="3.568" z="-0.379" />
+<relative_pos from="C" to="CD" x="-0.851006" y="4.931" z="-0.249" />
+<relative_pos from="N" to="CD" x="-2.432" y="3.509" z="-1.53" />
+</connection>
+<connection first="backbone" second="MET">
+<bond first="CA" second="CB" dof="1" />
+<relative_pos from="CA" to="CB" x="-0.374001" y="-1.479" z="-0.144" />
+<relative_pos from="C" to="CB" x="-0.132004" y="-1.916" z="-1.59" />
+<relative_pos from="N" to="CB" x="0.435997" y="-2.302" z="0.751" />
+<relative_pos from="CA" to="CG" x="0.405998" y="-2.243" z="-1.204" />
+<relative_pos from="C" to="CG" x="0.647995" y="-2.68" z="-2.65" />
+<relative_pos from="N" to="CG" x="1.216" y="-3.066" z="-0.309" />
+<relative_pos from="CA" to="SD" x="2.126" y="-2.565" z="-0.726" />
+<relative_pos from="C" to="SD" x="2.368" y="-3.002" z="-2.172" />
+<relative_pos from="N" to="SD" x="2.936" y="-3.388" z="0.169" />
+</connection>
+<connection first="backbone" second="MSE">
+<bond first="CA" second="CB" dof="1" />
+<relative_pos from="CA" to="CB" x="1.154" y="-0.863999" z="0.504" />
+<relative_pos from="C" to="CB" x="2.289" y="-0.841" z="-0.504" />
+<relative_pos from="N" to="CB" x="1.624" y="-0.375999" z="1.838" />
+<relative_pos from="CA" to="CG" x="2.398" y="-0.87" z="-0.413" />
+<relative_pos from="C" to="CG" x="3.533" y="-0.847" z="-1.421" />
+<relative_pos from="N" to="CG" x="2.868" y="-0.382" z="0.921" />
+<relative_pos from="CA" to="SE" x="3.17" y="0.866" z="-0.579" />
+<relative_pos from="C" to="SE" x="4.305" y="0.889" z="-1.587" />
+<relative_pos from="N" to="SE" x="3.64" y="1.354" z="0.754999" />
+</connection>
+<connection first="backbone" second="OXY">
+<bond first="C" second="O" dof="0" />
+<relative_pos from="CA" to="O" x="0.0780029" y="-1.381" z="-1.932" />
+<relative_pos from="C" to="O" x="0.709" y="-0.404" z="-0.948" />
+<relative_pos from="N" to="O" x="-1.256" y="-1.715" z="-1.439" />
+</connection>
+<connection first="backbone" second="PHE">
+<bond first="CA" second="CB" dof="1" />
+<relative_pos from="CA" to="CB" x="0.362999" y="-1.333" z="-0.662" />
+<relative_pos from="C" to="CB" x="0.498001" y="-1.136" z="-2.169" />
+<relative_pos from="N" to="CB" x="1.618" y="-1.837" z="-0.11" />
+<relative_pos from="CA" to="CG" x="1.65" y="-1.941" z="-0.155999" />
+<relative_pos from="C" to="CG" x="1.785" y="-1.744" z="-1.663" />
+<relative_pos from="N" to="CG" x="2.905" y="-2.445" z="0.396001" />
+<relative_pos from="CA" to="CD1" x="2.883" y="-1.489" z="-0.618999" />
+<relative_pos from="C" to="CD1" x="3.018" y="-1.292" z="-2.126" />
+<relative_pos from="N" to="CD1" x="4.13799" y="-1.993" z="-0.0669994" />
+</connection>
+<connection first="backbone" second="PRO">
+<bond first="CA" second="CB" dof="1" />
+<bond first="N" second="CD" dof="1" />
+<relative_pos from="CA" to="CB" x="0.406998" y="-0.809002" z="-1.221" />
+<relative_pos from="C" to="CB" x="1.219" y="-2.046" z="-0.842" />
+<relative_pos from="N" to="CB" x="-0.886002" y="-1.182" z="-1.805" />
+<relative_pos from="CA" to="CG" x="1.643" y="-0.0849991" z="-1.673" />
+<relative_pos from="C" to="CG" x="2.455" y="-1.322" z="-1.294" />
+<relative_pos from="N" to="CG" x="0.349998" y="-0.457996" z="-2.257" />
+<relative_pos from="CA" to="CD" x="2.389" y="0.113998" z="-0.367" />
+<relative_pos from="C" to="CD" x="3.201" y="-1.123" z="0.0120001" />
+<relative_pos from="N" to="CD" x="1.096" y="-0.258999" z="-0.951" />
+</connection>
+<connection first="backbone" second="SER">
+<bond first="CA" second="CB" dof="1" />
+<relative_pos from="CA" to="CB" x="0.254997" y="1.499" z="-0.187" />
+<relative_pos from="C" to="CB" x="1.655" y="1.842" z="0.31" />
+<relative_pos from="N" to="CB" x="0.100998" y="1.873" z="-1.623" />
+<relative_pos from="CA" to="OG" x="1.6" y="1.835" z="0.115" />
+<relative_pos from="C" to="OG" x="3" y="2.178" z="0.612" />
+<relative_pos from="N" to="OG" x="1.446" y="2.209" z="-1.321" />
+</connection>
+<connection first="backbone" second="THR">
+<bond first="CA" second="CB" dof="1" />
+<relative_pos from="CA" to="CB" x="-0.444" y="-0.541" z="1.385" />
+<relative_pos from="C" to="CB" x="-1.404" y="0.468998" z="2.004" />
+<relative_pos from="N" to="CB" x="-1.085" y="-1.852" z="1.305" />
+<relative_pos from="CA" to="OG1" x="0.707001" y="-0.802002" z="2.2" />
+<relative_pos from="C" to="OG1" x="-0.252998" y="0.207996" z="2.819" />
+<relative_pos from="N" to="OG1" x="0.0660019" y="-2.113" z="2.12" />
+<relative_pos from="CA" to="CG2" x="-1.359" y="0.452999" z="2.081" />
+<relative_pos from="C" to="CG2" x="-2.319" y="1.463" z="2.7" />
+<relative_pos from="N" to="CG2" x="-2" y="-0.858002" z="2.001" />
+</connection>
+<connection first="backbone" second="TRP">
+<bond first="CA" second="CB" dof="1" />
+<relative_pos from="CA" to="CB" x="-0.623001" y="-1.369" z="0.283" />
+<relative_pos from="C" to="CB" x="-0.145996" y="-2.378" z="-0.756" />
+<relative_pos from="N" to="CB" x="-0.292" y="-1.831" z="1.623" />
+<relative_pos from="CA" to="CG" x="-0.279999" y="-1.885" z="1.653" />
+<relative_pos from="C" to="CG" x="0.197006" y="-2.894" z="0.614" />
+<relative_pos from="N" to="CG" x="0.0510025" y="-2.347" z="2.993" />
+<relative_pos from="CA" to="CD1" x="-1.115" y="-1.978" z="2.728" />
+<relative_pos from="C" to="CD1" x="-0.637993" y="-2.987" z="1.689" />
+<relative_pos from="N" to="CD1" x="-0.783997" y="-2.44" z="4.068" />
+</connection>
+<connection first="backbone" second="TYR">
+<bond first="CA" second="CB" dof="1" />
+<relative_pos from="CA" to="CB" x="0.944" y="-0.195" z="1.186" />
+<relative_pos from="C" to="CB" x="0.181999" y="0.0820007" z="2.483" />
+<relative_pos from="N" to="CB" x="1.503" y="-1.537" z="1.165" />
+<relative_pos from="CA" to="CG" x="1.79" y="-1.443" z="1.074" />
+<relative_pos from="C" to="CG" x="1.028" y="-1.166" z="2.371" />
+<relative_pos from="N" to="CG" x="2.349" y="-2.785" z="1.053" />
+<relative_pos from="CA" to="CD1" x="1.227" y="-2.709" z="1.242" />
+<relative_pos from="C" to="CD1" x="0.464996" y="-2.432" z="2.539" />
+<relative_pos from="N" to="CD1" x="1.786" y="-4.051" z="1.221" />
+</connection>
+<connection first="backbone" second="VAL">
+<bond first="CA" second="CB" dof="1" />
+<relative_pos from="CA" to="CB" x="-0.144997" y="0.212002" z="-1.527" />
+<relative_pos from="C" to="CB" x="-0.545998" y="1.665" z="-1.747" />
+<relative_pos from="N" to="CB" x="1.07" y="-0.167999" z="-2.241" />
+<relative_pos from="CA" to="CG1" x="1.147" y="-0.183998" z="-2.231" />
+<relative_pos from="C" to="CG1" x="0.746002" y="1.269" z="-2.451" />
+<relative_pos from="N" to="CG1" x="2.362" y="-0.563999" z="-2.945" />
+<relative_pos from="CA" to="CG2" x="-0.483994" y="1.665" z="-1.826" />
+<relative_pos from="C" to="CG2" x="-0.884995" y="3.118" z="-2.046" />
+<relative_pos from="N" to="CG2" x="0.731003" y="1.285" z="-2.54" />
+</connection>
+<connection first="backbone" second="backbone">
+<bond first="C" second="N" dof="0" />
+<relative_pos from="CA" to="CA" x="-2.793" y="-1.28" z="-2.296" />
+<relative_pos from="C" to="CA" x="-1.393" y="-0.937" z="-1.799" />
+<relative_pos from="N" to="CA" x="-2.947" y="-0.905998" z="-3.732" />
+<relative_pos from="CA" to="C" x="-3.605" y="-0.0429993" z="-2.675" />
+<relative_pos from="C" to="C" x="-2.205" y="0.299999" z="-2.178" />
+<relative_pos from="N" to="C" x="-3.759" y="0.331001" z="-4.111" />
+<relative_pos from="CA" to="N" x="-1.5" y="-0.907001" z="-1.712" />
+<relative_pos from="C" to="N" x="-0.0999985" y="-0.564003" z="-1.215" />
+<relative_pos from="N" to="N" x="-1.654" y="-0.533001" z="-3.148" />
+</connection>
+</connections>

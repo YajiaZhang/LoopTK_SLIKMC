@@ -1,0 +1,61 @@
+\section{PChain\-Navigator Class Reference}
+\label{classPChainNavigator}\index{PChainNavigator@{PChainNavigator}}
+{\tt \#include $<$PChain\-Navigator.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf PChain\-Navigator} ({\bf PProtein} $\ast${\bf p})
+\item 
+{\bf PChain\-Navigator} ({\bf PProtein} $\ast$protein, {\bf PProtein} $\ast$subchain)
+\item 
+{\bf $\sim$PChain\-Navigator} ()
+\item 
+virtual bool {\bf Initialize} ()
+\item 
+void {\bf Render\-World} ()
+\item 
+void {\bf Handle\_\-Keypress} (unsigned char key, int x, int y)
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{PChainNavigator@{PChain\-Navigator}!PChainNavigator@{PChainNavigator}}
+\index{PChainNavigator@{PChainNavigator}!PChainNavigator@{PChain\-Navigator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PChain\-Navigator::PChain\-Navigator ({\bf PProtein} $\ast$ {\em p})}\label{classPChainNavigator_5c52d64423d4356c0067bc3aa858f0c4}
+
+
+Constructs a \doxyref{PChain\-Navigator}{p.}{classPChainNavigator} for a given protein p. \index{PChainNavigator@{PChain\-Navigator}!PChainNavigator@{PChainNavigator}}
+\index{PChainNavigator@{PChainNavigator}!PChainNavigator@{PChain\-Navigator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PChain\-Navigator::PChain\-Navigator ({\bf PProtein} $\ast$ {\em protein}, {\bf PProtein} $\ast$ {\em subchain})}\label{classPChainNavigator_1079e03d1c2ce069e6ca7f1f8b0e65c6}
+
+
+Constructs a \doxyref{PChain\-Navigator}{p.}{classPChainNavigator} for a given protein and a subchain. \index{PChainNavigator@{PChain\-Navigator}!~PChainNavigator@{$\sim$PChainNavigator}}
+\index{~PChainNavigator@{$\sim$PChainNavigator}!PChainNavigator@{PChain\-Navigator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PChain\-Navigator::$\sim$PChain\-Navigator ()\hspace{0.3cm}{\tt  [inline]}}\label{classPChainNavigator_89004caa5f278b8cb326a1353ced18b1}
+
+
+Destroys the \doxyref{PChain\-Navigator}{p.}{classPChainNavigator}, {\tt \doxyref{PProtein}{p.}{classPProtein}}, and frees {\tt \doxyref{PResources}{p.}{classPResources}}. 
+
+\subsection{Member Function Documentation}
+\index{PChainNavigator@{PChain\-Navigator}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!PChainNavigator@{PChain\-Navigator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool PChain\-Navigator::Initialize ()\hspace{0.3cm}{\tt  [virtual]}}\label{classPChainNavigator_74cc05d567bfd6f36dd6c5af4ffa526c}
+
+
+Prepares for rendering. \index{PChainNavigator@{PChain\-Navigator}!RenderWorld@{RenderWorld}}
+\index{RenderWorld@{RenderWorld}!PChainNavigator@{PChain\-Navigator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain\-Navigator::Render\-World ()}\label{classPChainNavigator_f0f2acd3592895efafeb099948a20353}
+
+
+Renders the protein. \index{PChainNavigator@{PChain\-Navigator}!Handle_Keypress@{Handle\_\-Keypress}}
+\index{Handle_Keypress@{Handle\_\-Keypress}!PChainNavigator@{PChain\-Navigator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PChain\-Navigator::Handle\_\-Keypress (unsigned char {\em key}, int {\em x}, int {\em y})}\label{classPChainNavigator_cfd69b8b4b4a157610a84f615b9fd852}
+
+
+Handles the keyboard input. 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PChain\-Navigator.h}\item 
+src/core/{\bf PChain\-Navigator.cc}\end{CompactItemize}

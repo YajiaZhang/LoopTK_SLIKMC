@@ -1,0 +1,54 @@
+\section{POptimize Class Reference}
+\label{classPOptimize}\index{POptimize@{POptimize}}
+{\tt \#include $<$POptimize.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf POptimize} (vector$<$ {\bf PProtein} $\ast$ $>$ loops, vector$<$ vector$<$ {\bf CDof} $>$ $>$ Dofs)
+\item 
+{\bf Optimal\-Sol} {\bf Optimize\-Null\-Space} ({\bf Funct\-Functor} $\ast$Funct\-To\-Optimize)
+\item 
+{\bf Optimal\-Sol} {\bf Optimize} ({\bf Funct\-Functor} $\ast$Funct\-To\-Optimize, {\bf Deriv\-Functor} $\ast$Deriv\-Of\-Funct)
+\item 
+{\bf Optimal\-Sol} {\bf Optimize\-Null\-Space} ({\bf Funct\-Functor} $\ast$Funct\-To\-Optimize, vector$<$ double $>$ Init\-C)
+\item 
+{\bf Optimal\-Sol} {\bf Optimize} ({\bf Funct\-Functor} $\ast$Funct\-To\-Optimize, {\bf Deriv\-Functor} $\ast$Deriv\-Of\-Funct, vector$<$ double $>$ Init\-C)
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{POptimize@{POptimize}!POptimize@{POptimize}}
+\index{POptimize@{POptimize}!POptimize@{POptimize}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}POptimize::POptimize (vector$<$ {\bf PProtein} $\ast$ $>$ {\em loops}, vector$<$ vector$<$ {\bf CDof} $>$ $>$ {\em Dofs})}\label{classPOptimize_56069e2cec7ddff43daac9a24d594331}
+
+
+Constructs a new {\tt \doxyref{POptimize}{p.}{classPOptimize}} with specified {\tt loops} and {\tt Dofs} of the loops. The optimization will be carried over the {\tt Dofs} of the {\tt loops}. 
+
+\subsection{Member Function Documentation}
+\index{POptimize@{POptimize}!OptimizeNullSpace@{OptimizeNullSpace}}
+\index{OptimizeNullSpace@{OptimizeNullSpace}!POptimize@{POptimize}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Optimal\-Sol} POptimize::Optimize\-Null\-Space ({\bf Funct\-Functor} $\ast$ {\em Funct\-To\-Optimize})}\label{classPOptimize_2fb9f926b3ac9d374a0fd6122a8db1bd}
+
+
+Returns {\tt \doxyref{Optimal\-Sol}{p.}{structOptimalSol}} corresponding to {\tt loops} after optimizing specified functor {\tt Funct\-To\-Optimize}. Numerical derivatives are calculated and projected on to the null space. \index{POptimize@{POptimize}!Optimize@{Optimize}}
+\index{Optimize@{Optimize}!POptimize@{POptimize}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Optimal\-Sol} POptimize::Optimize ({\bf Funct\-Functor} $\ast$ {\em Funct\-To\-Optimize}, {\bf Deriv\-Functor} $\ast$ {\em Deriv\-Of\-Funct})}\label{classPOptimize_ba8d89eed4cc0787a137ae44c0b63ac5}
+
+
+Returns {\tt \doxyref{Optimal\-Sol}{p.}{structOptimalSol}} corresponding to {\tt loops} after optimizing specified functor {\tt Funct\-To\-Optimize} with specified derivative functor {\tt Dervi\-Of\-Funct}. \index{POptimize@{POptimize}!OptimizeNullSpace@{OptimizeNullSpace}}
+\index{OptimizeNullSpace@{OptimizeNullSpace}!POptimize@{POptimize}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Optimal\-Sol} POptimize::Optimize\-Null\-Space ({\bf Funct\-Functor} $\ast$ {\em Funct\-To\-Optimize}, vector$<$ double $>$ {\em Init\-C})}\label{classPOptimize_86efa84f0a37099783f3db43be1b36f3}
+
+
+Returns {\tt \doxyref{Optimal\-Sol}{p.}{structOptimalSol}} corresponding to {\tt loops} after optimizing specified functor {\tt Funct\-To\-Optimize}. Numerical derivatives are calculated and projected on to the null space.In this method, one can specify the initial values of the non-DOF variables in {\tt Init\-C}. \index{POptimize@{POptimize}!Optimize@{Optimize}}
+\index{Optimize@{Optimize}!POptimize@{POptimize}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Optimal\-Sol} POptimize::Optimize ({\bf Funct\-Functor} $\ast$ {\em Funct\-To\-Optimize}, {\bf Deriv\-Functor} $\ast$ {\em Deriv\-Of\-Funct}, vector$<$ double $>$ {\em Init\-C})}\label{classPOptimize_aa1c493b5cb55bfd3a404afa12f1ee51}
+
+
+Returns {\tt \doxyref{Optimal\-Sol}{p.}{structOptimalSol}} corresponding to {\tt loops} after optimizing specified functor {\tt Funct\-To\-Optimize} with specified derivative functor {\tt Dervi\-Of\-Funct}.In this method, one can specify the initial values of the non-DOF variables in {\tt Init\-C}. 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf POptimize.h}\item 
+src/core/{\bf POptimize.cc}\end{CompactItemize}

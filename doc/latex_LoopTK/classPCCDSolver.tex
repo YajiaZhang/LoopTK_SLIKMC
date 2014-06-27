@@ -1,0 +1,45 @@
+\section{PCCDSolver Class Reference}
+\label{classPCCDSolver}\index{PCCDSolver@{PCCDSolver}}
+{\tt \#include $<$PIKAlgorithms.h$>$}
+
+
+
+\subsection{Detailed Description}
+Contains methods to perform cyclic coordinate descent (CCD) for loop closure. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf PCCDSolver} ({\bf PChain} $\ast$loop, {\bf PAtom} $\ast$effector\-Prior, {\bf PAtom} $\ast$effector\-End, Vector3 goal\-Prior, Vector3 goal\-End)
+\item 
+Real {\bf Do\-Descent} ()
+\item 
+void {\bf Get\-Goals} (Vector3 \&goal\-Prior, Vector3 \&goal\-End)
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{PCCDSolver@{PCCDSolver}!PCCDSolver@{PCCDSolver}}
+\index{PCCDSolver@{PCCDSolver}!PCCDSolver@{PCCDSolver}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}PCCDSolver::PCCDSolver ({\bf PChain} $\ast$ {\em loop}, {\bf PAtom} $\ast$ {\em effector\-Prior}, {\bf PAtom} $\ast$ {\em effector\-End}, Vector3 {\em goal\-Prior}, Vector3 {\em goal\-End})}\label{classPCCDSolver_9e5275a81cba8fe2323b76a62c11bee3}
+
+
+Constructs a new \doxyref{PCCDSolver}{p.}{classPCCDSolver}. 
+
+\subsection{Member Function Documentation}
+\index{PCCDSolver@{PCCDSolver}!DoDescent@{DoDescent}}
+\index{DoDescent@{DoDescent}!PCCDSolver@{PCCDSolver}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Real PCCDSolver::Do\-Descent ()}\label{classPCCDSolver_33c16d1eb8cddda9899edbf8d860d5b4}
+
+
+Performs one iteration of the CCD algorithm. Returns the sum of squares of the distances between the end effectors and their goals. \index{PCCDSolver@{PCCDSolver}!GetGoals@{GetGoals}}
+\index{GetGoals@{GetGoals}!PCCDSolver@{PCCDSolver}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void PCCDSolver::Get\-Goals (Vector3 \& {\em goal\-Prior}, Vector3 \& {\em goal\-End})}\label{classPCCDSolver_941b12124b3369e7594d9ca01db14c19}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/core/{\bf PIKAlgorithms.h}\item 
+src/core/{\bf PCCDSolver.cc}\end{CompactItemize}

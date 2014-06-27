@@ -1,0 +1,35 @@
+\section{Bond\-Functor Class Reference}
+\label{classBondFunctor}\index{BondFunctor@{BondFunctor}}
+{\tt \#include $<$PFunctors.h$>$}
+
+Inheritance diagram for Bond\-Functor::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classBondFunctor}
+\end{center}
+\end{figure}
+
+
+\subsection{Detailed Description}
+A functor to be called on each bond and its source and destination atoms during a graph traversal of atoms and bonds. Create a subclass of {\tt \doxyref{Bond\-Functor}{p.}{classBondFunctor}} to specify custom behavior. 
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual void {\bf operator()} ({\bf PBond} $\ast$bond, {\bf PAtom} $\ast$atom\-From, {\bf PAtom} $\ast$atom\-To)=0
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{BondFunctor@{Bond\-Functor}!operator()@{operator()}}
+\index{operator()@{operator()}!BondFunctor@{Bond\-Functor}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void Bond\-Functor::operator() ({\bf PBond} $\ast$ {\em bond}, {\bf PAtom} $\ast$ {\em atom\-From}, {\bf PAtom} $\ast$ {\em atom\-To})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classBondFunctor_fee482ec47b7c5c799356ca40b0f6c4c}
+
+
+
+
+Implemented in {\bf DOFCacher} \doxyref{}{p.}{structDOFCacher_e08f85bee3566539e03ac233f379cd2e}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/core/{\bf PFunctors.h}\end{CompactItemize}

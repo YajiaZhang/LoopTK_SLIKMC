@@ -1,0 +1,157 @@
+\hypertarget{classRandom}{\section{Random Class Reference}
+\label{classRandom}\index{Random@{Random}}
+}
+
+
+An auxiliary class. The class is used for generating random values.  
+
+
+
+
+{\ttfamily \#include $<$Utility.\-h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{classRandom_a087f0acc28943cb0d2972f649a7157e4}{next\-Int} (const int r)
+\begin{DoxyCompactList}\small\item\em Get a random integer from 0 to r -\/ 1. \end{DoxyCompactList}\item 
+static int \hyperlink{classRandom_a5c90ef3456529a033571d01435e84f4d}{next\-Int} (const int r1, const int r2)
+\begin{DoxyCompactList}\small\item\em Get a random integer from r1 to r2. \end{DoxyCompactList}\item 
+static double \hyperlink{classRandom_a92ff638325ddfa7bafb1a17dd61db5ee}{next\-Double} (const double range)
+\begin{DoxyCompactList}\small\item\em Get a random double from 0 to range. \end{DoxyCompactList}\item 
+static double \hyperlink{classRandom_aeb0767ec85429c66f25035ddb4cce885}{next\-Double} (const double r1, const double r2)
+\begin{DoxyCompactList}\small\item\em Get a random double from r1 to r2. \end{DoxyCompactList}\item 
+static double \hyperlink{classRandom_aa0890fcdcc1173fffc223d7a2bf84324}{next\-Normal} ()
+\begin{DoxyCompactList}\small\item\em Draw a random value from normal distribution N( 0, 1) \end{DoxyCompactList}\item 
+static double \hyperlink{classRandom_a21be54b4bb78f9006292dd290a6e69bf}{next\-Normal} (const double mean, const double std)
+\begin{DoxyCompactList}\small\item\em Draw a random value from normal distribution N( mean, std $\ast$ std) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An auxiliary class. The class is used for generating random values. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classRandom_a92ff638325ddfa7bafb1a17dd61db5ee}{\index{Random@{Random}!next\-Double@{next\-Double}}
+\index{next\-Double@{next\-Double}!Random@{Random}}
+\subsubsection[{next\-Double}]{\setlength{\rightskip}{0pt plus 5cm}double Random\-::next\-Double (
+\begin{DoxyParamCaption}
+\item[{const double}]{range}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classRandom_a92ff638325ddfa7bafb1a17dd61db5ee}
+
+
+Get a random double from 0 to range. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em range} & upper bound \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a double value 
+\end{DoxyReturn}
+\hypertarget{classRandom_aeb0767ec85429c66f25035ddb4cce885}{\index{Random@{Random}!next\-Double@{next\-Double}}
+\index{next\-Double@{next\-Double}!Random@{Random}}
+\subsubsection[{next\-Double}]{\setlength{\rightskip}{0pt plus 5cm}double Random\-::next\-Double (
+\begin{DoxyParamCaption}
+\item[{const double}]{r1, }
+\item[{const double}]{r2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classRandom_aeb0767ec85429c66f25035ddb4cce885}
+
+
+Get a random double from r1 to r2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r1} & lower bound \\
+\hline
+{\em r2} & upper bound \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a double value 
+\end{DoxyReturn}
+\hypertarget{classRandom_a087f0acc28943cb0d2972f649a7157e4}{\index{Random@{Random}!next\-Int@{next\-Int}}
+\index{next\-Int@{next\-Int}!Random@{Random}}
+\subsubsection[{next\-Int}]{\setlength{\rightskip}{0pt plus 5cm}int Random\-::next\-Int (
+\begin{DoxyParamCaption}
+\item[{const int}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classRandom_a087f0acc28943cb0d2972f649a7157e4}
+
+
+Get a random integer from 0 to r -\/ 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & upper bound of integer value (exclusive) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an integer 
+\end{DoxyReturn}
+\hypertarget{classRandom_a5c90ef3456529a033571d01435e84f4d}{\index{Random@{Random}!next\-Int@{next\-Int}}
+\index{next\-Int@{next\-Int}!Random@{Random}}
+\subsubsection[{next\-Int}]{\setlength{\rightskip}{0pt plus 5cm}int Random\-::next\-Int (
+\begin{DoxyParamCaption}
+\item[{const int}]{r1, }
+\item[{const int}]{r2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classRandom_a5c90ef3456529a033571d01435e84f4d}
+
+
+Get a random integer from r1 to r2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r1} & tight lower bound \\
+\hline
+{\em r2} & tight upper bound \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an integer 
+\end{DoxyReturn}
+\hypertarget{classRandom_aa0890fcdcc1173fffc223d7a2bf84324}{\index{Random@{Random}!next\-Normal@{next\-Normal}}
+\index{next\-Normal@{next\-Normal}!Random@{Random}}
+\subsubsection[{next\-Normal}]{\setlength{\rightskip}{0pt plus 5cm}double Random\-::next\-Normal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classRandom_aa0890fcdcc1173fffc223d7a2bf84324}
+
+
+Draw a random value from normal distribution N( 0, 1) 
+
+\begin{DoxyReturn}{Returns}
+a double value 
+\end{DoxyReturn}
+\hypertarget{classRandom_a21be54b4bb78f9006292dd290a6e69bf}{\index{Random@{Random}!next\-Normal@{next\-Normal}}
+\index{next\-Normal@{next\-Normal}!Random@{Random}}
+\subsubsection[{next\-Normal}]{\setlength{\rightskip}{0pt plus 5cm}double Random\-::next\-Normal (
+\begin{DoxyParamCaption}
+\item[{const double}]{mean, }
+\item[{const double}]{std}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classRandom_a21be54b4bb78f9006292dd290a6e69bf}
+
+
+Draw a random value from normal distribution N( mean, std $\ast$ std) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mean} & mean of normal distribution \\
+\hline
+{\em std} & standard deviation of normal distribution \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a double value 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Utility.\-h\item 
+Utility.\-cc\end{DoxyCompactItemize}
